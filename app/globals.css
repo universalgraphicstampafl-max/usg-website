@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-offwhite text-brand-navy;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .btn-navy {
+    @apply bg-brand-navy text-white px-6 py-2.5 rounded font-semibold tracking-brand-wide hover:bg-brand-navy-dark transition-colors duration-200;
+  }
+
+  .btn-gold {
+    @apply bg-brand-gold text-brand-navy px-6 py-2.5 rounded font-semibold tracking-brand-wide hover:bg-brand-gold-dark transition-colors duration-200;
+  }
+
+  .btn-outline {
+    @apply border-2 border-brand-navy text-brand-navy px-6 py-2.5 rounded font-semibold tracking-brand-wide hover:bg-brand-navy hover:text-white transition-colors duration-200;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-brand-navy tracking-brand-tight mb-4;
+  }
+
+  .section-sub {
+    @apply text-brand-sky font-semibold tracking-brand-sub text-sm uppercase mb-3;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
