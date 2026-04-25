@@ -11,63 +11,93 @@ const STEPS = [
   { n: 6, name: "Track",        sub: "Real-time visibility"          },
 ];
 
+const LINE_DURATION = 1500; // ms
+
 export default function ProcessSteps() {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef   = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = useState(false);
+  const [width,    setWidth]    = useState(0);
 
   useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
+    const el  = sectionRef.current;
+    const con = containerRef.current;
+    if (!el || !con) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setRevealed(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
+    const ro = new ResizeObserver(() => setWidth(con.offsetWidth));
+    ro.observe(con);
+    setWidth(con.offsetWidth);
 
-    observer.observe(el);
-    return () => observer.disconnect();
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setRevealed(true); io.disconnect(); }
+    }, { threshold: 0.15 });
+    io.observe(el);
+
+    return () => { ro.disconnect(); io.disconnect(); };
   }, []);
+
+  // Delay for each step's ripple = (i / (steps-1)) * LINE_DURATION ms
+  const rippleDelay = (i: number) => (i / (STEPS.length - 1)) * (LINE_DURATION / 1000);
 
   return (
     <div ref={sectionRef}>
-      {/* Desktop: horizontal flow with animated line */}
-      <div className="relative hidden md:block">
-        {/* Connector line — draws left to right */}
-        <div className="absolute left-0 right-0 top-4 h-px overflow-hidden">
-          <div
-            className="h-full bg-brand-navy/25"
-            style={{
-              transform: revealed ? "scaleX(1)" : "scaleX(0)",
-              transformOrigin: "left",
-              transition: revealed ? "transform 1.2s ease-in-out" : "none",
-            }}
-          />
-        </div>
+
+      {/* ── Desktop ── */}
+      <div ref={containerRef} className="relative hidden md:block">
+
+        {/* SVG connector */}
+        {width > 0 && (
+          <svg
+            width={width}
+            height={2}
+            className="absolute top-4 left-0"
+            style={{ overflow: "visible" }}
+          >
+            <line
+              x1={0} y1={1} x2={width} y2={1}
+              stroke="rgba(27,45,94,0.2)"
+              strokeWidth={1}
+              strokeDasharray={width}
+              strokeDashoffset={revealed ? 0 : width}
+              style={{ transition: revealed ? `stroke-dashoffset ${LINE_DURATION}ms ease-in-out` : "none" }}
+            />
+          </svg>
+        )}
 
         {/* Steps */}
         <div className="flex items-start">
           {STEPS.map((step, i) => (
             <div key={step.n} className="flex flex-col items-center flex-1 min-w-0">
-              <div
-                className="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center relative z-10"
-                style={{
-                  opacity: revealed ? 1 : 0,
-                  transform: revealed ? "scale(1)" : "scale(0.6)",
-                  transition: `opacity 0.35s ease ${i * 0.2}s, transform 0.35s ease ${i * 0.2}s`,
-                }}
-              >
-                {step.n}
+              {/* Circle + ripple */}
+              <div className="relative">
+                <div
+                  className="w-8 h-8 rounded-full bg-brand-navy text-white text-sm font-bold flex items-center justify-center relative z-10"
+                  style={{
+                    opacity: revealed ? 1 : 0,
+                    transform: revealed ? "scale(1)" : "scale(0.5)",
+                    transition: revealed
+                      ? `opacity 0.35s ease ${rippleDelay(i)}s, transform 0.35s ease ${rippleDelay(i)}s`
+                      : "none",
+                  }}
+                >
+                  {step.n}
+                </div>
+                {/* Ripple ring */}
+                {revealed && (
+                  <div
+                    className="absolute inset-0 rounded-full border border-brand-navy/40"
+                    style={{
+                      animation: `stepRipple 0.6s ease-out ${rippleDelay(i) + 0.25}s 1 both`,
+                    }}
+                  />
+                )}
               </div>
+
               <p
                 className="text-sm font-semibold text-brand-navy mt-2 text-center leading-tight"
                 style={{
                   opacity: revealed ? 1 : 0,
-                  transition: `opacity 0.35s ease ${i * 0.2 + 0.15}s`,
+                  transition: revealed ? `opacity 0.35s ease ${rippleDelay(i) + 0.2}s` : "none",
                 }}
               >
                 {step.name}
@@ -76,7 +106,7 @@ export default function ProcessSteps() {
                 className="text-xs text-gray-500 mt-1 text-center leading-tight"
                 style={{
                   opacity: revealed ? 1 : 0,
-                  transition: `opacity 0.35s ease ${i * 0.2 + 0.2}s`,
+                  transition: revealed ? `opacity 0.35s ease ${rippleDelay(i) + 0.3}s` : "none",
                 }}
               >
                 {step.sub}
@@ -86,7 +116,7 @@ export default function ProcessSteps() {
         </div>
       </div>
 
-      {/* Mobile: vertical timeline */}
+      {/* ── Mobile ── */}
       <div className="flex flex-col gap-0 md:hidden">
         {STEPS.map((step, i) => (
           <div key={step.n} className="flex gap-4">
@@ -101,20 +131,13 @@ export default function ProcessSteps() {
               >
                 {step.n}
               </div>
-              {i < STEPS.length - 1 && (
-                <div className="w-px flex-1 bg-brand-navy/25 my-1" />
-              )}
+              {i < STEPS.length - 1 && <div className="w-px flex-1 bg-brand-navy/25 my-1" />}
             </div>
             <div
               className={`pb-6 ${i === STEPS.length - 1 ? "pb-0" : ""}`}
-              style={{
-                opacity: revealed ? 1 : 0,
-                transition: `opacity 0.35s ease ${i * 0.12 + 0.1}s`,
-              }}
+              style={{ opacity: revealed ? 1 : 0, transition: `opacity 0.35s ease ${i * 0.12 + 0.1}s` }}
             >
-              <p className="text-sm font-semibold text-brand-navy leading-none mt-1.5">
-                {step.name}
-              </p>
+              <p className="text-sm font-semibold text-brand-navy leading-none mt-1.5">{step.name}</p>
               <p className="text-xs text-gray-500 mt-1">{step.sub}</p>
             </div>
           </div>

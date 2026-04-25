@@ -157,8 +157,8 @@ export default function Nav() {
     : "bg-transparent";
 
   const linkClass = scrolled
-    ? "text-sm font-semibold tracking-brand-tight text-brand-navy hover:text-brand-gold transition-colors duration-300 px-3 py-2"
-    : "text-sm font-semibold tracking-brand-tight text-white hover:text-brand-gold transition-colors duration-300 px-3 py-2";
+    ? "nav-link-underline text-sm font-semibold tracking-brand-tight text-brand-navy hover:text-brand-gold transition-colors duration-300 px-3 py-2"
+    : "nav-link-underline text-sm font-semibold tracking-brand-tight text-white hover:text-brand-gold transition-colors duration-300 px-3 py-2";
 
   return (
     <>

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
-import Nav from "@/components/Nav";
-import Logo from "@/components/Logo";
+import Nav            from "@/components/Nav";
+import Logo           from "@/components/Logo";
+import ScrollProgress from "@/components/ScrollProgress";
+import CursorGlow     from "@/components/CursorGlow";
 
 export const metadata: Metadata = {
   title: "Universal Signage & Graphics | USG",
@@ -18,6 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased min-h-screen flex flex-col">
+        <ScrollProgress />
+        <CursorGlow />
         <Nav />
         <main className="flex-1 pt-[64px]">{children}</main>
         <footer className="bg-brand-navy-dark text-white py-16">

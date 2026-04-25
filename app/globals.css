@@ -3,18 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
+  html { scroll-behavior: smooth; }
   body {
     @apply bg-brand-offwhite text-brand-navy;
     font-family: Arial, Helvetica, sans-serif;
   }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
-  }
+  h1, h2, h3, h4, h5, h6 { @apply font-bold; }
 }
 
 @layer components {
@@ -22,33 +16,35 @@
     @apply bg-brand-navy text-white px-6 py-2.5 rounded font-semibold tracking-brand-wide hover:bg-brand-navy-dark transition-colors duration-200;
   }
 
-  /* btn-gold: shimmer sweep on hover */
   .btn-gold {
     @apply bg-brand-gold text-brand-navy px-6 py-2.5 rounded font-semibold tracking-brand-wide;
     position: relative;
     overflow: hidden;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     will-change: transform;
   }
-  .btn-gold:hover {
-    background-color: #C78A00;
-  }
+  .btn-gold:hover { background-color: #C78A00; }
   .btn-gold::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -100%;
-    width: 60%;
-    height: 200%;
-    background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    top: -50%; left: -100%;
+    width: 60%; height: 200%;
+    background: linear-gradient(105deg, transparent, rgba(255,255,255,0.3), transparent);
     transform: skewX(-15deg);
     pointer-events: none;
   }
-  .btn-gold:hover::before {
-    animation: shimmerSweep 0.45s ease-in-out forwards;
+  .btn-gold:hover::before { animation: shimmerSweep 0.45s ease-in-out forwards; }
+
+  .btn-gold-glow {
+    animation: goldGlow 2.5s ease-in-out infinite, ctaPulse 3s ease-in-out infinite;
+  }
+  .btn-gold-glow:hover {
+    animation-play-state: paused;
+    transform: scale(1.04) !important;
+    background-color: #C78A00 !important;
+    box-shadow: 0 0 0 12px rgba(240,165,0,0.15), 0 8px 32px rgba(240,165,0,0.4) !important;
   }
 
-  /* btn-pulse: continuous scale pulse for final CTA */
   .btn-pulse {
     display: inline-block;
     animation: ctaPulse 3s ease-in-out infinite;
@@ -64,43 +60,58 @@
     @apply border-2 border-brand-navy text-brand-navy px-6 py-2.5 rounded font-semibold tracking-brand-wide hover:bg-brand-navy hover:text-white transition-colors duration-200;
   }
 
-  .section-heading {
-    @apply text-3xl md:text-4xl font-bold text-brand-navy tracking-brand-tight mb-4;
-  }
+  .section-heading { @apply text-3xl md:text-4xl font-bold text-brand-navy tracking-brand-tight mb-4; }
+  .section-sub     { @apply text-brand-sky font-semibold tracking-brand-sub text-sm uppercase mb-3; }
 
-  .section-sub {
-    @apply text-brand-sky font-semibold tracking-brand-sub text-sm uppercase mb-3;
+  /* Nav link center-out underline */
+  .nav-link-underline {
+    position: relative;
   }
+  .nav-link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: #F0A500;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s ease;
+  }
+  .nav-link-underline:hover::after { transform: translateX(-50%) scaleX(1); }
 }
 
 @layer utilities {
-  .scrollbar-none {
-    scrollbar-width: none;
-  }
-  .scrollbar-none::-webkit-scrollbar {
-    display: none;
-  }
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
 }
 
-/* ─── Hero gradient animation ─────────────────────────────────────── */
-.hero-gradient-anim {
-  background-color: #1B2D5E;
-  animation: heroGradient 8s ease-in-out infinite;
-  will-change: background-color;
+/* ─── Mesh orbs ───────────────────────────────────────────────────── */
+@keyframes meshOrb1 {
+  0%   { transform: translate(0,    0);    }
+  33%  { transform: translate(15%, -10%);  }
+  66%  { transform: translate(-8%,  12%);  }
+  100% { transform: translate(0,    0);    }
+}
+@keyframes meshOrb2 {
+  0%   { transform: translate(0,     0);   }
+  33%  { transform: translate(-18%,  8%);  }
+  66%  { transform: translate(10%,  -14%); }
+  100% { transform: translate(0,     0);   }
 }
 
-@keyframes heroGradient {
-  0%, 100% { background-color: #1B2D5E; }
-  33%       { background-color: #142248; }
-  66%       { background-color: #1a3a6b; }
+/* ─── Word reveal ─────────────────────────────────────────────────── */
+@keyframes wordReveal {
+  from { opacity: 0; transform: translateY(40px) rotateX(20deg); }
+  to   { opacity: 1; transform: translateY(0)    rotateX(0deg);  }
 }
 
-/* ─── Hero entrance (page-load, not scroll) ───────────────────────── */
+/* ─── Hero entrance ───────────────────────────────────────────────── */
 @keyframes heroEnter {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0);    }
 }
-
 @keyframes heroPhotoEnter {
   from { opacity: 0; transform: scale(0.95); }
   to   { opacity: 1; transform: scale(1);    }
@@ -108,16 +119,28 @@
 
 /* ─── Floating particles ──────────────────────────────────────────── */
 @keyframes particleFloat {
-  0%   { transform: translateY(0)      scale(1);   opacity: 0;    }
-  5%   {                                            opacity: 0.08; }
-  90%  {                                            opacity: 0.05; }
-  100% { transform: translateY(-110vh) scale(0.5); opacity: 0;    }
+  0%   { transform: translateY(0)       scale(1);   opacity: 0;    }
+  5%   {                                             opacity: 0.08; }
+  90%  {                                             opacity: 0.05; }
+  100% { transform: translateY(-110vh)  scale(0.5); opacity: 0;    }
 }
 
-/* ─── Button shimmer sweep ────────────────────────────────────────── */
+/* ─── Floating geometric shapes ───────────────────────────────────── */
+@keyframes heroFloat {
+  0%   { transform: translateY(0)    rotate(0deg);   }
+  100% { transform: translateY(-22px) rotate(12deg); }
+}
+
+/* ─── Btn shimmer ─────────────────────────────────────────────────── */
 @keyframes shimmerSweep {
   0%   { left: -100%; }
   100% { left: 150%;  }
+}
+
+/* ─── Btn gold glow pulse ─────────────────────────────────────────── */
+@keyframes goldGlow {
+  0%, 100% { box-shadow: 0 0 0 0   rgba(240,165,0,0.5); }
+  50%      { box-shadow: 0 0 0 16px rgba(240,165,0,0);  }
 }
 
 /* ─── CTA pulse ───────────────────────────────────────────────────── */
@@ -126,15 +149,46 @@
   50%      { transform: scale(1.025); }
 }
 
-/* ─── Icon entry pulse (fires once after card reveals) ───────────── */
+/* ─── Icon entry pulse ────────────────────────────────────────────── */
 @keyframes iconEntryPulse {
   0%   { transform: scale(1);    }
   50%  { transform: scale(1.15); }
   100% { transform: scale(1);    }
 }
 
+/* ─── Process step ripple ─────────────────────────────────────────── */
+@keyframes stepRipple {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(2.8); opacity: 0;   }
+}
+
+/* ─── Number glow pulse (hero counter strip) ─────────────────────── */
+@keyframes numberGlow {
+  0%, 70%, 100% { text-shadow: none; }
+  40%           { text-shadow: 0 0 20px rgba(240,165,0,0.7), 0 0 40px rgba(240,165,0,0.3); }
+}
+.number-glow { animation: numberGlow 4s ease-in-out infinite; }
+
+/* ─── Slot flicker ────────────────────────────────────────────────── */
+@keyframes slotFlicker {
+  0%, 100% { opacity: 1;   }
+  50%      { opacity: 0.5; }
+}
+
+/* ─── Particle burst ──────────────────────────────────────────────── */
+@keyframes particleBurst {
+  0%   { opacity: 1; transform: translate(-50%, -50%) translate(0, 0) scale(1.2); }
+  100% { opacity: 0; transform: translate(-50%, -50%) translate(var(--tx), var(--ty)) scale(0); }
+}
+
 /* ─── Logo marquee ────────────────────────────────────────────────── */
 @keyframes marqueeScroll {
   0%   { transform: translateX(0);    }
   100% { transform: translateX(-50%); }
+}
+
+/* ─── Footer reveal ───────────────────────────────────────────────── */
+@keyframes footerColReveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
 }
