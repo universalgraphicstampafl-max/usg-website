@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Success Stories | USG",
-  description: "How Universal Screen Graphics has helped retail brands grow in-store.",
+  description: "How Universal Signage & Graphics has helped retail brands grow in-store.",
 };
 
 const stories = [

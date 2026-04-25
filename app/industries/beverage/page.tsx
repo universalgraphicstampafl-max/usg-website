@@ -2,7 +2,7 @@ import IndustryPage from "@/components/IndustryPage";
 
 export const metadata = {
   title: "Beverage | USG",
-  description: "In-store graphics and cooler signage for beverage brands.",
+  description: "Beverage brand signage programs for convenience and grocery chain locations. Cooler door graphics, dispense station programs, and direct delivery.",
 };
 
 export default function BeveragePage() {

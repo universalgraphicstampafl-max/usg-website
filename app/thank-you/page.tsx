@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Thank You | USG",
-  description: "Thank you for reaching out to Universal Screen Graphics.",
+  description: "Thank you for reaching out to Universal Signage & Graphics.",
 };
 
 export default function ThankYouPage() {

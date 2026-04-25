@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "About | USG",
-  description: "The story, mission, and team behind Universal Screen Graphics.",
+  description: "The story, mission, and team behind Universal Signage & Graphics.",
 };
 
 const values = [
@@ -32,7 +32,7 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto">
           <p className="section-sub !text-brand-gold">Our Story</p>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-brand-tight mb-6 !text-white">
-            About Universal Screen Graphics
+            About Universal Signage & Graphics
           </h1>
           <p className="text-lg text-white/75 max-w-2xl leading-relaxed">
             For over 15 years, USG has been the behind-the-scenes partner for brands that need their in-store graphics done right — on time, on brand, and in compliance.

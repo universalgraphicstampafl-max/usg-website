@@ -2,7 +2,7 @@ import IndustryPage from "@/components/IndustryPage";
 
 export const metadata = {
   title: "Convenience Retail | USG",
-  description: "In-store graphics and signage solutions for the convenience retail industry.",
+  description: "Retail signage programs for convenience store chains. Monthly promotional kits designed, produced, and delivered direct to every location.",
 };
 
 export default function ConvenienceRetailPage() {

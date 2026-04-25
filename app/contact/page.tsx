@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Contact | USG",
-  description: "Get in touch with Universal Screen Graphics.",
+  description: "Get in touch with Universal Signage & Graphics.",
 };
 
 export default function ContactPage() {

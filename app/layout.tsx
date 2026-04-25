@@ -5,9 +5,9 @@ import Nav from "@/components/Nav";
 import Logo from "@/components/Logo";
 
 export const metadata: Metadata = {
-  title: "Universal Screen Graphics | USG",
+  title: "Universal Signage & Graphics | USG",
   description:
-    "Universal Screen Graphics — turnkey signage programs, graphic design, custom print production, store surveys, direct store delivery, and product photography for convenience retail, tobacco/nicotine, and beverage industries.",
+    "Universal Signage & Graphics — turnkey signage programs, graphic design, custom print production, store surveys, direct store delivery, and product photography for convenience retail, tobacco/nicotine, QSR, grocery, and beverage industries.",
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
             <div>
               <Logo variant="light" />
               <p className="text-white/60 text-sm mt-3 leading-relaxed">
-                Signage programs for convenience, tobacco, and beverage retail.
+                Retail signage programs for convenience, tobacco, QSR, grocery, and beverage chains.
               </p>
             </div>
 
@@ -62,6 +62,8 @@ export default function RootLayout({
                 {[
                   { label: "Convenience Retail",  href: "/industries/convenience-retail" },
                   { label: "Tobacco & Nicotine",  href: "/industries/tobacco-nicotine" },
+                  { label: "QSR",                 href: "/industries/qsr" },
+                  { label: "Grocery",             href: "/industries/grocery" },
                   { label: "Beverage",            href: "/industries/beverage" },
                 ].map((l) => (
                   <li key={l.href}>
@@ -89,7 +91,7 @@ export default function RootLayout({
           {/* Bottom bar */}
           <div className="max-w-7xl mx-auto px-8 border-t border-white/10 pt-6 mt-8 flex flex-col sm:flex-row justify-between items-center gap-3">
             <p className="text-white/40 text-xs">
-              © {new Date().getFullYear()} Universal Screen Graphics. All rights reserved.
+              © {new Date().getFullYear()} Universal Signage & Graphics. All rights reserved.
             </p>
             <div className="flex gap-5">
               <Link href="#" className="text-white/40 text-xs hover:text-white transition-colors">Privacy Policy</Link>

@@ -12,6 +12,8 @@ interface DropdownItem {
 const industries: DropdownItem[] = [
   { label: "Convenience Retail", href: "/industries/convenience-retail" },
   { label: "Tobacco & Nicotine", href: "/industries/tobacco-nicotine" },
+  { label: "QSR", href: "/industries/qsr" },
+  { label: "Grocery", href: "/industries/grocery" },
   { label: "Beverage", href: "/industries/beverage" },
 ];
 

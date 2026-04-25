@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Book a Call | USG",
-  description: "Schedule a free strategy call with Universal Screen Graphics.",
+  description: "Schedule a free strategy call with Universal Signage & Graphics.",
 };
 
 export default function BookPage() {
@@ -100,6 +100,8 @@ export default function BookPage() {
                     <option value="">Select your industry</option>
                     <option value="convenience-retail">Convenience Retail</option>
                     <option value="tobacco-nicotine">Tobacco & Nicotine</option>
+                    <option value="qsr">QSR & Fast Casual</option>
+                    <option value="grocery">Grocery & Supermarket</option>
                     <option value="beverage">Beverage</option>
                     <option value="other">Other</option>
                   </select>

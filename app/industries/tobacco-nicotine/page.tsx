@@ -2,7 +2,7 @@ import IndustryPage from "@/components/IndustryPage";
 
 export const metadata = {
   title: "Tobacco & Nicotine | USG",
-  description: "Regulatory-compliant in-store signage solutions for tobacco and nicotine brands.",
+  description: "Compliant signage programs for tobacco and nicotine brands in chain retail locations. Precision production and direct-to-store delivery.",
 };
 
 export default function TobaccoNicotinePage() {

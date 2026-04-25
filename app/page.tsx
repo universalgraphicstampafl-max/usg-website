@@ -1,4 +1,11 @@
 import Link from "next/link";
+import StatCounter from "@/components/StatCounter";
+
+export const metadata = {
+  title: "Universal Signage & Graphics | Retail Signage Programs for Chain Locations",
+  description:
+    "Full-service retail signage programs for convenience, tobacco, QSR, grocery, and beverage chains. Design, production, and direct-to-location delivery for multi-location retailers and franchise organizations.",
+};
 
 const services = [
   {
@@ -47,17 +54,29 @@ const industries = [
     accent: "bg-brand-navy",
   },
   {
+    title: "QSR & Fast Casual",
+    desc: "Monthly promotional programs delivered direct to every location — on time, every cycle.",
+    href: "/industries/qsr",
+    accent: "bg-brand-gold",
+  },
+  {
+    title: "Grocery",
+    desc: "High-frequency promotional signage for grocery chains, produced and shipped at scale.",
+    href: "/industries/grocery",
+    accent: "bg-brand-sky",
+  },
+  {
     title: "Beverage",
     desc: "Ice-cold creative that moves product from cooler to checkout — faster.",
     href: "/industries/beverage",
-    accent: "bg-brand-gold",
+    accent: "bg-brand-navy",
   },
 ];
 
 export default function HomePage() {
   return (
     <div className="bg-brand-offwhite">
-      {/* Hero */}
+      {/* 1 — Hero */}
       <section className="relative bg-gradient-to-br from-brand-navy via-brand-navy to-brand-navy-dark text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-sky to-transparent" />
@@ -67,12 +86,12 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Copy */}
             <div>
-              <p className="section-sub !text-brand-gold mb-4">Turnkey Signage Programs</p>
+              <p className="section-sub !text-brand-gold mb-4">Retail Signage Specialists</p>
               <h1 className="text-5xl md:text-6xl font-extrabold tracking-brand-tight leading-tight mb-6 text-white">
                 Every store. On brand. On time.
               </h1>
               <p className="text-lg md:text-xl text-white/70 max-w-xl leading-relaxed mb-10">
-                Universal Screen Graphics delivers end-to-end signage programs — from design to direct store delivery — for convenience retail, tobacco, and beverage brands.
+                We design, produce, and deliver promotional signage programs for convenience, tobacco, QSR, grocery, and beverage chains — serving multi-location retailers, franchise organizations, and chain locations across the US.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/book" className="btn-gold text-base !px-8 !py-3">
@@ -109,108 +128,71 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Authority bar */}
-      <section className="bg-brand-offwhite py-10 px-6 overflow-hidden">
-        <p className="text-xs font-semibold tracking-widest text-brand-sky uppercase mb-6 text-center">
-          Trusted by leading brands in convenience, tobacco &amp; beverage retail
-        </p>
+      {/* 2 — Discover the difference */}
+      <section className="bg-white py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-xs tracking-widest font-semibold text-brand-sky uppercase">
+            Why USG
+          </p>
+          <h2 className="text-4xl font-black text-brand-navy mt-2 mb-10">
+            Discover the difference
+          </h2>
 
-        {/* Logo row — horizontal scroll on mobile, centred on desktop */}
-        <div className="relative">
-          {/* Right-edge fade on mobile */}
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-brand-offwhite to-transparent md:hidden" aria-hidden="true" />
-
-          <div className="flex md:justify-center gap-6 overflow-x-auto md:overflow-x-visible flex-nowrap md:flex-wrap pb-1 md:pb-0 scrollbar-none">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 w-20 h-10 bg-gray-200 rounded-lg flex items-center justify-center"
-              >
-                <span className="text-xs text-gray-400">Client Logo</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Predictable pricing. No upcharges. Ever.",
+                body: "The quote you receive is the price you pay. No hidden design fees, no surprise material costs, no rush charges.",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
+                    <line x1="12" y1="1" x2="12" y2="23" />
+                    <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                  </svg>
+                ),
+              },
+              {
+                title: "Your dedicated account manager",
+                body: "One person who knows your program, your stores, and your brand. Available when things need to move fast.",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                ),
+              },
+              {
+                title: "Direct to every store location",
+                body: "We ship individually to each of your locations — not to a warehouse. Every store gets exactly what it needs.",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
+                    <rect x="1" y="3" width="15" height="13" />
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                    <circle cx="5.5" cy="18.5" r="2.5" />
+                    <circle cx="18.5" cy="18.5" r="2.5" />
+                  </svg>
+                ),
+              },
+            ].map((pillar) => (
+              <div key={pillar.title} className="border border-brand-navy/10 rounded-2xl p-8 text-center">
+                <div className="w-12 h-12 rounded-xl bg-brand-gold text-brand-navy flex items-center justify-center mx-auto mb-5">
+                  {pillar.icon}
+                </div>
+                <h3 className="font-black text-brand-navy text-lg mb-3">{pillar.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{pillar.body}</p>
               </div>
             ))}
           </div>
         </div>
+      </section>
 
-        <p className="text-sm text-gray-500 mt-4 text-center">
-          2,000+ retail locations served across the US
+      {/* Context strip */}
+      <div className="bg-brand-navy py-4">
+        <p className="text-white text-sm font-medium text-center">
+          Serving chain locations, franchise organizations, and multi-location retailers across the US.
         </p>
-      </section>
+      </div>
 
-      {/* Trust bar */}
-      <section className="bg-white border-b border-gray-100 py-6 px-6">
-        <div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-8 text-center">
-          {[
-            { value: "500+", label: "Stores Served" },
-            { value: "15+", label: "Years Experience" },
-            { value: "3", label: "Industries" },
-            { value: "100%", label: "On-Time Delivery" },
-          ].map((s) => (
-            <div key={s.label}>
-              <p className="text-3xl font-extrabold text-brand-navy">{s.value}</p>
-              <p className="text-xs tracking-brand-sub text-brand-navy/50 uppercase mt-1">{s.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Problems we solve */}
-      <section className="bg-white py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs tracking-widest font-semibold text-brand-sky uppercase">
-            Why signage programs fail
-          </p>
-          <h2 className="text-4xl font-black text-brand-navy mt-2 mb-10">Sound familiar?</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Card 1 */}
-            <div className="bg-white rounded-2xl border border-brand-navy/10 p-6 h-full">
-              <div className="inline-flex items-center justify-center w-9 h-9 bg-red-50 text-red-500 rounded-lg p-1.5 mb-4">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
-                  <line x1="12" y1="9" x2="12" y2="13" />
-                  <line x1="12" y1="17" x2="12.01" y2="17" />
-                </svg>
-              </div>
-              <h3 className="font-bold text-brand-navy mb-2">Late and incomplete orders</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Kits arrive after the promotional window. Stores get the wrong materials. Your team spends days chasing down what&apos;s missing.
-              </p>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-white rounded-2xl border border-brand-navy/10 p-6 h-full">
-              <div className="inline-flex items-center justify-center w-9 h-9 bg-red-50 text-red-500 rounded-lg p-1.5 mb-4">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 16 14" />
-                </svg>
-              </div>
-              <h3 className="font-bold text-brand-navy mb-2">Art approvals drag for weeks</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Back-and-forth emails. Revisions on revisions. By the time art is approved, the campaign launch has slipped.
-              </p>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-white rounded-2xl border border-brand-navy/10 p-6 h-full">
-              <div className="inline-flex items-center justify-center w-9 h-9 bg-red-50 text-red-500 rounded-lg p-1.5 mb-4">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="12" />
-                  <line x1="12" y1="16" x2="12.01" y2="16" />
-                </svg>
-              </div>
-              <h3 className="font-bold text-brand-navy mb-2">Brand looks different in every store</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Wrong sizes, off-brand colours, outdated versions. You lose control the moment product leaves the printer.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services grid */}
+      {/* 3 — Services grid */}
       <section className="bg-brand-offwhite py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <p className="text-xs tracking-widest font-semibold text-brand-sky uppercase">
@@ -300,7 +282,93 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How it works */}
+      {/* 4 — Authority bar */}
+      <section className="bg-brand-offwhite py-10 px-6 overflow-hidden">
+        <p className="text-xs font-semibold tracking-widest text-brand-sky uppercase mb-6 text-center">
+          Trusted by leading brands in convenience, tobacco, QSR, grocery &amp; beverage retail
+        </p>
+
+        {/* Logo row — horizontal scroll on mobile, centred on desktop */}
+        <div className="relative">
+          {/* Right-edge fade on mobile */}
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-brand-offwhite to-transparent md:hidden" aria-hidden="true" />
+
+          <div className="flex md:justify-center gap-6 overflow-x-auto md:overflow-x-visible flex-nowrap md:flex-wrap pb-1 md:pb-0 scrollbar-none">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 w-20 h-10 bg-gray-200 rounded-lg flex items-center justify-center"
+              >
+                <span className="text-xs text-gray-400">Client Logo</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p className="text-sm text-gray-500 mt-4 text-center">
+          2,000+ retail locations served across the US
+        </p>
+      </section>
+
+      {/* 5 — Social proof */}
+      <section className="bg-brand-offwhite py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+
+          {/* Stat callouts */}
+          <div className="flex justify-center gap-12 md:gap-20 mb-12 flex-wrap text-center">
+            <div>
+              <p className="text-5xl font-black text-brand-navy">
+                <StatCounter target={10} suffix="%" />
+              </p>
+              <p className="text-sm text-gray-500 mt-1">Average sales increase</p>
+            </div>
+            <div>
+              <p className="text-5xl font-black text-brand-gold">
+                <StatCounter target={30} suffix="+" />
+              </p>
+              <p className="text-sm text-gray-500 mt-1">Years in business</p>
+            </div>
+            <div>
+              <p className="text-5xl font-black text-brand-navy">
+                <StatCounter target={2000} suffix="+" thousands />
+              </p>
+              <p className="text-sm text-gray-500 mt-1">Store locations served</p>
+            </div>
+          </div>
+
+          {/* Testimonial cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                quote: "The service with Universal Signage & Graphics has been outstanding. Whether we have a specific idea in mind or we don't even know what we want, the USG team is there for us.",
+                attribution: "Marketing Manager — Handy Mart Convenience Stores",
+                tenure: "Partner since 2014",
+              },
+              {
+                quote: "When comparing their printing costs with those of other providers, they can't be beat. The level of service that they provide is second to none.",
+                attribution: "Public Relations and Marketing — E-Z Mart Stores",
+                tenure: "Partner since 2001",
+              },
+            ].map((t) => (
+              <div key={t.attribution} className="bg-white rounded-2xl border border-brand-navy/10 p-8">
+                <span className="text-brand-sky/25 text-8xl font-serif leading-none -mb-6 block" aria-hidden="true">&ldquo;</span>
+                <p className="text-gray-600 italic text-base leading-relaxed mb-6">{t.quote}</p>
+                <p className="font-bold text-brand-navy text-sm">{t.attribution}</p>
+                <p className="text-gray-400 text-xs mt-1">{t.tenure}</p>
+              </div>
+            ))}
+          </div>
+
+          <Link
+            href="/success-stories"
+            className="text-brand-sky hover:text-brand-sky-dark font-medium mt-8 block text-center transition-colors"
+          >
+            See all success stories →
+          </Link>
+        </div>
+      </section>
+
+      {/* 6 — How it works */}
       <section className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <p className="text-xs tracking-widest font-semibold text-brand-sky uppercase">
@@ -374,116 +442,63 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Social proof */}
-      <section className="bg-brand-offwhite py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-
-          {/* Stat callouts */}
-          <div className="flex justify-center gap-12 md:gap-20 mb-12 flex-wrap text-center">
-            <div>
-              <p className="text-5xl font-black text-brand-navy">10%</p>
-              <p className="text-sm text-gray-500 mt-1">Average sales increase</p>
-            </div>
-            <div>
-              <p className="text-5xl font-black text-brand-gold">30+</p>
-              <p className="text-sm text-gray-500 mt-1">Years in business</p>
-            </div>
-            <div>
-              <p className="text-5xl font-black text-brand-navy">2,000+</p>
-              <p className="text-sm text-gray-500 mt-1">Store locations served</p>
-            </div>
-          </div>
-
-          {/* Testimonial cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                quote: "The service with Universal Screen Graphics has been outstanding. Whether we have a specific idea in mind or we don't even know what we want, the USG team is there for us.",
-                attribution: "Marketing Manager — Handy Mart Convenience Stores",
-                tenure: "Partner since 2014",
-              },
-              {
-                quote: "When comparing their printing costs with those of other providers, they can't be beat. The level of service that they provide is second to none.",
-                attribution: "Public Relations and Marketing — E-Z Mart Stores",
-                tenure: "Partner since 2001",
-              },
-            ].map((t) => (
-              <div key={t.attribution} className="bg-white rounded-2xl border border-brand-navy/10 p-8">
-                <span className="text-brand-sky/25 text-8xl font-serif leading-none -mb-6 block" aria-hidden="true">&ldquo;</span>
-                <p className="text-gray-600 italic text-base leading-relaxed mb-6">{t.quote}</p>
-                <p className="font-bold text-brand-navy text-sm">{t.attribution}</p>
-                <p className="text-gray-400 text-xs mt-1">{t.tenure}</p>
-              </div>
-            ))}
-          </div>
-
-          <Link
-            href="/success-stories"
-            className="text-brand-sky hover:text-brand-sky-dark font-medium mt-8 block text-center transition-colors"
-          >
-            See all success stories →
-          </Link>
-        </div>
-      </section>
-
-      {/* Discover the difference */}
+      {/* 7 — Problems we solve */}
       <section className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <p className="text-xs tracking-widest font-semibold text-brand-sky uppercase">
-            Why USG
+            Why signage programs fail
           </p>
-          <h2 className="text-4xl font-black text-brand-navy mt-2 mb-10">
-            Discover the difference
-          </h2>
+          <h2 className="text-4xl font-black text-brand-navy mt-2 mb-10">Sound familiar?</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Predictable pricing. No upcharges. Ever.",
-                body: "The quote you receive is the price you pay. No hidden design fees, no surprise material costs, no rush charges.",
-                icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
-                    <line x1="12" y1="1" x2="12" y2="23" />
-                    <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
-                  </svg>
-                ),
-              },
-              {
-                title: "Your dedicated account manager",
-                body: "One person who knows your program, your stores, and your brand. Available when things need to move fast.",
-                icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
-                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                  </svg>
-                ),
-              },
-              {
-                title: "Direct to every store location",
-                body: "We ship individually to each of your locations — not to a warehouse. Every store gets exactly what it needs.",
-                icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
-                    <rect x="1" y="3" width="15" height="13" />
-                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
-                    <circle cx="5.5" cy="18.5" r="2.5" />
-                    <circle cx="18.5" cy="18.5" r="2.5" />
-                  </svg>
-                ),
-              },
-            ].map((pillar) => (
-              <div key={pillar.title} className="border border-brand-navy/10 rounded-2xl p-8 text-center">
-                <div className="w-12 h-12 rounded-xl bg-brand-gold text-brand-navy flex items-center justify-center mx-auto mb-5">
-                  {pillar.icon}
-                </div>
-                <h3 className="font-black text-brand-navy text-lg mb-3">{pillar.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{pillar.body}</p>
+            {/* Card 1 */}
+            <div className="bg-white rounded-2xl border border-brand-navy/10 p-6 h-full">
+              <div className="inline-flex items-center justify-center w-9 h-9 bg-red-50 text-red-500 rounded-lg p-1.5 mb-4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                  <line x1="12" y1="9" x2="12" y2="13" />
+                  <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
               </div>
-            ))}
+              <h3 className="font-bold text-brand-navy mb-2">Late and incomplete orders</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Kits arrive after the promotional window. Stores get the wrong materials. Your team spends days chasing down what&apos;s missing.
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-white rounded-2xl border border-brand-navy/10 p-6 h-full">
+              <div className="inline-flex items-center justify-center w-9 h-9 bg-red-50 text-red-500 rounded-lg p-1.5 mb-4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <h3 className="font-bold text-brand-navy mb-2">Art approvals drag for weeks</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Back-and-forth emails. Revisions on revisions. By the time art is approved, the campaign launch has slipped.
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-white rounded-2xl border border-brand-navy/10 p-6 h-full">
+              <div className="inline-flex items-center justify-center w-9 h-9 bg-red-50 text-red-500 rounded-lg p-1.5 mb-4">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+              </div>
+              <h3 className="font-bold text-brand-navy mb-2">Brand looks different in every store</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Wrong sizes, off-brand colours, outdated versions. You lose control the moment product leaves the printer.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* 8 — Final CTA */}
       <section className="bg-brand-navy py-24 px-4 text-center text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-brand-gold text-xs font-semibold tracking-widest uppercase">
@@ -504,79 +519,6 @@ export default function HomePage() {
           <p className="text-white/50 text-sm mt-4">
             No commitment. No sales pitch. Just a clear picture of what&apos;s possible.
           </p>
-        </div>
-      </section>
-
-      {/* Industries */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <p className="section-sub">Industries We Serve</p>
-          <h2 className="section-heading">Built for your retail world</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            {industries.map((ind) => (
-              <Link
-                key={ind.title}
-                href={ind.href}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-gray-100"
-              >
-                <div className={`h-2 ${ind.accent}`} />
-                <div className="p-6">
-                  <h3 className="font-bold text-xl text-brand-navy mb-2 tracking-brand-tight group-hover:text-brand-gold transition-colors">
-                    {ind.title}
-                  </h3>
-                  <p className="text-sm text-brand-navy/65 leading-relaxed">{ind.desc}</p>
-                  <span className="mt-4 inline-flex items-center text-sm text-brand-sky font-semibold gap-1 group-hover:gap-2 transition-all">
-                    Explore
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <p className="section-sub">What We Do</p>
-          <h2 className="section-heading">Full-service, start to finish</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
-            {services.map((svc) => (
-              <Link
-                key={svc.title}
-                href={svc.href}
-                className="group bg-brand-offwhite rounded-xl p-6 border border-transparent hover:border-brand-gold hover:shadow-md transition-all"
-              >
-                <div className="w-8 h-1 bg-brand-gold rounded mb-4 group-hover:w-12 transition-all" />
-                <h3 className="font-bold text-brand-navy mb-2 tracking-brand-tight group-hover:text-brand-gold transition-colors">
-                  {svc.title}
-                </h3>
-                <p className="text-sm text-brand-navy/65 leading-relaxed">{svc.desc}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 px-6 bg-brand-navy text-white text-center">
-        <p className="section-sub !text-brand-sky">Let&apos;s get to work</p>
-        <h2 className="text-4xl font-extrabold tracking-brand-tight mb-4 !text-white">
-          Ready to stand out on shelf?
-        </h2>
-        <p className="text-white/65 mb-8 max-w-lg mx-auto">
-          Book a free 30-minute strategy call and discover how USG can transform your in-store marketing.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link href="/book" className="btn-gold text-base !px-8 !py-3">
-            Book a Free Call
-          </Link>
-          <Link href="/contact" className="btn-outline !border-white !text-white hover:!bg-white hover:!text-brand-navy text-base !px-8 !py-3">
-            Contact Us
-          </Link>
         </div>
       </section>
     </div>

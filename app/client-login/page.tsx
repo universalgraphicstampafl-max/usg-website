@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Client Login | USG",
-  description: "Secure client portal login for Universal Screen Graphics.",
+  description: "Secure client portal login for Universal Signage & Graphics.",
 };
 
 export default function ClientLoginPage() {

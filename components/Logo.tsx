@@ -30,9 +30,14 @@ export default function Logo({ variant = "dark", className = "" }: LogoProps) {
           USG
         </span>
         <span
-          className={`text-[0.45rem] tracking-brand-sub uppercase font-semibold ${mainColor} opacity-80`}
+          className={`text-[0.52rem] tracking-widest uppercase font-black ${mainColor}`}
         >
-          Universal Screen Graphics
+          UNIVERSAL
+        </span>
+        <span
+          className={`text-[0.42rem] tracking-wide font-light ${mainColor} opacity-70`}
+        >
+          Signage &amp; Graphics
         </span>
       </div>
     </Link>

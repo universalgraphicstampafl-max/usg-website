@@ -2,7 +2,7 @@ import ServicePage from "@/components/ServicePage";
 
 export const metadata = {
   title: "Direct Store Delivery | USG",
-  description: "White-glove direct store delivery and installation of signage and displays.",
+  description: "Direct-to-location delivery for chain retailers. Individual kits labelled and shipped to every store — no warehouse redistribution.",
 };
 
 export default function DirectStoreDeliveryPage() {

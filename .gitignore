@@ -19,3 +19,11 @@ out/
 .DS_Store
 *.pem
 npm-debug.log*
+
+# Local Netlify folder
+.netlify
+
+# Business documents — keep out of source control
+*.pdf
+*.pages
+usg-website/
