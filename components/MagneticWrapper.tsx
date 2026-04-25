@@ -11,7 +11,7 @@ interface MagneticWrapperProps {
 
 export default function MagneticWrapper({
   children,
-  strength = 6,
+  strength = 4,
   radius   = 60,
   className = "",
 }: MagneticWrapperProps) {

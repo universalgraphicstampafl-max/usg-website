@@ -72,22 +72,18 @@ export default function HomePage() {
 
               {/* CTAs */}
               <div
-                className="flex flex-wrap gap-4"
+                className="flex flex-col md:flex-row gap-4 items-start mt-8 flex-wrap"
                 style={{ animation: "heroEnter 0.6s ease-out 0.8s both" }}
               >
-                <MagneticWrapper strength={6} radius={60}>
-                  <Link href="/book" className="btn-gold btn-gold-glow text-base !px-8 !py-3 !rounded-xl">
-                    Book Your Free Campaign Analysis
-                  </Link>
-                </MagneticWrapper>
-                <MagneticWrapper strength={5} radius={55}>
-                  <Link
-                    href="/success-stories"
-                    className="btn-outline !border-white !text-white hover:!bg-white hover:!text-brand-navy text-base !px-8 !py-3"
-                  >
-                    See our work
-                  </Link>
-                </MagneticWrapper>
+                <Link href="/book" className="btn-gold btn-gold-glow !px-8 !py-4 !rounded-xl text-base whitespace-nowrap">
+                  Book Your Free Campaign Analysis
+                </Link>
+                <Link
+                  href="/success-stories"
+                  className="text-base font-semibold tracking-brand-wide text-white border-2 border-white/70 px-6 py-4 rounded whitespace-nowrap hover:bg-white/10 transition-colors duration-200"
+                >
+                  See our work
+                </Link>
               </div>
             </div>
 
