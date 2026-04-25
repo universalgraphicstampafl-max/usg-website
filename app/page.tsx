@@ -248,14 +248,21 @@ export default function HomePage() {
 
       {/* ── 4 · AUTHORITY BAR ───────────────────────────────────────── */}
       <RevealWrapper>
-        <section className="bg-brand-offwhite py-10 px-6 overflow-hidden">
-          <p className="text-xs font-semibold tracking-widest text-brand-sky uppercase mb-6 text-center">
-            Trusted by leading brands in convenience, tobacco, QSR, grocery &amp; beverage retail
-          </p>
+        <section
+          className="bg-brand-offwhite py-10 overflow-hidden"
+          style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
+        >
+          <div className="max-w-7xl mx-auto px-6">
+            <p className="text-xs font-semibold tracking-widest text-brand-sky uppercase mb-6 text-center">
+              Trusted by leading brands in convenience, tobacco, QSR, grocery &amp; beverage retail
+            </p>
+          </div>
           <MarqueeLogos />
-          <p className="text-sm text-gray-500 mt-6 text-center">
-            2,000+ retail locations served across the US
-          </p>
+          <div className="max-w-7xl mx-auto px-6">
+            <p className="text-sm text-gray-500 mt-6 text-center">
+              2,000+ retail locations served across the US
+            </p>
+          </div>
         </section>
       </RevealWrapper>
 

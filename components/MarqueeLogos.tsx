@@ -2,40 +2,37 @@
 
 import { useRef } from "react";
 
-const LOGO_COUNT = 6;
+const LOGOS = [0, 1, 2, 3, 4, 5];
 
 export default function MarqueeLogos() {
   const trackRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseEnter = () => {
-    if (trackRef.current) trackRef.current.style.animationPlayState = "paused";
-  };
-  const handleMouseLeave = () => {
-    if (trackRef.current) trackRef.current.style.animationPlayState = "running";
-  };
+  const pause  = () => { if (trackRef.current) trackRef.current.style.animationPlayState = "paused";  };
+  const resume = () => { if (trackRef.current) trackRef.current.style.animationPlayState = "running"; };
 
   return (
     <div
-      className="relative overflow-hidden"
+      className="relative w-full overflow-hidden"
       style={{
-        maskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
-        WebkitMaskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+        maskImage: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
       }}
+      onMouseEnter={pause}
+      onMouseLeave={resume}
     >
-      {/* Two identical sets of logos — second set makes the loop seamless */}
       <div
         ref={trackRef}
-        className="flex"
         style={{
+          display: "flex",
+          width: "max-content",
+          alignItems: "center",
           animation: "marqueeScroll 40s linear infinite",
           willChange: "transform",
         }}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
       >
-        {[...Array(LOGO_COUNT * 2)].map((_, i) => (
-          <div key={i} className="flex-shrink-0 px-3">
-            <div className="w-20 h-10 bg-gray-200 rounded-lg flex items-center justify-center">
+        {[...LOGOS, ...LOGOS].map((_, i) => (
+          <div key={i} style={{ flexShrink: 0, margin: "0 20px" }}>
+            <div className="w-[140px] h-[56px] bg-gray-100 rounded-xl border border-gray-200 flex items-center justify-center">
               <span className="text-xs text-gray-400">Client Logo</span>
             </div>
           </div>
