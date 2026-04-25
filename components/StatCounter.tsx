@@ -6,6 +6,7 @@ interface StatCounterProps {
   target: number;
   suffix: string;
   thousands?: boolean;
+  duration?: number;
   className?: string;
 }
 
@@ -13,7 +14,13 @@ function easeOut(t: number): number {
   return 1 - Math.pow(1 - t, 3);
 }
 
-export default function StatCounter({ target, suffix, thousands = false, className = "" }: StatCounterProps) {
+export default function StatCounter({
+  target,
+  suffix,
+  thousands = false,
+  duration = 1500,
+  className = "",
+}: StatCounterProps) {
   const [value, setValue] = useState(0);
   const nodeRef = useRef<HTMLSpanElement>(null);
   const firedRef = useRef(false);
@@ -27,7 +34,6 @@ export default function StatCounter({ target, suffix, thousands = false, classNa
         if (!entry.isIntersecting || firedRef.current) return;
         firedRef.current = true;
 
-        const duration = 1500;
         const start = performance.now();
 
         const tick = (now: number) => {
@@ -43,7 +49,7 @@ export default function StatCounter({ target, suffix, thousands = false, classNa
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [target]);
+  }, [target, duration]);
 
   const display = thousands ? value.toLocaleString("en-US") : String(value);
 

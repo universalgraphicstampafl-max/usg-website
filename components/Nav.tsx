@@ -31,9 +31,10 @@ interface DropdownMenuProps {
   items: DropdownItem[];
   columns?: 1 | 2;
   onClose: () => void;
+  light?: boolean;
 }
 
-function DropdownMenu({ label, items, columns = 1, onClose }: DropdownMenuProps) {
+function DropdownMenu({ label, items, columns = 1, onClose, light = false }: DropdownMenuProps) {
   const [open, setOpen] = useState(false);
   const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -70,6 +71,10 @@ function DropdownMenu({ label, items, columns = 1, onClose }: DropdownMenuProps)
     };
   }, []);
 
+  const linkClass = light
+    ? "flex items-center gap-1 text-sm font-semibold tracking-brand-tight text-white hover:text-brand-gold transition-colors px-1 py-2 rounded focus-visible:outline-2 focus-visible:outline-brand-sky"
+    : "flex items-center gap-1 text-sm font-semibold tracking-brand-tight text-brand-navy hover:text-brand-gold transition-colors px-1 py-2 rounded focus-visible:outline-2 focus-visible:outline-brand-sky";
+
   return (
     <div
       ref={containerRef}
@@ -78,7 +83,7 @@ function DropdownMenu({ label, items, columns = 1, onClose }: DropdownMenuProps)
       onMouseLeave={scheduleClose}
     >
       <button
-        className="flex items-center gap-1 text-sm font-semibold tracking-brand-tight text-brand-navy hover:text-brand-gold transition-colors px-1 py-2 rounded focus-visible:outline-2 focus-visible:outline-brand-sky"
+        className={linkClass}
         aria-haspopup="true"
         aria-expanded={open}
         onKeyDown={handleKeyDown}
@@ -133,7 +138,8 @@ export default function Nav() {
   const [mobileServices, setMobileServices] = useState(false);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 10);
+    const handler = () => setScrolled(window.scrollY > 60);
+    handler(); // set initial state
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
@@ -146,14 +152,22 @@ export default function Nav() {
 
   const navHeight = scrolled ? "h-[52px]" : "h-[64px]";
 
+  const headerBg = scrolled
+    ? "bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-[0_1px_20px_rgba(0,0,0,0.08)]"
+    : "bg-transparent";
+
+  const linkClass = scrolled
+    ? "text-sm font-semibold tracking-brand-tight text-brand-navy hover:text-brand-gold transition-colors px-3 py-2"
+    : "text-sm font-semibold tracking-brand-tight text-white hover:text-brand-gold transition-colors px-3 py-2";
+
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-200 ${navHeight}`}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${navHeight} ${headerBg}`}
       >
         <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between gap-4">
           {/* Logo */}
-          <Logo />
+          <Logo variant={scrolled ? "dark" : "light"} />
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
@@ -161,29 +175,22 @@ export default function Nav() {
               label="Industries"
               items={industries}
               onClose={() => {}}
+              light={!scrolled}
             />
             <DropdownMenu
               label="Services"
               items={services}
               columns={2}
               onClose={() => {}}
+              light={!scrolled}
             />
-            <Link
-              href="/success-stories"
-              className="text-sm font-semibold tracking-brand-tight text-brand-navy hover:text-brand-gold transition-colors px-3 py-2"
-            >
+            <Link href="/success-stories" className={linkClass}>
               Success Stories
             </Link>
-            <Link
-              href="/about"
-              className="text-sm font-semibold tracking-brand-tight text-brand-navy hover:text-brand-gold transition-colors px-3 py-2"
-            >
+            <Link href="/about" className={linkClass}>
               About
             </Link>
-            <Link
-              href="/gallery"
-              className="text-sm font-semibold tracking-brand-tight text-brand-navy hover:text-brand-gold transition-colors px-3 py-2"
-            >
+            <Link href="/gallery" className={linkClass}>
               Gallery
             </Link>
           </nav>
@@ -192,18 +199,27 @@ export default function Nav() {
           <div className="hidden lg:flex items-center gap-2">
             <Link
               href="/client-login"
-              className="btn-outline text-sm !px-4 !py-1.5"
+              className={
+                scrolled
+                  ? "btn-outline text-sm !px-4 !py-1.5"
+                  : "text-sm font-semibold tracking-brand-tight text-white border-2 border-white/70 px-4 py-1.5 rounded hover:bg-white hover:text-brand-navy transition-colors duration-200"
+              }
             >
               Client Login
             </Link>
-            <Link href="/book" className="btn-navy text-sm !px-4 !py-1.5">
+            <Link
+              href="/book"
+              className={scrolled ? "btn-navy text-sm !px-4 !py-1.5" : "btn-gold text-sm !px-4 !py-1.5"}
+            >
               Book a Call
             </Link>
           </div>
 
           {/* Mobile hamburger */}
           <button
-            className="lg:hidden p-2 rounded text-brand-navy focus-visible:outline-2 focus-visible:outline-brand-sky"
+            className={`lg:hidden p-2 rounded focus-visible:outline-2 focus-visible:outline-brand-sky ${
+              scrolled ? "text-brand-navy" : "text-white"
+            }`}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
@@ -242,7 +258,7 @@ export default function Nav() {
             aria-label="Mobile navigation"
           >
             <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-              <Logo />
+              <Logo variant="dark" />
               <button
                 className="p-2 rounded text-brand-navy"
                 aria-label="Close menu"
@@ -255,19 +271,10 @@ export default function Nav() {
             </div>
 
             <div className="flex flex-col p-5 gap-1 flex-1">
-              {/* Book a Call — top, gold */}
-              <Link
-                href="/book"
-                className="btn-gold text-center mb-2"
-                onClick={closeMobile}
-              >
+              <Link href="/book" className="btn-gold text-center mb-2" onClick={closeMobile}>
                 Book a Call
               </Link>
-              <Link
-                href="/client-login"
-                className="btn-outline text-center mb-4"
-                onClick={closeMobile}
-              >
+              <Link href="/client-login" className="btn-outline text-center mb-4" onClick={closeMobile}>
                 Client Login
               </Link>
 
@@ -337,25 +344,13 @@ export default function Nav() {
                 </div>
               )}
 
-              <Link
-                href="/success-stories"
-                className="py-2 text-sm font-semibold text-brand-navy hover:text-brand-gold border-b border-gray-100"
-                onClick={closeMobile}
-              >
+              <Link href="/success-stories" className="py-2 text-sm font-semibold text-brand-navy hover:text-brand-gold border-b border-gray-100" onClick={closeMobile}>
                 Success Stories
               </Link>
-              <Link
-                href="/about"
-                className="py-2 text-sm font-semibold text-brand-navy hover:text-brand-gold border-b border-gray-100"
-                onClick={closeMobile}
-              >
+              <Link href="/about" className="py-2 text-sm font-semibold text-brand-navy hover:text-brand-gold border-b border-gray-100" onClick={closeMobile}>
                 About
               </Link>
-              <Link
-                href="/gallery"
-                className="py-2 text-sm font-semibold text-brand-navy hover:text-brand-gold border-b border-gray-100"
-                onClick={closeMobile}
-              >
+              <Link href="/gallery" className="py-2 text-sm font-semibold text-brand-navy hover:text-brand-gold border-b border-gray-100" onClick={closeMobile}>
                 Gallery
               </Link>
             </div>

@@ -22,8 +22,42 @@
     @apply bg-brand-navy text-white px-6 py-2.5 rounded font-semibold tracking-brand-wide hover:bg-brand-navy-dark transition-colors duration-200;
   }
 
+  /* btn-gold: shimmer sweep on hover */
   .btn-gold {
-    @apply bg-brand-gold text-brand-navy px-6 py-2.5 rounded font-semibold tracking-brand-wide hover:bg-brand-gold-dark transition-colors duration-200;
+    @apply bg-brand-gold text-brand-navy px-6 py-2.5 rounded font-semibold tracking-brand-wide;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    will-change: transform;
+  }
+  .btn-gold:hover {
+    background-color: #C78A00;
+  }
+  .btn-gold::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-15deg);
+    pointer-events: none;
+  }
+  .btn-gold:hover::before {
+    animation: shimmerSweep 0.45s ease-in-out forwards;
+  }
+
+  /* btn-pulse: continuous scale pulse for final CTA */
+  .btn-pulse {
+    display: inline-block;
+    animation: ctaPulse 3s ease-in-out infinite;
+    will-change: transform;
+  }
+  .btn-pulse:hover {
+    animation-play-state: paused;
+    transform: scale(1.04) !important;
+    background-color: #C78A00 !important;
   }
 
   .btn-outline {
@@ -46,4 +80,61 @@
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* ─── Hero gradient animation ─────────────────────────────────────── */
+.hero-gradient-anim {
+  background-color: #1B2D5E;
+  animation: heroGradient 8s ease-in-out infinite;
+  will-change: background-color;
+}
+
+@keyframes heroGradient {
+  0%, 100% { background-color: #1B2D5E; }
+  33%       { background-color: #142248; }
+  66%       { background-color: #1a3a6b; }
+}
+
+/* ─── Hero entrance (page-load, not scroll) ───────────────────────── */
+@keyframes heroEnter {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes heroPhotoEnter {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+
+/* ─── Floating particles ──────────────────────────────────────────── */
+@keyframes particleFloat {
+  0%   { transform: translateY(0)      scale(1);   opacity: 0;    }
+  5%   {                                            opacity: 0.08; }
+  90%  {                                            opacity: 0.05; }
+  100% { transform: translateY(-110vh) scale(0.5); opacity: 0;    }
+}
+
+/* ─── Button shimmer sweep ────────────────────────────────────────── */
+@keyframes shimmerSweep {
+  0%   { left: -100%; }
+  100% { left: 150%;  }
+}
+
+/* ─── CTA pulse ───────────────────────────────────────────────────── */
+@keyframes ctaPulse {
+  0%, 100% { transform: scale(1);     }
+  50%      { transform: scale(1.025); }
+}
+
+/* ─── Icon entry pulse (fires once after card reveals) ───────────── */
+@keyframes iconEntryPulse {
+  0%   { transform: scale(1);    }
+  50%  { transform: scale(1.15); }
+  100% { transform: scale(1);    }
+}
+
+/* ─── Logo marquee ────────────────────────────────────────────────── */
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0);    }
+  100% { transform: translateX(-50%); }
 }
