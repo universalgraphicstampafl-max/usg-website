@@ -20,7 +20,7 @@ export default function IndustryPage({
   return (
     <div className="bg-brand-offwhite">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-brand-navy to-brand-navy-dark text-white py-20 px-6">
+      <section className="bg-gradient-to-br from-brand-navy to-brand-navy-dark text-white -mt-[64px] pt-[84px] pb-20 px-6">
         <div className="max-w-5xl mx-auto">
           <p className="section-sub !text-brand-gold">{subtitle}</p>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-brand-tight mb-6 !text-white">

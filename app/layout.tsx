@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased min-h-screen flex flex-col">
         <Nav />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pt-[64px]">{children}</main>
         <footer className="bg-brand-navy-dark text-white py-16">
           <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Col 1 — Logo + tagline */}

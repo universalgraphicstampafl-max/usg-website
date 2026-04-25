@@ -72,8 +72,8 @@ function DropdownMenu({ label, items, columns = 1, onClose, light = false }: Dro
   }, []);
 
   const linkClass = light
-    ? "flex items-center gap-1 text-sm font-semibold tracking-brand-tight text-white hover:text-brand-gold transition-colors px-1 py-2 rounded focus-visible:outline-2 focus-visible:outline-brand-sky"
-    : "flex items-center gap-1 text-sm font-semibold tracking-brand-tight text-brand-navy hover:text-brand-gold transition-colors px-1 py-2 rounded focus-visible:outline-2 focus-visible:outline-brand-sky";
+    ? "flex items-center gap-1 text-sm font-semibold tracking-brand-tight text-white hover:text-brand-gold transition-colors duration-300 px-1 py-2 rounded focus-visible:outline-2 focus-visible:outline-brand-sky"
+    : "flex items-center gap-1 text-sm font-semibold tracking-brand-tight text-brand-navy hover:text-brand-gold transition-colors duration-300 px-1 py-2 rounded focus-visible:outline-2 focus-visible:outline-brand-sky";
 
   return (
     <div
@@ -157,8 +157,8 @@ export default function Nav() {
     : "bg-transparent";
 
   const linkClass = scrolled
-    ? "text-sm font-semibold tracking-brand-tight text-brand-navy hover:text-brand-gold transition-colors px-3 py-2"
-    : "text-sm font-semibold tracking-brand-tight text-white hover:text-brand-gold transition-colors px-3 py-2";
+    ? "text-sm font-semibold tracking-brand-tight text-brand-navy hover:text-brand-gold transition-colors duration-300 px-3 py-2"
+    : "text-sm font-semibold tracking-brand-tight text-white hover:text-brand-gold transition-colors duration-300 px-3 py-2";
 
   return (
     <>
@@ -217,7 +217,7 @@ export default function Nav() {
 
           {/* Mobile hamburger */}
           <button
-            className={`lg:hidden p-2 rounded focus-visible:outline-2 focus-visible:outline-brand-sky ${
+            className={`lg:hidden p-2 rounded focus-visible:outline-2 focus-visible:outline-brand-sky transition-colors duration-300 ${
               scrolled ? "text-brand-navy" : "text-white"
             }`}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -242,8 +242,6 @@ export default function Nav() {
         </div>
       </header>
 
-      {/* Spacer so content isn't under fixed nav */}
-      <div className={`${scrolled ? "h-[52px]" : "h-[64px]"} transition-all duration-200`} />
 
       {/* Mobile drawer */}
       {mobileOpen && (

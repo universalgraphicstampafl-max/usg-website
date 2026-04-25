@@ -17,7 +17,7 @@ export default function HomePage() {
     <div className="bg-brand-offwhite">
 
       {/* ── 1 · HERO ───────────────────────────────────────────────── */}
-      <section className="relative text-white overflow-hidden hero-gradient-anim">
+      <section className="relative text-white overflow-hidden hero-gradient-anim -mt-[64px]">
         {/* Directional glow overlays */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-sky to-transparent" />
