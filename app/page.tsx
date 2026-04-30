@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import HeroParticles    from "@/components/HeroParticles";
 import HeroMesh         from "@/components/HeroMesh";
 import HeroShapes       from "@/components/HeroShapes";
@@ -87,17 +88,20 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Photo placeholder */}
+            {/* Hero photography */}
             <div
-              className="hidden md:flex items-center justify-center rounded-2xl border-2 border-dashed border-white/30 bg-white/5 min-h-[380px]"
+              className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden hidden md:block"
               style={{ animation: "heroPhotoEnter 0.8s ease-out 0.4s both" }}
             >
-              <div className="text-center px-8">
-                <svg className="w-12 h-12 mx-auto mb-4 text-white/25" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.25} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <p className="text-white/40 text-sm font-medium tracking-brand-wide">Hero photography — coming soon</p>
-              </div>
+              <Image
+                src="/images/hero/hero-primary.webp"
+                alt="Coca-Cola promotional signage at gas station storefront"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#1B2D5E]/40 to-transparent" />
             </div>
           </div>
         </div>
@@ -178,36 +182,42 @@ export default function HomePage() {
               {
                 name: "Multi-Location POP Signage",
                 href: "/services/signage-programs",
+                image: "/images/services/signage-programs.webp",
                 desc: "Monthly, bi-monthly, and quarterly promotional programs for chains of any size.",
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>,
               },
               {
                 name: "Graphic Design",
                 href: "/services/graphic-design",
+                image: "/images/services/graphic-design.webp",
                 desc: "In-house design team. No upcharges — ever. You pay for the finished product only.",
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z" /><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /><path d="M2 2l7.586 7.586" /><circle cx="11" cy="11" r="2" /></svg>,
               },
               {
                 name: "Custom Print Production",
                 href: "/services/custom-print-production",
+                image: "/images/services/custom-print-production.webp",
                 desc: "Digital and screen printing. Banners, cooler graphics, floor graphics, and more.",
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9" /><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2" /><rect x="6" y="14" width="12" height="8" /></svg>,
               },
               {
                 name: "Store Surveys",
                 href: "/services/store-surveys",
+                image: "/images/services/store-surveys.webp",
                 desc: "Precise store measurements and asset profiling for perfectly fitted signage.",
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" /></svg>,
               },
               {
                 name: "Direct Store Delivery",
                 href: "/services/direct-store-delivery",
+                image: "/images/services/direct-store-delivery.webp",
                 desc: "Shipped to every store location. QR packing slip reorder system included.",
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>,
               },
               {
                 name: "Product Photography",
                 href: "/services/product-photography",
+                image: "/images/services/product-photography.webp",
                 desc: "In-house food and product photography to complement your programs.",
                 icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" /><circle cx="12" cy="13" r="4" /></svg>,
               },
@@ -217,6 +227,16 @@ export default function HomePage() {
                   href={svc.href}
                   className="group bg-white rounded-2xl border border-brand-navy/10 p-6 flex flex-col h-full hover:border-brand-navy hover:shadow-[0_8px_32px_rgba(27,45,94,0.1)] hover:-translate-y-1 transition-all duration-[250ms] cursor-pointer"
                 >
+                  <div className="relative w-full aspect-[4/3] mb-4 rounded-lg overflow-hidden">
+                    <Image
+                      src={svc.image}
+                      alt={svc.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      loading="lazy"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
                   <div className="w-10 h-10 rounded-xl bg-brand-navy group-hover:bg-[#2D4A7A] text-white flex items-center justify-center mb-4 flex-shrink-0 transition-colors duration-200">
                     {svc.icon}
                   </div>
@@ -238,10 +258,13 @@ export default function HomePage() {
           className="bg-brand-offwhite py-10 overflow-hidden"
           style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
         >
-          <div className="max-w-7xl mx-auto px-6">
-            <p className="text-xs font-semibold tracking-widest text-brand-sky uppercase mb-6 text-center">
-              Trusted by leading brands in convenience, tobacco, QSR, grocery &amp; beverage retail
+          <div className="max-w-7xl mx-auto px-6 text-center mb-8">
+            <p className="text-xs font-semibold tracking-widest text-brand-sky uppercase mb-2">
+              What we deliver
             </p>
+            <h2 className="text-4xl font-black text-brand-navy">
+              Every format. Every fixture. Every store.
+            </h2>
           </div>
           <MarqueeLogos />
           <div className="max-w-7xl mx-auto px-6">

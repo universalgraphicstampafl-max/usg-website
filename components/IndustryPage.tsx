@@ -1,9 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 
 interface IndustryPageProps {
   title: string;
   subtitle: string;
   description: string;
+  image: string;
   challenges: string[];
   solutions: { heading: string; body: string; href: string }[];
   stats?: { value: string; label: string }[];
@@ -13,6 +15,7 @@ export default function IndustryPage({
   title,
   subtitle,
   description,
+  image,
   challenges,
   solutions,
   stats,
@@ -20,21 +23,32 @@ export default function IndustryPage({
   return (
     <div className="bg-brand-offwhite">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-brand-navy to-brand-navy-dark text-white -mt-[64px] pt-[84px] pb-20 px-6">
-        <div className="max-w-5xl mx-auto">
-          <p className="section-sub !text-brand-gold">{subtitle}</p>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-brand-tight mb-6 !text-white">
-            {title}
-          </h1>
-          <p className="text-lg text-white/75 max-w-2xl leading-relaxed">{description}</p>
-          <div className="flex flex-wrap gap-3 mt-8">
-            <Link href="/book" className="btn-gold">
-              Talk to a Specialist
-            </Link>
-            <Link href="/success-stories" className="btn-outline !border-white !text-white hover:!bg-white hover:!text-brand-navy">
-              See Success Stories
-            </Link>
-          </div>
+      <section className="relative h-[400px] w-full overflow-hidden -mt-[64px]">
+        <Image
+          src={image}
+          alt={`${title} retail signage`}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1B2D5E]/85 via-[#1B2D5E]/60 to-[#1B2D5E]/30" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex flex-col justify-center pt-[64px]">
+          <p className="text-[#F0A500] text-sm font-semibold tracking-wider uppercase mb-2">{subtitle}</p>
+          <h1 className="text-white text-5xl md:text-6xl font-bold">{title}</h1>
+          <p className="text-white/90 text-xl mt-4 max-w-2xl">{description}</p>
+        </div>
+      </section>
+
+      {/* Hero CTA strip */}
+      <section className="bg-brand-navy text-white py-6 px-6">
+        <div className="max-w-5xl mx-auto flex flex-wrap gap-3">
+          <Link href="/book" className="btn-gold">
+            Talk to a Specialist
+          </Link>
+          <Link href="/success-stories" className="btn-outline !border-white !text-white hover:!bg-white hover:!text-brand-navy">
+            See Success Stories
+          </Link>
         </div>
       </section>
 
