@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import FloatingHeroCluster from "@/components/FloatingHeroCluster";
+import HeroScrollingColumns from "@/components/HeroScrollingColumns";
 import HeroParticles    from "@/components/HeroParticles";
 import HeroMesh         from "@/components/HeroMesh";
 import HeroShapes       from "@/components/HeroShapes";
@@ -37,7 +37,7 @@ export default function HomePage() {
         <HeroParticles />
 
         <div className="relative max-w-6xl mx-auto px-6 py-28 md:py-36">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[1fr_680px] lg:gap-12 lg:items-center">
 
             <div>
               {/* Eyebrow */}
@@ -89,9 +89,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Floating hero image cluster */}
-            <div className="hidden md:flex justify-center items-center">
-              <FloatingHeroCluster />
+            {/* Hero scrolling tiles — component picks layout per breakpoint */}
+            <div className="lg:flex lg:justify-center lg:items-center">
+              <HeroScrollingColumns />
             </div>
           </div>
         </div>
