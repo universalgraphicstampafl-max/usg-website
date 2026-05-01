@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
-import Nav            from "@/components/Nav";
-import Logo           from "@/components/Logo";
-import ScrollProgress from "@/components/ScrollProgress";
-import CursorGlow     from "@/components/CursorGlow";
+import Nav                  from "@/components/Nav";
+import Logo                 from "@/components/Logo";
+import ScrollProgress       from "@/components/ScrollProgress";
+import CursorGlow           from "@/components/CursorGlow";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-instrument-serif",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Universal Signage & Graphics | USG",
@@ -19,7 +29,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased min-h-screen flex flex-col">
+      <body className={`${instrumentSerif.variable} antialiased min-h-screen flex flex-col`}>
+        <SmoothScrollProvider>
         <ScrollProgress />
         <CursorGlow />
         <Nav />
@@ -103,6 +114,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        </SmoothScrollProvider>
       </body>
     </html>
   );

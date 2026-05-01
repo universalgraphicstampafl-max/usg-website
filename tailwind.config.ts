@@ -19,6 +19,9 @@ const config: Config = {
           offwhite: "#F5F4F0",
         },
       },
+      fontFamily: {
+        serif: ["var(--font-instrument-serif)", "serif"],
+      },
       letterSpacing: {
         "brand-logo": "0.20em",
         "brand-sub": "0.30em",
