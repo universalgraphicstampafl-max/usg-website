@@ -379,9 +379,25 @@ export default function HomePage() {
 
       {/* ── 7 · CONTEXT STRIP (navy) ────────────────────────────────── */}
       <SectionReveal>
-        <section className="bg-brand-navy py-20 lg:py-32">
-          <div className="container mx-auto px-6 lg:px-12 text-center">
-            <p className="text-white text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto">
+        <section className="relative py-32 lg:py-40 overflow-hidden">
+          {/* Full-bleed background image */}
+          <div className="absolute inset-0">
+            <Image
+              src="/images/gallery/07-storefront-window-cling.webp"
+              alt="Chain retail location"
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority={false}
+            />
+          </div>
+
+          {/* Navy gradient overlay for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1B2D5E]/85 via-[#1B2D5E]/75 to-[#1B2D5E]/85" />
+
+          {/* Content */}
+          <div className="relative z-10 container mx-auto px-6 lg:px-12">
+            <p className="text-center text-2xl lg:text-4xl text-white font-light leading-relaxed max-w-5xl mx-auto">
               Serving chain locations, franchise organizations, and multi-location <span className="font-serif italic font-normal">retailers</span> across the US.
             </p>
           </div>
