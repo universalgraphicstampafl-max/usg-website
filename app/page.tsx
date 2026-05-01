@@ -15,6 +15,7 @@ import DiscoverCard     from "@/components/DiscoverCard";
 import MarqueeLogos     from "@/components/MarqueeLogos";
 import ProcessSteps     from "@/components/ProcessSteps";
 import SlotCounter      from "@/components/SlotCounter";
+import TestimonialMarquee from "@/components/TestimonialMarquee";
 import TiltCard         from "@/components/TiltCard";
 import TypewriterLabel  from "@/components/TypewriterLabel";
 import ParticleBurst    from "@/components/ParticleBurst";
@@ -516,40 +517,10 @@ export default function HomePage() {
 
       {/* ── 11 · TESTIMONIALS (navy) ────────────────────────────────── */}
       <SectionReveal>
-        <section className="bg-brand-navy py-20 lg:py-32">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ perspective: "1200px" }}>
-              {TESTIMONIALS.map((t, i) => (
-                <RevealWrapper key={t.attribution} delay={i * 0.1}>
-                  <div
-                    className="group bg-white rounded-2xl border border-brand-navy/10 p-8 transition-all duration-300 cursor-default"
-                    style={{
-                      transform: `perspective(1200px) rotateY(${t.tilt}deg)`,
-                      transition: "transform 0.4s ease, box-shadow 0.4s ease",
-                    }}
-                    onMouseEnter={e => {
-                      (e.currentTarget as HTMLDivElement).style.transform = "perspective(1200px) rotateY(0deg) translateY(-4px)";
-                      (e.currentTarget as HTMLDivElement).style.boxShadow = "0 20px 60px rgba(27,45,94,0.12)";
-                    }}
-                    onMouseLeave={e => {
-                      (e.currentTarget as HTMLDivElement).style.transform = `perspective(1200px) rotateY(${t.tilt}deg)`;
-                      (e.currentTarget as HTMLDivElement).style.boxShadow = "";
-                    }}
-                  >
-                    <span
-                      className="text-brand-sky/25 group-hover:text-brand-sky/40 text-8xl font-serif leading-none -mb-6 block transition-all duration-300 group-hover:scale-110 origin-left"
-                      aria-hidden="true"
-                    >
-                      &ldquo;
-                    </span>
-                    <p className="text-gray-600 italic text-base leading-relaxed mb-6">{t.quote}</p>
-                    <p className="font-bold text-brand-navy text-sm">{t.attribution}</p>
-                    <p className="text-gray-400 text-xs mt-1">{t.tenure}</p>
-                  </div>
-                </RevealWrapper>
-              ))}
-            </div>
+        <section className="bg-brand-navy py-20 lg:py-32 overflow-hidden">
+          <TestimonialMarquee testimonials={TESTIMONIALS} />
 
+          <div className="container mx-auto px-6 lg:px-12">
             <Link href="/success-stories" className="text-brand-sky hover:text-brand-sky-dark font-medium mt-8 block text-center transition-colors">
               See all success stories →
             </Link>
