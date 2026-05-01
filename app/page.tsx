@@ -10,6 +10,7 @@ import HeroShapes       from "@/components/HeroShapes";
 import HeroHeadline     from "@/components/HeroHeadline";
 import RevealWrapper    from "@/components/RevealWrapper";
 import SectionReveal    from "@/components/SectionReveal";
+import CapabilityMarquee from "@/components/CapabilityMarquee";
 import DiscoverCard     from "@/components/DiscoverCard";
 import MarqueeLogos     from "@/components/MarqueeLogos";
 import ProcessSteps     from "@/components/ProcessSteps";
@@ -77,6 +78,50 @@ const TESTIMONIALS = [
     tenure: "Partner since 2001",
     tilt: 2,
   },
+];
+
+const INDUSTRIES = [
+  {
+    name: "Convenience Retail",
+    href: "/industries/convenience-retail",
+    image: "/images/industries/convenience-retail.webp",
+    desc: "Gas stations, c-stores, truck stops — branded for speed.",
+  },
+  {
+    name: "Tobacco & Nicotine",
+    href: "/industries/tobacco-nicotine",
+    image: "/images/industries/tobacco-nicotine.webp",
+    desc: "Compliance-aware signage for regulated categories.",
+  },
+  {
+    name: "QSR",
+    href: "/industries/qsr",
+    image: "/images/industries/qsr.webp",
+    desc: "Menu boards, drive-thru, in-store — every touchpoint.",
+  },
+  {
+    name: "Grocery",
+    href: "/industries/grocery",
+    image: "/images/industries/grocery.webp",
+    desc: "End-cap, shelf, cooler — moving product since 1985.",
+  },
+  {
+    name: "Beverage",
+    href: "/industries/beverage",
+    image: "/images/industries/beverage.webp",
+    desc: "Cooler graphics and POP that pull buyers from the aisle.",
+  },
+];
+
+const GALLERY_PREVIEW = [
+  "/images/gallery/01-hero-storefront-coca-cola.webp",
+  "/images/gallery/04-qsr-bbq-pylon.webp",
+  "/images/gallery/07-storefront-window-cling.webp",
+  "/images/gallery/10-gas-pump-celsius-topper.webp",
+  "/images/gallery/13-grab-go-cooler.webp",
+  "/images/gallery/16-vuex-pop-floor-display.webp",
+  "/images/gallery/19-suspended-menu-board.webp",
+  "/images/gallery/22-newport-marlboro-pylons.webp",
 ];
 
 function SectionDivider() {
@@ -257,16 +302,33 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 5 · DISCOVER (navy) ─────────────────────────────────────── */}
+      {/* ── 5 · CAPABILITY MARQUEE (navy) ───────────────────────────── */}
       <SectionReveal>
-        <section className="bg-brand-navy py-20 lg:py-32 text-white">
+        <section className="bg-brand-navy py-20 lg:py-32 text-white overflow-hidden">
+          <div className="container mx-auto px-6 lg:px-12 mb-10 text-center">
+            <h2 className="text-4xl font-black text-white">
+              Every fixture. Every format. Every <span className="font-serif italic font-normal">capability</span>.
+            </h2>
+            <p className="text-white/80 text-lg mt-3 max-w-2xl mx-auto">
+              From cooler doors to pylon toppers — we produce signage for every retail surface.
+            </p>
+          </div>
+          <CapabilityMarquee />
+        </section>
+      </SectionReveal>
+
+      <SectionDivider />
+
+      {/* ── 6 · DISCOVER (cream) ────────────────────────────────────── */}
+      <SectionReveal>
+        <section className="bg-brand-offwhite py-20 lg:py-32">
           <div className="container mx-auto px-6 lg:px-12">
             <RevealWrapper className="mb-10">
               <TypewriterLabel
                 text="Why USG"
                 className="text-xs tracking-widest font-semibold text-brand-sky uppercase"
               />
-              <h2 className="text-4xl font-black text-white mt-2">
+              <h2 className="text-4xl font-black text-brand-navy mt-2">
                 Discover the <span className="font-serif italic font-normal">difference</span>
               </h2>
             </RevealWrapper>
@@ -304,7 +366,7 @@ export default function HomePage() {
                   ),
                 },
               ].map((card) => (
-                <TiltCard key={card.title} className="h-full bg-white rounded-2xl">
+                <TiltCard key={card.title} className="h-full">
                   <DiscoverCard delay={card.delay} title={card.title} body={card.body} icon={card.icon} />
                 </TiltCard>
               ))}
@@ -315,11 +377,11 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 6 · CONTEXT STRIP (cream) ───────────────────────────────── */}
+      {/* ── 7 · CONTEXT STRIP (navy) ────────────────────────────────── */}
       <SectionReveal>
-        <section className="bg-brand-offwhite py-20 lg:py-32">
+        <section className="bg-brand-navy py-20 lg:py-32">
           <div className="container mx-auto px-6 lg:px-12 text-center">
-            <p className="text-brand-navy text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto">
+            <p className="text-white text-lg md:text-xl font-medium leading-relaxed max-w-3xl mx-auto">
               Serving chain locations, franchise organizations, and multi-location <span className="font-serif italic font-normal">retailers</span> across the US.
             </p>
           </div>
@@ -328,38 +390,36 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 7 · PROCESS STEPS (navy) ───────────────────────────────── */}
+      {/* ── 8 · PROCESS STEPS (cream) ──────────────────────────────── */}
       <SectionReveal>
-        <section className="bg-brand-navy py-20 lg:py-32 text-white">
+        <section className="bg-brand-offwhite py-20 lg:py-32">
           <div className="container mx-auto px-6 lg:px-12">
             <RevealWrapper className="mb-12">
               <TypewriterLabel
                 text="The USG process"
                 className="text-xs tracking-widest font-semibold text-brand-sky uppercase"
               />
-              <h2 className="text-4xl font-black text-white mt-2">
+              <h2 className="text-4xl font-black text-brand-navy mt-2">
                 From <span className="font-serif italic font-normal">brief</span> to every store — handled.
               </h2>
             </RevealWrapper>
-            <div className="bg-white rounded-3xl p-6 md:p-10">
-              <ProcessSteps />
-            </div>
+            <ProcessSteps />
           </div>
         </section>
       </SectionReveal>
 
       <SectionDivider />
 
-      {/* ── 8 · PAIN CARDS (cream) ─────────────────────────────────── */}
+      {/* ── 9 · PAIN CARDS (navy) ──────────────────────────────────── */}
       <SectionReveal>
-        <section className="bg-brand-offwhite py-20 lg:py-32">
+        <section className="bg-brand-navy py-20 lg:py-32">
           <div className="container mx-auto px-6 lg:px-12">
             <RevealWrapper className="mb-10">
               <TypewriterLabel
                 text="Why signage programs fail"
                 className="text-xs tracking-widest font-semibold text-brand-sky uppercase"
               />
-              <h2 className="text-4xl font-black text-brand-navy mt-2">
+              <h2 className="text-4xl font-black text-white mt-2">
                 Sound <span className="font-serif italic font-normal">familiar?</span>
               </h2>
             </RevealWrapper>
@@ -397,7 +457,48 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 9 · TESTIMONIALS (navy) ─────────────────────────────────── */}
+      {/* ── 10 · INDUSTRIES SHOWCASE (cream) ────────────────────────── */}
+      <SectionReveal>
+        <section className="bg-brand-offwhite py-20 lg:py-32">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="mb-10 text-center">
+              <h2 className="text-4xl font-black text-brand-navy">
+                Built for the <span className="font-serif italic font-normal">industries</span> that move fast.
+              </h2>
+              <p className="text-brand-navy/80 text-lg mt-3 max-w-2xl mx-auto">
+                5 industries. 2,000+ locations. One partner that ships on time.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+              {INDUSTRIES.map((ind) => (
+                <Link key={ind.href} href={ind.href} className="group block">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-lg">
+                    <Image
+                      src={ind.image}
+                      alt={ind.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/65 to-black/20" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <h3 className="text-xl font-bold text-white mb-2">{ind.name}</h3>
+                      <p className="text-sm text-white/80">{ind.desc}</p>
+                      <span className="text-sm text-[#F0A500] mt-3 inline-block group-hover:translate-x-1 transition-transform">
+                        View case studies →
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      </SectionReveal>
+
+      <SectionDivider />
+
+      {/* ── 11 · TESTIMONIALS (navy) ────────────────────────────────── */}
       <SectionReveal>
         <section className="bg-brand-navy py-20 lg:py-32">
           <div className="container mx-auto px-6 lg:px-12">
@@ -442,18 +543,56 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 10 · FINAL CTA (cream) ──────────────────────────────────── */}
+      {/* ── 12 · GALLERY PREVIEW (cream) ────────────────────────────── */}
       <SectionReveal>
-        <section className="relative bg-brand-offwhite py-20 lg:py-32 px-4 text-center overflow-hidden">
+        <section className="bg-brand-offwhite py-20 lg:py-32">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="mb-10 text-center">
+              <h2 className="text-4xl font-black text-brand-navy">
+                Recent <span className="font-serif italic font-normal">work</span> in the wild.
+              </h2>
+              <p className="text-brand-navy/80 text-lg mt-3 max-w-2xl mx-auto">
+                A glimpse at what we&apos;ve shipped to convenience, tobacco, QSR, grocery, and beverage chains.
+              </p>
+            </div>
+            <div className="columns-1 md:columns-2 lg:columns-4 gap-6 [&>*]:break-inside-avoid [&>*]:mb-6">
+              {GALLERY_PREVIEW.map((src, i) => (
+                <div key={src} className="relative overflow-hidden rounded-xl shadow-lg group cursor-pointer">
+                  <Image
+                    src={src}
+                    alt={`USG project ${i + 1}`}
+                    width={400}
+                    height={500}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-center mt-12">
+              <Link href="/gallery" className="group inline-flex items-center gap-2 text-brand-navy hover:gap-3 transition-all">
+                <span className="text-lg font-semibold">View all 23 projects</span>
+                <span className="text-2xl">→</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+      </SectionReveal>
+
+      <SectionDivider />
+
+      {/* ── 13 · FINAL CTA (navy) ───────────────────────────────────── */}
+      <SectionReveal>
+        <section className="relative bg-brand-navy py-20 lg:py-32 px-4 text-center text-white overflow-hidden">
           <ParticleBurst />
           <RevealWrapper className="relative max-w-3xl mx-auto">
-            <p className="text-brand-gold-dark text-xs font-semibold tracking-widest uppercase">
+            <p className="text-brand-gold text-xs font-semibold tracking-widest uppercase">
               Ready to simplify your signage program?
             </p>
-            <h2 className="text-brand-navy text-4xl font-black mt-3">
+            <h2 className="text-white text-4xl font-black mt-3">
               Get your free signage system <span className="font-serif italic font-normal">audit</span>
             </h2>
-            <p className="text-brand-navy/80 text-lg max-w-xl mx-auto mt-4 leading-relaxed">
+            <p className="text-white/80 text-lg max-w-xl mx-auto mt-4 leading-relaxed">
               30-minute call. We&apos;ll review your current signage program and show you exactly what USG can do for your locations.
             </p>
             <div className="mt-8 inline-block">
@@ -463,7 +602,7 @@ export default function HomePage() {
                 </Link>
               </MagneticWrapper>
             </div>
-            <p className="text-brand-navy/50 text-sm mt-4">
+            <p className="text-white/50 text-sm mt-4">
               No commitment. No sales pitch. Just a clear picture of what&apos;s possible.
             </p>
           </RevealWrapper>
