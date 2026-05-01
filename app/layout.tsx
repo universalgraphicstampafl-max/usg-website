@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
-import Nav            from "@/components/Nav";
-import Logo           from "@/components/Logo";
-import ScrollProgress from "@/components/ScrollProgress";
-import CursorGlow     from "@/components/CursorGlow";
+import Nav                  from "@/components/Nav";
+import Logo                 from "@/components/Logo";
+import ScrollProgress       from "@/components/ScrollProgress";
+import CursorGlow           from "@/components/CursorGlow";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 export const metadata: Metadata = {
   title: "Universal Signage & Graphics | USG",
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased min-h-screen flex flex-col">
+        <SmoothScrollProvider>
         <ScrollProgress />
         <CursorGlow />
         <Nav />
@@ -103,6 +105,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        </SmoothScrollProvider>
       </body>
     </html>
   );

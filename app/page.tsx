@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import FloatingHeroCluster from "@/components/FloatingHeroCluster";
 import HeroParticles    from "@/components/HeroParticles";
 import HeroMesh         from "@/components/HeroMesh";
 import HeroShapes       from "@/components/HeroShapes";
@@ -88,20 +89,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Hero photography */}
-            <div
-              className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden hidden md:block"
-              style={{ animation: "heroPhotoEnter 0.8s ease-out 0.4s both" }}
-            >
-              <Image
-                src="/images/hero/hero-primary.webp"
-                alt="Coca-Cola promotional signage at gas station storefront"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#1B2D5E]/40 to-transparent" />
+            {/* Floating hero image cluster */}
+            <div className="hidden md:flex justify-center items-center">
+              <FloatingHeroCluster />
             </div>
           </div>
         </div>
