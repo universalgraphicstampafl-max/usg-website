@@ -201,10 +201,7 @@ export default function HomePage() {
 
       {/* ── 2 · LOGO WALL / AUTHORITY BAR (cream) ───────────────────── */}
       <SectionReveal>
-        <section
-          className="bg-brand-offwhite py-20 lg:py-32 overflow-hidden"
-          style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
-        >
+        <section className="bg-brand-offwhite py-20 lg:py-32 overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12 text-center mb-10">
             <p className="text-xs font-semibold tracking-widest text-brand-sky uppercase mb-2">
               What we deliver
@@ -429,7 +426,7 @@ export default function HomePage() {
 
       {/* ── 9 · PAIN CARDS (navy) ──────────────────────────────────── */}
       <SectionReveal>
-        <section className="bg-brand-navy py-20 lg:py-32">
+        <section className="bg-brand-navy py-20 lg:py-32 overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12">
             <RevealWrapper className="mb-10">
               <TypewriterLabel

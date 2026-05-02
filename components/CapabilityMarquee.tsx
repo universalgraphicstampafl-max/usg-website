@@ -34,7 +34,7 @@ export default function CapabilityMarquee() {
       <motion.div
         className="flex gap-4"
         animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
       >
         {doubled.map((tile, i) => (
           <div key={`${tile.src}-${i}`} className="flex-shrink-0">
