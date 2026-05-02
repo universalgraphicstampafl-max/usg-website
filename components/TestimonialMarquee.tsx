@@ -26,14 +26,14 @@ export default function TestimonialMarquee({ testimonials }: TestimonialMarqueeP
       }}
     >
       <motion.div
-        className="flex gap-6"
+        className="flex gap-4 sm:gap-6"
         animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
       >
         {doubled.map((t, i) => (
           <div
             key={`${t.attribution}-${i}`}
-            className="flex-shrink-0 w-[340px] lg:w-[380px] bg-white rounded-2xl border border-brand-navy/10 shadow-lg p-6 lg:p-8"
+            className="flex-shrink-0 w-[280px] sm:w-[340px] lg:w-[380px] bg-white rounded-2xl border border-brand-navy/10 shadow-lg p-5 sm:p-6 lg:p-8"
           >
             <span
               className="text-brand-sky/25 text-8xl font-serif leading-none -mb-6 block"

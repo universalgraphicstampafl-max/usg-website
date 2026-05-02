@@ -40,7 +40,7 @@ const COLUMN_3: Tile[] = [
 
 const allImages: ImageMeta[] = [...COLUMN_1, ...COLUMN_2, ...COLUMN_3].map(({ src, alt }) => ({ src, alt }));
 
-const DURATION = 30;
+const DURATION = 50;
 
 function VerticalColumn({
   tiles,

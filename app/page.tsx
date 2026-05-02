@@ -178,12 +178,12 @@ export default function HomePage() {
                 className="flex flex-col md:flex-row gap-4 items-start mt-8 flex-wrap"
                 style={{ animation: "heroEnter 0.6s ease-out 0.8s both" }}
               >
-                <Link href="/book" className="btn-gold btn-gold-glow !px-8 !py-4 !rounded-xl text-base whitespace-nowrap">
+                <Link href="/book" className="btn-gold btn-gold-glow !px-8 !py-4 !rounded-xl text-base w-full sm:w-auto max-w-md sm:max-w-none mx-auto sm:mx-0 whitespace-normal sm:whitespace-nowrap text-center">
                   Book Your Free Campaign Analysis
                 </Link>
                 <Link
                   href="/success-stories"
-                  className="text-base font-semibold tracking-brand-wide text-white border-2 border-white/70 px-6 py-4 rounded whitespace-nowrap hover:bg-white/10 transition-colors duration-200"
+                  className="text-base font-semibold tracking-brand-wide text-white border-2 border-white/70 px-6 py-4 rounded w-full sm:w-auto max-w-md mx-auto sm:mx-0 whitespace-normal text-center hover:bg-white/10 transition-colors duration-200"
                 >
                   See our work
                 </Link>
@@ -550,7 +550,9 @@ export default function HomePage() {
                     alt={`USG project ${i + 1}`}
                     width={400}
                     height={500}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    loading="lazy"
+                    fetchPriority="low"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                 </div>
@@ -582,9 +584,9 @@ export default function HomePage() {
             <p className="text-white/80 text-lg max-w-xl mx-auto mt-4 leading-relaxed">
               30-minute call. We&apos;ll review your current signage program and show you exactly what USG can do for your locations.
             </p>
-            <div className="mt-8 inline-block">
-              <MagneticWrapper strength={8} radius={70}>
-                <Link href="/book" className="btn-gold btn-gold-glow text-lg !px-10 !py-4 !rounded-xl">
+            <div className="mt-8 flex justify-center items-center px-4 sm:px-0">
+              <MagneticWrapper strength={8} radius={70} className="!block w-full sm:!inline-block sm:w-auto sm:max-w-none max-w-md">
+                <Link href="/book" className="btn-gold text-lg !px-10 !py-4 !rounded-xl block sm:inline-block text-center">
                   Book Your Free Campaign Analysis →
                 </Link>
               </MagneticWrapper>
