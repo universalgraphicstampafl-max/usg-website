@@ -31,10 +31,9 @@ interface DropdownMenuProps {
   items: DropdownItem[];
   columns?: 1 | 2;
   onClose: () => void;
-  light?: boolean;
 }
 
-function DropdownMenu({ label, items, columns = 1, onClose, light = false }: DropdownMenuProps) {
+function DropdownMenu({ label, items, columns = 1, onClose }: DropdownMenuProps) {
   const [open, setOpen] = useState(false);
   const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -71,9 +70,8 @@ function DropdownMenu({ label, items, columns = 1, onClose, light = false }: Dro
     };
   }, []);
 
-  const linkClass = light
-    ? "flex items-center gap-1 text-sm font-semibold tracking-brand-tight text-white hover:text-brand-gold transition-colors duration-300 px-1 py-2 rounded focus-visible:outline-2 focus-visible:outline-brand-sky"
-    : "flex items-center gap-1 text-sm font-semibold tracking-brand-tight text-brand-navy hover:text-brand-gold transition-colors duration-300 px-1 py-2 rounded focus-visible:outline-2 focus-visible:outline-brand-sky";
+  const linkClass =
+    "flex items-center gap-1 text-sm font-medium tracking-brand-tight text-[#1B2D5E] hover:text-[#1B2D5E] transition-colors duration-300 px-1 py-2 rounded focus-visible:outline-2 focus-visible:outline-brand-sky";
 
   return (
     <div
@@ -132,17 +130,9 @@ function DropdownMenu({ label, items, columns = 1, onClose, light = false }: Dro
 }
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileIndustries, setMobileIndustries] = useState(false);
   const [mobileServices, setMobileServices] = useState(false);
-
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 60);
-    handler(); // set initial state
-    window.addEventListener("scroll", handler, { passive: true });
-    return () => window.removeEventListener("scroll", handler);
-  }, []);
 
   const closeMobile = () => {
     setMobileOpen(false);
@@ -150,24 +140,17 @@ export default function Nav() {
     setMobileServices(false);
   };
 
-  const navHeight = scrolled ? "h-[52px]" : "h-[64px]";
-
-  const headerBg = scrolled
-    ? "bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-[0_1px_20px_rgba(0,0,0,0.08)]"
-    : "bg-transparent";
-
-  const linkClass = scrolled
-    ? "nav-link-underline text-sm font-semibold tracking-brand-tight text-brand-navy hover:text-brand-gold transition-colors duration-300 px-3 py-2"
-    : "nav-link-underline text-sm font-semibold tracking-brand-tight text-white hover:text-brand-gold transition-colors duration-300 px-3 py-2";
+  const linkClass =
+    "nav-link-underline text-sm font-medium tracking-brand-tight text-[#1B2D5E] hover:text-[#1B2D5E] transition-colors duration-300 px-3 py-2";
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${navHeight} ${headerBg}`}
+        className="fixed top-0 left-0 right-0 z-40 h-[64px] bg-[#F5F4F0]/95 backdrop-blur-md border-b border-black/5"
       >
         <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between gap-4">
           {/* Logo */}
-          <Logo variant={scrolled ? "dark" : "light"} />
+          <Logo variant="dark" />
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
@@ -175,14 +158,12 @@ export default function Nav() {
               label="Industries"
               items={industries}
               onClose={() => {}}
-              light={!scrolled}
             />
             <DropdownMenu
               label="Services"
               items={services}
               columns={2}
               onClose={() => {}}
-              light={!scrolled}
             />
             <Link href="/success-stories" className={linkClass}>
               Success Stories
@@ -197,29 +178,17 @@ export default function Nav() {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-2">
-            <Link
-              href="/client-login"
-              className={
-                scrolled
-                  ? "btn-outline text-sm !px-4 !py-1.5"
-                  : "text-sm font-semibold tracking-brand-tight text-white border-2 border-white/70 px-4 py-1.5 rounded hover:bg-white hover:text-brand-navy transition-colors duration-200"
-              }
-            >
+            <Link href="/client-login" className="btn-outline">
               Client Login
             </Link>
-            <Link
-              href="/book"
-              className={scrolled ? "btn-navy text-sm !px-4 !py-1.5" : "btn-gold text-sm !px-4 !py-1.5"}
-            >
+            <Link href="/book" className="btn-gold !px-4 !py-1.5 text-sm">
               Book a Call
             </Link>
           </div>
 
           {/* Mobile hamburger */}
           <button
-            className={`lg:hidden p-2 rounded focus-visible:outline-2 focus-visible:outline-brand-sky transition-colors duration-300 ${
-              scrolled ? "text-brand-navy" : "text-white"
-            }`}
+            className="lg:hidden p-2 rounded focus-visible:outline-2 focus-visible:outline-brand-sky text-[#1B2D5E]"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}

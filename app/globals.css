@@ -57,7 +57,10 @@
   }
 
   .btn-outline {
-    @apply border-2 border-brand-navy text-brand-navy px-6 py-2.5 rounded font-semibold tracking-brand-wide hover:bg-brand-navy hover:text-white transition-colors duration-200;
+    @apply inline-flex items-center justify-center px-5 py-2 rounded-full border-2 border-[#1B2D5E] text-[#1B2D5E] font-semibold text-sm transition-all duration-200;
+  }
+  .btn-outline:hover {
+    @apply bg-[#F0A500] border-[#F0A500] text-white;
   }
 
   .section-heading { @apply text-3xl md:text-4xl font-bold text-brand-navy tracking-brand-tight mb-4; }
