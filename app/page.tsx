@@ -541,15 +541,14 @@ export default function HomePage() {
             </div>
             <div className="columns-1 md:columns-2 lg:columns-4 gap-6 [&>*]:break-inside-avoid [&>*]:mb-6">
               {GALLERY_PREVIEW.map((src, i) => (
-                <div key={src} className="relative overflow-hidden rounded-xl shadow-lg group cursor-pointer">
+                <div key={src} className="relative overflow-hidden rounded-xl shadow-lg group cursor-pointer bg-[#1B2D5E]/10">
                   <Image
                     src={src}
                     alt={`USG project ${i + 1}`}
                     width={400}
                     height={500}
-                    loading="lazy"
-                    fetchPriority="low"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    placeholder="empty"
+                    sizes="(max-width: 640px) 384px, (max-width: 1024px) 50vw, 25vw"
                     className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                 </div>
