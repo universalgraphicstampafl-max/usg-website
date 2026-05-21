@@ -25,42 +25,42 @@ const SERVICES = [
   {
     name: "Multi-Location POP Signage",
     href: "/services/signage-programs",
-    image: "/images/services/signage-programs.webp",
+    image: "/images/easy/cooler-doors-promotional-graphics4.webp",
     desc: "Monthly, bi-monthly, and quarterly promotional programs for chains of any size.",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /></svg>,
   },
   {
     name: "Graphic Design",
     href: "/services/graphic-design",
-    image: "/images/services/graphic-design.webp",
+    image: "/images/easy/brunch-a-frame-sandwich-board4.webp",
     desc: "In-house design team. No upcharges — ever. You pay for the finished product only.",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z" /><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /><path d="M2 2l7.586 7.586" /><circle cx="11" cy="11" r="2" /></svg>,
   },
   {
     name: "Custom Print Production",
     href: "/services/custom-print-production",
-    image: "/images/services/custom-print-production.webp",
+    image: "/images/easy/coke-pepsi-shelf-talkers4.webp",
     desc: "Digital and screen printing. Banners, cooler graphics, floor graphics, and more.",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9" /><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2" /><rect x="6" y="14" width="12" height="8" /></svg>,
   },
   {
     name: "Store Surveys",
     href: "/services/store-surveys",
-    image: "/images/services/store-surveys.webp",
+    image: "/images/easy/storefront-promo-window-cling4.webp",
     desc: "Precise store measurements and asset profiling for perfectly fitted signage.",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" /></svg>,
   },
   {
     name: "Direct Store Delivery",
     href: "/services/direct-store-delivery",
-    image: "/images/services/direct-store-delivery.webp",
+    image: "/images/easy/gas-pump-celsius-topper4.webp",
     desc: "Shipped to every store location. QR packing slip reorder system included.",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>,
   },
   {
     name: "Product Photography",
     href: "/services/product-photography",
-    image: "/images/services/product-photography.webp",
+    image: "/images/easy/qsr-hangry-burger-menu-board4.webp",
     desc: "In-house food and product photography to complement your programs.",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" /><circle cx="12" cy="13" r="4" /></svg>,
   },
@@ -85,31 +85,31 @@ const INDUSTRIES = [
   {
     name: "Convenience Retail",
     href: "/industries/convenience-retail",
-    image: "/images/industries/convenience-retail.webp",
+    image: "/images/easy/hero-coca-cola-sunset-station4.webp",
     desc: "Gas stations, c-stores, truck stops — branded for speed.",
   },
   {
     name: "Tobacco & Nicotine",
     href: "/industries/tobacco-nicotine",
-    image: "/images/industries/tobacco-nicotine.webp",
+    image: "/images/easy/newport-marlboro-pylon-toppers4.webp",
     desc: "Compliance-aware signage for regulated categories.",
   },
   {
     name: "QSR",
     href: "/industries/qsr",
-    image: "/images/industries/qsr.webp",
+    image: "/images/easy/suspended-menu-board4.webp",
     desc: "Menu boards, drive-thru, in-store — every touchpoint.",
   },
   {
     name: "Grocery",
     href: "/industries/grocery",
-    image: "/images/industries/grocery.webp",
+    image: "/images/easy/grab-go-fresh-eats-cooler4.webp",
     desc: "End-cap, shelf, cooler — moving product since 1985.",
   },
   {
     name: "Beverage",
     href: "/industries/beverage",
-    image: "/images/industries/beverage.webp",
+    image: "/images/easy/corona-find-your-beach-beer-cave4.webp",
     desc: "Cooler graphics and POP that pull buyers from the aisle.",
   },
 ];
@@ -474,7 +474,7 @@ export default function HomePage() {
           {/* Full-bleed background image */}
           <div className="absolute inset-0">
             <Image
-              src="/images/gallery/07-storefront-window-cling.webp"
+              src="/images/easy/storefront-vinyl-lettering4.webp"
               alt="Chain retail location"
               fill
               sizes="100vw"

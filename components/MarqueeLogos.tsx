@@ -4,18 +4,18 @@ import Image from "next/image";
 import { useRef } from "react";
 
 const ITEMS = [
-  { src: "/images/marquee/01-grab-go-cooler.webp",  caption: "Grab-and-Go Coolers" },
-  { src: "/images/marquee/02-menu-signs.webp",      caption: "Promotional Menu Signs" },
-  { src: "/images/marquee/03-poster-frame.webp",    caption: "Outdoor Poster Frames" },
-  { src: "/images/marquee/04-floor-display.webp",   caption: "POP Floor Displays" },
-  { src: "/images/marquee/05-pole-sign.webp",       caption: "Pole-Mounted Signs" },
-  { src: "/images/marquee/06-a-frame.webp",         caption: "A-Frame Sandwich Boards" },
-  { src: "/images/marquee/07-suspended-menu.webp",  caption: "Suspended Menu Boards" },
-  { src: "/images/marquee/08-flag-formats.webp",    caption: "Promotional Flags" },
-  { src: "/images/marquee/09-shelf-talkers.webp",   caption: "Shelf Talkers" },
-  { src: "/images/marquee/10-pylon-toppers.webp",   caption: "Pylon Toppers" },
-  { src: "/images/marquee/11-vinyl-lettering.webp", caption: "Storefront Vinyl" },
-  { src: "/images/marquee/12-qsr-pylon.webp",       caption: "Pylon Identification" },
+  { src: "/images/easy/storefront-vinyl-lettering3.webp",    caption: "Storefront Vinyl" },
+  { src: "/images/easy/iced-coffee-dispenser3.webp",         caption: "Dispenser Graphics" },
+  { src: "/images/easy/newport-marlboro-pylon-toppers3.webp", caption: "Pylon Toppers" },
+  { src: "/images/easy/feather-flag-circle-k-hot-food3.webp", caption: "Promotional Flags" },
+  { src: "/images/easy/storefront-promo-window-cling3.webp", caption: "Window Clings" },
+  { src: "/images/easy/hero-coca-cola-sunset-station3.webp", caption: "Bollard Signs" },
+  { src: "/images/easy/grab-go-fresh-eats-cooler3.webp",     caption: "Cooler Branding" },
+  { src: "/images/easy/cooler-doors-promotional-graphics3.webp", caption: "Cooler Doors" },
+  { src: "/images/easy/corona-find-your-beach-beer-cave3.webp", caption: "Beer Caves" },
+  { src: "/images/easy/suspended-menu-board3.webp",          caption: "Menu Boards" },
+  { src: "/images/easy/brunch-a-frame-sandwich-board3.webp", caption: "Sidewalk Signs" },
+  { src: "/images/easy/coke-pepsi-shelf-talkers3.webp",      caption: "Price Talkers" },
 ];
 
 export default function MarqueeLogos() {

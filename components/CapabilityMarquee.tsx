@@ -4,18 +4,18 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const TILES = [
-  { src: "/images/marquee/01-grab-go-cooler.webp",  caption: "Grab & Go Cooler" },
-  { src: "/images/marquee/02-menu-signs.webp",      caption: "Menu Signs" },
-  { src: "/images/marquee/03-poster-frame.webp",    caption: "Poster Frame" },
-  { src: "/images/marquee/04-floor-display.webp",   caption: "Floor Display" },
-  { src: "/images/marquee/05-pole-sign.webp",       caption: "Pole Sign" },
-  { src: "/images/marquee/06-a-frame.webp",         caption: "A-Frame" },
-  { src: "/images/marquee/07-suspended-menu.webp",  caption: "Suspended Menu" },
-  { src: "/images/marquee/08-flag-formats.webp",    caption: "Promotional Flags" },
-  { src: "/images/marquee/09-shelf-talkers.webp",   caption: "Shelf Talkers" },
-  { src: "/images/marquee/10-pylon-toppers.webp",   caption: "Pylon Toppers" },
-  { src: "/images/marquee/11-vinyl-lettering.webp", caption: "Vinyl Lettering" },
-  { src: "/images/marquee/12-qsr-pylon.webp",       caption: "QSR Pylon" },
+  { src: "/images/easy/hero-coca-cola-sunset-station2.webp", caption: "Storefront Signage" },
+  { src: "/images/easy/grab-go-fresh-eats-cooler2.webp",     caption: "Grab & Go Coolers" },
+  { src: "/images/easy/cooler-doors-promotional-graphics2.webp", caption: "Cooler Door Graphics" },
+  { src: "/images/easy/suspended-menu-board2.webp",          caption: "Suspended Menus" },
+  { src: "/images/easy/brunch-a-frame-sandwich-board2.webp", caption: "A-Frame Boards" },
+  { src: "/images/easy/qsr-hangry-burger-menu-board2.webp",  caption: "Menu Boards" },
+  { src: "/images/easy/corona-find-your-beach-beer-cave2.webp", caption: "Beer Cave Headers" },
+  { src: "/images/easy/coke-pepsi-shelf-talkers2.webp",      caption: "Shelf Talkers" },
+  { src: "/images/easy/fiji-stay-hydrated-pole-sign2.webp",  caption: "Pole Signs" },
+  { src: "/images/easy/gas-pump-celsius-topper2.webp",       caption: "Pump Toppers" },
+  { src: "/images/easy/hot-dog-combo-menu-signs2.webp",      caption: "Combo Menus" },
+  { src: "/images/easy/karma-wellness-poster-frame2.webp",   caption: "Poster Frames" },
 ];
 
 export default function CapabilityMarquee() {
