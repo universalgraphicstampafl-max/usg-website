@@ -10,7 +10,7 @@ export default function QSRPage() {
     <IndustryPage
       title="Signage programs built for the pace of quick service."
       subtitle="Industry · QSR & Fast Casual"
-      image="/images/industries/qsr.webp"
+      image="/images/easy/qsr-hangry-burger-menu-board.webp"
       description="Monthly promotional cycles across hundreds of locations. USG handles design, production, and direct-to-location delivery for QSR chains of any size."
       challenges={[
         "Tight promotional windows with no room for error",

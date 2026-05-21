@@ -10,7 +10,7 @@ export default function GroceryPage() {
     <IndustryPage
       title="In-store signage programs that keep up with your promotions."
       subtitle="Industry · Grocery & Supermarket"
-      image="/images/industries/grocery.webp"
+      image="/images/easy/grab-go-fresh-eats-cooler.webp"
       description="Weekly and monthly promotional signage for grocery chains — designed, produced, and shipped direct to every store location."
       challenges={[
         "High-frequency promotional cycles requiring fast turnaround",

@@ -10,7 +10,7 @@ export default function ConvenienceRetailPage() {
     <IndustryPage
       title="Convenience Retail"
       subtitle="Industry Focus"
-      image="/images/industries/convenience-retail.webp"
+      image="/images/easy/storefront-promo-window-cling.webp"
       description="Convenience stores are high-traffic, high-impulse environments. USG delivers fast-turn, compliant signage that drives category performance and keeps shelves looking sharp — chain-wide."
       challenges={[
         "High SKU velocity requiring frequent graphic updates",

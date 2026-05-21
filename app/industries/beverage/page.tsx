@@ -10,7 +10,7 @@ export default function BeveragePage() {
     <IndustryPage
       title="Beverage"
       subtitle="Industry Focus"
-      image="/images/industries/beverage.webp"
+      image="/images/easy/corona-find-your-beach-beer-cave.webp"
       description="The cold vault and warm shelf are your brand's most valuable real estate. USG creates high-impact beverage graphics — from cooler door clings to floor displays — that stop shoppers and drive velocity."
       challenges={[
         "Standing out in densely packed cold vault environments",
