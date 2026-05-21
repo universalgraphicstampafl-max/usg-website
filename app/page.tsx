@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import HeroScrollingColumns from "@/components/HeroScrollingColumns";
@@ -416,6 +417,57 @@ export default function HomePage() {
 
       <SectionDivider />
 
+      {/* ── 6b · EASY & HASSLE-FREE (navy, photo cards) ─────────────── */}
+      <SectionReveal>
+        <section className="bg-brand-navy py-20 lg:py-32 overflow-hidden">
+          <div className="container mx-auto px-6 lg:px-12">
+            <RevealWrapper className="text-center mb-12 lg:mb-16">
+              <TypewriterLabel
+                text="Easy & hassle-free"
+                className="text-xs tracking-widest font-semibold text-brand-sky uppercase"
+              />
+              <h2 className="text-4xl lg:text-5xl font-black text-white mt-2 leading-tight">
+                World-class signage.{" "}
+                <span className="font-serif italic font-normal text-brand-gold">Smarter systems.</span>
+              </h2>
+            </RevealWrapper>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  delay: 0,
+                  image: "/images/easy/snack-fresh-eat-well-cooler.webp",
+                  alt: "Branded grab-and-go cooler with custom header and base graphics in a convenience store",
+                  title: "In-house design & print",
+                  body: "Design and production under one roof. No outsourcing, no middlemen, no delays between concept and shelf.",
+                  strip: "navy" as const,
+                },
+                {
+                  delay: 0.12,
+                  image: "/images/easy/hanks-bbq-pylon-sign.webp",
+                  alt: "Custom illuminated pylon sign for a BBQ restaurant",
+                  title: "Store-surveyed precision",
+                  body: "We measure every location so signage fits perfectly the first time — exact sizes, exact placement.",
+                  strip: "marigold" as const,
+                },
+                {
+                  delay: 0.24,
+                  image: "/images/easy/three-flag-formats-showroom.webp",
+                  alt: "Three custom-printed feather flags in different formats",
+                  title: "Built-in reorder system",
+                  body: "QR packing-slip reordering. One scan and the next run ships — no paperwork, no re-briefing.",
+                  strip: "sky" as const,
+                },
+              ].map((card) => (
+                <EasyCard key={card.title} {...card} />
+              ))}
+            </div>
+          </div>
+        </section>
+      </SectionReveal>
+
+      <SectionDivider />
+
       {/* ── 7 · CONTEXT STRIP (navy) ────────────────────────────────── */}
       <SectionReveal>
         <section className="relative py-32 lg:py-40 overflow-hidden">
@@ -610,6 +662,65 @@ export default function HomePage() {
         </section>
       </SectionReveal>
 
+    </div>
+  );
+}
+
+/* ─── EasyCard: photo card with colored bottom strip (Superside-style) ─── */
+function EasyCard({
+  image, alt, title, body, strip, delay,
+}: {
+  image: string; alt: string; title: string; body: string;
+  strip: "navy" | "marigold" | "sky"; delay: number;
+}) {
+  const ref      = useRef<HTMLDivElement>(null);
+  const firedRef = useRef(false);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !firedRef.current) {
+        firedRef.current = true;
+        setTimeout(() => setVisible(true), delay * 1000);
+        io.disconnect();
+      }
+    }, { threshold: 0.2 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [delay]);
+
+  const stripStyles = {
+    navy:     { bg: "bg-brand-navy-dark", title: "text-white",      body: "text-white/70" },
+    marigold: { bg: "bg-brand-gold",      title: "text-brand-navy", body: "text-brand-navy/80" },
+    sky:      { bg: "bg-brand-sky",       title: "text-brand-navy", body: "text-brand-navy/80" },
+  }[strip];
+
+  return (
+    <div
+      ref={ref}
+      className="rounded-2xl overflow-hidden bg-brand-navy-dark h-full flex flex-col"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(32px)",
+        transition: "opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1)",
+      }}
+    >
+      <div className="relative w-full aspect-[4/3] overflow-hidden">
+        <Image
+          src={image}
+          alt={alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          loading="lazy"
+          className="object-cover"
+        />
+      </div>
+      <div className={`${stripStyles.bg} px-6 py-5 flex-1`}>
+        <h3 className={`font-bold text-lg ${stripStyles.title} mb-1.5`}>{title}</h3>
+        <p className={`text-sm leading-relaxed ${stripStyles.body}`}>{body}</p>
+      </div>
     </div>
   );
 }
