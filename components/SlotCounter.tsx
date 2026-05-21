@@ -6,11 +6,12 @@ interface SlotCounterProps {
   target: number;
   suffix: string;
   thousands?: boolean;
+  decimals?: number;
   delay?: number;
   className?: string;
 }
 
-export default function SlotCounter({ target, suffix, thousands = false, delay = 0, className = "" }: SlotCounterProps) {
+export default function SlotCounter({ target, suffix, thousands = false, decimals = 0, delay = 0, className = "" }: SlotCounterProps) {
   const [display, setDisplay] = useState(0);
   const [locked,  setLocked]  = useState(false);
   const ref       = useRef<HTMLSpanElement>(null);
@@ -31,7 +32,7 @@ export default function SlotCounter({ target, suffix, thousands = false, delay =
 
         const spinner = setInterval(() => {
           elapsed += TICK;
-          setDisplay(Math.round(Math.random() * target * 1.4 + target * 0.1));
+          setDisplay(decimals > 0 ? (Math.random() * target * 1.4 + target * 0.1) : Math.round(Math.random() * target * 1.4 + target * 0.1));
           if (elapsed >= SPIN_DURATION) {
             clearInterval(spinner);
             // 3-step slow landing
@@ -54,9 +55,13 @@ export default function SlotCounter({ target, suffix, thousands = false, delay =
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [target, delay]);
+  }, [target, delay, decimals]);
 
-  const fmt = (n: number) => thousands ? Math.abs(n).toLocaleString("en-US") : String(Math.abs(n));
+  const fmt = (n: number) => {
+    const abs = Math.abs(n);
+    if (decimals > 0) return abs.toFixed(decimals);
+    return thousands ? abs.toLocaleString("en-US") : String(Math.round(abs));
+  };
 
   return (
     <span

@@ -225,28 +225,66 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 3 · STATS STRIP (navy) ──────────────────────────────────── */}
+      {/* ── 3 · SUCCESS IN NUMBERS (navy) ───────────────────────────── */}
       <SectionReveal>
-        <section className="bg-brand-navy py-20 lg:py-32 text-white">
+        <section className="bg-brand-navy py-20 lg:py-32 text-white overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="flex justify-center gap-12 md:gap-20 flex-wrap text-center">
+            <RevealWrapper className="text-center mb-14 lg:mb-20">
+              <p className="text-xs tracking-widest font-semibold text-brand-sky uppercase mb-3">
+                Success in numbers
+              </p>
+              <h2 className="text-4xl lg:text-5xl font-black text-white max-w-3xl mx-auto leading-tight">
+                The best return on your <span className="font-serif italic font-normal text-brand-gold">signage investment</span>.
+              </h2>
+            </RevealWrapper>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 lg:gap-x-12">
               <RevealWrapper delay={0}>
-                <p className="text-5xl font-black text-white">
-                  <SlotCounter target={10} suffix="%" delay={0} />
-                </p>
-                <p className="text-sm text-white/60 mt-1">Average sales increase</p>
+                <div className="border-l-2 border-brand-gold/40 pl-5">
+                  <p className="text-5xl lg:text-6xl font-black text-brand-gold leading-none">
+                    <SlotCounter target={10} suffix="%" delay={0} />
+                  </p>
+                  <p className="text-base font-bold text-white mt-3">Average sales increase</p>
+                  <p className="text-sm text-brand-sky/90 mt-1 leading-relaxed">
+                    Clients report a 10% lift in product sales after partnering with USG.
+                  </p>
+                </div>
               </RevealWrapper>
+
               <RevealWrapper delay={0.1}>
-                <p className="text-5xl font-black text-brand-gold">
-                  <SlotCounter target={30} suffix="+" delay={0.3} />
-                </p>
-                <p className="text-sm text-white/60 mt-1">Years in business</p>
+                <div className="border-l-2 border-brand-gold/40 pl-5">
+                  <p className="text-5xl lg:text-6xl font-black text-brand-gold leading-none">
+                    <SlotCounter target={30} suffix="+" delay={0.3} />
+                  </p>
+                  <p className="text-base font-bold text-white mt-3">Years in business</p>
+                  <p className="text-sm text-brand-sky/90 mt-1 leading-relaxed">
+                    Three decades of established, credible retail signage expertise.
+                  </p>
+                </div>
               </RevealWrapper>
+
               <RevealWrapper delay={0.2}>
-                <p className="text-5xl font-black text-white">
-                  <SlotCounter target={2000} suffix="+" thousands delay={0.6} />
-                </p>
-                <p className="text-sm text-white/60 mt-1">Store locations served</p>
+                <div className="border-l-2 border-brand-gold/40 pl-5">
+                  <p className="text-5xl lg:text-6xl font-black text-brand-gold leading-none">
+                    <SlotCounter target={2000} suffix="+" thousands delay={0.6} />
+                  </p>
+                  <p className="text-base font-bold text-white mt-3">Retail locations served</p>
+                  <p className="text-sm text-brand-sky/90 mt-1 leading-relaxed">
+                    Signage shipped direct to store across 28 states nationwide.
+                  </p>
+                </div>
+              </RevealWrapper>
+
+              <RevealWrapper delay={0.3}>
+                <div className="border-l-2 border-brand-gold/40 pl-5">
+                  <p className="text-5xl lg:text-6xl font-black text-brand-gold leading-none">
+                    <SlotCounter target={99.7} suffix="%" decimals={1} delay={0.9} />
+                  </p>
+                  <p className="text-base font-bold text-white mt-3">Packing accuracy</p>
+                  <p className="text-sm text-brand-sky/90 mt-1 leading-relaxed">
+                    The right products, in the right box, 99.7% of the time.
+                  </p>
+                </div>
               </RevealWrapper>
             </div>
           </div>
