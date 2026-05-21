@@ -21,7 +21,7 @@ export default function HeroMesh() {
         style={{
           width: "55%", height: "65%",
           bottom: "0%", right: "-5%",
-          background: "radial-gradient(ellipse, rgba(240,165,0,0.12) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(239,165,30,0.12) 0%, transparent 70%)",
           filter: "blur(90px)",
           animation: "meshOrb2 18s ease-in-out infinite",
           willChange: "transform",

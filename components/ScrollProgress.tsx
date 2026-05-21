@@ -23,7 +23,7 @@ export default function ScrollProgress() {
       <div
         ref={barRef}
         className="h-full"
-        style={{ background: "linear-gradient(to right, #3AABDC, #F0A500)", width: "0%" }}
+        style={{ background: "linear-gradient(to right, #5CB8E4, #EFA51E)", width: "0%" }}
       />
     </div>
   );

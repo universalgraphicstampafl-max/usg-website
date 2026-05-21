@@ -24,7 +24,7 @@
     transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     will-change: transform;
   }
-  .btn-gold:hover { background-color: #C78A00; }
+  .btn-gold:hover { background-color: #C8830A; }
   .btn-gold::before {
     content: '';
     position: absolute;
@@ -42,8 +42,8 @@
   .btn-gold-glow:hover {
     animation-play-state: paused;
     transform: scale(1.04) !important;
-    background-color: #C78A00 !important;
-    box-shadow: 0 0 0 12px rgba(240,165,0,0.15), 0 8px 32px rgba(240,165,0,0.4) !important;
+    background-color: #C8830A !important;
+    box-shadow: 0 0 0 12px rgba(239,165,30,0.15), 0 8px 32px rgba(239,165,30,0.4) !important;
   }
 
   .btn-pulse {
@@ -54,14 +54,14 @@
   .btn-pulse:hover {
     animation-play-state: paused;
     transform: scale(1.04) !important;
-    background-color: #C78A00 !important;
+    background-color: #C8830A !important;
   }
 
   .btn-outline {
     @apply inline-flex items-center justify-center px-5 py-2 rounded-full border-2 border-[#1B2D5E] text-[#1B2D5E] font-semibold text-sm transition-all duration-200;
   }
   .btn-outline:hover {
-    @apply bg-[#F0A500] border-[#F0A500] text-white;
+    @apply bg-[#EFA51E] border-[#EFA51E] text-white;
   }
 
   .section-heading { @apply text-3xl md:text-4xl font-bold text-brand-navy tracking-brand-tight mb-4; }
@@ -78,7 +78,7 @@
     left: 50%;
     width: 100%;
     height: 2px;
-    background: #F0A500;
+    background: #EFA51E;
     transform: translateX(-50%) scaleX(0);
     transform-origin: center;
     transition: transform 0.25s ease;
@@ -143,8 +143,8 @@
 
 /* ─── Btn gold glow pulse ─────────────────────────────────────────── */
 @keyframes goldGlow {
-  0%, 100% { box-shadow: 0 0 0 0   rgba(240,165,0,0.5); }
-  50%      { box-shadow: 0 0 0 16px rgba(240,165,0,0);  }
+  0%, 100% { box-shadow: 0 0 0 0   rgba(239,165,30,0.5); }
+  50%      { box-shadow: 0 0 0 16px rgba(239,165,30,0);  }
 }
 
 /* ─── CTA pulse ───────────────────────────────────────────────────── */
@@ -169,7 +169,7 @@
 /* ─── Number glow pulse (hero counter strip) ─────────────────────── */
 @keyframes numberGlow {
   0%, 70%, 100% { text-shadow: none; }
-  40%           { text-shadow: 0 0 20px rgba(240,165,0,0.7), 0 0 40px rgba(240,165,0,0.3); }
+  40%           { text-shadow: 0 0 20px rgba(239,165,30,0.7), 0 0 40px rgba(239,165,30,0.3); }
 }
 .number-glow { animation: numberGlow 4s ease-in-out infinite; }
 

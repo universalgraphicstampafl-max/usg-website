@@ -34,7 +34,7 @@ export default function IndustryPage({
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#1B2D5E]/85 via-[#1B2D5E]/60 to-[#1B2D5E]/30" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex flex-col justify-center pt-[64px]">
-          <p className="text-[#F0A500] text-sm font-semibold tracking-wider uppercase mb-2">{subtitle}</p>
+          <p className="text-brand-gold text-sm font-semibold tracking-wider uppercase mb-2">{subtitle}</p>
           <h1 className="text-white text-5xl md:text-6xl font-bold">{title}</h1>
           <p className="text-white/90 text-xl mt-4 max-w-2xl">{description}</p>
         </div>
