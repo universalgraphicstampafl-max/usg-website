@@ -89,6 +89,33 @@
 @layer utilities {
   .scrollbar-none { scrollbar-width: none; }
   .scrollbar-none::-webkit-scrollbar { display: none; }
+
+  /* Hero marigold panel (responsive) */
+  .hero-text-col::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -120px;
+    bottom: -48px;
+    left: -100px;
+    right: -100px;
+    background: #EFA51E;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 90px), transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 90px), transparent 100%);
+  }
+  @media (min-width: 1024px) {
+    .hero-text-col::before { display: none; }
+    .hero-panel {
+      background: #EFA51E;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 120px) 100%, 0 100%);
+    }
+    .hero-fade {
+      left: calc(42% - 120px);
+      width: 240px;
+      background: linear-gradient(to right, rgba(239,165,30,0.55) 0%, rgba(239,165,30,0) 100%);
+      clip-path: polygon(120px 0, 100% 0, 100% 100%, 0 100%);
+    }
+  }
 }
 
 /* ─── Mesh orbs ───────────────────────────────────────────────────── */

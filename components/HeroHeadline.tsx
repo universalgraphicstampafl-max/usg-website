@@ -13,13 +13,13 @@ export default function HeroHeadline() {
 
   return (
     <h1
-      className="text-5xl md:text-6xl font-extrabold tracking-brand-tight leading-tight mb-6 text-white"
+      className="text-5xl md:text-6xl font-extrabold tracking-brand-tight leading-tight mb-6 text-brand-navy"
       style={{ perspective: "1000px" }}
     >
       {PHRASES.map((phrase, p) => {
         const words = phrase.text.split(" ");
         return (
-          <span key={p} className={phrase.italic ? "font-serif italic font-normal text-white" : ""}>
+          <span key={p} className={phrase.italic ? "font-serif italic font-normal text-brand-navy" : ""}>
             {words.map((word) => {
               const i = wordIndex++;
               return (

@@ -139,25 +139,8 @@ export default function HomePage() {
         style={{ background: "#1B2D5E" }}
       >
         {/* Marigold split panel (desktop only) */}
-        <div
-          aria-hidden="true"
-          className="hidden lg:block absolute inset-y-0 left-0 z-0"
-          style={{
-            width: "42%",
-            background: "#EFA51E",
-            clipPath: "polygon(0 0, 100% 0, calc(100% - 120px) 100%, 0 100%)",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="hidden lg:block absolute inset-y-0 z-0"
-          style={{
-            left: "calc(42% - 120px)",
-            width: "240px",
-            background: "linear-gradient(to right, rgba(239,165,30,0.55) 0%, rgba(239,165,30,0) 100%)",
-            clipPath: "polygon(120px 0, 100% 0, 100% 100%, 0 100%)",
-          }}
-        />
+        <div aria-hidden="true" className="hero-panel hidden lg:block absolute z-0 inset-y-0 left-0 w-[42%]" />
+        <div aria-hidden="true" className="hero-fade hidden lg:block absolute z-0 inset-y-0" />
 
         <HeroMesh />
         <HeroShapes />
@@ -166,7 +149,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-6xl mx-auto px-6 py-28 md:py-36">
           <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[1fr_680px] lg:gap-12 lg:items-center">
 
-            <div>
+            <div className="hero-text-col relative">
               <p
                 className="section-sub mb-4 text-brand-navy"
                 style={{ animation: "heroEnter 0.6s ease-out 0.1s both" }}
@@ -177,7 +160,7 @@ export default function HomePage() {
               <HeroHeadline />
 
               <p
-                className="text-lg md:text-xl text-white/85 lg:text-brand-navy/90 max-w-xl leading-relaxed mb-6"
+                className="text-lg md:text-xl text-brand-navy/90 max-w-xl leading-relaxed mb-6"
                 style={{ animation: "heroEnter 0.7s ease-out 0.5s both" }}
               >
                 We design, produce, and deliver promotional signage programs for convenience, tobacco,
@@ -186,13 +169,13 @@ export default function HomePage() {
               </p>
 
               <div
-                className="inline-flex gap-6 bg-white/5 border border-white/10 lg:bg-brand-navy/10 lg:border-brand-navy/20 rounded-xl px-5 py-3 mb-8 text-sm"
+                className="inline-flex gap-6 bg-brand-navy/10 border border-brand-navy/20 rounded-xl px-5 py-3 mb-8 text-sm"
                 style={{ animation: "heroEnter 0.6s ease-out 0.65s both" }}
               >
-                <span className="text-white/60 lg:text-brand-navy/70">Serving</span>
-                <span className="font-bold text-brand-gold lg:text-brand-navy number-glow">2,000+ locations</span>
-                <span className="text-white/60 lg:text-brand-navy/70">across</span>
-                <span className="font-bold text-white lg:text-brand-navy number-glow" style={{ animationDelay: "2s" }}>28 states</span>
+                <span className="text-brand-navy/70">Serving</span>
+                <span className="font-bold text-brand-navy number-glow">2,000+ locations</span>
+                <span className="text-brand-navy/70">across</span>
+                <span className="font-bold text-brand-navy number-glow" style={{ animationDelay: "2s" }}>28 states</span>
               </div>
 
               <div
@@ -204,7 +187,7 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="/success-stories"
-                  className="text-base font-semibold tracking-brand-wide text-white border-2 border-white/70 lg:text-brand-navy lg:border-brand-navy/70 px-6 py-4 rounded w-full sm:w-auto max-w-md mx-auto sm:mx-0 whitespace-normal text-center hover:bg-white/10 lg:hover:bg-brand-navy/10 transition-colors duration-200"
+                  className="text-base font-semibold tracking-brand-wide text-brand-navy border-2 border-brand-navy/70 px-6 py-4 rounded w-full sm:w-auto max-w-md mx-auto sm:mx-0 whitespace-normal text-center hover:bg-brand-navy/10 transition-colors duration-200"
                 >
                   See our work
                 </Link>
