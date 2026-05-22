@@ -31,11 +31,11 @@ export type Hotspot = { id: string; cat: string; title: string; loc: string; pos
 
 /* ============================= hotspot data ============================= */
 const EXTERIOR_HOTSPOTS: Hotspot[] = [
-  { id: "pylon", cat: "Pylon", title: "Roadside Pylon Sign", loc: "Lot entrance", pos: [-14, 9.8, 9], desc: "The tall freestanding sign that pulls drivers off the road — fuel pricing, brand marks, and promotions visible from a distance.", usg: "USG fabricates and installs illuminated pylon faces and price-pole inserts, surveyed to your exact cabinet dimensions.", img: `${IMG}/marlboro-gas-pump-promo.webp` },
+  { id: "pylon", cat: "Pylon", title: "Roadside Pylon Sign", loc: "Lot entrance", pos: [-17, 9.8, 16], desc: "The tall freestanding sign that pulls drivers off the road — fuel pricing, brand marks, and promotions visible from a distance.", usg: "USG fabricates and installs illuminated pylon faces and price-pole inserts, surveyed to your exact cabinet dimensions.", img: `${IMG}/marlboro-gas-pump-promo.webp` },
   { id: "pump", cat: "Gas Pump", title: "Pump Topper Graphics", loc: "Fuel island", pos: [-1.8, 3.0, 8.5], desc: "High-dwell-time advertising right at the pump — drivers stare at this for 3-5 minutes per fill.", usg: "USG produces weatherproof pump-topper inserts and dispenser wraps that snap into standard frames.", img: `${IMG}/gas-pump-celsius-topper.webp` },
   { id: "window", cat: "Storefront", title: "Window Clings", loc: "Storefront glass", pos: [-1.2, 2.6, 4.7], desc: "Promotional clings and price callouts on entrance doors and front glass — the last message before a customer walks in.", usg: "USG prints removable static and adhesive clings, die-cut to any shape, with easy seasonal swap-out.", img: `${IMG}/storefront-promo-window-cling.webp` },
   { id: "aframe", cat: "A-Frame", title: "Sidewalk A-Frame", loc: "Entrance walkway", pos: [6.5, 2.0, 5.4], desc: "Portable sidewalk boards that capture foot traffic with daily specials.", usg: "USG supplies durable A-frame hardware with printed, swappable insert panels.", img: `${IMG}/brunch-a-frame-sandwich-board.webp` },
-  { id: "flag", cat: "Flag", title: "Feather Flags", loc: "Lot perimeter", pos: [-11, 3.8, 5.5], desc: "Tall feather and blade flags that create motion and draw eyes from the road.", usg: "USG prints feather flags in multiple formats with poles, bases, and ground stakes.", img: `${IMG}/feather-flag-circle-k-hot-food.webp` },
+  { id: "flag", cat: "Flag", title: "Feather Flags", loc: "Lot perimeter", pos: [-13, 3.8, 15.5], desc: "Tall feather and blade flags that create motion and draw eyes from the road.", usg: "USG prints feather flags in multiple formats with poles, bases, and ground stakes.", img: `${IMG}/feather-flag-circle-k-hot-food2.webp` },
 ];
 const INTERIOR_HOTSPOTS: Hotspot[] = [
   { id: "beercave_h", cat: "Cooler Graphics", title: "Beer Cave Header", loc: "Walk-in cooler entrance", pos: [8.5, 4.0, -4.5], desc: "The lit header band above the walk-in beer cave — a category destination cue visible across the store.", usg: "USG builds illuminated beer-cave headers and entry surrounds, sized to the opening.", img: `${IMG}/corona-find-your-beach-beer-cave.webp` },
@@ -156,7 +156,7 @@ function ExteriorScene() {
           </group>
         ))}
       </group>
-      <group position={[-14, 0, 9]}>
+      <group position={[-17, 0, 16]}>
         <Cyl args={[0.3, 0.3, 6.8]} position={[0, 3.4, 0]} color={C.dkmetal} />
         <Box args={[3.2, 3.4, 0.55]} position={[0, 7.3, 0]} color={C.sevWhite} />
         <Box args={[2.8, 1.6, 0.12]} position={[0, 8.0, 0.3]} color={C.sevGreen} />
@@ -165,7 +165,7 @@ function ExteriorScene() {
         <Box args={[2.8, 1.05, 0.12]} position={[0, 6.35, 0.3]} color={C.sevRed} />
         <Box args={[2.3, 0.62, 0.1]} position={[0, 6.35, 0.37]} color={C.sevWhite} />
       </group>
-      {([[-11, 5], [-11.9, 5.7], [-10.1, 5.7]] as [number, number][]).map(([x, z], i) => (
+      {([[-13, 15], [-13.9, 15.7], [-12.1, 15.7]] as [number, number][]).map(([x, z], i) => (
         <group key={`flag${i}`}>
           <Cyl args={[0.05, 0.05, 4.2]} position={[x, 2.1, z]} color="#dddddd" />
           <Box args={[0.08, 2.5, 0.95]} position={[x, 3.2, z + 0.5]} rotation={[0, 0.1, 0]} color={[C.sevGreen, C.sevRed, C.sevOrange][i]} />
