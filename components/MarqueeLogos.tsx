@@ -6,7 +6,7 @@ import { useRef } from "react";
 const ITEMS = [
   { src: "/images/easy/storefront-vinyl-lettering3.webp",    caption: "Storefront Vinyl" },
   { src: "/images/easy/iced-coffee-dispenser3.webp",         caption: "Dispenser Graphics" },
-  { src: "/images/easy/newport-marlboro-pylon-toppers3.webp", caption: "Pylon Toppers" },
+  { src: "/images/easy/marlboro-gas-pump-promo3.webp", caption: "Pylon Toppers" },
   { src: "/images/easy/feather-flag-circle-k-hot-food3.webp", caption: "Promotional Flags" },
   { src: "/images/easy/storefront-promo-window-cling3.webp", caption: "Window Clings" },
   { src: "/images/easy/hero-coca-cola-sunset-station3.webp", caption: "Bollard Signs" },

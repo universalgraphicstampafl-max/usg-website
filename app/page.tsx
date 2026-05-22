@@ -91,7 +91,7 @@ const INDUSTRIES = [
   {
     name: "Tobacco & Nicotine",
     href: "/industries/tobacco-nicotine",
-    image: "/images/easy/newport-marlboro-pylon-toppers4.webp",
+    image: "/images/easy/marlboro-gas-pump-promo.webp",
     desc: "Compliance-aware signage for regulated categories.",
   },
   {

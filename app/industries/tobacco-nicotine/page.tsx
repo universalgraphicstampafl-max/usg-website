@@ -10,7 +10,7 @@ export default function TobaccoNicotinePage() {
     <IndustryPage
       title="Tobacco & Nicotine"
       subtitle="Industry Focus"
-      image="/images/easy/newport-marlboro-pylon-toppers.webp"
+      image="/images/easy/marlboro-gas-pump-promo.webp"
       description="In a category defined by strict FDA regulations and shrinking display space, USG keeps your brand visible, compliant, and competitive — from cigarette fixtures to next-gen nicotine alternatives."
       challenges={[
         "FDA and MSA compliance requirements for every point-of-sale piece",
