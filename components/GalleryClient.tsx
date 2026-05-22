@@ -2,8 +2,12 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+
+// R3F renders WebGL — must not be server-rendered
+const StoreExplorer = dynamic(() => import("@/components/StoreExplorer"), { ssr: false });
 
 type Category =
   | "Storefront"
@@ -86,6 +90,16 @@ export default function GalleryClient() {
           </h1>
           <p className="text-lg text-white/80 max-w-2xl leading-relaxed">
             Real signage programs. Real retail locations. Every format we deliver.
+          </p>
+        </div>
+      </section>
+
+      {/* 3D Interactive Store Explorer */}
+      <section className="bg-brand-navy px-6 pb-16">
+        <div className="max-w-6xl mx-auto">
+          <StoreExplorer />
+          <p className="text-center text-white/55 text-sm mt-4">
+            Explore a live retail site — tap any glowing pin to see the signage USG produces for that spot.
           </p>
         </div>
       </section>
