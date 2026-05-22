@@ -401,8 +401,61 @@ function Scene({ mode, foundSet, onPick }: { mode: "exterior" | "interior"; foun
   );
 }
 
+/* ============================= STATIC PREVIEW SCENE (landing page) ============================= */
+function StaticScene() {
+  const sceneRoot = useRef<THREE.Group>(null);
+  // gentle auto-rotate so it reads as "3D" without being interactive
+  useFrame((state) => {
+    if (sceneRoot.current) sceneRoot.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.12) * 0.18;
+  });
+  return (
+    <>
+      <color attach="background" args={["#0e1830"]} />
+      <fog attach="fog" args={["#0e1830", 42, 90]} />
+      <ambientLight intensity={0.52} color="#bfd0ff" />
+      <directionalLight position={[-14, 20, 12]} intensity={1.2} color="#fff0d8" castShadow
+        shadow-mapSize-width={2048} shadow-mapSize-height={2048}
+        shadow-camera-left={-28} shadow-camera-right={28} shadow-camera-top={28} shadow-camera-bottom={-28}
+        shadow-camera-near={1} shadow-camera-far={70} />
+      <directionalLight position={[16, 12, -10]} intensity={0.38} color="#6f8fff" />
+      <directionalLight position={[0, 8, -16]} intensity={0.28} color="#EFA51E" />
+      <pointLight position={[0, 7, 0]} intensity={0.5} distance={40} />
+      <group ref={sceneRoot}><ExteriorScene /></group>
+    </>
+  );
+}
+
 /* ============================= MAIN COMPONENT (overlay UI) ============================= */
-export default function StoreExplorer() {
+/* ============================= STATIC PREVIEW COMPONENT (landing page) ============================= */
+function StaticPreview() {
+  return (
+    <a href="/gallery" aria-label="Open the interactive 3D store explorer" style={{ display: "block", textDecoration: "none" }}>
+      <div style={{ position: "relative", width: "100%", height: "min(56vw,520px)", minHeight: 320, background: "#0e1830", borderRadius: 16, overflow: "hidden", cursor: "pointer" }}>
+        <Canvas shadows camera={{ position: [22, 14, 22], fov: 42 }} gl={{ antialias: true }} dpr={[1, 2]}>
+          <StaticScene />
+        </Canvas>
+        {/* non-interactive overlay; the whole tile is the link to /gallery */}
+        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "26px 28px", background: "linear-gradient(180deg, rgba(20,34,72,0.45) 0%, rgba(20,34,72,0) 30%, rgba(20,34,72,0) 60%, rgba(20,34,72,0.78) 100%)" }}>
+          <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: C.sky, fontWeight: 600 }}>Interactive 3D Showroom</div>
+          <div style={{ fontSize: "clamp(20px,3vw,30px)", color: "#fff", fontWeight: 800, lineHeight: 1.1, marginTop: 4 }}>
+            Step inside a live retail site.
+          </div>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, marginTop: 12, alignSelf: "flex-start", background: C.marigold, color: C.navyDark, fontWeight: 700, fontSize: 14, padding: "11px 20px", borderRadius: 999 }}>
+            Explore in 3D <span style={{ fontSize: 18 }}>→</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  );
+}
+
+/* ============================= MAIN COMPONENT (overlay UI) ============================= */
+export default function StoreExplorer({ staticPreview = false }: { staticPreview?: boolean }) {
+  if (staticPreview) return <StaticPreview />;
+  return <InteractiveExplorer />;
+}
+
+function InteractiveExplorer() {
   const [mode, setMode] = useState<"exterior" | "interior">("exterior");
   const [active, setActive] = useState<Hotspot | null>(null);
   const [foundExt] = useState(() => new Set<number>());
