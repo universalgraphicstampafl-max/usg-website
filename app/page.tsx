@@ -3,6 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
+// R3F renders WebGL — must not be server-rendered
+const StoreExplorer = dynamic(() => import("@/components/StoreExplorer"), { ssr: false });
 import HeroScrollingColumns from "@/components/HeroScrollingColumns";
 import HeroParticles    from "@/components/HeroParticles";
 import HeroMesh         from "@/components/HeroMesh";
@@ -130,6 +136,7 @@ function SectionDivider() {
 }
 
 export default function HomePage() {
+  const [lightboxIndex, setLightboxIndex] = useState(-1);
   return (
     <div className="bg-brand-offwhite text-brand-navy">
 
@@ -607,9 +614,22 @@ export default function HomePage() {
                 A glimpse at what we&apos;ve shipped to convenience, tobacco, QSR, grocery, and beverage chains.
               </p>
             </div>
+
+            {/* Static 3D model preview — click to open the full interactive explorer */}
+            <div className="mb-8">
+              <StoreExplorer staticPreview />
+            </div>
+
+            {/* Preview thumbnails — click to open enlarged lightbox */}
             <div className="columns-1 md:columns-2 lg:columns-4 gap-6 [&>*]:break-inside-avoid [&>*]:mb-6">
               {GALLERY_PREVIEW.map((src, i) => (
-                <div key={src} className="relative overflow-hidden rounded-xl shadow-lg group cursor-pointer bg-[#1B2D5E]/10">
+                <button
+                  key={src}
+                  type="button"
+                  onClick={() => setLightboxIndex(i)}
+                  className="relative overflow-hidden rounded-xl shadow-lg group cursor-pointer bg-[#1B2D5E]/10 block w-full"
+                  aria-label={`View USG project ${i + 1} enlarged`}
+                >
                   <Image
                     src={src}
                     alt={`USG project ${i + 1}`}
@@ -619,12 +639,20 @@ export default function HomePage() {
                     sizes="(max-width: 640px) 384px, (max-width: 1024px) 50vw, 25vw"
                     className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
                   />
-                </div>
+                </button>
               ))}
             </div>
+
+            <Lightbox
+              open={lightboxIndex >= 0}
+              close={() => setLightboxIndex(-1)}
+              index={lightboxIndex < 0 ? 0 : lightboxIndex}
+              slides={GALLERY_PREVIEW.map((src) => ({ src }))}
+            />
+
             <div className="flex justify-center mt-12">
               <Link href="/gallery" className="group inline-flex items-center gap-2 text-brand-navy hover:gap-3 transition-all">
-                <span className="text-lg font-semibold">View all 23 projects</span>
+                <span className="text-lg font-semibold">Visit the full gallery</span>
                 <span className="text-2xl">→</span>
               </Link>
             </div>
