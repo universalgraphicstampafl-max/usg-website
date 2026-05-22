@@ -31,7 +31,7 @@ export type Hotspot = { id: string; cat: string; title: string; loc: string; pos
 
 /* ============================= hotspot data ============================= */
 const EXTERIOR_HOTSPOTS: Hotspot[] = [
-  { id: "pylon", cat: "Pylon", title: "Roadside Pylon Sign", loc: "Lot entrance", pos: [-17, 9.8, 16], desc: "The tall freestanding sign that pulls drivers off the road — fuel pricing, brand marks, and promotions visible from a distance.", usg: "USG fabricates and installs illuminated pylon faces and price-pole inserts, surveyed to your exact cabinet dimensions.", img: `${IMG}/marlboro-gas-pump-promo.webp` },
+  { id: "pylon", cat: "Pylon", title: "Roadside Pylon Sign", loc: "Lot entrance", pos: [-20, 7.4, 18], desc: "The tall freestanding sign that pulls drivers off the road — fuel pricing, brand marks, and promotions visible from a distance.", usg: "USG fabricates and installs illuminated pylon faces and price-pole inserts, surveyed to your exact cabinet dimensions.", img: `${IMG}/marlboro-gas-pump-promo.webp` },
   { id: "pump", cat: "Gas Pump", title: "Pump Topper Graphics", loc: "Fuel island", pos: [-1.8, 3.0, 8.5], desc: "High-dwell-time advertising right at the pump — drivers stare at this for 3-5 minutes per fill.", usg: "USG produces weatherproof pump-topper inserts and dispenser wraps that snap into standard frames.", img: `${IMG}/gas-pump-celsius-topper.webp` },
   { id: "window", cat: "Storefront", title: "Window Clings", loc: "Storefront glass", pos: [-1.2, 2.6, 4.7], desc: "Promotional clings and price callouts on entrance doors and front glass — the last message before a customer walks in.", usg: "USG prints removable static and adhesive clings, die-cut to any shape, with easy seasonal swap-out.", img: `${IMG}/storefront-promo-window-cling.webp` },
   { id: "aframe", cat: "A-Frame", title: "Sidewalk A-Frame", loc: "Entrance walkway", pos: [6.5, 2.0, 5.4], desc: "Portable sidewalk boards that capture foot traffic with daily specials.", usg: "USG supplies durable A-frame hardware with printed, swappable insert panels.", img: `${IMG}/brunch-a-frame-sandwich-board.webp` },
@@ -156,7 +156,7 @@ function ExteriorScene() {
           </group>
         ))}
       </group>
-      <group position={[-17, 0, 16]}>
+      <group position={[-20, 0, 18]} rotation={[0, 0.6, 0]}>
         <Cyl args={[0.3, 0.3, 6.8]} position={[0, 3.4, 0]} color={C.dkmetal} />
         <Box args={[3.2, 3.4, 0.55]} position={[0, 7.3, 0]} color={C.sevWhite} />
         <Box args={[2.8, 1.6, 0.12]} position={[0, 8.0, 0.3]} color={C.sevGreen} />
