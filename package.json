@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
     "@sanity/client": "^7.21.0",
     "@sanity/image-url": "^2.1.1",
     "framer-motion": "^12.38.0",
@@ -21,6 +23,7 @@
     "react-intersection-observer": "^10.0.3",
     "sanity": "^3.99.0",
     "styled-components": "^6.4.0",
+    "three": "^0.171.0",
     "yet-another-react-lightbox": "^3.31.0"
   },
   "devDependencies": {
