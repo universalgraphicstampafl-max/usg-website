@@ -75,8 +75,8 @@ function VerticalColumn({
               fill
               sizes={`${width}px`}
               quality={85}
-              loading={loadEager && i < tiles.length ? "eager" : "lazy"}
-              priority={loadEager && i < 3}
+              loading={(loadEager && i < tiles.length) || i === 0 ? "eager" : "lazy"}
+              priority={(loadEager && i < 3) || i === 0}
               className="object-cover"
             />
           </div>

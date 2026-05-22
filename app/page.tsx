@@ -54,7 +54,7 @@ const SERVICES = [
     name: "Direct Store Delivery",
     href: "/services/direct-store-delivery",
     image: "/images/easy/gas-pump-celsius-topper4.webp",
-    desc: "Shipped to every store location. QR packing slip reorder system included.",
+    desc: "Shipped to every store location, with simple reordering built in.",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>,
   },
   {
@@ -455,7 +455,7 @@ export default function HomePage() {
                   image: "/images/easy/three-flag-formats-showroom.webp",
                   alt: "Three custom-printed feather flags in different formats",
                   title: "Built-in reorder system",
-                  body: "QR packing-slip reordering. One scan and the next run ships — no paperwork, no re-briefing.",
+                  body: "Reordering is effortless — one point of contact and the next run ships. No paperwork, no re-briefing.",
                   strip: "sky" as const,
                 },
               ].map((card) => (
