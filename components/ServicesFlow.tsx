@@ -35,11 +35,11 @@ const SERVICES = [
 
 /* industry nodes — each centered at x≈765 in the right half, vertically centered */
 const INDUSTRIES = [
-  { label: "Convenience", x: 706, y: 96, color: "#EFA51E" },
-  { label: "Tobacco & Nicotine", x: 677, y: 208, color: "#DA291C" },
-  { label: "QSR", x: 720, y: 320, color: "#5CB8E4" },
-  { label: "Grocery", x: 720, y: 432, color: "#4f9d5b" },
-  { label: "Beverage", x: 718, y: 544, color: "#3A9DCC" },
+  { label: "Convenience", x: 694, y: 96, color: "#EFA51E" },
+  { label: "Tobacco & Nicotine", x: 666, y: 208, color: "#DA291C" },
+  { label: "QSR", x: 710, y: 320, color: "#5CB8E4" },
+  { label: "Grocery", x: 710, y: 432, color: "#4f9d5b" },
+  { label: "Beverage", x: 706, y: 544, color: "#3A9DCC" },
 ];
 
 const SVC_ACCENTS = [
@@ -119,7 +119,7 @@ export default function ServicesFlow() {
 
             {/* hub -> industries connectors (arrows) */}
             {INDUSTRIES.map((ind, i) => (
-              <path key={`il${i}`} d={curve(HUB.x + 60, HUB.y, ind.x - 5, ind.y + 18)} fill="none"
+              <path key={`il${i}`} d={curve(HUB.x + 60, HUB.y, ind.x - 5, ind.y + 19)} fill="none"
                 stroke="url(#indLine)" strokeWidth="2.5" strokeLinecap="round"
                 strokeDasharray="6 9" markerEnd="url(#arrowHead)"
                 style={{
@@ -158,12 +158,13 @@ export default function ServicesFlow() {
 
             {/* industry nodes */}
             {INDUSTRIES.map((ind, i) => {
-              const w = Math.max(90, ind.label.length * 8.2 + 28);
+              // width = dot zone (34) + text + right padding (20); min 110
+              const w = Math.max(110, 34 + ind.label.length * 8.0 + 20);
               return (
                 <g key={`in${i}`} style={{ opacity: visible ? 1 : 0, transform: visible ? "translateX(0)" : "translateX(10px)", transition: `all .55s cubic-bezier(.16,1,.3,1) ${0.45 + i * 0.1}s` }}>
-                  <rect x={ind.x} y={ind.y} width={w} height="36" rx="18" fill="#ffffff" stroke="rgba(0,0,0,0.06)" strokeWidth="1" style={{ filter: "drop-shadow(0 4px 10px rgba(27,45,94,0.12))" }} />
-                  <circle cx={ind.x + 18} cy={ind.y + 18} r="6" fill={ind.color} />
-                  <text x={ind.x + 32} y={ind.y + 23} fontSize="14" fontWeight="700" fill="#1B2D5E">{ind.label}</text>
+                  <rect x={ind.x} y={ind.y} width={w} height="38" rx="19" fill="#ffffff" stroke="rgba(0,0,0,0.06)" strokeWidth="1" style={{ filter: "drop-shadow(0 4px 10px rgba(27,45,94,0.12))" }} />
+                  <circle cx={ind.x + 19} cy={ind.y + 19} r="6" fill={ind.color} />
+                  <text x={ind.x + 34} y={ind.y + 24} fontSize="14" fontWeight="700" fill="#1B2D5E">{ind.label}</text>
                 </g>
               );
             })}
