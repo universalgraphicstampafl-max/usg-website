@@ -243,3 +243,4 @@
 
 /* ServicesFlow — flowing dashes along connector paths */
 @keyframes usgDashFlow { to { stroke-dashoffset: -52; } }
+@keyframes usgDashFlowV { to { stroke-dashoffset: -48; } }

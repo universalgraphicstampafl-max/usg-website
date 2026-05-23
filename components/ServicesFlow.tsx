@@ -175,9 +175,10 @@ export default function ServicesFlow() {
           </svg>
         </div>
 
-        {/* ===== mobile: stacked ===== */}
-        <div className="lg:hidden">
-          <div className="flex flex-wrap gap-2 justify-center mb-8">
+        {/* ===== mobile: stacked, with vertical flowing connectors ===== */}
+        <div className="lg:hidden flex flex-col items-center">
+          {/* services */}
+          <div className="flex flex-wrap gap-2 justify-center">
             {SERVICES.map((s, i) => {
               const a = SVC_ACCENTS[i % SVC_ACCENTS.length];
               return (
@@ -188,11 +189,34 @@ export default function ServicesFlow() {
               );
             })}
           </div>
-          <div className="flex justify-center mb-8">
-            <div className="w-24 h-24 rounded-2xl bg-brand-navy flex items-center justify-center shadow-xl">
+
+          {/* flowing connector: services -> hub */}
+          <svg width="40" height="56" viewBox="0 0 40 56" className="my-1" aria-hidden="true">
+            <line x1="20" y1="2" x2="20" y2="54" stroke="#EFA51E" strokeWidth="2.5" strokeLinecap="round"
+              strokeDasharray="5 7" opacity="0.6"
+              style={{ animation: visible ? "usgDashFlowV 1.3s linear infinite" : "none" }} />
+            <path d="M14 46 L20 54 L26 46" fill="none" stroke="#EFA51E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.6" />
+          </svg>
+
+          {/* hub with glow + pulse rings */}
+          <div className="relative flex justify-center">
+            <span className="absolute inset-0 rounded-2xl" style={{ boxShadow: "0 0 60px 20px rgba(239,165,30,0.25)", opacity: visible ? 1 : 0, transition: "opacity 1s ease" }} />
+            <div className="relative w-24 h-24 rounded-2xl bg-brand-navy flex items-center justify-center shadow-xl">
+              <span className="absolute inset-0 rounded-2xl border-2 border-brand-gold/40" style={{ animation: visible ? "usgHubPulse 2.6s ease-out infinite" : "none" }} />
+              <span className="absolute inset-0 rounded-2xl border-2 border-brand-sky/30" style={{ animation: visible ? "usgHubPulse 2.6s ease-out 1.3s infinite" : "none" }} />
               <span className="text-brand-gold font-black text-2xl">USG</span>
             </div>
           </div>
+
+          {/* flowing connector: hub -> industries */}
+          <svg width="40" height="56" viewBox="0 0 40 56" className="my-1" aria-hidden="true">
+            <line x1="20" y1="2" x2="20" y2="54" stroke="#5CB8E4" strokeWidth="2.5" strokeLinecap="round"
+              strokeDasharray="5 7" opacity="0.7"
+              style={{ animation: visible ? "usgDashFlowV 1.5s linear infinite" : "none" }} />
+            <path d="M14 46 L20 54 L26 46" fill="none" stroke="#5CB8E4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
+          </svg>
+
+          {/* industries */}
           <div className="flex flex-wrap gap-2.5 justify-center">
             {INDUSTRIES.map((ind) => (
               <div key={ind.label} className="flex items-center gap-2 bg-white rounded-xl px-3 py-2 shadow border border-black/5">
