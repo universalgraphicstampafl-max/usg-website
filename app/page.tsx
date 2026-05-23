@@ -17,6 +17,7 @@ import HeroHeadline     from "@/components/HeroHeadline";
 import RevealWrapper    from "@/components/RevealWrapper";
 import SectionReveal    from "@/components/SectionReveal";
 import CapabilityMarquee from "@/components/CapabilityMarquee";
+import ServicesFlow from "@/components/ServicesFlow";
 import DiscoverCard     from "@/components/DiscoverCard";
 import MarqueeLogos     from "@/components/MarqueeLogos";
 import ProcessSteps     from "@/components/ProcessSteps";
@@ -234,69 +235,87 @@ export default function HomePage() {
 
       {/* ── 3 · SUCCESS IN NUMBERS (navy) ───────────────────────────── */}
       <SectionReveal>
-        <section className="bg-brand-navy py-20 lg:py-32 text-white overflow-hidden">
-          <div className="container mx-auto px-6 lg:px-12">
-            <RevealWrapper className="text-center mb-14 lg:mb-20">
-              <p className="text-xs tracking-widest font-semibold text-brand-sky uppercase mb-3">
+        <section className="bg-brand-navy py-24 lg:py-36 text-white overflow-hidden">
+          <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
+            <RevealWrapper className="text-center mb-16 lg:mb-24">
+              <p className="text-xs tracking-[0.2em] font-semibold text-brand-sky uppercase mb-4">
                 Success in numbers
               </p>
-              <h2 className="text-4xl lg:text-5xl font-black text-white max-w-3xl mx-auto leading-tight">
+              <h2 className="text-4xl lg:text-6xl font-black text-white max-w-3xl mx-auto leading-[1.05]">
                 The best return on your <span className="font-serif italic font-normal text-brand-gold">signage investment</span>.
               </h2>
             </RevealWrapper>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 lg:gap-x-12">
-              <RevealWrapper delay={0}>
-                <div className="border-l-2 border-brand-gold/40 pl-5">
-                  <p className="text-5xl lg:text-6xl font-black text-brand-gold leading-none">
+            {/* Editorial 2-col rows: each stat pairs supporting copy with a giant serif number, alternating sides */}
+            <div className="divide-y divide-white/10">
+              {/* Row 1 — text left, number right */}
+              <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center py-12 lg:py-16">
+                <RevealWrapper delay={0}>
+                  <p className="text-lg lg:text-xl text-white/85 leading-relaxed max-w-md">
+                    Clients report a <span className="text-white font-semibold">10% lift in product sales</span> after partnering with USG.
+                  </p>
+                  <p className="text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Average sales increase</p>
+                </RevealWrapper>
+                <RevealWrapper delay={0.1} className="lg:text-right">
+                  <span className="block font-serif font-normal text-brand-gold leading-none text-7xl lg:text-[8.5rem]">
                     <SlotCounter target={10} suffix="%" delay={0} />
-                  </p>
-                  <p className="text-base font-bold text-white mt-3">Average sales increase</p>
-                  <p className="text-sm text-brand-sky/90 mt-1 leading-relaxed">
-                    Clients report a 10% lift in product sales after partnering with USG.
-                  </p>
-                </div>
-              </RevealWrapper>
+                  </span>
+                </RevealWrapper>
+              </div>
 
-              <RevealWrapper delay={0.1}>
-                <div className="border-l-2 border-brand-gold/40 pl-5">
-                  <p className="text-5xl lg:text-6xl font-black text-brand-gold leading-none">
-                    <SlotCounter target={30} suffix="+" delay={0.3} />
+              {/* Row 2 — number left, text right */}
+              <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center py-12 lg:py-16">
+                <RevealWrapper delay={0} className="order-2 lg:order-1">
+                  <span className="block font-serif font-normal text-brand-gold leading-none text-7xl lg:text-[8.5rem]">
+                    <SlotCounter target={30} suffix="+" delay={0.2} />
+                  </span>
+                </RevealWrapper>
+                <RevealWrapper delay={0.1} className="order-1 lg:order-2">
+                  <p className="text-lg lg:text-xl text-white/85 leading-relaxed max-w-md">
+                    <span className="text-white font-semibold">Three decades</span> of established, credible retail signage expertise.
                   </p>
-                  <p className="text-base font-bold text-white mt-3">Years in business</p>
-                  <p className="text-sm text-brand-sky/90 mt-1 leading-relaxed">
-                    Three decades of established, credible retail signage expertise.
-                  </p>
-                </div>
-              </RevealWrapper>
+                  <p className="text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Years in business</p>
+                </RevealWrapper>
+              </div>
 
-              <RevealWrapper delay={0.2}>
-                <div className="border-l-2 border-brand-gold/40 pl-5">
-                  <p className="text-5xl lg:text-6xl font-black text-brand-gold leading-none">
-                    <SlotCounter target={2000} suffix="+" thousands delay={0.6} />
+              {/* Row 3 — text left, number right */}
+              <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center py-12 lg:py-16">
+                <RevealWrapper delay={0}>
+                  <p className="text-lg lg:text-xl text-white/85 leading-relaxed max-w-md">
+                    Signage shipped <span className="text-white font-semibold">direct to store</span> across 28 states nationwide.
                   </p>
-                  <p className="text-base font-bold text-white mt-3">Retail locations served</p>
-                  <p className="text-sm text-brand-sky/90 mt-1 leading-relaxed">
-                    Signage shipped direct to store across 28 states nationwide.
-                  </p>
-                </div>
-              </RevealWrapper>
+                  <p className="text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Retail locations served</p>
+                </RevealWrapper>
+                <RevealWrapper delay={0.1} className="lg:text-right">
+                  <span className="block font-serif font-normal text-brand-gold leading-none text-7xl lg:text-[8.5rem]">
+                    <SlotCounter target={2000} suffix="+" thousands delay={0.4} />
+                  </span>
+                </RevealWrapper>
+              </div>
 
-              <RevealWrapper delay={0.3}>
-                <div className="border-l-2 border-brand-gold/40 pl-5">
-                  <p className="text-5xl lg:text-6xl font-black text-brand-gold leading-none">
-                    <SlotCounter target={99.7} suffix="%" decimals={1} delay={0.9} />
+              {/* Row 4 — number left, text right */}
+              <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center py-12 lg:py-16">
+                <RevealWrapper delay={0} className="order-2 lg:order-1">
+                  <span className="block font-serif font-normal text-brand-gold leading-none text-7xl lg:text-[8.5rem]">
+                    <SlotCounter target={99.7} suffix="%" decimals={1} delay={0.6} />
+                  </span>
+                </RevealWrapper>
+                <RevealWrapper delay={0.1} className="order-1 lg:order-2">
+                  <p className="text-lg lg:text-xl text-white/85 leading-relaxed max-w-md">
+                    The right products, in the right box, <span className="text-white font-semibold">99.7% of the time.</span>
                   </p>
-                  <p className="text-base font-bold text-white mt-3">Packing accuracy</p>
-                  <p className="text-sm text-brand-sky/90 mt-1 leading-relaxed">
-                    The right products, in the right box, 99.7% of the time.
-                  </p>
-                </div>
-              </RevealWrapper>
+                  <p className="text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Packing accuracy</p>
+                </RevealWrapper>
+              </div>
             </div>
           </div>
         </section>
       </SectionReveal>
+
+      <SectionDivider />
+
+      {/* ── 3.5 · SERVICES FLOW (animated diagram) ──────────────────── */}
+      <ServicesFlow />
 
       <SectionDivider />
 
