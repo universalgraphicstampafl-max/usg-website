@@ -12,7 +12,7 @@
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { useMemo, useRef, useState, useCallback } from "react";
+import { useMemo, useRef, useState, useCallback, useEffect } from "react";
 import * as THREE from "three";
 
 /* ============================= palette ============================= */
@@ -461,6 +461,14 @@ function InteractiveExplorer() {
   const [foundExt] = useState(() => new Set<number>());
   const [foundInt] = useState(() => new Set<number>());
   const [, force] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const list = mode === "exterior" ? EXTERIOR_HOTSPOTS : INTERIOR_HOTSPOTS;
   const foundSet = mode === "exterior" ? foundExt : foundInt;
@@ -484,30 +492,51 @@ function InteractiveExplorer() {
       </Canvas>
 
       {/* top overlay */}
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, padding: "20px 24px", pointerEvents: "none", background: "linear-gradient(180deg, rgba(20,34,72,0.8) 0%, rgba(20,34,72,0) 100%)" }}>
-        <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: C.sky, fontWeight: 600 }}>
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, padding: isMobile ? "16px 16px" : "20px 24px", pointerEvents: "none", background: "linear-gradient(180deg, rgba(20,34,72,0.85) 0%, rgba(20,34,72,0) 100%)" }}>
+        <div style={{ fontSize: isMobile ? 10 : 12, letterSpacing: "0.18em", textTransform: "uppercase", color: C.sky, fontWeight: 600 }}>
           Interactive Showroom · {mode === "exterior" ? "Exterior" : "Interior"}
         </div>
-        <div style={{ fontSize: "clamp(22px,3vw,34px)", color: "#fff", fontWeight: 800, lineHeight: 1.05, marginTop: 4 }}>
+        <div style={{ fontSize: isMobile ? 20 : "clamp(22px,3vw,34px)", color: "#fff", fontWeight: 800, lineHeight: 1.05, marginTop: 4 }}>
           Signage lives <em style={{ fontStyle: "italic", fontWeight: 400, color: C.marigold }}>everywhere.</em>
         </div>
-        <div style={{ marginTop: 8, fontSize: 13, color: "rgba(255,255,255,0.7)" }}>Drag to orbit · scroll to zoom · tap a glowing pin to explore</div>
+        <div style={{ marginTop: 8, fontSize: isMobile ? 11 : 13, color: "rgba(255,255,255,0.7)" }}>Drag to orbit · scroll to zoom · tap a glowing pin to explore</div>
+
+        {/* on mobile, toggle + counter live INSIDE the stacked header (no overlap) */}
+        {isMobile && (
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 12, pointerEvents: "auto" }}>
+            <div style={{ display: "flex", background: "rgba(20,34,72,0.78)", backdropFilter: "blur(8px)", borderRadius: 999, padding: 4, border: "1px solid rgba(92,184,228,0.3)" }}>
+              {(["exterior", "interior"] as const).map((m) => (
+                <button key={m} onClick={() => switchMode(m)} style={{
+                  background: mode === m ? C.marigold : "transparent", color: mode === m ? C.navyDark : "rgba(255,255,255,0.65)",
+                  border: "none", fontSize: 12, fontWeight: 700, padding: "7px 16px", borderRadius: 999, cursor: "pointer", transition: ".25s",
+                }}>{m === "exterior" ? "Outside" : "Inside"}</button>
+              ))}
+            </div>
+            <div style={{ color: "rgba(255,255,255,0.55)", fontSize: 11, textAlign: "right" }}>
+              <b style={{ color: C.marigold, fontSize: 18, fontWeight: 800 }}>{foundSet.size}</b>/{list.length} explored
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* mode toggle */}
-      <div style={{ position: "absolute", top: 18, left: "50%", transform: "translateX(-50%)", display: "flex", background: "rgba(20,34,72,0.78)", backdropFilter: "blur(8px)", borderRadius: 999, padding: 5, border: "1px solid rgba(92,184,228,0.3)", zIndex: 6 }}>
-        {(["exterior", "interior"] as const).map((m) => (
-          <button key={m} onClick={() => switchMode(m)} style={{
-            background: mode === m ? C.marigold : "transparent", color: mode === m ? C.navyDark : "rgba(255,255,255,0.65)",
-            border: "none", fontSize: 13, fontWeight: 700, padding: "9px 22px", borderRadius: 999, cursor: "pointer", transition: ".25s",
-          }}>{m === "exterior" ? "Outside" : "Inside"}</button>
-        ))}
-      </div>
+      {/* mode toggle — desktop only (floats centered top); on mobile it's in the header above */}
+      {!isMobile && (
+        <div style={{ position: "absolute", top: 18, left: "50%", transform: "translateX(-50%)", display: "flex", background: "rgba(20,34,72,0.78)", backdropFilter: "blur(8px)", borderRadius: 999, padding: 5, border: "1px solid rgba(92,184,228,0.3)", zIndex: 6 }}>
+          {(["exterior", "interior"] as const).map((m) => (
+            <button key={m} onClick={() => switchMode(m)} style={{
+              background: mode === m ? C.marigold : "transparent", color: mode === m ? C.navyDark : "rgba(255,255,255,0.65)",
+              border: "none", fontSize: 13, fontWeight: 700, padding: "9px 22px", borderRadius: 999, cursor: "pointer", transition: ".25s",
+            }}>{m === "exterior" ? "Outside" : "Inside"}</button>
+          ))}
+        </div>
+      )}
 
-      {/* counter */}
-      <div style={{ position: "absolute", top: 72, right: 24, color: "rgba(255,255,255,0.55)", fontSize: 12, textAlign: "right", pointerEvents: "none" }}>
-        <b style={{ color: C.marigold, fontSize: 22, display: "block", fontWeight: 800 }}>{foundSet.size}</b>/{list.length} explored
-      </div>
+      {/* counter — desktop only; on mobile it's in the header above */}
+      {!isMobile && (
+        <div style={{ position: "absolute", top: 72, right: 24, color: "rgba(255,255,255,0.55)", fontSize: 12, textAlign: "right", pointerEvents: "none" }}>
+          <b style={{ color: C.marigold, fontSize: 22, display: "block", fontWeight: 800 }}>{foundSet.size}</b>/{list.length} explored
+        </div>
+      )}
 
       {/* info panel */}
       <aside style={{
