@@ -10,36 +10,36 @@
 import { useEffect, useRef, useState } from "react";
 
 /* ---- canvas coordinate space ---- */
-const W = 920;
-const H = 620;
-const HUB = { x: 500, y: 310 };
+const W = 1000;
+const H = 640;
+const HUB = { x: 500, y: 320 };
 
 /* service nodes — clustered on the left, flowing toward the hub */
 const SERVICES = [
-  { label: "Multi-Location POP", x: 70, y: 70 },
-  { label: "Graphic Design", x: 250, y: 70 },
-  { label: "Custom Print", x: 110, y: 130 },
-  { label: "Store Surveys", x: 285, y: 132 },
-  { label: "Direct Store Delivery", x: 80, y: 192 },
-  { label: "Product Photography", x: 290, y: 194 },
-  { label: "Window Clings", x: 70, y: 254 },
-  { label: "Cooler Graphics", x: 250, y: 256 },
-  { label: "Menu Boards", x: 110, y: 316 },
-  { label: "Pylon Signs", x: 270, y: 318 },
-  { label: "Feather Flags", x: 80, y: 378 },
-  { label: "Floor Graphics", x: 255, y: 380 },
-  { label: "Shelf Talkers", x: 100, y: 440 },
-  { label: "A-Frames", x: 255, y: 442 },
-  { label: "Pump Toppers", x: 150, y: 502 },
+  { label: "Multi-Location POP", x: 55, y: 103 },
+  { label: "Graphic Design", x: 245, y: 103 },
+  { label: "Custom Print", x: 55, y: 165 },
+  { label: "Store Surveys", x: 245, y: 165 },
+  { label: "Direct Store Delivery", x: 55, y: 227 },
+  { label: "Product Photography", x: 245, y: 227 },
+  { label: "Window Clings", x: 55, y: 289 },
+  { label: "Cooler Graphics", x: 245, y: 289 },
+  { label: "Menu Boards", x: 55, y: 351 },
+  { label: "Pylon Signs", x: 245, y: 351 },
+  { label: "Feather Flags", x: 55, y: 413 },
+  { label: "Floor Graphics", x: 245, y: 413 },
+  { label: "Shelf Talkers", x: 55, y: 475 },
+  { label: "A-Frames", x: 245, y: 475 },
+  { label: "Pump Toppers", x: 175, y: 537 },
 ];
 
-/* industry nodes — fanned out on the right (x kept so widest pill stays inside W) */
+/* industry nodes — each centered at x≈765 in the right half, vertically centered */
 const INDUSTRIES = [
-  { label: "Convenience", x: 720, y: 90, color: "#EFA51E" },
-  { label: "Tobacco & Nicotine", x: 720, y: 215, color: "#DA291C" },
-  { label: "QSR", x: 720, y: 330, color: "#5CB8E4" },
-  { label: "Grocery", x: 720, y: 445, color: "#4f9d5b" },
-  { label: "Beverage", x: 720, y: 555, color: "#3A9DCC" },
+  { label: "Convenience", x: 706, y: 96, color: "#EFA51E" },
+  { label: "Tobacco & Nicotine", x: 677, y: 208, color: "#DA291C" },
+  { label: "QSR", x: 720, y: 320, color: "#5CB8E4" },
+  { label: "Grocery", x: 720, y: 432, color: "#4f9d5b" },
+  { label: "Beverage", x: 718, y: 544, color: "#3A9DCC" },
 ];
 
 const SVC_ACCENTS = [
@@ -119,7 +119,7 @@ export default function ServicesFlow() {
 
             {/* hub -> industries connectors (arrows) */}
             {INDUSTRIES.map((ind, i) => (
-              <path key={`il${i}`} d={curve(HUB.x + 60, HUB.y, ind.x - 8, ind.y + 14)} fill="none"
+              <path key={`il${i}`} d={curve(HUB.x + 60, HUB.y, ind.x - 5, ind.y + 18)} fill="none"
                 stroke="url(#indLine)" strokeWidth="2.5" strokeLinecap="round"
                 strokeDasharray="6 9" markerEnd="url(#arrowHead)"
                 style={{
