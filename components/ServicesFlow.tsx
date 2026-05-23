@@ -24,7 +24,7 @@ const SERVICES = [
   { label: "Graphic Design", x: 245, y: 103 },
   { label: "Custom Print", x: 55, y: 165 },
   { label: "Store Surveys", x: 245, y: 165 },
-  { label: "Direct Store Delivery", x: 55, y: 227 },
+  { label: "Direct Delivery", x: 55, y: 227 },
   { label: "Product Photography", x: 245, y: 227 },
   { label: "Window Clings", x: 55, y: 289 },
   { label: "Cooler Graphics", x: 245, y: 289 },
