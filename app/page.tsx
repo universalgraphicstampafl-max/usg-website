@@ -233,6 +233,50 @@ export default function HomePage() {
 
       <SectionDivider />
 
+      {/* ── 2.5 · FUTURE OF RETAIL SIGNAGE (editorial split) ────────── */}
+      <SectionReveal>
+        <section className="bg-brand-offwhite py-20 lg:py-32 overflow-hidden">
+          <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* text column */}
+              <div>
+                <p className="text-xs tracking-[0.2em] font-semibold text-brand-sky uppercase pb-4 mb-8 border-b border-brand-navy/15">
+                  The future of retail signage
+                </p>
+                <h2 className="text-4xl lg:text-6xl font-black text-brand-navy leading-[1.05]">
+                  Beyond a print vendor.{" "}
+                  <span className="font-serif italic font-normal text-brand-gold">A signage partner</span>, built to move at retail speed.
+                </h2>
+                <p className="text-xl lg:text-2xl font-bold text-brand-navy mt-8 leading-snug">
+                  What happens when design, production, and delivery live under one roof?
+                </p>
+                <p className="text-base lg:text-lg text-brand-navy/75 mt-5 leading-relaxed max-w-xl">
+                  By owning every step — design, print, store surveys, and direct-to-store delivery — your locations get faster turnarounds, fewer errors, perfect-fit signage, and programs that actually ship on time.
+                </p>
+                <div className="mt-10">
+                  <Link href="/book" className="inline-flex items-center gap-2 bg-brand-navy text-white font-bold px-7 py-4 rounded-full hover:bg-brand-navy-dark transition-colors">
+                    Book a Call <span className="text-lg">→</span>
+                  </Link>
+                </div>
+              </div>
+
+              {/* image column */}
+              <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/gallery/01-hero-storefront-coca-cola.webp"
+                  alt="Freestanding USG-produced storefront signage display at a retail fuel station at golden hour"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </SectionReveal>
+
+      <SectionDivider />
+
       {/* ── 3 · SUCCESS IN NUMBERS (navy) ───────────────────────────── */}
       <SectionReveal>
         <section className="bg-brand-navy py-24 lg:py-36 text-white overflow-hidden">
