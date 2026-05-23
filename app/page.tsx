@@ -363,6 +363,35 @@ export default function HomePage() {
 
       <SectionDivider />
 
+      {/* ── 3.7 · CONTEXT STRIP (navy) ──────────────────────────────── */}
+      <SectionReveal>
+        <section className="relative py-32 lg:py-40 overflow-hidden">
+          {/* Full-bleed background image */}
+          <div className="absolute inset-0">
+            <Image
+              src="/images/easy/storefront-vinyl-lettering4.webp"
+              alt="Chain retail location"
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority={false}
+            />
+          </div>
+
+          {/* Navy gradient overlay for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1B2D5E]/85 via-[#1B2D5E]/75 to-[#1B2D5E]/85" />
+
+          {/* Content */}
+          <div className="relative z-10 container mx-auto px-6 lg:px-12">
+            <p className="text-center text-2xl lg:text-4xl text-white font-light leading-relaxed max-w-5xl mx-auto">
+              Serving chain locations, franchise organizations, and multi-location <span className="font-serif italic font-normal">retailers</span> across the US.
+            </p>
+          </div>
+        </section>
+      </SectionReveal>
+
+      <SectionDivider />
+
       {/* ── 4 · SERVICES OVERVIEW (cream) ───────────────────────────── */}
       <SectionReveal>
         <section className="bg-brand-offwhite py-20 lg:py-32">
@@ -532,35 +561,6 @@ export default function HomePage() {
                 <EasyCard key={card.title} {...card} />
               ))}
             </div>
-          </div>
-        </section>
-      </SectionReveal>
-
-      <SectionDivider />
-
-      {/* ── 7 · CONTEXT STRIP (navy) ────────────────────────────────── */}
-      <SectionReveal>
-        <section className="relative py-32 lg:py-40 overflow-hidden">
-          {/* Full-bleed background image */}
-          <div className="absolute inset-0">
-            <Image
-              src="/images/easy/storefront-vinyl-lettering4.webp"
-              alt="Chain retail location"
-              fill
-              sizes="100vw"
-              className="object-cover"
-              priority={false}
-            />
-          </div>
-
-          {/* Navy gradient overlay for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1B2D5E]/85 via-[#1B2D5E]/75 to-[#1B2D5E]/85" />
-
-          {/* Content */}
-          <div className="relative z-10 container mx-auto px-6 lg:px-12">
-            <p className="text-center text-2xl lg:text-4xl text-white font-light leading-relaxed max-w-5xl mx-auto">
-              Serving chain locations, franchise organizations, and multi-location <span className="font-serif italic font-normal">retailers</span> across the US.
-            </p>
           </div>
         </section>
       </SectionReveal>
