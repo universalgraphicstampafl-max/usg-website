@@ -13,6 +13,10 @@ import { useEffect, useRef, useState } from "react";
 const W = 1000;
 const H = 640;
 const HUB = { x: 500, y: 320 };
+/* viewBox tightly hugs the actual content with EQUAL margins both sides,
+   so the diagram fills its container and is perfectly centered.
+   (content spans x:55–864, y:96–582; center x=460. 40px margin each side.) */
+const VIEWBOX = "15 56 889 566";
 
 /* service nodes — clustered on the left, flowing toward the hub */
 const SERVICES = [
@@ -84,7 +88,7 @@ export default function ServicesFlow() {
 
         {/* ===== desktop: SVG flow canvas ===== */}
         <div className="hidden lg:block">
-          <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label="USG services flowing through a central hub out to the industries served">
+          <svg viewBox={VIEWBOX} className="w-full h-auto" role="img" aria-label="USG services flowing through a central hub out to the industries served">
             <defs>
               <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stopColor="#EFA51E" stopOpacity="0.28" />
