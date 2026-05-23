@@ -620,24 +620,23 @@ export default function HomePage() {
               <StoreExplorer staticPreview />
             </div>
 
-            {/* Preview thumbnails — click to open enlarged lightbox */}
-            <div className="columns-1 md:columns-2 lg:columns-4 gap-6 [&>*]:break-inside-avoid [&>*]:mb-6">
+            {/* Preview thumbnails — even grid, click to open enlarged lightbox */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {GALLERY_PREVIEW.map((src, i) => (
                 <button
                   key={src}
                   type="button"
                   onClick={() => setLightboxIndex(i)}
-                  className="relative overflow-hidden rounded-xl shadow-lg group cursor-pointer bg-[#1B2D5E]/10 block w-full"
+                  className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-lg group cursor-pointer bg-[#1B2D5E]/10 block w-full"
                   aria-label={`View USG project ${i + 1} enlarged`}
                 >
                   <Image
                     src={src}
                     alt={`USG project ${i + 1}`}
-                    width={400}
-                    height={500}
+                    fill
                     placeholder="empty"
-                    sizes="(max-width: 640px) 384px, (max-width: 1024px) 50vw, 25vw"
-                    className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                   />
                 </button>
               ))}
