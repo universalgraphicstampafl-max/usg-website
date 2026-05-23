@@ -1,34 +1,58 @@
 "use client";
 
 /**
- * ServicesFlow — "Our Services" editorial flow diagram (Superside-style, USG-branded).
- * A cluster of service pills (what USG creates) flows via animated connectors into a
- * central USG hub, then fans out to the industries USG serves. CSS/SVG animation only.
+ * ServicesFlow — "Our Services" flow diagram (Superside-style, USG-branded).
+ * SVG-canvas layout: service nodes (left) flow through a central USG hub and fan
+ * out via animated glowing arrows to the industries USG serves (right).
+ * CSS/SVG animation only. Stacked fallback on mobile.
  */
 
 import { useEffect, useRef, useState } from "react";
 
+/* ---- canvas coordinate space ---- */
+const W = 1000;
+const H = 620;
+const HUB = { x: 500, y: 310 };
+
+/* service nodes — clustered on the left, flowing toward the hub */
 const SERVICES = [
-  "Multi-Location POP Signage", "Graphic Design", "Custom Print Production",
-  "Store Surveys", "Direct Store Delivery", "Product Photography",
-  "Window Clings", "Cooler Graphics", "Menu Boards", "Pylon Signs",
-  "Feather Flags", "Floor Graphics", "Shelf Talkers", "A-Frames", "Pump Toppers",
+  { label: "Multi-Location POP", x: 70, y: 70 },
+  { label: "Graphic Design", x: 250, y: 70 },
+  { label: "Custom Print", x: 110, y: 130 },
+  { label: "Store Surveys", x: 285, y: 132 },
+  { label: "Direct Store Delivery", x: 80, y: 192 },
+  { label: "Product Photography", x: 290, y: 194 },
+  { label: "Window Clings", x: 70, y: 254 },
+  { label: "Cooler Graphics", x: 250, y: 256 },
+  { label: "Menu Boards", x: 110, y: 316 },
+  { label: "Pylon Signs", x: 270, y: 318 },
+  { label: "Feather Flags", x: 80, y: 378 },
+  { label: "Floor Graphics", x: 255, y: 380 },
+  { label: "Shelf Talkers", x: 100, y: 440 },
+  { label: "A-Frames", x: 255, y: 442 },
+  { label: "Pump Toppers", x: 150, y: 502 },
 ];
 
-// pill accent rotation across brand colors
-const ACCENTS = [
-  { bg: "rgba(239,165,30,0.14)", br: "rgba(239,165,30,0.5)", tx: "#7a5208" },   // marigold
-  { bg: "rgba(92,184,228,0.14)", br: "rgba(92,184,228,0.5)", tx: "#1c5e7e" },   // sky
-  { bg: "rgba(27,45,94,0.10)", br: "rgba(27,45,94,0.35)", tx: "#1B2D5E" },      // navy
-];
-
+/* industry nodes — fanned out on the right */
 const INDUSTRIES = [
-  { label: "Convenience", color: "#EFA51E" },
-  { label: "Tobacco & Nicotine", color: "#DA291C" },
-  { label: "QSR", color: "#5CB8E4" },
-  { label: "Grocery", color: "#4f9d5b" },
-  { label: "Beverage", color: "#3A9DCC" },
+  { label: "Convenience", x: 830, y: 90, color: "#EFA51E" },
+  { label: "Tobacco & Nicotine", x: 880, y: 215, color: "#DA291C" },
+  { label: "QSR", x: 905, y: 330, color: "#5CB8E4" },
+  { label: "Grocery", x: 875, y: 445, color: "#4f9d5b" },
+  { label: "Beverage", x: 820, y: 555, color: "#3A9DCC" },
 ];
+
+const SVC_ACCENTS = [
+  { fill: "rgba(239,165,30,0.16)", stroke: "rgba(239,165,30,0.55)", text: "#7a5208" },
+  { fill: "rgba(92,184,228,0.16)", stroke: "rgba(92,184,228,0.55)", text: "#1c5e7e" },
+  { fill: "rgba(27,45,94,0.10)", stroke: "rgba(27,45,94,0.4)", text: "#1B2D5E" },
+];
+
+/* helper: cubic path between two points with horizontal control handles */
+function curve(x1: number, y1: number, x2: number, y2: number) {
+  const dx = (x2 - x1) * 0.5;
+  return `M ${x1} ${y1} C ${x1 + dx} ${y1}, ${x2 - dx} ${y2}, ${x2} ${y2}`;
+}
 
 export default function ServicesFlow() {
   const ref = useRef<HTMLDivElement>(null);
@@ -36,97 +60,125 @@ export default function ServicesFlow() {
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el) { setVisible(true); return; }
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) setVisible(true);
     const io = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); io.disconnect(); } },
-      { threshold: 0.2 }
+      ([e]) => { if (e.isIntersecting) { setVisible(true); io.disconnect(); } },
+      { threshold: 0.15 }
     );
     io.observe(el);
-    return () => io.disconnect();
+    const fallback = window.setTimeout(() => setVisible(true), 1200);
+    return () => { io.disconnect(); window.clearTimeout(fallback); };
   }, []);
 
   return (
     <section ref={ref} className="bg-brand-offwhite py-24 lg:py-36 overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
-        {/* headline */}
-        <div className="text-center mb-16 lg:mb-24">
+        <div className="text-center mb-12 lg:mb-16">
           <p className="text-xs tracking-[0.2em] font-semibold text-brand-sky uppercase mb-4">Our Services</p>
           <h2 className="text-4xl lg:text-6xl font-black text-brand-navy max-w-4xl mx-auto leading-[1.06]">
             One partner for <span className="font-serif italic font-normal text-brand-gold">every signage format</span>, shipped to <span className="font-serif italic font-normal text-brand-gold">every retail location</span>.
           </h2>
         </div>
 
-        {/* ===== desktop flow diagram ===== */}
-        <div className="hidden lg:grid grid-cols-[1fr_auto_1fr] items-center gap-4 relative">
-          {/* animated flow band behind everything: energy moving left -> hub -> right */}
-          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-24 pointer-events-none overflow-hidden" aria-hidden="true">
-            <div className="absolute inset-0 opacity-60"
-              style={{
-                background: "repeating-linear-gradient(90deg, transparent 0, transparent 14px, rgba(239,165,30,0.35) 14px, rgba(239,165,30,0.35) 16px)",
-                maskImage: "linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent)",
-                WebkitMaskImage: "linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent)",
-                animation: visible ? "usgFlowBand 1.1s linear infinite" : "none",
-              }} />
-          </div>
+        {/* ===== desktop: SVG flow canvas ===== */}
+        <div className="hidden lg:block">
+          <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label="USG services flowing through a central hub out to the industries served">
+            <defs>
+              <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#EFA51E" stopOpacity="0.28" />
+                <stop offset="55%" stopColor="#5CB8E4" stopOpacity="0.10" />
+                <stop offset="100%" stopColor="#5CB8E4" stopOpacity="0" />
+              </radialGradient>
+              <linearGradient id="svcLine" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#EFA51E" stopOpacity="0.12" />
+                <stop offset="100%" stopColor="#EFA51E" stopOpacity="0.6" />
+              </linearGradient>
+              <linearGradient id="indLine" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#5CB8E4" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#5CB8E4" stopOpacity="0.12" />
+              </linearGradient>
+            </defs>
 
-          {/* LEFT: service pills */}
-          <div className="flex flex-wrap gap-2.5 justify-end content-center max-w-md ml-auto relative z-10">
-            {SERVICES.map((s, i) => {
-              const a = ACCENTS[i % ACCENTS.length];
-              return (
-                <span key={s}
-                  className="inline-block text-sm font-semibold px-3.5 py-2 rounded-full border bg-white/80 backdrop-blur-sm transition-all duration-500"
-                  style={{
-                    background: a.bg, borderColor: a.br, color: a.tx,
-                    opacity: visible ? 1 : 0,
-                    transform: visible ? "translateY(0)" : "translateY(12px)",
-                    transitionDelay: `${i * 60}ms`,
-                  }}>
-                  {s}
-                </span>
-              );
-            })}
-          </div>
+            {/* glow field behind hub */}
+            <ellipse cx={HUB.x} cy={HUB.y} rx="360" ry="240" fill="url(#hubGlow)"
+              style={{ opacity: visible ? 1 : 0, transition: "opacity 1s ease .2s" }} />
 
-          {/* CENTER: USG hub */}
-          <div className="relative z-20 mx-6">
-            <div className="relative w-32 h-32 rounded-3xl bg-brand-navy flex items-center justify-center shadow-2xl"
-              style={{ transform: visible ? "scale(1)" : "scale(0.8)", opacity: visible ? 1 : 0, transition: "all .6s cubic-bezier(.16,1,.3,1) .3s" }}>
-              <span className="absolute inset-0 rounded-3xl border-2 border-brand-gold/40" style={{ animation: visible ? "usgHubPulse 2.6s ease-out infinite" : "none" }} />
-              <span className="absolute inset-0 rounded-3xl border-2 border-brand-sky/30" style={{ animation: visible ? "usgHubPulse 2.6s ease-out 1.3s infinite" : "none" }} />
-              <div className="text-center leading-none">
-                <span className="block text-brand-gold font-black text-3xl tracking-tight">USG</span>
-                <span className="block text-white/70 text-[9px] tracking-[0.15em] uppercase mt-1">Universal<br />Signage</span>
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT: industry nodes */}
-          <div className="flex flex-col gap-3.5 max-w-xs relative z-10">
-            {INDUSTRIES.map((ind, i) => (
-              <div key={ind.label}
-                className="flex items-center gap-3 bg-white rounded-2xl px-4 py-3 shadow-md border border-black/5"
+            {/* services -> hub connectors */}
+            {SERVICES.map((s, i) => (
+              <path key={`sl${i}`} d={curve(s.x + 75, s.y + 16, HUB.x - 60, HUB.y)} fill="none"
+                stroke="url(#svcLine)" strokeWidth="2" strokeLinecap="round"
+                strokeDasharray="5 8"
                 style={{
                   opacity: visible ? 1 : 0,
-                  transform: visible ? "translateX(0)" : "translateX(-14px)",
-                  transition: `all .55s cubic-bezier(.16,1,.3,1) ${0.5 + i * 0.1}s`,
-                }}>
-                <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ background: ind.color }} />
-                <span className="font-bold text-brand-navy">{ind.label}</span>
-              </div>
+                  transition: `opacity .6s ease ${i * 0.04}s`,
+                  animation: visible ? `usgDashFlow 1.3s linear ${i * 0.05}s infinite` : "none",
+                }} />
             ))}
-          </div>
+
+            {/* hub -> industries connectors (arrows) */}
+            {INDUSTRIES.map((ind, i) => (
+              <path key={`il${i}`} d={curve(HUB.x + 60, HUB.y, ind.x - 8, ind.y + 14)} fill="none"
+                stroke="url(#indLine)" strokeWidth="2.5" strokeLinecap="round"
+                strokeDasharray="6 9" markerEnd="url(#arrowHead)"
+                style={{
+                  opacity: visible ? 1 : 0,
+                  transition: `opacity .6s ease ${0.3 + i * 0.08}s`,
+                  animation: visible ? `usgDashFlow 1.5s linear ${i * 0.1}s infinite` : "none",
+                }} />
+            ))}
+            <defs>
+              <marker id="arrowHead" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto">
+                <path d="M0,0 L9,4.5 L0,9 Z" fill="#5CB8E4" opacity="0.7" />
+              </marker>
+            </defs>
+
+            {/* service node pills */}
+            {SERVICES.map((s, i) => {
+              const a = SVC_ACCENTS[i % SVC_ACCENTS.length];
+              const w = Math.max(96, s.label.length * 8.4 + 24);
+              return (
+                <g key={`sn${i}`} style={{ opacity: visible ? 1 : 0, transform: visible ? "translateX(0)" : "translateX(-10px)", transition: `all .5s cubic-bezier(.16,1,.3,1) ${i * 0.05}s` }}>
+                  <rect x={s.x} y={s.y} width={w} height="32" rx="16" fill={a.fill} stroke={a.stroke} strokeWidth="1.5" />
+                  <text x={s.x + w / 2} y={s.y + 21} textAnchor="middle" fontSize="13" fontWeight="600" fill={a.text}>{s.label}</text>
+                </g>
+              );
+            })}
+
+            {/* HUB */}
+            <g style={{ opacity: visible ? 1 : 0, transform: visible ? "scale(1)" : "scale(0.85)", transformOrigin: `${HUB.x}px ${HUB.y}px`, transition: "all .6s cubic-bezier(.16,1,.3,1) .25s" }}>
+              <rect x={HUB.x - 60} y={HUB.y - 60} width="120" height="120" rx="26" fill="#1B2D5E" />
+              <rect x={HUB.x - 60} y={HUB.y - 60} width="120" height="120" rx="26" fill="none" stroke="#EFA51E" strokeWidth="2" opacity="0.5">
+                {visible && <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2.6s" repeatCount="indefinite" />}
+              </rect>
+              <text x={HUB.x} y={HUB.y - 4} textAnchor="middle" fontSize="30" fontWeight="900" fill="#EFA51E" letterSpacing="-1">USG</text>
+              <text x={HUB.x} y={HUB.y + 22} textAnchor="middle" fontSize="9" fontWeight="600" fill="rgba(255,255,255,0.7)" letterSpacing="1.5">SIGNAGE</text>
+            </g>
+
+            {/* industry nodes */}
+            {INDUSTRIES.map((ind, i) => {
+              const w = Math.max(90, ind.label.length * 8.2 + 28);
+              return (
+                <g key={`in${i}`} style={{ opacity: visible ? 1 : 0, transform: visible ? "translateX(0)" : "translateX(10px)", transition: `all .55s cubic-bezier(.16,1,.3,1) ${0.45 + i * 0.1}s` }}>
+                  <rect x={ind.x} y={ind.y} width={w} height="36" rx="18" fill="#ffffff" stroke="rgba(0,0,0,0.06)" strokeWidth="1" style={{ filter: "drop-shadow(0 4px 10px rgba(27,45,94,0.12))" }} />
+                  <circle cx={ind.x + 18} cy={ind.y + 18} r="6" fill={ind.color} />
+                  <text x={ind.x + 32} y={ind.y + 23} fontSize="14" fontWeight="700" fill="#1B2D5E">{ind.label}</text>
+                </g>
+              );
+            })}
+          </svg>
         </div>
 
-        {/* ===== mobile: stacked, simpler ===== */}
+        {/* ===== mobile: stacked ===== */}
         <div className="lg:hidden">
           <div className="flex flex-wrap gap-2 justify-center mb-8">
             {SERVICES.map((s, i) => {
-              const a = ACCENTS[i % ACCENTS.length];
+              const a = SVC_ACCENTS[i % SVC_ACCENTS.length];
               return (
-                <span key={s} className="inline-block text-xs font-semibold px-3 py-1.5 rounded-full border"
-                  style={{ background: a.bg, borderColor: a.br, color: a.tx, opacity: visible ? 1 : 0, transition: `opacity .5s ${i * 40}ms` }}>
-                  {s}
+                <span key={s.label} className="inline-block text-xs font-semibold px-3 py-1.5 rounded-full border"
+                  style={{ background: a.fill, borderColor: a.stroke, color: a.text, opacity: visible ? 1 : 0, transition: `opacity .5s ${i * 40}ms` }}>
+                  {s.label}
                 </span>
               );
             })}
