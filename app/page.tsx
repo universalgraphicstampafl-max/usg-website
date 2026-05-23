@@ -746,7 +746,7 @@ function EasyCard({
   return (
     <div
       ref={ref}
-      className="rounded-2xl overflow-hidden bg-brand-navy-dark h-full flex flex-col"
+      className="group rounded-2xl overflow-hidden bg-brand-navy-dark h-full flex flex-col"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(32px)",
@@ -760,12 +760,23 @@ function EasyCard({
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
           loading="lazy"
-          className="object-cover"
+          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
         />
       </div>
-      <div className={`${stripStyles.bg} px-6 py-5 flex-1`}>
-        <h3 className={`font-bold text-lg ${stripStyles.title} mb-1.5`}>{title}</h3>
-        <p className={`text-sm leading-relaxed ${stripStyles.body}`}>{body}</p>
+      <div className={`${stripStyles.bg} px-6 py-5`}>
+        <div className="flex items-center justify-between gap-3">
+          <h3 className={`font-bold text-lg ${stripStyles.title}`}>{title}</h3>
+          <span
+            className={`flex-shrink-0 text-xl leading-none ${stripStyles.title} opacity-50 transition-transform duration-500 group-hover:rotate-45`}
+            aria-hidden="true"
+          >
+            +
+          </span>
+        </div>
+        {/* body: hidden by default, expands on hover */}
+        <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:grid-rows-[1fr] group-hover:opacity-100 group-hover:mt-2">
+          <p className={`overflow-hidden text-sm leading-relaxed ${stripStyles.body}`}>{body}</p>
+        </div>
       </div>
     </div>
   );
