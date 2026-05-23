@@ -790,24 +790,27 @@ function EasyCard({
   return (
     <div
       ref={ref}
-      className="group rounded-2xl overflow-hidden bg-brand-navy-dark h-full flex flex-col"
+      className="group rounded-2xl overflow-hidden bg-brand-navy-dark flex flex-col h-[460px]"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(32px)",
         transition: "opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1)",
       }}
     >
-      <div className="relative w-full aspect-[4/3] overflow-hidden">
+      {/* image: fills the card at rest, SHRINKS on hover to make room for the copy.
+          Card total height is fixed, so the panel below grows into the freed space. */}
+      <div className="relative w-full overflow-hidden flex-shrink-0 h-[300px] group-hover:h-[180px] transition-[height] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
         <Image
           src={image}
           alt={alt}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
           loading="lazy"
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+          className="object-cover"
         />
       </div>
-      <div className={`${stripStyles.bg} px-6 py-5`}>
+      {/* copy panel: takes the remaining height; title always shown, body revealed on hover */}
+      <div className={`${stripStyles.bg} px-6 py-5 flex-1 flex flex-col`}>
         <div className="flex items-center justify-between gap-3">
           <h3 className={`font-bold text-lg ${stripStyles.title}`}>{title}</h3>
           <span
@@ -817,10 +820,9 @@ function EasyCard({
             +
           </span>
         </div>
-        {/* body: hidden by default, expands on hover */}
-        <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:grid-rows-[1fr] group-hover:opacity-100 group-hover:mt-2">
-          <p className={`overflow-hidden text-sm leading-relaxed ${stripStyles.body}`}>{body}</p>
-        </div>
+        <p className={`text-sm leading-relaxed mt-2 ${stripStyles.body} opacity-0 translate-y-1 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 group-hover:translate-y-0`}>
+          {body}
+        </p>
       </div>
     </div>
   );
