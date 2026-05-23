@@ -10,7 +10,7 @@
 import { useEffect, useRef, useState } from "react";
 
 /* ---- canvas coordinate space ---- */
-const W = 1000;
+const W = 920;
 const H = 620;
 const HUB = { x: 500, y: 310 };
 
@@ -33,13 +33,13 @@ const SERVICES = [
   { label: "Pump Toppers", x: 150, y: 502 },
 ];
 
-/* industry nodes — fanned out on the right */
+/* industry nodes — fanned out on the right (x kept so widest pill stays inside W) */
 const INDUSTRIES = [
-  { label: "Convenience", x: 830, y: 90, color: "#EFA51E" },
-  { label: "Tobacco & Nicotine", x: 880, y: 215, color: "#DA291C" },
-  { label: "QSR", x: 905, y: 330, color: "#5CB8E4" },
-  { label: "Grocery", x: 875, y: 445, color: "#4f9d5b" },
-  { label: "Beverage", x: 820, y: 555, color: "#3A9DCC" },
+  { label: "Convenience", x: 720, y: 90, color: "#EFA51E" },
+  { label: "Tobacco & Nicotine", x: 720, y: 215, color: "#DA291C" },
+  { label: "QSR", x: 720, y: 330, color: "#5CB8E4" },
+  { label: "Grocery", x: 720, y: 445, color: "#4f9d5b" },
+  { label: "Beverage", x: 720, y: 555, color: "#3A9DCC" },
 ];
 
 const SVC_ACCENTS = [
