@@ -531,7 +531,7 @@ export default function HomePage() {
               </h2>
             </RevealWrapper>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
               {[
                 {
                   delay: 0,
@@ -790,16 +790,15 @@ function EasyCard({
   return (
     <div
       ref={ref}
-      className="group rounded-2xl overflow-hidden bg-brand-navy-dark flex flex-col h-[460px]"
+      className="group rounded-2xl overflow-hidden bg-brand-navy-dark flex flex-col"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(32px)",
         transition: "opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1)",
       }}
     >
-      {/* image: fills the card at rest, SHRINKS on hover to make room for the copy.
-          Card total height is fixed, so the panel below grows into the freed space. */}
-      <div className="relative w-full overflow-hidden flex-shrink-0 h-[300px] group-hover:h-[180px] transition-[height] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+      {/* image: shrinks a little on hover to make room; panel below grows only as much as the copy needs */}
+      <div className="relative w-full overflow-hidden flex-shrink-0 h-[300px] group-hover:h-[226px] transition-[height] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
         <Image
           src={image}
           alt={alt}
@@ -809,8 +808,8 @@ function EasyCard({
           className="object-cover"
         />
       </div>
-      {/* copy panel: takes the remaining height; title always shown, body revealed on hover */}
-      <div className={`${stripStyles.bg} px-6 py-5 flex-1 flex flex-col`}>
+      {/* copy panel: hugs its content — title always shown, body expands to exactly its height on hover */}
+      <div className={`${stripStyles.bg} px-6 py-5`}>
         <div className="flex items-center justify-between gap-3">
           <h3 className={`font-bold text-lg ${stripStyles.title}`}>{title}</h3>
           <span
@@ -820,9 +819,10 @@ function EasyCard({
             +
           </span>
         </div>
-        <p className={`text-sm leading-relaxed mt-2 ${stripStyles.body} opacity-0 translate-y-1 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 group-hover:translate-y-0`}>
-          {body}
-        </p>
+        {/* grid-rows 0fr->1fr expands the panel to exactly the copy's height — no extra dead space */}
+        <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:grid-rows-[1fr] group-hover:opacity-100 group-hover:mt-2">
+          <p className={`overflow-hidden text-sm leading-relaxed ${stripStyles.body}`}>{body}</p>
+        </div>
       </div>
     </div>
   );
