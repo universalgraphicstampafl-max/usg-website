@@ -66,7 +66,7 @@ export default function AboutPage() {
             About Universal Signage & Graphics
           </h1>
           <p className="text-lg text-white/75 max-w-2xl leading-relaxed">
-            For over 15 years, USG has been the behind-the-scenes partner for brands that need their in-store graphics done right — on time, on brand, and in compliance.
+            For over 30 years, USG has been the behind-the-scenes partner for brands that need their in-store graphics done right — on time, on brand, and in compliance.
           </p>
         </div>
       </section>
@@ -87,10 +87,10 @@ export default function AboutPage() {
           <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
             <div className="grid grid-cols-2 gap-6">
               {[
-                { value: "15+", label: "Years in Business" },
-                { value: "500+", label: "Retail Locations" },
-                { value: "50+", label: "Brand Partners" },
-                { value: "3", label: "Industries Served" },
+                { value: "30+", label: "Years in Business" },
+                { value: "2,000+", label: "Retail Locations" },
+                { value: "28", label: "States Served" },
+                { value: "5", label: "Industries Served" },
               ].map((s) => (
                 <div key={s.label} className="text-center">
                   <p className="text-4xl font-extrabold text-brand-gold">{s.value}</p>
