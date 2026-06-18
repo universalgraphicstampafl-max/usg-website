@@ -104,9 +104,15 @@ export default function ClientUniverse() {
           </div>
         ))}
 
-        {/* center USG mark */}
+        {/* center USG mark — marigold clearing hides the converging lines behind the mark */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-          <UsgMark />
+          <div
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-56 rounded-full bg-brand-marigold blur-lg"
+            aria-hidden="true"
+          />
+          <div className="relative">
+            <UsgMark />
+          </div>
         </div>
       </div>
 
