@@ -404,15 +404,15 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 7 · BUILT FOR THE INDUSTRIES THAT MOVE FAST (navy) ───────── */}
+      {/* ── 7 · BUILT FOR THE INDUSTRIES THAT MOVE FAST (cream) ──────── */}
       <SectionReveal>
-        <section className="bg-brand-navy py-20 lg:py-32 text-white overflow-hidden">
+        <section className="bg-brand-offwhite py-20 lg:py-32">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="mb-10 text-center">
-              <h2 className="text-4xl font-black text-white">
+              <h2 className="text-4xl font-black text-brand-navy">
                 Built for the <span className="font-serif italic font-normal">industries</span> that move fast.
               </h2>
-              <p className="text-white/80 text-lg mt-3 max-w-2xl mx-auto">
+              <p className="text-brand-navy/80 text-lg mt-3 max-w-2xl mx-auto">
                 5 industries. 2,000+ locations. One partner that ships on time.
               </p>
             </div>
