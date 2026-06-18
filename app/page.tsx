@@ -1,14 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import dynamic from "next/dynamic";
-import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
-
-// R3F renders WebGL — must not be server-rendered
-const StoreExplorer = dynamic(() => import("@/components/StoreExplorer"), { ssr: false });
 import HeroScrollingColumns from "@/components/HeroScrollingColumns";
 import HeroParticles    from "@/components/HeroParticles";
 import HeroMesh         from "@/components/HeroMesh";
@@ -16,13 +9,10 @@ import HeroShapes       from "@/components/HeroShapes";
 import HeroHeadline     from "@/components/HeroHeadline";
 import RevealWrapper    from "@/components/RevealWrapper";
 import SectionReveal    from "@/components/SectionReveal";
-import CapabilityMarquee from "@/components/CapabilityMarquee";
-import ServicesFlow from "@/components/ServicesFlow";
 import DiscoverCard     from "@/components/DiscoverCard";
 import MarqueeLogos     from "@/components/MarqueeLogos";
 import ProcessSteps     from "@/components/ProcessSteps";
 import SlotCounter      from "@/components/SlotCounter";
-import TestimonialMarquee from "@/components/TestimonialMarquee";
 import TiltCard         from "@/components/TiltCard";
 import TypewriterLabel  from "@/components/TypewriterLabel";
 import ParticleBurst    from "@/components/ParticleBurst";
@@ -73,21 +63,6 @@ const SERVICES = [
   },
 ];
 
-const TESTIMONIALS = [
-  {
-    quote: "The service with Universal Signage & Graphics has been outstanding. Whether we have a specific idea in mind or we don't even know what we want, the USG team is there for us.",
-    attribution: "Marketing Manager — Handy Mart Convenience Stores",
-    tenure: "Partner since 2014",
-    tilt: -2,
-  },
-  {
-    quote: "When comparing their printing costs with those of other providers, they can't be beat. The level of service that they provide is second to none.",
-    attribution: "Public Relations and Marketing — E-Z Mart Stores",
-    tenure: "Partner since 2001",
-    tilt: 2,
-  },
-];
-
 const INDUSTRIES = [
   {
     name: "Convenience Retail",
@@ -121,23 +96,11 @@ const INDUSTRIES = [
   },
 ];
 
-const GALLERY_PREVIEW = [
-  "/images/gallery/01-hero-storefront-coca-cola.webp",
-  "/images/gallery/04-qsr-bbq-pylon.webp",
-  "/images/gallery/07-storefront-window-cling.webp",
-  "/images/gallery/10-gas-pump-celsius-topper.webp",
-  "/images/gallery/13-grab-go-cooler.webp",
-  "/images/gallery/16-vuex-pop-floor-display.webp",
-  "/images/gallery/19-suspended-menu-board.webp",
-  "/images/gallery/22-newport-marlboro-pylons.webp",
-];
-
 function SectionDivider() {
   return <div className="h-px bg-gradient-to-r from-transparent via-current/10 to-transparent" aria-hidden="true" />;
 }
 
 export default function HomePage() {
-  const [lightboxIndex, setLightboxIndex] = useState(-1);
   return (
     <div className="bg-brand-offwhite text-brand-navy">
 
@@ -211,15 +174,15 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 2 · LOGO WALL / AUTHORITY BAR (cream) ───────────────────── */}
+      {/* ── 2 · CUSTOMERS WHO TRUST US (cream, logo marquee) ─────────── */}
       <SectionReveal>
         <section className="bg-brand-offwhite py-20 lg:py-32 overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12 text-center mb-10">
             <p className="text-xs font-semibold tracking-widest text-brand-sky uppercase mb-2">
-              What we deliver
+              Trusted nationwide
             </p>
             <h2 className="text-4xl font-black text-brand-navy">
-              Every format. Every fixture. Every <span className="font-serif italic font-normal">store</span>.
+              Customers who <span className="font-serif italic font-normal">trust</span> us.
             </h2>
           </div>
           <MarqueeLogos />
@@ -233,43 +196,57 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 2.5 · FUTURE OF RETAIL SIGNAGE (editorial split) ────────── */}
+      {/* ── 3 · DISCOVER THE DIFFERENCE (cream) ─────────────────────── */}
       <SectionReveal>
-        <section className="bg-brand-offwhite py-20 lg:py-32 overflow-hidden">
-          <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* text column */}
-              <div>
-                <p className="text-xs tracking-[0.2em] font-semibold text-brand-sky uppercase pb-4 mb-8 border-b border-brand-navy/15">
-                  The future of retail signage
-                </p>
-                <h2 className="text-4xl lg:text-6xl font-black text-brand-navy leading-[1.05]">
-                  Beyond a print vendor.{" "}
-                  <span className="font-serif italic font-normal text-brand-gold">A signage partner</span>, built to move at retail speed.
-                </h2>
-                <p className="text-xl lg:text-2xl font-bold text-brand-navy mt-8 leading-snug">
-                  What happens when design, production, and delivery live under one roof?
-                </p>
-                <p className="text-base lg:text-lg text-brand-navy/75 mt-5 leading-relaxed max-w-xl">
-                  By owning every step — design, print, store surveys, and direct-to-store delivery — your locations get faster turnarounds, fewer errors, perfect-fit signage, and programs that actually ship on time.
-                </p>
-                <div className="mt-10">
-                  <Link href="/book" className="inline-flex items-center gap-2 bg-brand-navy text-white font-bold px-7 py-4 rounded-full hover:bg-brand-navy-dark transition-colors">
-                    Book a Call <span className="text-lg">→</span>
-                  </Link>
-                </div>
-              </div>
+        <section className="bg-brand-offwhite py-20 lg:py-32">
+          <div className="container mx-auto px-6 lg:px-12">
+            <RevealWrapper className="mb-10">
+              <TypewriterLabel
+                text="Why USG"
+                className="text-xs tracking-widest font-semibold text-brand-sky uppercase"
+              />
+              <h2 className="text-4xl font-black text-brand-navy mt-2">
+                Discover the <span className="font-serif italic font-normal">difference</span>
+              </h2>
+            </RevealWrapper>
 
-              {/* image column */}
-              <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/gallery/01-hero-storefront-coca-cola.webp"
-                  alt="Freestanding USG-produced storefront signage display at a retail fuel station at golden hour"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  delay: 0,
+                  title: "Predictable pricing. No upcharges. Ever.",
+                  body: "The quote you receive is the price you pay. No hidden design fees, no surprise material costs, no rush charges.",
+                  icon: (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
+                      <line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                    </svg>
+                  ),
+                },
+                {
+                  delay: 0.1,
+                  title: "Your dedicated account manager",
+                  body: "One person who knows your program, your stores, and your brand. Available when things need to move fast.",
+                  icon: (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
+                      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" />
+                    </svg>
+                  ),
+                },
+                {
+                  delay: 0.2,
+                  title: "Direct to every store location",
+                  body: "We ship individually to each of your locations — not to a warehouse. Every store gets exactly what it needs.",
+                  icon: (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
+                      <rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" />
+                    </svg>
+                  ),
+                },
+              ].map((card) => (
+                <TiltCard key={card.title} className="h-full">
+                  <DiscoverCard delay={card.delay} title={card.title} body={card.body} icon={card.icon} />
+                </TiltCard>
+              ))}
             </div>
           </div>
         </section>
@@ -277,7 +254,56 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 3 · SUCCESS IN NUMBERS (navy) ───────────────────────────── */}
+      {/* ── 4 · WHAT WE DO — 6 CARD TILES (cream) ───────────────────── */}
+      <SectionReveal>
+        <section className="bg-brand-offwhite py-20 lg:py-32">
+          <div className="container mx-auto px-6 lg:px-12">
+            <RevealWrapper className="mb-10">
+              <TypewriterLabel
+                text="What we do"
+                className="text-xs tracking-widest font-semibold text-brand-sky uppercase"
+              />
+              <h2 className="text-4xl font-black text-brand-navy mt-2">
+                One partner. Every <span className="font-serif italic font-normal">signage</span> need.
+              </h2>
+            </RevealWrapper>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {SERVICES.map((svc, i) => (
+                <RevealWrapper key={svc.name} delay={i * 0.08}>
+                  <Link
+                    href={svc.href}
+                    className="group bg-white rounded-2xl border border-brand-navy/10 p-6 flex flex-col h-full hover:border-brand-navy hover:shadow-[0_8px_32px_rgba(27,45,94,0.1)] hover:-translate-y-1 transition-all duration-[250ms] cursor-pointer"
+                  >
+                    <div className="relative w-full aspect-[4/3] mb-4 rounded-lg overflow-hidden">
+                      <Image
+                        src={svc.image}
+                        alt={svc.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        loading="lazy"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="w-10 h-10 rounded-xl bg-brand-navy group-hover:bg-[#2D4A7A] text-white flex items-center justify-center mb-4 flex-shrink-0 transition-colors duration-200">
+                      {svc.icon}
+                    </div>
+                    <p className="font-bold text-brand-navy mb-2">{svc.name}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed flex-1">{svc.desc}</p>
+                    <span className="text-brand-sky text-sm mt-4 font-medium inline-block group-hover:translate-x-1 transition-transform duration-200">
+                      Learn more →
+                    </span>
+                  </Link>
+                </RevealWrapper>
+              ))}
+            </div>
+          </div>
+        </section>
+      </SectionReveal>
+
+      <SectionDivider />
+
+      {/* ── 5 · SUCCESS IN NUMBERS / STATISTICS (navy) ──────────────── */}
       <SectionReveal>
         <section className="bg-brand-navy py-24 lg:py-36 text-white overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
@@ -358,216 +384,7 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 3.5 · SERVICES FLOW (animated diagram) ──────────────────── */}
-      <ServicesFlow />
-
-      <SectionDivider />
-
-      {/* ── 3.7 · CONTEXT STRIP (navy) ──────────────────────────────── */}
-      <SectionReveal>
-        <section className="relative py-32 lg:py-40 overflow-hidden">
-          {/* Full-bleed background image */}
-          <div className="absolute inset-0">
-            <Image
-              src="/images/easy/storefront-vinyl-lettering4.webp"
-              alt="Chain retail location"
-              fill
-              sizes="100vw"
-              className="object-cover"
-              priority={false}
-            />
-          </div>
-
-          {/* Navy gradient overlay for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1B2D5E]/85 via-[#1B2D5E]/75 to-[#1B2D5E]/85" />
-
-          {/* Content */}
-          <div className="relative z-10 container mx-auto px-6 lg:px-12">
-            <p className="text-center text-2xl lg:text-4xl text-white font-light leading-relaxed max-w-5xl mx-auto">
-              Serving chain locations, franchise organizations, and multi-location <span className="font-serif italic font-normal">retailers</span> across the US.
-            </p>
-          </div>
-        </section>
-      </SectionReveal>
-
-      <SectionDivider />
-
-      {/* ── 4 · SERVICES OVERVIEW (cream) ───────────────────────────── */}
-      <SectionReveal>
-        <section className="bg-brand-offwhite py-20 lg:py-32">
-          <div className="container mx-auto px-6 lg:px-12">
-            <RevealWrapper className="mb-10">
-              <TypewriterLabel
-                text="What we do"
-                className="text-xs tracking-widest font-semibold text-brand-sky uppercase"
-              />
-              <h2 className="text-4xl font-black text-brand-navy mt-2">
-                One partner. Every <span className="font-serif italic font-normal">signage</span> need.
-              </h2>
-            </RevealWrapper>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {SERVICES.map((svc, i) => (
-                <RevealWrapper key={svc.name} delay={i * 0.08}>
-                  <Link
-                    href={svc.href}
-                    className="group bg-white rounded-2xl border border-brand-navy/10 p-6 flex flex-col h-full hover:border-brand-navy hover:shadow-[0_8px_32px_rgba(27,45,94,0.1)] hover:-translate-y-1 transition-all duration-[250ms] cursor-pointer"
-                  >
-                    <div className="relative w-full aspect-[4/3] mb-4 rounded-lg overflow-hidden">
-                      <Image
-                        src={svc.image}
-                        alt={svc.name}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        loading="lazy"
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="w-10 h-10 rounded-xl bg-brand-navy group-hover:bg-[#2D4A7A] text-white flex items-center justify-center mb-4 flex-shrink-0 transition-colors duration-200">
-                      {svc.icon}
-                    </div>
-                    <p className="font-bold text-brand-navy mb-2">{svc.name}</p>
-                    <p className="text-sm text-gray-600 leading-relaxed flex-1">{svc.desc}</p>
-                    <span className="text-brand-sky text-sm mt-4 font-medium inline-block group-hover:translate-x-1 transition-transform duration-200">
-                      Learn more →
-                    </span>
-                  </Link>
-                </RevealWrapper>
-              ))}
-            </div>
-          </div>
-        </section>
-      </SectionReveal>
-
-      <SectionDivider />
-
-      {/* ── 5 · CAPABILITY MARQUEE (navy) ───────────────────────────── */}
-      <SectionReveal>
-        <section className="bg-brand-navy py-20 lg:py-32 text-white overflow-hidden">
-          <div className="container mx-auto px-6 lg:px-12 mb-10 text-center">
-            <h2 className="text-4xl font-black text-white">
-              Every fixture. Every format. Every <span className="font-serif italic font-normal">capability</span>.
-            </h2>
-            <p className="text-white/80 text-lg mt-3 max-w-2xl mx-auto">
-              From cooler doors to pylon toppers — we produce signage for every retail surface.
-            </p>
-          </div>
-          <CapabilityMarquee />
-        </section>
-      </SectionReveal>
-
-      <SectionDivider />
-
-      {/* ── 6 · DISCOVER (cream) ────────────────────────────────────── */}
-      <SectionReveal>
-        <section className="bg-brand-offwhite py-20 lg:py-32">
-          <div className="container mx-auto px-6 lg:px-12">
-            <RevealWrapper className="mb-10">
-              <TypewriterLabel
-                text="Why USG"
-                className="text-xs tracking-widest font-semibold text-brand-sky uppercase"
-              />
-              <h2 className="text-4xl font-black text-brand-navy mt-2">
-                Discover the <span className="font-serif italic font-normal">difference</span>
-              </h2>
-            </RevealWrapper>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                {
-                  delay: 0,
-                  title: "Predictable pricing. No upcharges. Ever.",
-                  body: "The quote you receive is the price you pay. No hidden design fees, no surprise material costs, no rush charges.",
-                  icon: (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
-                      <line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
-                    </svg>
-                  ),
-                },
-                {
-                  delay: 0.1,
-                  title: "Your dedicated account manager",
-                  body: "One person who knows your program, your stores, and your brand. Available when things need to move fast.",
-                  icon: (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
-                      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" />
-                    </svg>
-                  ),
-                },
-                {
-                  delay: 0.2,
-                  title: "Direct to every store location",
-                  body: "We ship individually to each of your locations — not to a warehouse. Every store gets exactly what it needs.",
-                  icon: (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
-                      <rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" />
-                    </svg>
-                  ),
-                },
-              ].map((card) => (
-                <TiltCard key={card.title} className="h-full">
-                  <DiscoverCard delay={card.delay} title={card.title} body={card.body} icon={card.icon} />
-                </TiltCard>
-              ))}
-            </div>
-          </div>
-        </section>
-      </SectionReveal>
-
-      <SectionDivider />
-
-      {/* ── 6b · EASY & HASSLE-FREE (navy, photo cards) ─────────────── */}
-      <SectionReveal>
-        <section className="bg-brand-navy py-20 lg:py-32 overflow-hidden">
-          <div className="container mx-auto px-6 lg:px-12">
-            <RevealWrapper className="text-center mb-12 lg:mb-16">
-              <TypewriterLabel
-                text="Easy & hassle-free"
-                className="text-xs tracking-widest font-semibold text-brand-sky uppercase"
-              />
-              <h2 className="text-4xl lg:text-5xl font-black text-white mt-2 leading-tight">
-                World-class signage.{" "}
-                <span className="font-serif italic font-normal text-brand-gold">Smarter systems.</span>
-              </h2>
-            </RevealWrapper>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-              {[
-                {
-                  delay: 0,
-                  image: "/images/easy/snack-fresh-eat-well-cooler.webp",
-                  alt: "Branded grab-and-go cooler with custom header and base graphics in a convenience store",
-                  title: "In-house design & print",
-                  body: "Design and production under one roof. No outsourcing, no middlemen, no delays between concept and shelf.",
-                  strip: "navy" as const,
-                },
-                {
-                  delay: 0.12,
-                  image: "/images/easy/hanks-bbq-pylon-sign.webp",
-                  alt: "Custom illuminated pylon sign for a BBQ restaurant",
-                  title: "Store-surveyed precision",
-                  body: "We measure every location so signage fits perfectly the first time — exact sizes, exact placement.",
-                  strip: "marigold" as const,
-                },
-                {
-                  delay: 0.24,
-                  image: "/images/easy/three-flag-formats-showroom.webp",
-                  alt: "Three custom-printed feather flags in different formats",
-                  title: "Built-in reorder system",
-                  body: "Reordering is effortless — one point of contact and the next run ships. No paperwork, no re-briefing.",
-                  strip: "sky" as const,
-                },
-              ].map((card) => (
-                <EasyCard key={card.title} {...card} />
-              ))}
-            </div>
-          </div>
-        </section>
-      </SectionReveal>
-
-      <SectionDivider />
-
-      {/* ── 8 · PROCESS STEPS (cream) ──────────────────────────────── */}
+      {/* ── 6 · USG PROCESS (cream) ─────────────────────────────────── */}
       <SectionReveal>
         <section className="bg-brand-offwhite py-20 lg:py-32">
           <div className="container mx-auto px-6 lg:px-12">
@@ -587,29 +404,7 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 9 · PAIN → USG → OUTCOME FLOW (navy) ────────────────────── */}
-      <SectionReveal>
-        <section className="bg-brand-navy py-20 lg:py-32 overflow-hidden">
-          <div className="container mx-auto px-6 lg:px-12">
-            <RevealWrapper className="text-center mb-12 lg:mb-16">
-              <TypewriterLabel
-                text="The USG difference"
-                className="text-xs tracking-widest font-semibold text-brand-sky uppercase"
-              />
-              <h2 className="text-4xl lg:text-5xl font-black text-white mt-2 leading-tight">
-                From signage headaches to{" "}
-                <span className="font-serif italic font-normal text-brand-gold">stores that sell</span>
-              </h2>
-            </RevealWrapper>
-
-            <PainWinFlow />
-          </div>
-        </section>
-      </SectionReveal>
-
-      <SectionDivider />
-
-      {/* ── 10 · INDUSTRIES SHOWCASE (cream) ────────────────────────── */}
+      {/* ── 7 · BUILT FOR THE INDUSTRIES THAT MOVE FAST (cream) ──────── */}
       <SectionReveal>
         <section className="bg-brand-offwhite py-20 lg:py-32">
           <div className="container mx-auto px-6 lg:px-12">
@@ -650,81 +445,7 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 11 · TESTIMONIALS (navy) ────────────────────────────────── */}
-      <SectionReveal>
-        <section className="bg-brand-navy py-20 lg:py-32 overflow-hidden">
-          <TestimonialMarquee testimonials={TESTIMONIALS} />
-
-          <div className="container mx-auto px-6 lg:px-12">
-            <Link href="/success-stories" className="text-brand-sky hover:text-brand-sky-dark font-medium mt-8 block text-center transition-colors">
-              See all success stories →
-            </Link>
-          </div>
-        </section>
-      </SectionReveal>
-
-      <SectionDivider />
-
-      {/* ── 12 · GALLERY PREVIEW (cream) ────────────────────────────── */}
-      <SectionReveal>
-        <section className="bg-brand-offwhite py-20 lg:py-32">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="mb-10 text-center">
-              <h2 className="text-4xl font-black text-brand-navy">
-                Recent <span className="font-serif italic font-normal">work</span> in the wild.
-              </h2>
-              <p className="text-brand-navy/80 text-lg mt-3 max-w-2xl mx-auto">
-                A glimpse at what we&apos;ve shipped to convenience, tobacco, QSR, grocery, and beverage chains.
-              </p>
-            </div>
-
-            {/* Static 3D model preview — click to open the full interactive explorer */}
-            <div className="mb-8">
-              <StoreExplorer staticPreview />
-            </div>
-
-            {/* Preview thumbnails — even grid, click to open enlarged lightbox */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {GALLERY_PREVIEW.map((src, i) => (
-                <button
-                  key={src}
-                  type="button"
-                  onClick={() => setLightboxIndex(i)}
-                  className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-lg group cursor-pointer bg-[#1B2D5E]/10 block w-full"
-                  aria-label={`View USG project ${i + 1} enlarged`}
-                >
-                  <Image
-                    src={src}
-                    alt={`USG project ${i + 1}`}
-                    fill
-                    placeholder="empty"
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                  />
-                </button>
-              ))}
-            </div>
-
-            <Lightbox
-              open={lightboxIndex >= 0}
-              close={() => setLightboxIndex(-1)}
-              index={lightboxIndex < 0 ? 0 : lightboxIndex}
-              slides={GALLERY_PREVIEW.map((src) => ({ src }))}
-            />
-
-            <div className="flex justify-center mt-12">
-              <Link href="/gallery" className="group inline-flex items-center gap-2 text-brand-navy hover:gap-3 transition-all">
-                <span className="text-lg font-semibold">Visit the full gallery</span>
-                <span className="text-2xl">→</span>
-              </Link>
-            </div>
-          </div>
-        </section>
-      </SectionReveal>
-
-      <SectionDivider />
-
-      {/* ── 13 · FINAL CTA (navy) ───────────────────────────────────── */}
+      {/* ── 8 · FOOTER BANNER / FINAL CTA (navy) ────────────────────── */}
       <SectionReveal>
         <section className="relative bg-brand-navy py-20 lg:py-32 px-4 text-center text-white overflow-hidden">
           <ParticleBurst />
@@ -752,181 +473,6 @@ export default function HomePage() {
         </section>
       </SectionReveal>
 
-    </div>
-  );
-}
-
-/* ─── EasyCard: photo card with colored bottom strip (Superside-style) ─── */
-function EasyCard({
-  image, alt, title, body, strip, delay,
-}: {
-  image: string; alt: string; title: string; body: string;
-  strip: "navy" | "marigold" | "sky"; delay: number;
-}) {
-  const ref      = useRef<HTMLDivElement>(null);
-  const firedRef = useRef(false);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !firedRef.current) {
-        firedRef.current = true;
-        setTimeout(() => setVisible(true), delay * 1000);
-        io.disconnect();
-      }
-    }, { threshold: 0.2 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, [delay]);
-
-  const stripStyles = {
-    navy:     { bg: "bg-brand-navy-dark", title: "text-white",      body: "text-white/70" },
-    marigold: { bg: "bg-brand-gold",      title: "text-brand-navy", body: "text-brand-navy/80" },
-    sky:      { bg: "bg-brand-sky",       title: "text-brand-navy", body: "text-brand-navy/80" },
-  }[strip];
-
-  return (
-    <div
-      ref={ref}
-      className="group rounded-2xl overflow-hidden bg-brand-navy-dark flex flex-col"
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(32px)",
-        transition: "opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1)",
-      }}
-    >
-      {/* image: shrinks a little on hover to make room; panel below grows only as much as the copy needs */}
-      <div className="relative w-full overflow-hidden flex-shrink-0 h-[300px] group-hover:h-[226px] transition-[height] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
-        <Image
-          src={image}
-          alt={alt}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          loading="lazy"
-          className="object-cover"
-        />
-      </div>
-      {/* copy panel: hugs its content — title always shown, body expands to exactly its height on hover */}
-      <div className={`${stripStyles.bg} px-6 py-5`}>
-        <div className="flex items-center justify-between gap-3">
-          <h3 className={`font-bold text-lg ${stripStyles.title}`}>{title}</h3>
-          <span
-            className={`flex-shrink-0 text-xl leading-none ${stripStyles.title} opacity-50 transition-transform duration-500 group-hover:rotate-45`}
-            aria-hidden="true"
-          >
-            +
-          </span>
-        </div>
-        {/* grid-rows 0fr->1fr expands the panel to exactly the copy's height — no extra dead space */}
-        <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:grid-rows-[1fr] group-hover:opacity-100 group-hover:mt-2">
-          <p className={`overflow-hidden text-sm leading-relaxed ${stripStyles.body}`}>{body}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ─── PainWinFlow: pains → USG → outcomes (Superside-style) ─────────── */
-const PAIN_WIN_PAIRS: { pain: string; win: string }[] = [
-  { pain: "Late, incomplete kits",            win: "On-time, 99.7% accurate kits" },
-  { pain: "Art approvals drag for weeks",     win: "Fast in-house design approvals" },
-  { pain: "Brand looks different everywhere", win: "Every store perfectly on-brand" },
-  { pain: "Surprise upcharges on every job",  win: "One price, no upcharges ever" },
-  { pain: "You manage the shipping",          win: "Shipped direct to every store" },
-  { pain: "Wrong sizes, no store survey",     win: "Store-surveyed, perfect-fit signage" },
-  { pain: "Juggling multiple vendors",        win: "One partner, end to end" },
-];
-
-function XIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 flex-shrink-0" aria-hidden="true">
-      <circle cx="12" cy="12" r="10" /><line x1="15" y1="9" x2="9" y2="15" /><line x1="9" y1="9" x2="15" y2="15" />
-    </svg>
-  );
-}
-function CheckIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 flex-shrink-0" aria-hidden="true">
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
-
-function PainWinFlow() {
-  return (
-    <div className="max-w-5xl mx-auto">
-      {/* Desktop: 3-column flow (pains | USG | wins) */}
-      <div className="hidden lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-8 lg:items-center">
-        <div>
-          <p className="text-[0.65rem] tracking-widest uppercase font-bold text-red-300/80 mb-4">With other vendors</p>
-          <div className="space-y-2.5">
-            {PAIN_WIN_PAIRS.map((p, i) => (
-              <RevealWrapper key={p.pain} delay={i * 0.06}>
-                <div className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm leading-snug bg-red-500/10 border border-red-500/25 text-red-100/90">
-                  <span className="text-red-400"><XIcon /></span>
-                  {p.pain}
-                </div>
-              </RevealWrapper>
-            ))}
-          </div>
-        </div>
-
-        <RevealWrapper delay={0.2} className="flex flex-col items-center gap-3 px-2">
-          <span className="text-brand-gold text-2xl leading-none">→</span>
-          <div className="w-16 h-16 bg-brand-navy border-2 border-brand-gold rounded-lg flex items-center justify-center shadow-[0_0_28px_rgba(239,165,30,0.35)]">
-            <div className="w-8 h-8 border-2 border-brand-gold rounded-sm relative">
-              <div className="absolute inset-1 bg-brand-sky/40 rounded-sm" />
-            </div>
-          </div>
-          <span className="text-base font-extrabold tracking-brand-logo text-brand-gold">USG</span>
-          <span className="text-brand-gold text-2xl leading-none">→</span>
-        </RevealWrapper>
-
-        <div>
-          <p className="text-[0.65rem] tracking-widest uppercase font-bold text-brand-sky mb-4">With USG</p>
-          <div className="space-y-2.5">
-            {PAIN_WIN_PAIRS.map((p, i) => (
-              <RevealWrapper key={p.win} delay={0.3 + i * 0.06}>
-                <div className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm leading-snug bg-brand-sky/10 border border-brand-sky/30 text-sky-100/90">
-                  <span className="text-brand-sky"><CheckIcon /></span>
-                  {p.win}
-                </div>
-              </RevealWrapper>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile/tablet: stacked pain→win pairs with USG mark on top */}
-      <div className="lg:hidden">
-        <RevealWrapper className="flex flex-col items-center gap-2 mb-8">
-          <div className="w-14 h-14 bg-brand-navy border-2 border-brand-gold rounded-lg flex items-center justify-center shadow-[0_0_24px_rgba(239,165,30,0.35)]">
-            <div className="w-7 h-7 border-2 border-brand-gold rounded-sm relative">
-              <div className="absolute inset-1 bg-brand-sky/40 rounded-sm" />
-            </div>
-          </div>
-          <span className="text-sm font-extrabold tracking-brand-logo text-brand-gold">USG</span>
-        </RevealWrapper>
-
-        <div className="space-y-4">
-          {PAIN_WIN_PAIRS.map((p, i) => (
-            <RevealWrapper key={p.pain} delay={i * 0.05}>
-              <div className="rounded-xl border border-white/10 overflow-hidden">
-                <div className="flex items-center gap-3 px-4 py-3 text-sm bg-red-500/10 text-red-100/80 line-through decoration-red-400/50">
-                  <span className="text-red-400 no-underline"><XIcon /></span>
-                  {p.pain}
-                </div>
-                <div className="flex items-center gap-3 px-4 py-3 text-sm bg-brand-sky/10 text-sky-50 font-medium">
-                  <span className="text-brand-sky"><CheckIcon /></span>
-                  {p.win}
-                </div>
-              </div>
-            </RevealWrapper>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
