@@ -174,20 +174,20 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 2 · CLIENTS — UNIVERSE WALL (navy-dark) ─────────────────── */}
+      {/* ── 2 · CLIENTS — UNIVERSE WALL (marigold) ──────────────────── */}
       <SectionReveal>
-        <section className="relative bg-brand-navy-dark py-20 lg:py-28 overflow-hidden">
+        <section className="relative bg-brand-marigold py-20 lg:py-28 overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12 text-center mb-12">
-            <p className="text-xs font-semibold tracking-widest text-brand-gold uppercase mb-2">
+            <p className="text-xs font-semibold tracking-widest text-brand-navy uppercase mb-2">
               Our Clients
             </p>
-            <h2 className="text-4xl font-black text-white">
-              Trusted by brands across the <span className="font-serif italic font-normal text-brand-gold">country</span>.
+            <h2 className="text-4xl font-black text-brand-navy">
+              Trusted by brands across the <span className="font-serif italic font-normal">country</span>.
             </h2>
           </div>
           <div className="container mx-auto px-6 lg:px-12">
             <ClientUniverse />
-            <p className="text-sm text-white/50 mt-12 text-center">
+            <p className="text-sm text-brand-navy/60 mt-12 text-center">
               2,000+ retail locations served across the US
             </p>
           </div>
