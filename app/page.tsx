@@ -462,7 +462,7 @@ export default function HomePage() {
             <div className="mt-8 flex justify-center items-center px-4 sm:px-0">
               <MagneticWrapper strength={8} radius={70} className="!block w-full sm:!inline-block sm:w-auto sm:max-w-none max-w-md">
                 <Link href="/book" className="btn-gold text-lg !px-10 !py-4 !rounded-xl block sm:inline-block text-center">
-                  Book Your Free Campaign Analysis →
+                  Start with a Discovery Call →
                 </Link>
               </MagneticWrapper>
             </div>
