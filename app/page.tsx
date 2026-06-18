@@ -305,9 +305,9 @@ export default function HomePage() {
 
       {/* ── 5 · SUCCESS IN NUMBERS / STATISTICS (navy) ──────────────── */}
       <SectionReveal>
-        <section className="bg-brand-navy py-24 lg:py-36 text-white overflow-hidden">
+        <section className="bg-brand-navy py-20 lg:py-28 text-white overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
-            <RevealWrapper className="text-center mb-16 lg:mb-24">
+            <RevealWrapper className="text-center mb-12 lg:mb-16">
               <p className="text-xs tracking-[0.2em] font-semibold text-brand-sky uppercase mb-4">
                 Success in numbers
               </p>
@@ -316,67 +316,36 @@ export default function HomePage() {
               </h2>
             </RevealWrapper>
 
-            {/* Editorial 2-col rows: each stat pairs supporting copy with a giant serif number, alternating sides */}
-            <div className="divide-y divide-white/10">
-              {/* Row 1 — text left, number right */}
-              <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center py-12 lg:py-16">
-                <RevealWrapper delay={0}>
-                  <p className="text-lg lg:text-xl text-white/85 leading-relaxed max-w-md">
-                    Clients report a <span className="text-white font-semibold">10% lift in product sales</span> after partnering with USG.
-                  </p>
-                  <p className="text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Average sales increase</p>
-                </RevealWrapper>
-                <RevealWrapper delay={0.1} className="lg:text-right">
-                  <span className="block font-serif font-normal text-brand-gold leading-none text-7xl lg:text-[8.5rem]">
-                    <SlotCounter target={10} suffix="%" delay={0} />
-                  </span>
-                </RevealWrapper>
-              </div>
-
-              {/* Row 2 — number left, text right */}
-              <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center py-12 lg:py-16">
-                <RevealWrapper delay={0} className="order-2 lg:order-1">
-                  <span className="block font-serif font-normal text-brand-gold leading-none text-7xl lg:text-[8.5rem]">
-                    <SlotCounter target={30} suffix="+" delay={0.2} />
-                  </span>
-                </RevealWrapper>
-                <RevealWrapper delay={0.1} className="order-1 lg:order-2">
-                  <p className="text-lg lg:text-xl text-white/85 leading-relaxed max-w-md">
-                    <span className="text-white font-semibold">Three decades</span> of established, credible retail signage expertise.
-                  </p>
-                  <p className="text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Years in business</p>
-                </RevealWrapper>
-              </div>
-
-              {/* Row 3 — text left, number right */}
-              <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center py-12 lg:py-16">
-                <RevealWrapper delay={0}>
-                  <p className="text-lg lg:text-xl text-white/85 leading-relaxed max-w-md">
-                    Signage shipped <span className="text-white font-semibold">direct to store</span> across 28 states nationwide.
-                  </p>
-                  <p className="text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Retail locations served</p>
-                </RevealWrapper>
-                <RevealWrapper delay={0.1} className="lg:text-right">
-                  <span className="block font-serif font-normal text-brand-gold leading-none text-7xl lg:text-[8.5rem]">
-                    <SlotCounter target={2000} suffix="+" thousands delay={0.4} />
-                  </span>
-                </RevealWrapper>
-              </div>
-
-              {/* Row 4 — number left, text right */}
-              <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center py-12 lg:py-16">
-                <RevealWrapper delay={0} className="order-2 lg:order-1">
-                  <span className="block font-serif font-normal text-brand-gold leading-none text-7xl lg:text-[8.5rem]">
-                    <SlotCounter target={99.7} suffix="%" decimals={1} delay={0.6} />
-                  </span>
-                </RevealWrapper>
-                <RevealWrapper delay={0.1} className="order-1 lg:order-2">
-                  <p className="text-lg lg:text-xl text-white/85 leading-relaxed max-w-md">
-                    The right products, in the right box, <span className="text-white font-semibold">99.7% of the time.</span>
-                  </p>
-                  <p className="text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Packing accuracy</p>
-                </RevealWrapper>
-              </div>
+            {/* Compact stat row — punchy numbers, tight spacing */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-6 lg:divide-x lg:divide-white/10">
+              <RevealWrapper delay={0} className="text-center lg:px-6">
+                <span className="block font-serif font-normal text-brand-gold leading-none text-5xl lg:text-7xl">
+                  <SlotCounter target={10} suffix="%" delay={0} />
+                </span>
+                <p className="text-xs lg:text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Average sales increase</p>
+                <p className="text-sm text-white/60 mt-2 leading-snug">Lift in product sales after partnering with USG.</p>
+              </RevealWrapper>
+              <RevealWrapper delay={0.1} className="text-center lg:px-6">
+                <span className="block font-serif font-normal text-brand-gold leading-none text-5xl lg:text-7xl">
+                  <SlotCounter target={30} suffix="+" delay={0.2} />
+                </span>
+                <p className="text-xs lg:text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Years in business</p>
+                <p className="text-sm text-white/60 mt-2 leading-snug">Three decades of credible retail signage expertise.</p>
+              </RevealWrapper>
+              <RevealWrapper delay={0.2} className="text-center lg:px-6">
+                <span className="block font-serif font-normal text-brand-gold leading-none text-5xl lg:text-7xl">
+                  <SlotCounter target={2000} suffix="+" thousands delay={0.4} />
+                </span>
+                <p className="text-xs lg:text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Retail locations served</p>
+                <p className="text-sm text-white/60 mt-2 leading-snug">Shipped direct to store across 28 states.</p>
+              </RevealWrapper>
+              <RevealWrapper delay={0.3} className="text-center lg:px-6">
+                <span className="block font-serif font-normal text-brand-gold leading-none text-5xl lg:text-7xl">
+                  <SlotCounter target={99.7} suffix="%" decimals={1} delay={0.6} />
+                </span>
+                <p className="text-xs lg:text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Packing accuracy</p>
+                <p className="text-sm text-white/60 mt-2 leading-snug">The right products, in the right box, every time.</p>
+              </RevealWrapper>
             </div>
           </div>
         </section>
