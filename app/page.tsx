@@ -148,8 +148,16 @@ export default function HomePage() {
                 className="flex flex-col md:flex-row gap-4 items-start mt-8 flex-wrap"
                 style={{ animation: "heroEnter 0.6s ease-out 0.8s both" }}
               >
-                <Link href="/book" className="inline-block bg-brand-navy text-white hover:bg-brand-navy-dark transition-colors duration-200 font-semibold tracking-brand-wide !px-8 !py-4 !rounded-xl text-base w-full sm:w-auto max-w-md sm:max-w-none mx-auto sm:mx-0 whitespace-normal sm:whitespace-nowrap text-center">
-                  Start with a Discovery Call
+                <Link
+                  href="https://outlook.office.com/bookwithme/user/4915d8e390074c17ab68f4dc0fb7bd09@usgfla.com/meetingtype/EOIMwVo3tk-uaiVkJhfzxA2?anonymous&ismsaljsauthenabled&ep=mcard"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex flex-col items-center bg-brand-navy text-white hover:bg-brand-navy-dark transition-colors duration-200 tracking-brand-wide !px-8 !py-3 !rounded-xl w-full sm:w-auto max-w-md sm:max-w-none mx-auto sm:mx-0 text-center"
+                >
+                  <span className="font-semibold text-base">Start with a Discovery Call</span>
+                  <span className="font-normal text-xs text-white/70 mt-1">
+                    Book time with Preston Packrall: 30-minute meeting
+                  </span>
                 </Link>
                 <Link
                   href="/success-stories"
