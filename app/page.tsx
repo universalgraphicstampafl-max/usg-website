@@ -196,16 +196,16 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 3 · DISCOVER THE DIFFERENCE (cream) ─────────────────────── */}
+      {/* ── 3 · DISCOVER THE DIFFERENCE (navy) ──────────────────────── */}
       <SectionReveal>
-        <section className="bg-brand-offwhite py-20 lg:py-32">
+        <section className="bg-brand-navy py-20 lg:py-32 text-white overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12">
             <RevealWrapper className="mb-10">
               <TypewriterLabel
                 text="Why USG"
                 className="text-xs tracking-widest font-semibold text-brand-sky uppercase"
               />
-              <h2 className="text-4xl font-black text-brand-navy mt-2">
+              <h2 className="text-4xl font-black text-white mt-2">
                 Discover the <span className="font-serif italic font-normal">difference</span>
               </h2>
             </RevealWrapper>
@@ -404,15 +404,15 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 7 · BUILT FOR THE INDUSTRIES THAT MOVE FAST (cream) ──────── */}
+      {/* ── 7 · BUILT FOR THE INDUSTRIES THAT MOVE FAST (navy) ───────── */}
       <SectionReveal>
-        <section className="bg-brand-offwhite py-20 lg:py-32">
+        <section className="bg-brand-navy py-20 lg:py-32 text-white overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="mb-10 text-center">
-              <h2 className="text-4xl font-black text-brand-navy">
+              <h2 className="text-4xl font-black text-white">
                 Built for the <span className="font-serif italic font-normal">industries</span> that move fast.
               </h2>
-              <p className="text-brand-navy/80 text-lg mt-3 max-w-2xl mx-auto">
+              <p className="text-white/80 text-lg mt-3 max-w-2xl mx-auto">
                 5 industries. 2,000+ locations. One partner that ships on time.
               </p>
             </div>
