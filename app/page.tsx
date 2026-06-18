@@ -408,26 +408,26 @@ export default function HomePage() {
 
       {/* ── 8 · FOOTER BANNER / FINAL CTA (navy) ────────────────────── */}
       <SectionReveal>
-        <section className="relative bg-brand-navy py-20 lg:py-32 px-4 text-center text-white overflow-hidden">
+        <section className="relative bg-brand-navy py-24 lg:py-44 px-4 text-center text-white overflow-hidden">
           <ParticleBurst />
-          <RevealWrapper className="relative max-w-4xl mx-auto">
-            <p className="text-brand-gold text-xs font-semibold tracking-widest uppercase">
+          <RevealWrapper className="relative max-w-6xl mx-auto">
+            <p className="text-brand-gold text-sm font-semibold tracking-widest uppercase">
               Ready to simplify your signage program?
             </p>
-            <h2 className="text-white text-5xl lg:text-7xl font-black mt-4 leading-[1.05]">
+            <h2 className="text-white text-5xl sm:text-6xl lg:text-8xl font-black mt-5 leading-[0.98] tracking-tight">
               Get your free signage system <span className="font-serif italic font-normal">audit</span>
             </h2>
-            <p className="text-white/80 text-xl max-w-2xl mx-auto mt-6 leading-relaxed">
+            <p className="text-white/80 text-xl lg:text-2xl max-w-3xl mx-auto mt-8 leading-relaxed">
               30-minute call. We&apos;ll review your current signage program and show you exactly what USG can do for your locations.
             </p>
             <div className="mt-8 flex justify-center items-center px-4 sm:px-0">
               <MagneticWrapper strength={8} radius={70} className="!block w-full sm:!inline-block sm:w-auto sm:max-w-none max-w-md">
-                <Link href="/book" className="btn-gold text-lg !px-10 !py-4 !rounded-xl block sm:inline-block text-center">
+                <Link href="/book" className="btn-gold text-xl !px-12 !py-5 !rounded-xl block sm:inline-block text-center">
                   Start with a Discovery Call →
                 </Link>
               </MagneticWrapper>
             </div>
-            <p className="text-white/50 text-sm mt-4">
+            <p className="text-white/50 text-base mt-5">
               No commitment. No sales pitch. Just a clear picture of what&apos;s possible.
             </p>
           </RevealWrapper>
