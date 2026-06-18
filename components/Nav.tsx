@@ -18,6 +18,7 @@ const industries: DropdownItem[] = [
 ];
 
 const services: DropdownItem[] = [
+  { label: "All Services", href: "/services" },
   { label: "Signage Programs", href: "/services/signage-programs" },
   { label: "Graphic Design", href: "/services/graphic-design" },
   { label: "Custom Print Production", href: "/services/custom-print-production" },
