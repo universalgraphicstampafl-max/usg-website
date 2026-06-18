@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BOOKING_URL } from "@/lib/booking";
 
 interface ServicePageProps {
   title: string;
@@ -28,7 +29,7 @@ export default function ServicePage({
           </h1>
           <p className="text-lg text-white/75 max-w-2xl leading-relaxed">{description}</p>
           <div className="flex flex-wrap gap-3 mt-8">
-            <Link href="/book" className="btn-gold">
+            <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-gold">
               {cta}
             </Link>
             <Link href="/contact" className="btn-outline !border-white !text-white hover:!bg-white hover:!text-brand-navy">
@@ -83,7 +84,7 @@ export default function ServicePage({
         <h2 className="text-3xl font-extrabold tracking-brand-tight mb-6 !text-white">
           Let&apos;s build your program
         </h2>
-        <Link href="/book" className="btn-gold">
+        <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-gold">
           {cta}
         </Link>
       </section>

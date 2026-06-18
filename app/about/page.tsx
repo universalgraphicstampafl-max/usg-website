@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BOOKING_URL } from "@/lib/booking";
 import Image from "next/image";
 import SectionReveal from "@/components/SectionReveal";
 import EasyCard from "@/components/EasyCard";
@@ -142,7 +143,7 @@ export default function AboutPage() {
                   By owning every step — design, print, store surveys, and direct-to-store delivery — your locations get faster turnarounds, fewer errors, perfect-fit signage, and programs that actually ship on time.
                 </p>
                 <div className="mt-10">
-                  <Link href="/book" className="btn-gold inline-flex items-center gap-2">
+                  <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-gold inline-flex items-center gap-2">
                     Book a Call <span className="text-lg">→</span>
                   </Link>
                 </div>
@@ -241,7 +242,7 @@ export default function AboutPage() {
           Book a free 30-minute strategy call and see why leading brands trust USG with their most visible real estate.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Link href="/book" className="btn-gold">
+          <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-gold">
             Book a Free Call
           </Link>
           <Link

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BOOKING_URL } from "@/lib/booking";
 
 export const metadata = {
   title: "Success Stories | USG",
@@ -111,7 +112,7 @@ export default function SuccessStoriesPage() {
         <h2 className="text-3xl font-extrabold tracking-brand-tight mb-4 !text-white">
           Ready to write your success story?
         </h2>
-        <Link href="/book" className="btn-gold">
+        <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-gold">
           Book a Free Strategy Call
         </Link>
       </section>

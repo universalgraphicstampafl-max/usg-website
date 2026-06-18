@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BOOKING_URL } from "@/lib/booking";
 import Image from "next/image";
 import type { Metadata } from "next";
 import ServicesFlow from "@/components/ServicesFlow";
@@ -78,7 +79,7 @@ export default function ServicesPage() {
             signage program under one roof, built to move at retail speed across 2,000+ locations.
           </p>
           <div className="flex flex-wrap gap-3 mt-8">
-            <Link href="/book" className="btn-gold">
+            <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-gold">
               Book a Call
             </Link>
             <Link
@@ -179,7 +180,7 @@ export default function ServicesPage() {
               design through direct-to-store delivery.
             </p>
             <div className="mt-8 flex justify-center">
-              <Link href="/book" className="btn-gold text-lg !px-10 !py-4 !rounded-xl">
+              <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-gold text-lg !px-10 !py-4 !rounded-xl">
                 Book Your Free Campaign Analysis →
               </Link>
             </div>

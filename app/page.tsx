@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BOOKING_URL } from "@/lib/booking";
 import Image from "next/image";
 import HeroScrollingColumns from "@/components/HeroScrollingColumns";
 import HeroParticles    from "@/components/HeroParticles";
@@ -149,7 +150,7 @@ export default function HomePage() {
                 style={{ animation: "heroEnter 0.6s ease-out 0.8s both" }}
               >
                 <Link
-                  href="https://outlook.office.com/bookwithme/user/4915d8e390074c17ab68f4dc0fb7bd09@usgfla.com/meetingtype/EOIMwVo3tk-uaiVkJhfzxA2?anonymous&ismsaljsauthenabled&ep=mcard"
+                  href={BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex flex-col items-center bg-brand-navy text-white hover:bg-brand-navy-dark transition-colors duration-200 tracking-brand-wide !px-8 !py-3 !rounded-xl w-full sm:w-auto max-w-md sm:max-w-none mx-auto sm:mx-0 text-center"
@@ -430,7 +431,7 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex justify-center items-center px-4 sm:px-0">
               <MagneticWrapper strength={8} radius={70} className="!block w-full sm:!inline-block sm:w-auto sm:max-w-none max-w-md">
-                <Link href="/book" className="btn-gold text-xl !px-12 !py-5 !rounded-xl block sm:inline-block text-center">
+                <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-gold text-xl !px-12 !py-5 !rounded-xl block sm:inline-block text-center">
                   Start with a Discovery Call →
                 </Link>
               </MagneticWrapper>

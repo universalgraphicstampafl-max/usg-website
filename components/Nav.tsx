@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { BOOKING_URL } from "@/lib/booking";
 import Link from "next/link";
 import Logo from "./Logo";
 
@@ -170,7 +171,7 @@ export default function Nav() {
             <Link href="/client-login" className="btn-outline">
               Client Login
             </Link>
-            <Link href="/book" className="btn-gold !px-4 !py-1.5 text-sm">
+            <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-gold !px-4 !py-1.5 text-sm">
               Book a Call
             </Link>
           </div>
@@ -227,7 +228,7 @@ export default function Nav() {
             </div>
 
             <div className="flex flex-col p-5 gap-1 flex-1">
-              <Link href="/book" className="btn-gold text-center mb-2" onClick={closeMobile}>
+              <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-gold text-center mb-2" onClick={closeMobile}>
                 Book a Call
               </Link>
               <Link href="/client-login" className="btn-outline text-center mb-4" onClick={closeMobile}>
