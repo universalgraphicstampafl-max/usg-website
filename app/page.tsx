@@ -10,7 +10,7 @@ import HeroHeadline     from "@/components/HeroHeadline";
 import RevealWrapper    from "@/components/RevealWrapper";
 import SectionReveal    from "@/components/SectionReveal";
 import DiscoverCard     from "@/components/DiscoverCard";
-import MarqueeLogos     from "@/components/MarqueeLogos";
+import ClientUniverse  from "@/components/ClientUniverse";
 import ProcessSteps     from "@/components/ProcessSteps";
 import SlotCounter      from "@/components/SlotCounter";
 import TiltCard         from "@/components/TiltCard";
@@ -174,20 +174,20 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 2 · CUSTOMERS WHO TRUST US (cream, logo marquee) ─────────── */}
+      {/* ── 2 · CLIENTS — UNIVERSE WALL (navy-dark) ─────────────────── */}
       <SectionReveal>
-        <section className="bg-brand-offwhite py-20 lg:py-32 overflow-hidden">
-          <div className="container mx-auto px-6 lg:px-12 text-center mb-10">
-            <p className="text-xs font-semibold tracking-widest text-brand-sky uppercase mb-2">
-              Trusted nationwide
+        <section className="relative bg-brand-navy-dark py-20 lg:py-28 overflow-hidden">
+          <div className="container mx-auto px-6 lg:px-12 text-center mb-12">
+            <p className="text-xs font-semibold tracking-widest text-brand-gold uppercase mb-2">
+              Our Clients
             </p>
-            <h2 className="text-4xl font-black text-brand-navy">
-              Customers who <span className="font-serif italic font-normal">trust</span> us.
+            <h2 className="text-4xl font-black text-white">
+              Trusted by brands across the <span className="font-serif italic font-normal text-brand-gold">country</span>.
             </h2>
           </div>
-          <MarqueeLogos />
           <div className="container mx-auto px-6 lg:px-12">
-            <p className="text-sm text-brand-navy/60 mt-6 text-center">
+            <ClientUniverse />
+            <p className="text-sm text-white/50 mt-12 text-center">
               2,000+ retail locations served across the US
             </p>
           </div>
