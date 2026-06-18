@@ -2,15 +2,15 @@ import ServicePage from "@/components/ServicePage";
 
 export const metadata = {
   title: "Signage Programs | USG",
-  description: "Monthly and bi-monthly POP signage programs for multi-location retailers and franchise chains. Custom kits shipped direct to every store location.",
+  description: "Custom signage programs at a flat price — we evaluate your setup, identify the gaps, and build a tailored path forward. No surprises.",
 };
 
 export default function SignageProgramsPage() {
   return (
     <ServicePage
-      title="Signage Programs"
-      subtitle="Service"
-      description="USG manages your entire signage lifecycle — strategy, creative, production, and delivery — so you can focus on selling, not logistics."
+      title="Your Brand. Your Program. Your Price."
+      subtitle="Signage Programs"
+      description="Every great signage program starts with understanding where you are today. Our experts evaluate your current setup, identify the gaps, and build a custom path forward — at a flat price with no surprises."
       features={[
         "Program strategy and scope definition",
         "Creative brief development and art direction",

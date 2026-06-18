@@ -2,15 +2,15 @@ import ServicePage from "@/components/ServicePage";
 
 export const metadata = {
   title: "Graphic Design | USG",
-  description: "Point-of-sale graphic design for retail and CPG brands.",
+  description: "World-class retail signage design, included at no extra charge. A full-time team creating fast, accurate, sales-driving artwork.",
 };
 
 export default function GraphicDesignPage() {
   return (
     <ServicePage
-      title="Graphic Design"
-      subtitle="Service"
-      description="Our in-house designers understand retail environments deeply — creating graphics that communicate instantly, comply fully, and look great in print."
+      title="World-Class Design. No Extra Charge."
+      subtitle="Graphic Design"
+      description="Our full-time design team lives at the intersection of market trends, retail strategy, and cutting-edge technology. They create fast, accurate, eye-catching signage that's proven to drive sales — all included for our partners at no additional cost."
       features={[
         "Point-of-sale creative concepting",
         "Brand identity and style guide application",

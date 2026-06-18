@@ -2,15 +2,15 @@ import ServicePage from "@/components/ServicePage";
 
 export const metadata = {
   title: "Custom Print Production | USG",
-  description: "High-quality custom print production for every retail display format.",
+  description: "Precision print production at scale — custom shapes, sizes, and high-volume runs at consistent, high quality. Built to grow with your program.",
 };
 
 export default function CustomPrintProductionPage() {
   return (
     <ServicePage
-      title="Custom Print Production"
-      subtitle="Service"
-      description="From cooler door clings to large-format window graphics, USG produces durable, vibrant print materials on the right substrate for every retail application."
+      title="Precision Production at Scale"
+      subtitle="Custom Print Production"
+      description="Our state-of-the-art facility is built to handle custom shapes, sizes, and high-volume runs without passing the cost on to you. The result is consistent, high-quality signage that fits your brand today and grows with your program tomorrow."
       features={[
         "Large-format digital printing",
         "Substrate selection consulting (vinyl, cling, polystyrene, corrugated, and more)",

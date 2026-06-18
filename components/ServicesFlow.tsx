@@ -20,12 +20,12 @@ const VIEWBOX = "15 56 889 566";
 
 /* service nodes — clustered on the left, flowing toward the hub */
 const SERVICES = [
-  { label: "Multi-Location POP", x: 55, y: 103 },
+  { label: "Signage Programs", x: 55, y: 103 },
   { label: "Graphic Design", x: 245, y: 103 },
   { label: "Custom Print", x: 55, y: 165 },
   { label: "Store Surveys", x: 245, y: 165 },
-  { label: "Direct Delivery", x: 55, y: 227 },
-  { label: "Product Photography", x: 245, y: 227 },
+  { label: "Fulfillment", x: 55, y: 227 },
+  { label: "Signage Software", x: 245, y: 227 },
   { label: "Window Clings", x: 55, y: 289 },
   { label: "Cooler Graphics", x: 245, y: 289 },
   { label: "Menu Boards", x: 55, y: 351 },

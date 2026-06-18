@@ -20,7 +20,7 @@ import MagneticWrapper  from "@/components/MagneticWrapper";
 
 const SERVICES = [
   {
-    name: "Multi-Location POP Signage",
+    name: "Signage Programs",
     href: "/services/signage-programs",
     image: "/images/easy/cooler-doors-promotional-graphics4.webp",
     desc: "Monthly, bi-monthly, and quarterly promotional programs for chains of any size.",
@@ -48,18 +48,18 @@ const SERVICES = [
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" /></svg>,
   },
   {
-    name: "Direct Store Delivery",
+    name: "Fulfillment Services",
     href: "/services/direct-store-delivery",
     image: "/images/easy/gas-pump-celsius-topper4.webp",
-    desc: "Shipped to every store location, with simple reordering built in.",
+    desc: "Pick, pack, and ship to every location — 99.7% accuracy, reordering built in.",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>,
   },
   {
-    name: "Product Photography",
-    href: "/services/product-photography",
-    image: "/images/easy/qsr-hangry-burger-menu-board4.webp",
-    desc: "In-house food and product photography to complement your programs.",
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z" /><circle cx="12" cy="13" r="4" /></svg>,
+    name: "Signage Management Software",
+    href: "/services/signage-management-software",
+    image: "/images/easy/checkout-counter-signage.webp",
+    desc: "Proprietary platform for store profiles, art approvals, and one-click reordering.",
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" /></svg>,
   },
 ];
 

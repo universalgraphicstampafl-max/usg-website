@@ -1,16 +1,16 @@
 import ServicePage from "@/components/ServicePage";
 
 export const metadata = {
-  title: "Direct Store Delivery | USG",
-  description: "Direct-to-location delivery for chain retailers. Individual kits labelled and shipped to every store — no warehouse redistribution.",
+  title: "Fulfillment Services | USG",
+  description: "Fulfillment you can count on — we pick, pack, and ship custom items to every location at 99.7% accuracy. Built for multi-location retail.",
 };
 
 export default function DirectStoreDeliveryPage() {
   return (
     <ServicePage
-      title="Direct Store Delivery"
-      subtitle="Service"
-      description="Getting the right materials to the right store on the right day is harder than it looks. USG's DSD network handles precision logistics so your program lands perfectly — every time."
+      title="Fulfillment You Can Count On"
+      subtitle="Fulfillment Services"
+      description="We pick, pack, and ship high-volume orders with custom items for every location — and we do it with a 99.7% accuracy rating. Fast, efficient, and built for the complexity of multi-location retail."
       features={[
         "Store-specific kitting and labelling",
         "Scheduled delivery windows by store",

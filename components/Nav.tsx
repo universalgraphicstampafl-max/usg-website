@@ -15,8 +15,8 @@ const services: DropdownItem[] = [
   { label: "Graphic Design", href: "/services/graphic-design" },
   { label: "Custom Print Production", href: "/services/custom-print-production" },
   { label: "Store Surveys", href: "/services/store-surveys" },
-  { label: "Direct Store Delivery", href: "/services/direct-store-delivery" },
-  { label: "Product Photography", href: "/services/product-photography" },
+  { label: "Fulfillment Services", href: "/services/direct-store-delivery" },
+  { label: "Signage Management Software", href: "/services/signage-management-software" },
 ];
 
 interface DropdownMenuProps {
