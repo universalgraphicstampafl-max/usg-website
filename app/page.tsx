@@ -134,9 +134,9 @@ export default function HomePage() {
                 className="text-lg md:text-xl text-brand-navy/90 max-w-xl leading-relaxed mb-6"
                 style={{ animation: "heroEnter 0.7s ease-out 0.5s both" }}
               >
-                We design, produce, and deliver promotional signage programs for convenience, tobacco,
-                QSR, grocery, and beverage chains — serving multi-location retailers, franchise
-                organizations, and chain locations across the US.
+                USG partners with multi-location brands to make signage the easiest part of their
+                marketing. Reliable production, real people, and a process built around your business —
+                from one location to one thousand.
               </p>
 
               <div
@@ -154,7 +154,7 @@ export default function HomePage() {
                 style={{ animation: "heroEnter 0.6s ease-out 0.8s both" }}
               >
                 <Link href="/book" className="inline-block bg-brand-navy text-white hover:bg-brand-navy-dark transition-colors duration-200 font-semibold tracking-brand-wide !px-8 !py-4 !rounded-xl text-base w-full sm:w-auto max-w-md sm:max-w-none mx-auto sm:mx-0 whitespace-normal sm:whitespace-nowrap text-center">
-                  Book Your Free Campaign Analysis
+                  Start with a Discovery Call
                 </Link>
                 <Link
                   href="/success-stories"
@@ -206,7 +206,7 @@ export default function HomePage() {
                 className="text-xs tracking-widest font-semibold text-brand-sky uppercase"
               />
               <h2 className="text-4xl font-black text-white mt-2">
-                Discover the <span className="font-serif italic font-normal">difference</span>
+                Why brands <span className="font-serif italic font-normal text-brand-gold">stick</span> with us.
               </h2>
             </RevealWrapper>
 
@@ -214,8 +214,8 @@ export default function HomePage() {
               {[
                 {
                   delay: 0,
-                  title: "Predictable pricing. No upcharges. Ever.",
-                  body: "The quote you receive is the price you pay. No hidden design fees, no surprise material costs, no rush charges.",
+                  title: "Pricing you can plan around",
+                  body: "The quote you receive is the price you pay. No hidden design fees, no surprise price increases, no rush charges.",
                   icon: (
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
                       <line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
@@ -224,8 +224,8 @@ export default function HomePage() {
                 },
                 {
                   delay: 0.1,
-                  title: "Your dedicated account manager",
-                  body: "One person who knows your program, your stores, and your brand. Available when things need to move fast.",
+                  title: "A real team, assigned to you",
+                  body: "A dedicated account manager who knows your program, your locations, and your timelines.",
                   icon: (
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
                       <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" />
@@ -234,11 +234,11 @@ export default function HomePage() {
                 },
                 {
                   delay: 0.2,
-                  title: "Direct to every store location",
-                  body: "We ship individually to each of your locations — not to a warehouse. Every store gets exactly what it needs.",
+                  title: "National scale, local feel",
+                  body: "The capabilities of a large operation with the service and accountability of a partner that actually picks up the phone.",
                   icon: (
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
-                      <rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" />
+                      <circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
                     </svg>
                   ),
                 },
@@ -449,14 +449,14 @@ export default function HomePage() {
       <SectionReveal>
         <section className="relative bg-brand-navy py-20 lg:py-32 px-4 text-center text-white overflow-hidden">
           <ParticleBurst />
-          <RevealWrapper className="relative max-w-3xl mx-auto">
+          <RevealWrapper className="relative max-w-4xl mx-auto">
             <p className="text-brand-gold text-xs font-semibold tracking-widest uppercase">
               Ready to simplify your signage program?
             </p>
-            <h2 className="text-white text-4xl font-black mt-3">
+            <h2 className="text-white text-5xl lg:text-7xl font-black mt-4 leading-[1.05]">
               Get your free signage system <span className="font-serif italic font-normal">audit</span>
             </h2>
-            <p className="text-white/80 text-lg max-w-xl mx-auto mt-4 leading-relaxed">
+            <p className="text-white/80 text-xl max-w-2xl mx-auto mt-6 leading-relaxed">
               30-minute call. We&apos;ll review your current signage program and show you exactly what USG can do for your locations.
             </p>
             <div className="mt-8 flex justify-center items-center px-4 sm:px-0">

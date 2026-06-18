@@ -3,9 +3,10 @@
 type Phrase = { text: string; italic?: boolean };
 
 const PHRASES: Phrase[] = [
-  { text: "Every store." },
-  { text: "On brand.", italic: true },
-  { text: "On time." },
+  { text: "We Handle the" },
+  { text: "Signage.", italic: true },
+  { text: "You Run the" },
+  { text: "Business.", italic: true },
 ];
 
 export default function HeroHeadline() {

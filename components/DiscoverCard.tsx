@@ -43,7 +43,7 @@ export default function DiscoverCard({ title, body, icon, delay = 0 }: DiscoverC
         willChange: "opacity, transform",
       }}
     >
-      <div className="bg-white/[0.04] border border-white/10 rounded-2xl p-8 text-center hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] hover:border-brand-gold/40 hover:bg-white/[0.06] transition-all duration-300 h-full">
+      <div className="bg-brand-navy-dark border border-white/10 rounded-2xl p-8 text-center hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(0,0,0,0.35)] hover:border-brand-gold/40 transition-all duration-300 h-full">
         <div
           className="w-12 h-12 rounded-xl bg-brand-gold text-brand-navy flex items-center justify-center mx-auto mb-5"
           style={
