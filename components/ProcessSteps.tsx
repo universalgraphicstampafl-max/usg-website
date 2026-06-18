@@ -103,7 +103,7 @@ export default function ProcessSteps() {
                 {step.name}
               </p>
               <p
-                className="text-xs text-gray-500 mt-1 text-center leading-tight"
+                className="text-xs text-brand-navy/70 mt-1 text-center leading-tight"
                 style={{
                   opacity: revealed ? 1 : 0,
                   transition: revealed ? `opacity 0.35s ease ${rippleDelay(i) + 0.3}s` : "none",
@@ -138,7 +138,7 @@ export default function ProcessSteps() {
               style={{ opacity: revealed ? 1 : 0, transition: `opacity 0.35s ease ${i * 0.12 + 0.1}s` }}
             >
               <p className="text-sm font-semibold text-brand-navy leading-none mt-1.5">{step.name}</p>
-              <p className="text-xs text-gray-500 mt-1">{step.sub}</p>
+              <p className="text-xs text-brand-navy/70 mt-1">{step.sub}</p>
             </div>
           </div>
         ))}

@@ -384,14 +384,14 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* ── 6 · USG PROCESS (cream) ─────────────────────────────────── */}
+      {/* ── 6 · USG PROCESS (marigold) ──────────────────────────────── */}
       <SectionReveal>
-        <section className="bg-brand-offwhite py-20 lg:py-32">
+        <section className="bg-brand-marigold py-20 lg:py-32">
           <div className="container mx-auto px-6 lg:px-12">
             <RevealWrapper className="mb-12">
               <TypewriterLabel
                 text="The USG process"
-                className="text-xs tracking-widest font-semibold text-brand-sky uppercase"
+                className="text-xs tracking-widest font-semibold text-brand-navy uppercase"
               />
               <h2 className="text-4xl font-black text-brand-navy mt-2">
                 From <span className="font-serif italic font-normal">brief</span> to every store — handled.
