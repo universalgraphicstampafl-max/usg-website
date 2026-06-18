@@ -66,31 +66,26 @@ const SERVICES = [
 const INDUSTRIES = [
   {
     name: "Convenience Retail",
-    href: "/industries/convenience-retail",
     image: "/images/easy/hero-coca-cola-sunset-station4.webp",
     desc: "Gas stations, c-stores, truck stops — branded for speed.",
   },
   {
     name: "Tobacco & Nicotine",
-    href: "/industries/tobacco-nicotine",
     image: "/images/easy/marlboro-gas-pump-promo.webp",
     desc: "Compliance-aware signage for regulated categories.",
   },
   {
     name: "QSR",
-    href: "/industries/qsr",
     image: "/images/easy/suspended-menu-board4.webp",
     desc: "Menu boards, drive-thru, in-store — every touchpoint.",
   },
   {
     name: "Grocery",
-    href: "/industries/grocery",
     image: "/images/easy/grab-go-fresh-eats-cooler4.webp",
     desc: "End-cap, shelf, cooler — moving product since 1985.",
   },
   {
     name: "Beverage",
-    href: "/industries/beverage",
     image: "/images/easy/corona-find-your-beach-beer-cave4.webp",
     desc: "Cooler graphics and POP that pull buyers from the aisle.",
   },
@@ -375,7 +370,7 @@ export default function HomePage() {
 
       {/* ── 7 · BUILT FOR THE INDUSTRIES THAT MOVE FAST (cream) ──────── */}
       <SectionReveal>
-        <section className="bg-brand-offwhite py-20 lg:py-32">
+        <section id="industries" className="bg-brand-offwhite py-20 lg:py-32 scroll-mt-24">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="mb-10 text-center">
               <h2 className="text-4xl font-black text-brand-navy">
@@ -387,25 +382,22 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
               {INDUSTRIES.map((ind) => (
-                <Link key={ind.href} href={ind.href} className="group block">
+                <div key={ind.name}>
                   <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-lg">
                     <Image
                       src={ind.image}
                       alt={ind.name}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 20vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/65 to-black/20" />
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <h3 className="text-xl font-bold text-white mb-2">{ind.name}</h3>
                       <p className="text-sm text-white/80">{ind.desc}</p>
-                      <span className="text-sm text-brand-gold mt-3 inline-block group-hover:translate-x-1 transition-transform">
-                        View case studies →
-                      </span>
                     </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           </div>

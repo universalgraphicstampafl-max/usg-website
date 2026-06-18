@@ -9,14 +9,6 @@ interface DropdownItem {
   href: string;
 }
 
-const industries: DropdownItem[] = [
-  { label: "Convenience Retail", href: "/industries/convenience-retail" },
-  { label: "Tobacco & Nicotine", href: "/industries/tobacco-nicotine" },
-  { label: "QSR", href: "/industries/qsr" },
-  { label: "Grocery", href: "/industries/grocery" },
-  { label: "Beverage", href: "/industries/beverage" },
-];
-
 const services: DropdownItem[] = [
   { label: "All Services", href: "/services" },
   { label: "Signage Programs", href: "/services/signage-programs" },
@@ -132,12 +124,10 @@ function DropdownMenu({ label, items, columns = 1, onClose }: DropdownMenuProps)
 
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileIndustries, setMobileIndustries] = useState(false);
   const [mobileServices, setMobileServices] = useState(false);
 
   const closeMobile = () => {
     setMobileOpen(false);
-    setMobileIndustries(false);
     setMobileServices(false);
   };
 
@@ -155,11 +145,9 @@ export default function Nav() {
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
-            <DropdownMenu
-              label="Industries"
-              items={industries}
-              onClose={() => {}}
-            />
+            <Link href="/#industries" className={linkClass}>
+              Industries
+            </Link>
             <DropdownMenu
               label="Services"
               items={services}
@@ -246,38 +234,9 @@ export default function Nav() {
                 Client Login
               </Link>
 
-              {/* Industries accordion */}
-              <button
-                className="flex items-center justify-between w-full py-2 text-sm font-semibold tracking-brand-tight text-brand-navy border-b border-gray-100"
-                onClick={() => setMobileIndustries((v) => !v)}
-                aria-expanded={mobileIndustries}
-              >
+              <Link href="/#industries" className="py-2 text-sm font-semibold text-brand-navy hover:text-brand-gold border-b border-gray-100" onClick={closeMobile}>
                 Industries
-                <svg
-                  className={`w-4 h-4 transition-transform ${mobileIndustries ? "rotate-180" : ""}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2.5}
-                  aria-hidden="true"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {mobileIndustries && (
-                <div className="pl-3 flex flex-col gap-1 mb-1">
-                  {industries.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="py-1.5 text-sm text-brand-navy/80 hover:text-brand-gold"
-                      onClick={closeMobile}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
+              </Link>
 
               {/* Services accordion */}
               <button

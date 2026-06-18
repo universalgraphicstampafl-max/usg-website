@@ -75,13 +75,13 @@ export default function RootLayout({
               </p>
               <ul>
                 {[
-                  { label: "Convenience Retail",  href: "/industries/convenience-retail" },
-                  { label: "Tobacco & Nicotine",  href: "/industries/tobacco-nicotine" },
-                  { label: "QSR",                 href: "/industries/qsr" },
-                  { label: "Grocery",             href: "/industries/grocery" },
-                  { label: "Beverage",            href: "/industries/beverage" },
+                  { label: "Convenience Retail",  href: "/#industries" },
+                  { label: "Tobacco & Nicotine",  href: "/#industries" },
+                  { label: "QSR",                 href: "/#industries" },
+                  { label: "Grocery",             href: "/#industries" },
+                  { label: "Beverage",            href: "/#industries" },
                 ].map((l) => (
-                  <li key={l.href}>
+                  <li key={l.label}>
                     <Link href={l.href} className="text-brand-sky hover:text-white text-sm leading-8 transition-colors">
                       {l.label}
                     </Link>
