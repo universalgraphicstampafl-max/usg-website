@@ -146,9 +146,6 @@ export default function Nav() {
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
-            <Link href="/#industries" className={linkClass}>
-              Industries
-            </Link>
             <DropdownMenu
               label="Services"
               items={services}
@@ -233,10 +230,6 @@ export default function Nav() {
               </Link>
               <Link href="/client-login" className="btn-outline text-center mb-4" onClick={closeMobile}>
                 Client Login
-              </Link>
-
-              <Link href="/#industries" className="py-2 text-sm font-semibold text-brand-navy hover:text-brand-gold border-b border-gray-100" onClick={closeMobile}>
-                Industries
               </Link>
 
               {/* Services accordion */}
