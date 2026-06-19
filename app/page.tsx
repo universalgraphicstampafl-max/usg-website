@@ -66,29 +66,34 @@ const SERVICES = [
 
 const INDUSTRIES = [
   {
-    name: "Convenience Retail",
+    name: "Convenience Stores + Retail",
     image: "/images/easy/hero-coca-cola-sunset-station4.webp",
-    desc: "Gas stations, c-stores, truck stops — branded for speed.",
+    sub: "High-volume, high-speed, and zero margin for error — we get it. USG partners with convenience and retail brands to make signage the most organized, stress-free part of your marketing program.",
+    stat: { value: "152K", label: "U.S. convenience stores", source: "NACS, 2025" },
   },
   {
     name: "Tobacco & Nicotine",
     image: "/images/easy/marlboro-gas-pump-promo.webp",
-    desc: "Compliance-aware signage for regulated categories.",
+    sub: "Tobacco and nicotine signage comes with its own set of rules — FDA compliance, shrinking display space, and vendor standards that change constantly. We know the category, we know the requirements, and we handle the details so your locations stay visible, compliant, and stress-free.",
+    stat: { value: "~26%", label: "of c-store in-store sales", source: "NACS, 2024" },
   },
   {
-    name: "QSR",
+    name: "QSR & Fast Casual",
     image: "/images/easy/suspended-menu-board4.webp",
-    desc: "Menu boards, drive-thru, in-store — every touchpoint.",
+    sub: "Monthly promotional cycles across hundreds of locations. USG handles design, production, and direct-to-location delivery for QSR chains of any size.",
+    stat: { value: "$254B", label: "U.S. QSR market", source: "Grand View, 2024" },
   },
   {
-    name: "Grocery",
+    name: "Grocery & Supermarkets",
     image: "/images/easy/grab-go-fresh-eats-cooler4.webp",
-    desc: "End-cap, shelf, cooler — moving product since 1985.",
+    sub: "Weekly and monthly promotional signage for grocery chains — designed, produced, and shipped direct to every store location.",
+    stat: { value: "$1T", label: "in U.S. supermarket sales", source: "FMI, 2024" },
   },
   {
     name: "Beverage",
     image: "/images/easy/corona-find-your-beach-beer-cave4.webp",
-    desc: "Cooler graphics and POP that pull buyers from the aisle.",
+    sub: "The cold vault and warm shelf are where buying decisions get made. We make sure your beverage signage is working as hard as your products are — from cooler door clings to floor displays, produced accurately and on time, every time.",
+    stat: { value: "57%", label: "of beverage shoppers have no brand in mind", source: "CSP study" },
   },
 ];
 
@@ -389,21 +394,34 @@ export default function HomePage() {
                 5 industries. 2,000+ locations. One partner that ships on time.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {INDUSTRIES.map((ind) => (
-                <div key={ind.name}>
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-lg">
+                <div
+                  key={ind.name}
+                  className="flex flex-col bg-white rounded-2xl shadow-md ring-1 ring-brand-navy/5 overflow-hidden"
+                >
+                  <div className="relative aspect-[16/10]">
                     <Image
                       src={ind.image}
                       alt={ind.name}
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/65 to-black/20" />
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-xl font-bold text-white mb-2">{ind.name}</h3>
-                      <p className="text-sm text-white/80">{ind.desc}</p>
+                  </div>
+                  <div className="flex flex-col flex-1 p-6">
+                    <h3 className="text-xl font-bold text-brand-navy">{ind.name}</h3>
+                    <p className="text-sm text-brand-navy/70 leading-relaxed mt-2 flex-1">
+                      {ind.sub}
+                    </p>
+                    <div className="mt-5 pt-4 border-t border-brand-navy/10">
+                      <p className="text-3xl font-black text-brand-marigold leading-none">
+                        {ind.stat.value}
+                      </p>
+                      <p className="text-xs text-brand-navy/60 mt-1.5">{ind.stat.label}</p>
+                      <p className="text-[10px] uppercase tracking-wide text-brand-navy/35 mt-1">
+                        Source: {ind.stat.source}
+                      </p>
                     </div>
                   </div>
                 </div>
