@@ -99,7 +99,7 @@ function DropdownMenu({ label, items, columns = 1, onClose }: DropdownMenuProps)
         <div
           role="menu"
           className={`absolute top-full left-0 mt-1 bg-white shadow-xl rounded-lg border border-gray-100 py-2 z-50 min-w-[200px] ${
-            columns === 2 ? "grid grid-cols-2 gap-x-2 min-w-[380px]" : ""
+            columns === 2 ? "grid grid-cols-[auto_auto] items-start gap-x-6 min-w-[380px]" : ""
           }`}
           onMouseEnter={scheduleOpen}
           onMouseLeave={scheduleClose}
@@ -109,7 +109,7 @@ function DropdownMenu({ label, items, columns = 1, onClose }: DropdownMenuProps)
               key={item.href}
               href={item.href}
               role="menuitem"
-              className="block px-4 py-2 text-sm text-brand-navy hover:bg-brand-offwhite hover:text-brand-gold font-medium tracking-brand-tight transition-colors focus-visible:outline-2 focus-visible:outline-brand-sky"
+              className="block whitespace-nowrap px-4 py-2 text-sm text-brand-navy hover:bg-brand-offwhite hover:text-brand-gold font-medium tracking-brand-tight transition-colors focus-visible:outline-2 focus-visible:outline-brand-sky"
               onClick={() => setOpen(false)}
               onFocus={scheduleOpen}
               onBlur={scheduleClose}
