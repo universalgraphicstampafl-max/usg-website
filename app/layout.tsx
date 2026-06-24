@@ -117,8 +117,8 @@ export default function RootLayout({
               © {new Date().getFullYear()} Universal Signage & Graphics. All rights reserved.
             </p>
             <div className="flex gap-5">
-              <Link href="#" className="text-white/40 text-xs hover:text-white transition-colors">Privacy Policy</Link>
-              <Link href="#" className="text-white/40 text-xs hover:text-white transition-colors">Terms</Link>
+              <Link href="/privacy" className="text-white/40 text-xs hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="text-white/40 text-xs hover:text-white transition-colors">Terms</Link>
             </div>
           </div>
         </footer>
