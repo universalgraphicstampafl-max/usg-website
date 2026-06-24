@@ -49,7 +49,7 @@ export default function PainWinFlow() {
 
         <RevealWrapper delay={0.2} className="flex flex-col items-center gap-3 px-2">
           <span className="text-brand-gold text-2xl leading-none">→</span>
-          <div className="w-16 h-16 bg-brand-navy border-2 border-brand-gold rounded-lg flex items-center justify-center shadow-[0_0_28px_rgba(239,165,30,0.35)]">
+          <div className="w-16 h-16 bg-brand-navy border-2 border-brand-gold rounded-lg flex items-center justify-center shadow-[0_0_28px_rgba(251,176,52,0.35)]">
             <div className="w-8 h-8 border-2 border-brand-gold rounded-sm relative">
               <div className="absolute inset-1 bg-brand-sky/40 rounded-sm" />
             </div>
@@ -76,7 +76,7 @@ export default function PainWinFlow() {
       {/* Mobile/tablet: stacked pain→win pairs with USG mark on top */}
       <div className="lg:hidden">
         <RevealWrapper className="flex flex-col items-center gap-2 mb-8">
-          <div className="w-14 h-14 bg-brand-navy border-2 border-brand-gold rounded-lg flex items-center justify-center shadow-[0_0_24px_rgba(239,165,30,0.35)]">
+          <div className="w-14 h-14 bg-brand-navy border-2 border-brand-gold rounded-lg flex items-center justify-center shadow-[0_0_24px_rgba(251,176,52,0.35)]">
             <div className="w-7 h-7 border-2 border-brand-gold rounded-sm relative">
               <div className="absolute inset-1 bg-brand-sky/40 rounded-sm" />
             </div>

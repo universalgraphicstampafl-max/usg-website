@@ -21,7 +21,7 @@ export default function HeroMesh() {
         style={{
           width: "55%", height: "65%",
           bottom: "0%", right: "-5%",
-          background: "radial-gradient(ellipse, rgba(239,165,30,0.12) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(251,176,52,0.12) 0%, transparent 70%)",
           filter: "blur(90px)",
           animation: "meshOrb2 18s ease-in-out infinite",
           willChange: "transform",
@@ -30,7 +30,7 @@ export default function HeroMesh() {
       {/* Deep shadow at bottom */}
       <div
         className="absolute bottom-0 left-0 right-0"
-        style={{ height: "45%", background: "linear-gradient(to top, rgba(20,34,72,0.65) 0%, transparent 100%)" }}
+        style={{ height: "45%", background: "linear-gradient(to top, rgba(0,10,30,0.65) 0%, transparent 100%)" }}
       />
     </div>
   );

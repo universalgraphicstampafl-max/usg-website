@@ -24,7 +24,7 @@ export default function TiltCard({ children, className = "", maxTilt = 8 }: Tilt
       cardRef.current.style.transform =
         `perspective(1000px) rotateY(${x * maxTilt * 2}deg) rotateX(${-y * maxTilt * 2}deg) translateZ(6px)`;
       cardRef.current.style.transition = "box-shadow 0.25s ease";
-      cardRef.current.style.boxShadow  = "0 24px 64px rgba(27,45,94,0.15)";
+      cardRef.current.style.boxShadow  = "0 24px 64px rgba(0,17,50,0.15)";
     });
   };
 

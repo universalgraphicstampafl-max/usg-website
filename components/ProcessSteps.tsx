@@ -46,7 +46,7 @@ export default function ProcessSteps() {
           <path
             d={ROAD}
             fill="none"
-            stroke="#1B2D5E"
+            stroke="#001132"
             strokeWidth={13}
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -60,7 +60,7 @@ export default function ProcessSteps() {
           <path
             d={ROAD}
             fill="none"
-            stroke="#F5F4F0"
+            stroke="#EFEFEE"
             strokeWidth={2.5}
             strokeLinecap="round"
             vectorEffect="non-scaling-stroke"
@@ -125,7 +125,7 @@ export default function ProcessSteps() {
                 <div
                   className="w-0.5 flex-1 my-1"
                   style={{
-                    backgroundImage: "repeating-linear-gradient(to bottom, #1B2D5E 0 6px, transparent 6px 12px)",
+                    backgroundImage: "repeating-linear-gradient(to bottom, #001132 0 6px, transparent 6px 12px)",
                   }}
                 />
               )}

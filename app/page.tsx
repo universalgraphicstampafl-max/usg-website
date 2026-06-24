@@ -108,7 +108,7 @@ export default function HomePage() {
       {/* ── 1 · HERO (navy) ────────────────────────────────────────── */}
       <section
         className="relative text-white overflow-hidden -mt-[64px]"
-        style={{ background: "#1B2D5E" }}
+        style={{ background: "#001132" }}
       >
         {/* Marigold split panel (desktop only) */}
         <div aria-hidden="true" className="hero-panel hidden lg:block absolute z-0 inset-y-0 left-0 w-[42%]" />
@@ -282,7 +282,7 @@ export default function HomePage() {
                 <RevealWrapper key={svc.name} delay={i * 0.08}>
                   <Link
                     href={svc.href}
-                    className="group bg-white rounded-2xl border border-brand-navy/10 p-6 flex flex-col h-full hover:border-brand-navy hover:shadow-[0_8px_32px_rgba(27,45,94,0.1)] hover:-translate-y-1 transition-all duration-[250ms] cursor-pointer"
+                    className="group bg-white rounded-2xl border border-brand-navy/10 p-6 flex flex-col h-full hover:border-brand-navy hover:shadow-[0_8px_32px_rgba(0,17,50,0.1)] hover:-translate-y-1 transition-all duration-[250ms] cursor-pointer"
                   >
                     <div className="relative w-full aspect-[4/3] mb-4 rounded-lg overflow-hidden">
                       <Image

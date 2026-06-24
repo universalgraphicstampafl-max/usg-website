@@ -15,7 +15,7 @@ import * as THREE from "three";
 
 /* ============================= palette ============================= */
 const C = {
-  navy: "#1B2D5E", navyDark: "#142248", marigold: "#EFA51E", marigoldDark: "#C8830A", sky: "#5CB8E4", skyDark: "#3A9DCC", offwhite: "#F5F4F0",
+  navy: "#001132", navyDark: "#000A1E", marigold: "#FBB034", marigoldDark: "#D89214", sky: "#00356B", skyDark: "#00264D", offwhite: "#EFEFEE",
   sevGreen: "#007A53", sevRed: "#DA291C", sevOrange: "#FF6720", sevWhite: "#F7F7F4",
   concrete: "#b8b4ab", asphalt: "#4a4d52", glass: "#9fd4e8", roof: "#e2e0da", beige: "#d8d2c4", beigeWall: "#cfc8ba",
   brick: "#b07a55", dkmetal: "#6a6f78", steel: "#9aa0a8", green: "#4f7a3a", trunk: "#6b4a32",
@@ -116,7 +116,7 @@ function ExteriorScene() {
         <Box args={[BW, 0.4, 0.25]} position={[0, BH - 0.2, BD / 2]} color={C.dkmetal} />
         <Box args={[BW, 0.4, 0.25]} position={[0, 0.5, BD / 2]} color={C.dkmetal} />
         <Box args={[9.5, BH - 1.1, 0.1]} position={[-3.2, BH / 2 + 0.05, BD / 2 + 0.06]} color={C.glass} transparent opacity={0.32} metalness={0.3} />
-        <Box args={[3.2, 3.4, 0.16]} position={[4.2, 1.9, BD / 2 + 0.1]} color="#142248" transparent opacity={0.5} />
+        <Box args={[3.2, 3.4, 0.16]} position={[4.2, 1.9, BD / 2 + 0.1]} color="#000A1E" transparent opacity={0.5} />
         <Box args={[3.5, 0.4, 0.2]} position={[4.2, 3.7, BD / 2 + 0.12]} color={C.dkmetal} />
         {Array.from({ length: 7 }).map((_, i) => (<Box key={`ml${i}`} args={[0.1, BH - 1.1, 0.13]} position={[(i - 6) * 1.35 - 0.3, BH / 2 + 0.05, BD / 2 + 0.1]} color={C.dkmetal} />))}
         <Box args={[BW + 0.5, 1.5, 0.35]} position={[0, BH + 0.65, BD / 2 + 0.16]} color={C.sevWhite} />
@@ -382,7 +382,7 @@ function Scene({ mode, foundSet, onPick }: { mode: "exterior" | "interior"; foun
         shadow-camera-left={-28} shadow-camera-right={28} shadow-camera-top={28} shadow-camera-bottom={-28}
         shadow-camera-near={1} shadow-camera-far={70} />
       <directionalLight position={[16, 12, -10]} intensity={0.38} color="#6f8fff" />
-      <directionalLight position={[0, 8, -16]} intensity={0.28} color="#EFA51E" />
+      <directionalLight position={[0, 8, -16]} intensity={0.28} color="#FBB034" />
       <pointLight position={[0, 7, 0]} intensity={0.5} distance={40} />
       <group ref={sceneRoot}>{mode === "exterior" ? <ExteriorScene /> : <InteriorScene />}</group>
       <Pins list={list} occludeRoot={sceneRoot} foundSet={foundSet} onPick={onPick} />
@@ -416,7 +416,7 @@ function StaticScene() {
         shadow-camera-left={-28} shadow-camera-right={28} shadow-camera-top={28} shadow-camera-bottom={-28}
         shadow-camera-near={1} shadow-camera-far={70} />
       <directionalLight position={[16, 12, -10]} intensity={0.38} color="#6f8fff" />
-      <directionalLight position={[0, 8, -16]} intensity={0.28} color="#EFA51E" />
+      <directionalLight position={[0, 8, -16]} intensity={0.28} color="#FBB034" />
       <pointLight position={[0, 7, 0]} intensity={0.5} distance={40} />
       <group ref={sceneRoot}><ExteriorScene /></group>
     </>
@@ -433,7 +433,7 @@ function StaticPreview() {
           <StaticScene />
         </Canvas>
         {/* non-interactive overlay; the whole tile is the link to /gallery */}
-        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "26px 28px", background: "linear-gradient(180deg, rgba(20,34,72,0.45) 0%, rgba(20,34,72,0) 30%, rgba(20,34,72,0) 60%, rgba(20,34,72,0.78) 100%)" }}>
+        <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "26px 28px", background: "linear-gradient(180deg, rgba(0,10,30,0.45) 0%, rgba(0,10,30,0) 30%, rgba(0,10,30,0) 60%, rgba(0,10,30,0.78) 100%)" }}>
           <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: C.sky, fontWeight: 600 }}>Interactive 3D Showroom</div>
           <div style={{ fontSize: "clamp(20px,3vw,30px)", color: "#fff", fontWeight: 800, lineHeight: 1.1, marginTop: 4 }}>
             Step inside a live retail site.
@@ -490,7 +490,7 @@ function InteractiveExplorer() {
       </Canvas>
 
       {/* top overlay */}
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, padding: isMobile ? "16px 16px" : "20px 24px", pointerEvents: "none", background: "linear-gradient(180deg, rgba(20,34,72,0.85) 0%, rgba(20,34,72,0) 100%)" }}>
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, padding: isMobile ? "16px 16px" : "20px 24px", pointerEvents: "none", background: "linear-gradient(180deg, rgba(0,10,30,0.85) 0%, rgba(0,10,30,0) 100%)" }}>
         <div style={{ fontSize: isMobile ? 10 : 12, letterSpacing: "0.18em", textTransform: "uppercase", color: C.sky, fontWeight: 600 }}>
           Interactive Showroom · {mode === "exterior" ? "Exterior" : "Interior"}
         </div>
@@ -502,7 +502,7 @@ function InteractiveExplorer() {
         {/* on mobile, toggle + counter live INSIDE the stacked header (no overlap) */}
         {isMobile && (
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 12, pointerEvents: "auto" }}>
-            <div style={{ display: "flex", background: "rgba(20,34,72,0.78)", backdropFilter: "blur(8px)", borderRadius: 999, padding: 4, border: "1px solid rgba(92,184,228,0.3)" }}>
+            <div style={{ display: "flex", background: "rgba(0,10,30,0.78)", backdropFilter: "blur(8px)", borderRadius: 999, padding: 4, border: "1px solid rgba(0,53,107,0.3)" }}>
               {(["exterior", "interior"] as const).map((m) => (
                 <button key={m} onClick={() => switchMode(m)} style={{
                   background: mode === m ? C.marigold : "transparent", color: mode === m ? C.navyDark : "rgba(255,255,255,0.65)",
@@ -519,7 +519,7 @@ function InteractiveExplorer() {
 
       {/* mode toggle — desktop only (floats centered top); on mobile it's in the header above */}
       {!isMobile && (
-        <div style={{ position: "absolute", top: 18, left: "50%", transform: "translateX(-50%)", display: "flex", background: "rgba(20,34,72,0.78)", backdropFilter: "blur(8px)", borderRadius: 999, padding: 5, border: "1px solid rgba(92,184,228,0.3)", zIndex: 6 }}>
+        <div style={{ position: "absolute", top: 18, left: "50%", transform: "translateX(-50%)", display: "flex", background: "rgba(0,10,30,0.78)", backdropFilter: "blur(8px)", borderRadius: 999, padding: 5, border: "1px solid rgba(0,53,107,0.3)", zIndex: 6 }}>
           {(["exterior", "interior"] as const).map((m) => (
             <button key={m} onClick={() => switchMode(m)} style={{
               background: mode === m ? C.marigold : "transparent", color: mode === m ? C.navyDark : "rgba(255,255,255,0.65)",
@@ -546,11 +546,11 @@ function InteractiveExplorer() {
           <>
             <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", background: "#222", overflow: "hidden", flexShrink: 0 }}>
               <span style={{ position: "absolute", top: 14, left: 14, background: C.marigold, color: C.navyDark, fontSize: 11, fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase", padding: "5px 12px", borderRadius: 999, zIndex: 2 }}>{active.cat}</span>
-              <button onClick={() => setActive(null)} style={{ position: "absolute", top: 12, right: 12, width: 34, height: 34, border: "none", borderRadius: "50%", background: "rgba(20,34,72,0.85)", color: "#fff", fontSize: 18, cursor: "pointer", zIndex: 2 }}>×</button>
+              <button onClick={() => setActive(null)} style={{ position: "absolute", top: 12, right: 12, width: 34, height: 34, border: "none", borderRadius: "50%", background: "rgba(0,10,30,0.85)", color: "#fff", fontSize: 18, cursor: "pointer", zIndex: 2 }}>×</button>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={active.img} alt={active.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               {active.placeholder && (
-                <span style={{ position: "absolute", bottom: 10, left: 14, right: 14, background: "rgba(20,34,72,0.85)", color: "#fff", fontSize: 11, padding: "5px 10px", borderRadius: 6 }}>Representative photo — actual fixture image coming soon</span>
+                <span style={{ position: "absolute", bottom: 10, left: 14, right: 14, background: "rgba(0,10,30,0.85)", color: "#fff", fontSize: 11, padding: "5px 10px", borderRadius: 6 }}>Representative photo — actual fixture image coming soon</span>
               )}
             </div>
             <div style={{ padding: "22px 26px", overflowY: "auto", flex: 1 }}>

@@ -17,9 +17,17 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://usg-website.netlify.app"),
   title: "Universal Signage & Graphics | USG",
   description:
     "Universal Signage & Graphics — turnkey signage programs, graphic design, custom print production, store surveys, direct store delivery, and product photography for convenience retail, tobacco/nicotine, QSR, grocery, and beverage industries.",
+  openGraph: {
+    title: "Universal Signage & Graphics | USG",
+    description:
+      "Retail signage programs for convenience, tobacco, QSR, grocery, and beverage chains.",
+    images: [{ url: "/images/usg-og.jpg", width: 1700, height: 1300, alt: "Universal Signage & Graphics" }],
+    type: "website",
+  },
 };
 
 export default function RootLayout({

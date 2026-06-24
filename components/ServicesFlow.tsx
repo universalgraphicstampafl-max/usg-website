@@ -39,17 +39,17 @@ const SERVICES = [
 
 /* industry nodes — each centered at x≈765 in the right half, vertically centered */
 const INDUSTRIES = [
-  { label: "Convenience", x: 694, y: 96, color: "#EFA51E" },
+  { label: "Convenience", x: 694, y: 96, color: "#FBB034" },
   { label: "Tobacco & Nicotine", x: 666, y: 208, color: "#DA291C" },
-  { label: "QSR", x: 710, y: 320, color: "#5CB8E4" },
+  { label: "QSR", x: 710, y: 320, color: "#00356B" },
   { label: "Grocery", x: 710, y: 432, color: "#4f9d5b" },
-  { label: "Beverage", x: 706, y: 544, color: "#3A9DCC" },
+  { label: "Beverage", x: 706, y: 544, color: "#00264D" },
 ];
 
 const SVC_ACCENTS = [
-  { fill: "rgba(239,165,30,0.16)", stroke: "rgba(239,165,30,0.55)", text: "#7a5208" },
-  { fill: "rgba(92,184,228,0.16)", stroke: "rgba(92,184,228,0.55)", text: "#1c5e7e" },
-  { fill: "rgba(27,45,94,0.10)", stroke: "rgba(27,45,94,0.4)", text: "#1B2D5E" },
+  { fill: "rgba(251,176,52,0.16)", stroke: "rgba(251,176,52,0.55)", text: "#7a5208" },
+  { fill: "rgba(0,53,107,0.16)", stroke: "rgba(0,53,107,0.55)", text: "#1c5e7e" },
+  { fill: "rgba(0,17,50,0.10)", stroke: "rgba(0,17,50,0.4)", text: "#001132" },
 ];
 
 /* helper: cubic path between two points with horizontal control handles */
@@ -91,17 +91,17 @@ export default function ServicesFlow() {
           <svg viewBox={VIEWBOX} className="w-full h-auto" role="img" aria-label="USG services flowing through a central hub out to the industries served">
             <defs>
               <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#EFA51E" stopOpacity="0.28" />
-                <stop offset="55%" stopColor="#5CB8E4" stopOpacity="0.10" />
-                <stop offset="100%" stopColor="#5CB8E4" stopOpacity="0" />
+                <stop offset="0%" stopColor="#FBB034" stopOpacity="0.28" />
+                <stop offset="55%" stopColor="#00356B" stopOpacity="0.10" />
+                <stop offset="100%" stopColor="#00356B" stopOpacity="0" />
               </radialGradient>
               <linearGradient id="svcLine" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#EFA51E" stopOpacity="0.12" />
-                <stop offset="100%" stopColor="#EFA51E" stopOpacity="0.6" />
+                <stop offset="0%" stopColor="#FBB034" stopOpacity="0.12" />
+                <stop offset="100%" stopColor="#FBB034" stopOpacity="0.6" />
               </linearGradient>
               <linearGradient id="indLine" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#5CB8E4" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#5CB8E4" stopOpacity="0.12" />
+                <stop offset="0%" stopColor="#00356B" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#00356B" stopOpacity="0.12" />
               </linearGradient>
             </defs>
 
@@ -134,7 +134,7 @@ export default function ServicesFlow() {
             ))}
             <defs>
               <marker id="arrowHead" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto">
-                <path d="M0,0 L9,4.5 L0,9 Z" fill="#5CB8E4" opacity="0.7" />
+                <path d="M0,0 L9,4.5 L0,9 Z" fill="#00356B" opacity="0.7" />
               </marker>
             </defs>
 
@@ -152,11 +152,11 @@ export default function ServicesFlow() {
 
             {/* HUB */}
             <g style={{ opacity: visible ? 1 : 0, transform: visible ? "scale(1)" : "scale(0.85)", transformOrigin: `${HUB.x}px ${HUB.y}px`, transition: "all .6s cubic-bezier(.16,1,.3,1) .25s" }}>
-              <rect x={HUB.x - 60} y={HUB.y - 60} width="120" height="120" rx="26" fill="#1B2D5E" />
-              <rect x={HUB.x - 60} y={HUB.y - 60} width="120" height="120" rx="26" fill="none" stroke="#EFA51E" strokeWidth="2" opacity="0.5">
+              <rect x={HUB.x - 60} y={HUB.y - 60} width="120" height="120" rx="26" fill="#001132" />
+              <rect x={HUB.x - 60} y={HUB.y - 60} width="120" height="120" rx="26" fill="none" stroke="#FBB034" strokeWidth="2" opacity="0.5">
                 {visible && <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2.6s" repeatCount="indefinite" />}
               </rect>
-              <text x={HUB.x} y={HUB.y - 4} textAnchor="middle" fontSize="30" fontWeight="900" fill="#EFA51E" letterSpacing="-1">USG</text>
+              <text x={HUB.x} y={HUB.y - 4} textAnchor="middle" fontSize="30" fontWeight="900" fill="#FBB034" letterSpacing="-1">USG</text>
               <text x={HUB.x} y={HUB.y + 22} textAnchor="middle" fontSize="9" fontWeight="600" fill="rgba(255,255,255,0.7)" letterSpacing="1.5">SIGNAGE</text>
             </g>
 
@@ -166,9 +166,9 @@ export default function ServicesFlow() {
               const w = Math.max(110, 34 + ind.label.length * 8.0 + 20);
               return (
                 <g key={`in${i}`} style={{ opacity: visible ? 1 : 0, transform: visible ? "translateX(0)" : "translateX(10px)", transition: `all .55s cubic-bezier(.16,1,.3,1) ${0.45 + i * 0.1}s` }}>
-                  <rect x={ind.x} y={ind.y} width={w} height="38" rx="19" fill="#ffffff" stroke="rgba(0,0,0,0.06)" strokeWidth="1" style={{ filter: "drop-shadow(0 4px 10px rgba(27,45,94,0.12))" }} />
+                  <rect x={ind.x} y={ind.y} width={w} height="38" rx="19" fill="#ffffff" stroke="rgba(0,0,0,0.06)" strokeWidth="1" style={{ filter: "drop-shadow(0 4px 10px rgba(0,17,50,0.12))" }} />
                   <circle cx={ind.x + 19} cy={ind.y + 19} r="6" fill={ind.color} />
-                  <text x={ind.x + 34} y={ind.y + 24} fontSize="14" fontWeight="700" fill="#1B2D5E">{ind.label}</text>
+                  <text x={ind.x + 34} y={ind.y + 24} fontSize="14" fontWeight="700" fill="#001132">{ind.label}</text>
                 </g>
               );
             })}
@@ -192,15 +192,15 @@ export default function ServicesFlow() {
 
           {/* flowing connector: services -> hub */}
           <svg width="40" height="56" viewBox="0 0 40 56" className="my-1" aria-hidden="true">
-            <line x1="20" y1="2" x2="20" y2="54" stroke="#EFA51E" strokeWidth="2.5" strokeLinecap="round"
+            <line x1="20" y1="2" x2="20" y2="54" stroke="#FBB034" strokeWidth="2.5" strokeLinecap="round"
               strokeDasharray="5 7" opacity="0.6"
               style={{ animation: visible ? "usgDashFlowV 1.3s linear infinite" : "none" }} />
-            <path d="M14 46 L20 54 L26 46" fill="none" stroke="#EFA51E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.6" />
+            <path d="M14 46 L20 54 L26 46" fill="none" stroke="#FBB034" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.6" />
           </svg>
 
           {/* hub with glow + pulse rings */}
           <div className="relative flex justify-center">
-            <span className="absolute inset-0 rounded-2xl" style={{ boxShadow: "0 0 60px 20px rgba(239,165,30,0.25)", opacity: visible ? 1 : 0, transition: "opacity 1s ease" }} />
+            <span className="absolute inset-0 rounded-2xl" style={{ boxShadow: "0 0 60px 20px rgba(251,176,52,0.25)", opacity: visible ? 1 : 0, transition: "opacity 1s ease" }} />
             <div className="relative w-24 h-24 rounded-2xl bg-brand-navy flex items-center justify-center shadow-xl">
               <span className="absolute inset-0 rounded-2xl border-2 border-brand-gold/40" style={{ animation: visible ? "usgHubPulse 2.6s ease-out infinite" : "none" }} />
               <span className="absolute inset-0 rounded-2xl border-2 border-brand-sky/30" style={{ animation: visible ? "usgHubPulse 2.6s ease-out 1.3s infinite" : "none" }} />
@@ -210,10 +210,10 @@ export default function ServicesFlow() {
 
           {/* flowing connector: hub -> industries */}
           <svg width="40" height="56" viewBox="0 0 40 56" className="my-1" aria-hidden="true">
-            <line x1="20" y1="2" x2="20" y2="54" stroke="#5CB8E4" strokeWidth="2.5" strokeLinecap="round"
+            <line x1="20" y1="2" x2="20" y2="54" stroke="#00356B" strokeWidth="2.5" strokeLinecap="round"
               strokeDasharray="5 7" opacity="0.7"
               style={{ animation: visible ? "usgDashFlowV 1.5s linear infinite" : "none" }} />
-            <path d="M14 46 L20 54 L26 46" fill="none" stroke="#5CB8E4" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
+            <path d="M14 46 L20 54 L26 46" fill="none" stroke="#00356B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
           </svg>
 
           {/* industries */}

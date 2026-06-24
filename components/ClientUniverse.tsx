@@ -22,14 +22,15 @@ const CLIENTS = [
 function UsgMark() {
   return (
     <div className="flex flex-col items-center text-center gap-3 select-none">
-      <div className="w-16 h-16 bg-brand-navy rounded-lg flex items-center justify-center shadow-[0_8px_30px_rgba(27,45,94,0.35)]">
-        <div className="w-9 h-9 border-2 border-brand-gold rounded-sm relative">
-          <div className="absolute inset-1 bg-brand-sky/40 rounded-sm" />
-        </div>
+      <div className="w-20 h-20 bg-brand-navy rounded-xl flex items-center justify-center p-3 shadow-[0_8px_30px_rgba(0,17,50,0.35)]">
+        <img
+          src="/images/usg-logo-mark.svg"
+          alt="Universal Signage & Graphics"
+          className="w-full h-full object-contain"
+        />
       </div>
       <div className="leading-none">
-        <p className="font-extrabold text-brand-navy/70 tracking-brand-logo text-lg">USG</p>
-        <p className="font-black text-brand-navy tracking-widest uppercase text-2xl lg:text-3xl mt-1.5">
+        <p className="font-black text-brand-navy tracking-widest uppercase text-2xl lg:text-3xl">
           Universal
         </p>
         <p className="text-brand-navy/60 text-[0.6rem] tracking-wide uppercase mt-1.5">
@@ -42,7 +43,7 @@ function UsgMark() {
 
 function Planet({ slug, name }: { slug: string; name: string }) {
   return (
-    <div className="relative w-[18vw] h-[18vw] max-w-24 max-h-24 sm:w-24 sm:h-24 rounded-full bg-white shadow-[0_8px_24px_rgba(27,45,94,0.28)]">
+    <div className="relative w-[18vw] h-[18vw] max-w-24 max-h-24 sm:w-24 sm:h-24 rounded-full bg-white shadow-[0_8px_24px_rgba(0,17,50,0.28)]">
       <div className="absolute inset-[20%]">
         <Image src={`/images/logos/${slug}.png`} alt={name} fill className="object-contain" sizes="96px" />
       </div>
@@ -72,10 +73,10 @@ export default function ClientUniverse() {
         <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full" aria-hidden="true">
           {CLIENTS.map((c, i) => (
             <g key={c.slug}>
-              <line x1={50} y1={50} x2={c.left} y2={c.top} stroke="#1B2D5E" strokeOpacity={0.18} strokeWidth={1} vectorEffect="non-scaling-stroke" />
+              <line x1={50} y1={50} x2={c.left} y2={c.top} stroke="#001132" strokeOpacity={0.18} strokeWidth={1} vectorEffect="non-scaling-stroke" />
               <line
                 x1={50} y1={50} x2={c.left} y2={c.top}
-                stroke="#1B2D5E" strokeWidth={1.5} strokeLinecap="round" vectorEffect="non-scaling-stroke"
+                stroke="#001132" strokeWidth={1.5} strokeLinecap="round" vectorEffect="non-scaling-stroke"
                 pathLength={1} strokeDasharray={1} strokeDashoffset={revealed ? 0 : 1}
                 style={{ transition: revealed ? `stroke-dashoffset 0.9s ease-out ${0.3 + i * 0.12}s` : "none" }}
               />
@@ -125,7 +126,7 @@ export default function ClientUniverse() {
           {CLIENTS.map((c, i) => (
             <div
               key={c.slug}
-              className="relative aspect-square rounded-2xl bg-white shadow-[0_8px_24px_rgba(27,45,94,0.28)]"
+              className="relative aspect-square rounded-2xl bg-white shadow-[0_8px_24px_rgba(0,17,50,0.28)]"
               style={{
                 opacity: revealed ? 1 : 0,
                 transform: revealed ? "translateY(0)" : "translateY(12px)",

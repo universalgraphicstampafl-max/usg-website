@@ -180,7 +180,7 @@ export default function AboutPage() {
           </div>
 
           {/* Navy gradient overlay for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1B2D5E]/85 via-[#1B2D5E]/75 to-[#1B2D5E]/85" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#001132]/85 via-[#001132]/75 to-[#001132]/85" />
 
           {/* Content */}
           <div className="relative z-10 container mx-auto px-6 lg:px-12">

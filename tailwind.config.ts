@@ -10,15 +10,15 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          navy: "#1B2D5E",
-          "navy-dark": "#142248",
-          gold: "#EFA51E",
-          "gold-dark": "#C8830A",
-          marigold: "#EFA51E",
-          "marigold-dark": "#C8830A",
-          sky: "#5CB8E4",
-          "sky-dark": "#3A9DCC",
-          offwhite: "#F5F4F0",
+          navy: "#001132",
+          "navy-dark": "#000A1E",
+          gold: "#FBB034",
+          "gold-dark": "#D89214",
+          marigold: "#FBB034",
+          "marigold-dark": "#D89214",
+          sky: "#00356B",
+          "sky-dark": "#00264D",
+          offwhite: "#EFEFEE",
         },
       },
       fontFamily: {

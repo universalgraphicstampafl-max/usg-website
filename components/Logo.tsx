@@ -3,43 +3,30 @@
 import Link from "next/link";
 
 interface LogoProps {
+  /** "light" = sits on a dark background, "dark" = sits on a light background. */
   variant?: "light" | "dark";
   className?: string;
 }
 
+/**
+ * Official USG monogram (Olivia 2026 final). Single source of truth:
+ * /public/images/usg-logo-mark.svg — gold "USG" + orbital swoosh on a
+ * transparent field, so it reads on both light (nav) and dark (footer) surfaces.
+ */
 export default function Logo({ variant = "dark", className = "" }: LogoProps) {
-  const mainColor = variant === "light" ? "text-white" : "text-brand-navy";
-  const accentColor = variant === "light" ? "text-brand-gold" : "text-brand-gold";
-
   return (
-    <Link href="/" className={`flex items-center gap-2 select-none ${className}`}>
-      {/* Icon mark */}
-      <div className="relative flex-shrink-0">
-        <div className="w-9 h-9 bg-brand-navy rounded flex items-center justify-center">
-          <div className="w-5 h-5 border-2 border-brand-gold rounded-sm relative">
-            <div className="absolute inset-0.5 bg-brand-sky/40 rounded-sm" />
-          </div>
-        </div>
-      </div>
-
-      {/* Wordmark */}
-      <div className="flex flex-col leading-none">
-        <span
-          className={`font-extrabold text-lg tracking-brand-logo uppercase ${accentColor}`}
-        >
-          USG
-        </span>
-        <span
-          className={`text-[0.52rem] tracking-widest uppercase font-black transition-colors duration-300 ${mainColor}`}
-        >
-          UNIVERSAL
-        </span>
-        <span
-          className={`text-[0.42rem] tracking-wide font-light transition-colors duration-300 ${mainColor} opacity-70`}
-        >
-          Signage &amp; Graphics
-        </span>
-      </div>
+    <Link
+      href="/"
+      aria-label="USG — Universal Signage & Graphics, home"
+      className={`inline-flex items-center select-none ${className}`}
+    >
+      <img
+        src="/images/usg-logo-mark.svg"
+        alt="Universal Signage & Graphics"
+        width={238}
+        height={181}
+        className={`h-10 w-auto ${variant === "light" ? "drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]" : ""}`}
+      />
     </Link>
   );
 }

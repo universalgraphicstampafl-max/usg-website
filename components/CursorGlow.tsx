@@ -38,12 +38,12 @@ export default function CursorGlow() {
         if (s === "nav") {
           el.style.width  = "8px";
           el.style.height = "8px";
-          el.style.background = "rgba(239,165,30,0.9)";
+          el.style.background = "rgba(251,176,52,0.9)";
           el.style.mixBlendMode = "normal";
         } else if (s === "hover") {
           el.style.width  = "48px";
           el.style.height = "48px";
-          el.style.background = "rgba(239,165,30,0.25)";
+          el.style.background = "rgba(251,176,52,0.25)";
           el.style.mixBlendMode = "normal";
         } else {
           el.style.width  = "20px";
