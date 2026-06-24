@@ -160,7 +160,7 @@ const SECTIONS: Section[] = [
     blocks: [
       {
         type: "p",
-        text: "If you have questions about this Privacy Policy or our data practices, contact us at [PRIVACY EMAIL], [PHONE], or [MAILING ADDRESS], Tampa, Florida.",
+        text: "If you have questions about this Privacy Policy or our data practices, contact us at [PRIVACY EMAIL], (813) 623-5335, or 4897 W. Waters Ave, Suite H, Tampa, FL 33634.",
       },
     ],
   },

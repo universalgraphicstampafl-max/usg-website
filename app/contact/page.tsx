@@ -102,6 +102,25 @@ export default function ContactPage() {
             </button>
           </form>
         </div>
+
+        <div className="max-w-3xl mx-auto mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+          <div className="bg-white rounded-xl border border-gray-100 p-5">
+            <p className="text-xs font-semibold tracking-widest uppercase text-brand-gold mb-1.5">Visit</p>
+            <p className="text-brand-navy text-sm leading-relaxed">
+              4897 W. Waters Ave, Suite H<br />Tampa, FL 33634
+            </p>
+          </div>
+          <div className="bg-white rounded-xl border border-gray-100 p-5">
+            <p className="text-xs font-semibold tracking-widest uppercase text-brand-gold mb-1.5">Call</p>
+            <a href="tel:+18136235335" className="text-brand-navy text-sm hover:text-brand-sky transition-colors">
+              (813) 623-5335
+            </a>
+          </div>
+          <div className="bg-white rounded-xl border border-gray-100 p-5">
+            <p className="text-xs font-semibold tracking-widest uppercase text-brand-gold mb-1.5">Fax</p>
+            <p className="text-brand-navy text-sm">(813) 626-7074</p>
+          </div>
+        </div>
       </section>
     </div>
   );

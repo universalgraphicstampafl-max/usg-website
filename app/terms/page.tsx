@@ -142,7 +142,7 @@ const SECTIONS: Section[] = [
     blocks: [
       {
         type: "p",
-        text: "These Terms are governed by the laws of the State of Florida, without regard to its conflict-of-laws rules. You agree that any dispute arising from these Terms or the Services will be brought exclusively in the state or federal courts located in [COUNTY], Florida, and you consent to their jurisdiction.",
+        text: "These Terms are governed by the laws of the State of Florida, without regard to its conflict-of-laws rules. You agree that any dispute arising from these Terms or the Services will be brought exclusively in the state or federal courts located in Hillsborough County, Florida, and you consent to their jurisdiction.",
       },
     ],
   },

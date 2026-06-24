@@ -104,9 +104,10 @@ export default function RootLayout({
                 Contact
               </p>
               <ul className="text-white/60 text-sm leading-8">
-                <li>(000) 000-0000</li>
-                <li>hello@usg.com</li>
-                <li>123 Main Street<br />City, ST 00000</li>
+                <li>4897 W. Waters Ave, Suite H</li>
+                <li>Tampa, FL 33634</li>
+                <li><a href="tel:+18136235335" className="hover:text-white transition-colors">(813) 623-5335</a></li>
+                <li>Fax: (813) 626-7074</li>
               </ul>
             </div>
           </div>
