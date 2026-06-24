@@ -111,7 +111,7 @@ export default function HomePage() {
         style={{ background: "#001132" }}
       >
         {/* Marigold split panel (desktop only) */}
-        <div aria-hidden="true" className="hero-panel hidden lg:block absolute z-0 inset-y-0 left-0 w-[42%]" />
+        <div aria-hidden="true" className="hero-panel hidden lg:block absolute z-0 inset-y-0 left-0 w-[50%]" />
         <div aria-hidden="true" className="hero-fade hidden lg:block absolute z-0 inset-y-0" />
 
         <HeroMesh />
@@ -140,31 +140,22 @@ export default function HomePage() {
                 from one location to one thousand.
               </p>
 
-              <div
-                className="inline-flex gap-6 bg-brand-navy/10 border border-brand-navy/20 rounded-xl px-5 py-3 mb-8 text-sm"
+              <p
+                className="text-base text-brand-navy/80 mb-6"
                 style={{ animation: "heroEnter 0.6s ease-out 0.65s both" }}
               >
-                <span className="text-brand-navy/70">Serving</span>
-                <span className="font-bold text-brand-navy number-glow">2,000+ locations</span>
-                <span className="text-brand-navy/70">across</span>
-                <span className="font-bold text-brand-navy number-glow" style={{ animationDelay: "2s" }}>28 states</span>
-              </div>
+                Serving{" "}
+                <span className="font-bold text-brand-navy number-glow">2,000+ locations</span>{" "}
+                across{" "}
+                <span className="font-bold text-brand-navy number-glow" style={{ animationDelay: "2s" }}>
+                  28 states
+                </span>
+              </p>
 
               <div
-                className="flex flex-col md:flex-row gap-4 items-start mt-8 flex-wrap"
+                className="flex flex-col md:flex-row gap-4 items-start mt-2 flex-wrap"
                 style={{ animation: "heroEnter 0.6s ease-out 0.8s both" }}
               >
-                <Link
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex flex-col items-center bg-brand-navy text-white hover:bg-brand-navy-dark transition-colors duration-200 tracking-brand-wide !px-8 !py-3 !rounded-xl w-full sm:w-auto max-w-md sm:max-w-none mx-auto sm:mx-0 text-center"
-                >
-                  <span className="font-semibold text-base">Start with a Discovery Call</span>
-                  <span className="font-normal text-xs text-white/70 mt-1">
-                    Book time with Preston Packrall: 30-minute meeting
-                  </span>
-                </Link>
                 <Link
                   href="/success-stories"
                   className="text-base font-semibold tracking-brand-wide text-brand-navy border-2 border-brand-navy/70 px-6 py-4 rounded w-full sm:w-auto max-w-md mx-auto sm:mx-0 whitespace-normal text-center hover:bg-brand-navy/10 transition-colors duration-200"

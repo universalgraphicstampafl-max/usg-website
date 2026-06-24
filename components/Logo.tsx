@@ -25,7 +25,7 @@ export default function Logo({ variant = "dark", className = "" }: LogoProps) {
         alt="Universal Signage & Graphics"
         width={238}
         height={181}
-        className={`h-10 w-auto ${variant === "light" ? "drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]" : ""}`}
+        className={`h-12 w-auto ${variant === "light" ? "drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]" : ""}`}
       />
     </Link>
   );
