@@ -96,12 +96,12 @@
     position: absolute;
     z-index: -1;
     top: -120px;
-    bottom: -48px;
+    bottom: -72px;
     left: -100px;
     right: -100px;
     background: #FBB034;
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 90px), transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 90px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 36px), transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 36px), transparent 100%);
   }
   @media (min-width: 1024px) {
     .hero-text-col::before { display: none; }
@@ -110,7 +110,7 @@
       clip-path: polygon(0 0, 100% 0, calc(100% - 120px) 100%, 0 100%);
     }
     .hero-fade {
-      left: calc(50% - 120px);
+      left: calc(42% - 120px);
       width: 240px;
       background: linear-gradient(to right, rgba(251,176,52,0.55) 0%, rgba(251,176,52,0) 100%);
       clip-path: polygon(120px 0, 100% 0, 100% 100%, 0 100%);

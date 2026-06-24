@@ -111,7 +111,7 @@ export default function HomePage() {
         style={{ background: "#001132" }}
       >
         {/* Marigold split panel (desktop only) */}
-        <div aria-hidden="true" className="hero-panel hidden lg:block absolute z-0 inset-y-0 left-0 w-[50%]" />
+        <div aria-hidden="true" className="hero-panel hidden lg:block absolute z-0 inset-y-0 left-0 w-[42%]" />
         <div aria-hidden="true" className="hero-fade hidden lg:block absolute z-0 inset-y-0" />
 
         <HeroMesh />
