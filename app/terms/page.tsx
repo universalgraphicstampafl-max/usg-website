@@ -16,7 +16,7 @@ export const metadata = {
    and whether a separate Master Services Agreement / PO governs orders.
    ──────────────────────────────────────────────────────────────────────── */
 
-const EFFECTIVE_DATE = "[EFFECTIVE DATE]";
+const EFFECTIVE_DATE = "June 24, 2026";
 
 type Block = { type: "p"; text: string } | { type: "ul"; items: string[] };
 type Section = { heading: string; blocks: Block[] };
@@ -160,7 +160,7 @@ const SECTIONS: Section[] = [
     blocks: [
       {
         type: "p",
-        text: "Questions about these Terms can be directed to [LEGAL EMAIL], Universal Signage & Graphics, Tampa, Florida.",
+        text: "Questions about these Terms can be directed to info@usgfla.com, Universal Signage & Graphics, Tampa, Florida.",
       },
     ],
   },

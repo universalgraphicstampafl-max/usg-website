@@ -17,7 +17,7 @@ export const metadata = {
                              Analytics, HubSpot tracking)
    ──────────────────────────────────────────────────────────────────────── */
 
-const EFFECTIVE_DATE = "[EFFECTIVE DATE]";
+const EFFECTIVE_DATE = "June 24, 2026";
 
 type Block = { type: "p"; text: string } | { type: "ul"; items: string[] };
 type Section = { heading: string; blocks: Block[] };
@@ -49,7 +49,7 @@ const SECTIONS: Section[] = [
       },
       {
         type: "p",
-        text: "Information collected automatically. When you visit the site, we and our service providers may collect technical and usage data such as your IP address, browser type, device information, referring pages, and the pages you view. We collect this through cookies and similar technologies. [Confirm tools: ANALYTICS TOOLS].",
+        text: "Information collected automatically. When you visit the site, we and our service providers may collect technical and usage data such as your IP address, browser type, device information, referring pages, and the pages you view. We collect this through cookies and similar technologies, including Google Analytics.",
       },
       {
         type: "p",
@@ -160,7 +160,7 @@ const SECTIONS: Section[] = [
     blocks: [
       {
         type: "p",
-        text: "If you have questions about this Privacy Policy or our data practices, contact us at [PRIVACY EMAIL], (813) 623-5335, or 4897 W. Waters Ave, Suite H, Tampa, FL 33634.",
+        text: "If you have questions about this Privacy Policy or our data practices, contact us at info@usgfla.com, (813) 623-5335, or 4897 W. Waters Ave, Suite H, Tampa, FL 33634.",
       },
     ],
   },
