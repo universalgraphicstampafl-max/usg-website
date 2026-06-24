@@ -108,6 +108,7 @@ export default function RootLayout({
                 <li>Tampa, FL 33634</li>
                 <li><a href="tel:+18136235335" className="hover:text-white transition-colors">(813) 623-5335</a></li>
                 <li>Fax: (813) 626-7074</li>
+                <li><a href="mailto:info@usgfla.com" className="hover:text-white transition-colors">info@usgfla.com</a></li>
               </ul>
             </div>
           </div>
