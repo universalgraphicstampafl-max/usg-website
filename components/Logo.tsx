@@ -5,28 +5,34 @@ import Link from "next/link";
 interface LogoProps {
   /** "light" = sits on a dark background, "dark" = sits on a light background. */
   variant?: "light" | "dark";
+  /** Render the written-out company name beside the mark (used in the top nav). */
+  showName?: boolean;
   className?: string;
 }
 
-/**
- * Official USG monogram (Olivia 2026 final). Single source of truth:
- * /public/images/usg-logo-mark.svg — gold "USG" + orbital swoosh on a
- * transparent field, so it reads on both light (nav) and dark (footer) surfaces.
- */
-export default function Logo({ variant = "dark", className = "" }: LogoProps) {
+export default function Logo({ variant = "dark", showName = false, className = "" }: LogoProps) {
+  const text = variant === "light" ? "text-white" : "text-brand-navy";
   return (
     <Link
       href="/"
       aria-label="USG — Universal Signage & Graphics, home"
-      className={`inline-flex items-center select-none ${className}`}
+      className={`inline-flex items-center gap-3 select-none ${className}`}
     >
       <img
         src="/images/usg-logo-mark.svg"
         alt="Universal Signage & Graphics"
         width={238}
         height={181}
-        className={`h-12 w-auto ${variant === "light" ? "drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]" : ""}`}
+        className={`h-14 w-auto shrink-0 ${variant === "light" ? "drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]" : ""}`}
       />
+      {showName && (
+        <span className={`hidden xl:flex flex-col leading-tight ${text}`}>
+          <span className="font-black uppercase tracking-wide text-base">Universal</span>
+          <span className="text-[0.6rem] font-semibold uppercase tracking-[0.2em] opacity-70">
+            Signage &amp; Graphics
+          </span>
+        </span>
+      )}
     </Link>
   );
 }

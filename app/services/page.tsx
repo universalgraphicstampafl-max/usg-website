@@ -68,7 +68,7 @@ export default function ServicesPage() {
     <div className="bg-brand-offwhite text-brand-navy">
 
       {/* ── HERO (navy) ─────────────────────────────────────────────── */}
-      <section className="bg-brand-navy text-white -mt-[64px] pt-[104px] pb-20 lg:pb-28 px-6 overflow-hidden">
+      <section className="bg-brand-navy text-white -mt-[72px] pt-[112px] pb-20 lg:pb-28 px-6 overflow-hidden">
         <div className="max-w-5xl mx-auto">
           <p className="section-sub">Services</p>
           <h1 className="text-4xl md:text-6xl font-black tracking-brand-tight leading-[1.05] mb-6">

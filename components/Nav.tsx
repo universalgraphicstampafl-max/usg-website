@@ -138,11 +138,11 @@ export default function Nav() {
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-40 h-[64px] bg-[#EFEFEE]/95 backdrop-blur-md border-b border-black/5"
+        className="fixed top-0 left-0 right-0 z-40 h-[72px] bg-[#EFEFEE]/95 backdrop-blur-md border-b border-black/5"
       >
         <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between gap-4">
           {/* Logo */}
-          <Logo variant="dark" />
+          <Logo variant="dark" showName />
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
@@ -212,7 +212,7 @@ export default function Nav() {
             aria-label="Mobile navigation"
           >
             <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-              <Logo variant="dark" />
+              <Logo variant="dark" showName />
               <button
                 className="p-2 rounded text-brand-navy"
                 aria-label="Close menu"

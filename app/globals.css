@@ -110,7 +110,7 @@
       clip-path: polygon(0 0, 100% 0, calc(100% - 120px) 100%, 0 100%);
     }
     .hero-fade {
-      left: calc(42% - 120px);
+      left: calc(50% - 120px);
       width: 240px;
       background: linear-gradient(to right, rgba(251,176,52,0.55) 0%, rgba(251,176,52,0) 100%);
       clip-path: polygon(120px 0, 100% 0, 100% 100%, 0 100%);
