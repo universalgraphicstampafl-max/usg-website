@@ -26,7 +26,7 @@ export default function Logo({ variant = "dark", showName = false, className = "
         className={`h-14 w-auto shrink-0 ${variant === "light" ? "drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]" : ""}`}
       />
       {showName && (
-        <span className={`hidden xl:flex flex-col leading-tight ${text}`}>
+        <span className={`flex flex-col leading-tight ${text}`}>
           <span className="font-black uppercase tracking-wide text-base">Universal</span>
           <span className="text-[0.6rem] font-semibold uppercase tracking-[0.2em] opacity-70">
             Signage &amp; Graphics
