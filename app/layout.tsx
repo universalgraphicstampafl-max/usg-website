@@ -66,7 +66,7 @@ export default function RootLayout({
                   { label: "Signage Management Software", href: "/services/signage-management-software" },
                 ].map((l) => (
                   <li key={l.href}>
-                    <Link href={l.href} className="text-brand-sky hover:text-white text-sm leading-8 transition-colors">
+                    <Link href={l.href} className="text-brand-gold hover:text-white text-sm leading-8 transition-colors">
                       {l.label}
                     </Link>
                   </li>
@@ -88,7 +88,7 @@ export default function RootLayout({
                   { label: "Beverage",            href: "/#industries" },
                 ].map((l) => (
                   <li key={l.label}>
-                    <Link href={l.href} className="text-brand-sky hover:text-white text-sm leading-8 transition-colors">
+                    <Link href={l.href} className="text-brand-gold hover:text-white text-sm leading-8 transition-colors">
                       {l.label}
                     </Link>
                   </li>
