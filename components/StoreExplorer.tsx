@@ -9,8 +9,8 @@
  */
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import { useMemo, useRef, useState, useCallback, useEffect } from "react";
+import { OrbitControls, Sky, Environment, SoftShadows, useTexture } from "@react-three/drei";
+import { Suspense, useMemo, useRef, useState, useCallback, useEffect } from "react";
 import * as THREE from "three";
 
 /* ============================= palette ============================= */
@@ -91,96 +91,292 @@ function SevenLogo({ scale = 1, position = [0, 0, 0] }: { scale?: number; positi
   );
 }
 
+
+/* ============================= texture helpers ============================= */
+function useTiled(url: string, rx: number, ry: number) {
+  const base = useTexture(url);
+  return useMemo(() => {
+    const t = base.clone();
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.repeat.set(rx, ry);
+    t.anisotropy = 8;
+    t.colorSpace = THREE.SRGBColorSpace;
+    t.needsUpdate = true;
+    return t;
+  }, [base, rx, ry]);
+}
+function useSRGB(url: string) {
+  const t = useTexture(url);
+  useMemo(() => { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; t.needsUpdate = true; }, [t]);
+  return t;
+}
+
+function Tree({ position, s = 1 }: { position: Vec3; s?: number }) {
+  const foliage = useSRGB("/textures/foliage.png");
+  return (
+    <group position={position}>
+      <Cyl args={[0.13, 0.22, 2.4]} position={[0, 1.2, 0]} color="#5a4632" />
+      {[0, Math.PI / 2].map((r, i) => (
+        <mesh key={i} position={[0, 3.1 * s, 0]} rotation={[0, r, 0]}>
+          <planeGeometry args={[4.4 * s, 4.4 * s]} />
+          <meshStandardMaterial map={foliage} transparent alphaTest={0.4} side={THREE.DoubleSide} roughness={0.95} />
+        </mesh>
+      ))}
+      {/* soft ground shadow disc */}
+      <mesh position={[0, 0.015, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <circleGeometry args={[1.7 * s, 24]} />
+        <meshBasicMaterial color="#000000" transparent opacity={0.22} />
+      </mesh>
+    </group>
+  );
+}
+
+/* ============================= daylight rig ============================= */
+function Daylight() {
+  return (
+    <>
+      <Sky distance={450000} sunPosition={[-40, 55, 38]} turbidity={4.5} rayleigh={0.55} mieCoefficient={0.004} mieDirectionalG={0.85} />
+      <fog attach="fog" args={["#cfe0ee", 62, 150]} />
+      <hemisphereLight args={["#dceaff", "#9a9384", 0.6]} />
+      <directionalLight
+        position={[-18, 26, 16]} intensity={1.9} color="#fff3dd" castShadow
+        shadow-mapSize-width={2048} shadow-mapSize-height={2048}
+        shadow-camera-left={-30} shadow-camera-right={30} shadow-camera-top={30} shadow-camera-bottom={-30}
+        shadow-camera-near={1} shadow-camera-far={90} shadow-bias={-0.0004}
+      />
+      <directionalLight position={[20, 12, -14]} intensity={0.35} color="#dfeaff" />
+      <SoftShadows size={16} samples={10} focus={0.5} />
+      <Suspense fallback={null}>
+        <Environment preset="city" />
+      </Suspense>
+    </>
+  );
+}
+
 /* ============================= EXTERIOR SCENE ============================= */
 function ExteriorScene() {
+  const asphalt = useTiled("/textures/asphalt.jpg", 6.5, 5);
+  const concrete = useTiled("/textures/concrete.jpg", 7, 1.4);
+  const stucco = useTiled("/textures/stucco.jpg", 4.5, 1.3);
+  const stuccoSide = useTiled("/textures/stucco.jpg", 3, 1.3);
+  const roofTex = useTiled("/textures/roof.jpg", 4.5, 3);
+  const poster = useSRGB("/images/easy/qsr-soup-lto-poster.webp");
   const BW = 17, BH = 4.6, BD = 11;
   const cols: [number, number][] = [[-6, -2.4], [6, -2.4], [-6, 2.4], [6, 2.4]];
   const pumps: [number, number][] = [[-4.2, 0], [0, 0], [4.2, 0]];
   return (
     <group>
-      <mesh position={[0, -0.2, 0]} receiveShadow><boxGeometry args={[54, 0.4, 42]} /><meshStandardMaterial color={C.asphalt} roughness={0.95} /></mesh>
-      {Array.from({ length: 7 }).map((_, i) => (<Box key={`p${i}`} args={[0.12, 0.02, 3.4]} position={[3 + i * 1.9, 0.02, 9.5]} color="#d8d3c0" />))}
+      {/* asphalt lot */}
+      <mesh position={[0, -0.2, 0]} receiveShadow>
+        <boxGeometry args={[54, 0.4, 42]} />
+        <meshStandardMaterial map={asphalt} color="#c9c9c9" roughness={0.97} />
+      </mesh>
+      {/* worn parking stall lines */}
+      {Array.from({ length: 7 }).map((_, i) => (
+        <Box key={`p${i}`} args={[0.12, 0.02, 3.4]} position={[3 + i * 1.9, 0.02, 9.5]} color="#d3cebd" roughness={0.92} />
+      ))}
+      {/* landscape islands with trees */}
       {([[-22, -16], [22, -16], [-22, 16], [22, 16]] as [number, number][]).map(([x, z], i) => (
         <group key={`ls${i}`}>
-          <Box args={[3, 0.5, 3]} position={[x, 0.15, z]} color={C.green} roughness={0.9} />
-          <Cyl args={[0.15, 0.2, 1.4]} position={[x, 0.9, z]} color={C.trunk} />
-          <Cyl args={[1.0, 1.2, 1.4, 8]} position={[x, 1.9, z]} color="#4f7a3a" />
+          <mesh position={[x, 0.12, z]} receiveShadow>
+            <cylinderGeometry args={[2.1, 2.3, 0.24, 24]} />
+            <meshStandardMaterial color="#57683f" roughness={1} />
+          </mesh>
+          <mesh position={[x, 0.06, z]}>
+            <cylinderGeometry args={[2.35, 2.4, 0.14, 24]} />
+            <meshStandardMaterial map={concrete} color="#c8c4b9" roughness={0.9} />
+          </mesh>
+          <Tree position={[x, 0, z]} s={1 + (i % 2) * 0.18} />
         </group>
       ))}
-      <Box args={[20, 0.45, 3.6]} position={[0, 0.06, 5.0]} color={C.concrete} roughness={0.9} />
+      {/* sidewalk + curb */}
+      <mesh position={[0, 0.06, 5.0]} receiveShadow>
+        <boxGeometry args={[20, 0.45, 3.6]} />
+        <meshStandardMaterial map={concrete} color="#d6d2c8" roughness={0.9} />
+      </mesh>
+      <Box args={[20, 0.2, 0.24]} position={[0, 0.1, 6.9]} color="#b9b5aa" roughness={0.9} />
+      {/* red safety bollards along storefront */}
+      {[-5, -2, 1, 4, 7].map((x, i) => (
+        <group key={`bl${i}`} position={[x, 0, 6.55]}>
+          <Cyl args={[0.15, 0.15, 1.0, 16]} position={[0, 0.5, 0]} color="#c22a1e" />
+          <mesh position={[0, 1.02, 0]}><sphereGeometry args={[0.15, 16, 12]} /><meshStandardMaterial color="#c22a1e" roughness={0.5} /></mesh>
+        </group>
+      ))}
+
+      {/* ── BUILDING ─────────────────────────────────────────── */}
       <group position={[2, 0, -1.5]}>
-        <Box args={[BW, 1.2, 0.42]} position={[0, 0.6, BD / 2 - 0.02]} color={C.brick} />
-        <Box args={[BW, BH, 0.4]} position={[0, BH / 2, -BD / 2]} color={C.beige} />
-        <Box args={[0.4, BH, BD]} position={[-BW / 2, BH / 2, 0]} color={C.beigeWall} />
-        <Box args={[0.4, BH, BD]} position={[BW / 2, BH / 2, 0]} color={C.beigeWall} />
-        <Box args={[BW, 0.4, 0.25]} position={[0, BH - 0.2, BD / 2]} color={C.dkmetal} />
-        <Box args={[BW, 0.4, 0.25]} position={[0, 0.5, BD / 2]} color={C.dkmetal} />
-        <Box args={[9.5, BH - 1.1, 0.1]} position={[-3.2, BH / 2 + 0.05, BD / 2 + 0.06]} color={C.glass} transparent opacity={0.32} metalness={0.3} />
-        <Box args={[3.2, 3.4, 0.16]} position={[4.2, 1.9, BD / 2 + 0.1]} color="#000A1E" transparent opacity={0.5} />
-        <Box args={[3.5, 0.4, 0.2]} position={[4.2, 3.7, BD / 2 + 0.12]} color={C.dkmetal} />
-        {Array.from({ length: 7 }).map((_, i) => (<Box key={`ml${i}`} args={[0.1, BH - 1.1, 0.13]} position={[(i - 6) * 1.35 - 0.3, BH / 2 + 0.05, BD / 2 + 0.1]} color={C.dkmetal} />))}
-        <Box args={[BW + 0.5, 1.5, 0.35]} position={[0, BH + 0.65, BD / 2 + 0.16]} color={C.sevWhite} />
-        <Box args={[0.35, 1.5, BD + 0.5]} position={[-BW / 2 - 0.12, BH + 0.65, 0]} color={C.sevWhite} />
-        <Box args={[0.35, 1.5, BD + 0.5]} position={[BW / 2 + 0.12, BH + 0.65, 0]} color={C.sevWhite} />
-        <Box args={[BW + 0.5, 1.5, 0.35]} position={[0, BH + 0.65, -BD / 2 - 0.16]} color={C.sevWhite} />
+        {/* brick base under glazing */}
+        <Box args={[BW, 1.2, 0.42]} position={[0, 0.6, BD / 2 - 0.02]} color={C.brick} roughness={0.9} />
+        {/* rear + side walls (stucco) */}
+        <mesh position={[0, BH / 2, -BD / 2]} castShadow receiveShadow>
+          <boxGeometry args={[BW, BH, 0.4]} />
+          <meshStandardMaterial map={stucco} color="#ded8ca" roughness={0.92} />
+        </mesh>
+        <mesh position={[-BW / 2, BH / 2, 0]} castShadow receiveShadow>
+          <boxGeometry args={[0.4, BH, BD]} />
+          <meshStandardMaterial map={stuccoSide} color="#d7d1c2" roughness={0.92} />
+        </mesh>
+        <mesh position={[BW / 2, BH / 2, 0]} castShadow receiveShadow>
+          <boxGeometry args={[0.4, BH, BD]} />
+          <meshStandardMaterial map={stuccoSide} color="#d7d1c2" roughness={0.92} />
+        </mesh>
+        {/* storefront trim */}
+        <Box args={[BW, 0.4, 0.25]} position={[0, BH - 0.2, BD / 2]} color="#3c4046" metalness={0.6} roughness={0.35} />
+        <Box args={[BW, 0.4, 0.25]} position={[0, 0.5, BD / 2]} color="#3c4046" metalness={0.6} roughness={0.35} />
+        {/* lit interior visible through the glazing */}
+        <mesh position={[-3.2, 2.1, BD / 2 - 1.6]}>
+          <boxGeometry args={[9.2, 3.4, 0.12]} />
+          <meshStandardMaterial color="#fff3da" emissive="#ffe1a6" emissiveIntensity={0.85} />
+        </mesh>
+        {[-6.4, -4.4, -2.4, -0.4, 1.4].map((x, i) => (
+          <Box key={`sh${i}`} args={[1.3, 2.0, 0.5]} position={[x, 1.35, BD / 2 - 0.95]} color={i % 2 ? "#8c8677" : "#7c766a"} roughness={0.9} />
+        ))}
+        <pointLight position={[-3.2, 3.2, BD / 2 - 1.0]} intensity={0.5} distance={9} color="#ffe8bd" />
+        {/* storefront glass — reflective */}
+        <mesh position={[-3.2, BH / 2 + 0.05, BD / 2 + 0.06]}>
+          <boxGeometry args={[9.5, BH - 1.1, 0.1]} />
+          <meshStandardMaterial color="#5d7c8c" transparent opacity={0.38} metalness={0.9} roughness={0.05} envMapIntensity={1.6} />
+        </mesh>
+        {/* entrance door within glazing */}
+        <Box args={[0.08, BH - 1.3, 0.16]} position={[-0.15, BH / 2, BD / 2 + 0.12]} color="#2e3238" metalness={0.7} roughness={0.3} />
+        <Box args={[0.08, BH - 1.3, 0.16]} position={[-1.45, BH / 2, BD / 2 + 0.12]} color="#2e3238" metalness={0.7} roughness={0.3} />
+        <Box args={[1.4, 0.09, 0.14]} position={[-0.8, 1.85, BD / 2 + 0.13]} color="#c8ccd2" metalness={0.85} roughness={0.2} />
+        {/* promo poster on the glass (USG-produced signage) */}
+        <mesh position={[-5.6, 2.35, BD / 2 + 0.13]}>
+          <planeGeometry args={[1.7, 1.15]} />
+          <meshStandardMaterial map={poster} roughness={0.6} />
+        </mesh>
+        {/* dark tinted window (right of glazing) + awning */}
+        <mesh position={[4.2, 1.9, BD / 2 + 0.1]}>
+          <boxGeometry args={[3.2, 3.4, 0.16]} />
+          <meshStandardMaterial color="#131c26" transparent opacity={0.85} metalness={0.85} roughness={0.08} envMapIntensity={1.4} />
+        </mesh>
+        <Box args={[3.5, 0.4, 0.2]} position={[4.2, 3.7, BD / 2 + 0.12]} color="#3c4046" metalness={0.6} roughness={0.35} />
+        {/* mullions */}
+        {Array.from({ length: 7 }).map((_, i) => (
+          <Box key={`ml${i}`} args={[0.1, BH - 1.1, 0.13]} position={[(i - 6) * 1.35 - 0.3, BH / 2 + 0.05, BD / 2 + 0.1]} color="#2e3238" metalness={0.7} roughness={0.3} />
+        ))}
+        {/* illuminated fascia sign band */}
+        <mesh position={[0, BH + 0.65, BD / 2 + 0.16]} castShadow>
+          <boxGeometry args={[BW + 0.5, 1.5, 0.35]} />
+          <meshStandardMaterial color={C.sevWhite} emissive="#fffaf0" emissiveIntensity={0.35} roughness={0.4} />
+        </mesh>
+        <Box args={[0.35, 1.5, BD + 0.5]} position={[-BW / 2 - 0.12, BH + 0.65, 0]} color={C.sevWhite} roughness={0.4} />
+        <Box args={[0.35, 1.5, BD + 0.5]} position={[BW / 2 + 0.12, BH + 0.65, 0]} color={C.sevWhite} roughness={0.4} />
+        <Box args={[BW + 0.5, 1.5, 0.35]} position={[0, BH + 0.65, -BD / 2 - 0.16]} color={C.sevWhite} roughness={0.4} />
         <TriStripe width={BW + 0.5} depthFront={BD / 2 + 0.35} position={[0, BH + 1.15, 0]} />
         <TriStripe width={BD + 0.5} depthFront={0} rotation={[0, Math.PI / 2, 0]} position={[-BW / 2 - 0.3, BH + 1.15, 0]} />
         <TriStripe width={BD + 0.5} depthFront={0} rotation={[0, -Math.PI / 2, 0]} position={[BW / 2 + 0.3, BH + 1.15, 0]} />
         <SevenLogo scale={1.15} position={[-4, BH + 0.7, BD / 2 + 0.36]} />
-        <Box args={[BW, 0.4, BD]} position={[0, BH + 0.2, 0]} color={C.roof} />
-        {Array.from({ length: 3 }).map((_, i) => (<Box key={`hv${i}`} args={[1.5, 0.85, 1.5]} position={[-4.5 + i * 4.5, BH + 0.72, -2.5]} color={C.steel} />))}
-        <Box args={[0.5, 3, 8]} position={[BW / 2 - 0.6, 1.6, -1]} color={C.dkmetal} />
-        <Box args={[0.15, 2.6, 7.6]} position={[BW / 2 - 0.85, 1.6, -1]} color={C.glass} transparent opacity={0.45} metalness={0.4} />
+        {/* roof */}
+        <mesh position={[0, BH + 0.2, 0]}>
+          <boxGeometry args={[BW, 0.4, BD]} />
+          <meshStandardMaterial map={roofTex} color="#b3afa4" roughness={1} />
+        </mesh>
+        {Array.from({ length: 3 }).map((_, i) => (
+          <Box key={`hv${i}`} args={[1.5, 0.85, 1.5]} position={[-4.5 + i * 4.5, BH + 0.72, -2.5]} color="#9aa0a8" metalness={0.55} roughness={0.45} />
+        ))}
+        {/* side service glazing */}
+        <Box args={[0.5, 3, 8]} position={[BW / 2 - 0.6, 1.6, -1]} color="#3c4046" metalness={0.6} roughness={0.35} />
+        <mesh position={[BW / 2 - 0.85, 1.6, -1]}>
+          <boxGeometry args={[0.15, 2.6, 7.6]} />
+          <meshStandardMaterial color="#33454f" transparent opacity={0.6} metalness={0.85} roughness={0.08} envMapIntensity={1.4} />
+        </mesh>
       </group>
+
+      {/* ── FUEL CANOPY ──────────────────────────────────────── */}
       <group position={[-6, 0, 8.5]}>
-        <Box args={[14, 0.7, 6.5]} position={[0, 5.4, 0]} color={C.sevWhite} />
-        <Box args={[14.2, 1.0, 0.22]} position={[0, 4.8, 3.25]} color={C.sevWhite} />
-        <Box args={[14.2, 1.0, 0.22]} position={[0, 4.8, -3.25]} color={C.sevWhite} />
+        <Box args={[14, 0.7, 6.5]} position={[0, 5.4, 0]} color={C.sevWhite} roughness={0.45} />
+        <mesh position={[0, 4.8, 3.25]} castShadow>
+          <boxGeometry args={[14.2, 1.0, 0.22]} />
+          <meshStandardMaterial color={C.sevWhite} emissive="#fffaf0" emissiveIntensity={0.3} roughness={0.4} />
+        </mesh>
+        <Box args={[14.2, 1.0, 0.22]} position={[0, 4.8, -3.25]} color={C.sevWhite} roughness={0.4} />
         <TriStripe width={14.2} depthFront={3.38} scaleY={0.6} position={[0, 5.05, 0]} />
         <SevenLogo scale={1.0} position={[0, 4.78, 3.4]} />
+        {/* under-canopy downlights */}
+        {([[-3.5, -1.4], [0.5, -1.4], [-3.5, 1.4], [0.5, 1.4], [4, 0]] as [number, number][]).map(([x, z], i) => (
+          <mesh key={`dl${i}`} position={[x, 5.02, z]} rotation={[Math.PI, 0, 0]}>
+            <cylinderGeometry args={[0.26, 0.26, 0.06, 16]} />
+            <meshStandardMaterial color="#ffffff" emissive="#fff6dd" emissiveIntensity={1.4} />
+          </mesh>
+        ))}
         {cols.map(([x, z], i) => (
           <group key={`col${i}`}>
-            <mesh position={[x, 2.35, z]} rotation={[0, Math.PI / 6, 0]} castShadow><cylinderGeometry args={[0.45, 0.45, 4.7, 3]} /><meshStandardMaterial color={C.sevWhite} roughness={0.8} /></mesh>
-            <Box args={[1.1, 0.5, 1.1]} position={[x, 0.3, z]} color={C.sevGreen} />
+            <mesh position={[x, 2.35, z]} castShadow>
+              <cylinderGeometry args={[0.38, 0.38, 4.7, 20]} />
+              <meshStandardMaterial color="#e8e5de" metalness={0.3} roughness={0.4} />
+            </mesh>
+            <Box args={[1.1, 0.5, 1.1]} position={[x, 0.3, z]} color="#c22a1e" roughness={0.6} />
           </group>
         ))}
         {pumps.map(([x, z], i) => (
           <group key={`pump${i}`}>
-            <Box args={[2.0, 0.35, 2.8]} position={[x, 0.17, z]} color={C.concrete} />
-            <Box args={[1.05, 2.0, 0.72]} position={[x, 1.2, z]} color={C.sevWhite} />
-            <Box args={[1.2, 0.6, 0.9]} position={[x, 2.3, z]} color={C.sevGreen} />
-            <Box args={[0.62, 0.6, 0.06]} position={[x, 1.45, z + 0.4]} color={C.glass} metalness={0.3} />
-            <Cyl args={[0.05, 0.05, 0.8]} position={[x + 0.6, 1.3, z + 0.25]} color="#2a2a2a" />
+            <mesh position={[x, 0.17, z]} receiveShadow>
+              <boxGeometry args={[2.0, 0.35, 2.8]} />
+              <meshStandardMaterial color="#cfccc2" roughness={0.85} />
+            </mesh>
+            <Box args={[1.05, 2.0, 0.72]} position={[x, 1.2, z]} color="#f2f0ea" metalness={0.35} roughness={0.35} />
+            <Box args={[1.2, 0.6, 0.9]} position={[x, 2.3, z]} color={C.sevGreen} roughness={0.5} />
+            {/* pump display screens (lit) */}
+            <mesh position={[x, 1.45, z + 0.4]}>
+              <boxGeometry args={[0.62, 0.6, 0.06]} />
+              <meshStandardMaterial color="#0d1420" emissive="#3d70c4" emissiveIntensity={0.9} roughness={0.2} />
+            </mesh>
+            <mesh position={[x, 1.45, z - 0.4]}>
+              <boxGeometry args={[0.62, 0.6, 0.06]} />
+              <meshStandardMaterial color="#0d1420" emissive="#3d70c4" emissiveIntensity={0.9} roughness={0.2} />
+            </mesh>
+            {/* nozzles + hoses */}
+            <Box args={[0.16, 0.3, 0.14]} position={[x + 0.62, 1.35, z + 0.2]} color="#1c1c1c" roughness={0.6} />
+            <Box args={[0.16, 0.3, 0.14]} position={[x - 0.62, 1.35, z - 0.2]} color="#1c1c1c" roughness={0.6} />
+            <Cyl args={[0.035, 0.035, 0.9]} position={[x + 0.6, 1.0, z + 0.22]} color="#222222" />
+            <Cyl args={[0.035, 0.035, 0.9]} position={[x - 0.6, 1.0, z - 0.22]} color="#222222" />
           </group>
         ))}
       </group>
+
+      {/* ── PYLON SIGN ───────────────────────────────────────── */}
       <group position={[-20, 0, 18]} rotation={[0, 0.6, 0]}>
-        <Cyl args={[0.3, 0.3, 6.8]} position={[0, 3.4, 0]} color={C.dkmetal} />
-        <Box args={[3.2, 3.4, 0.55]} position={[0, 7.3, 0]} color={C.sevWhite} />
-        <Box args={[2.8, 1.6, 0.12]} position={[0, 8.0, 0.3]} color={C.sevGreen} />
+        <Cyl args={[0.3, 0.3, 6.8, 20]} position={[0, 3.4, 0]} color="#4a4f57" />
+        <mesh position={[0, 7.3, 0]} castShadow>
+          <boxGeometry args={[3.2, 3.4, 0.55]} />
+          <meshStandardMaterial color={C.sevWhite} emissive="#fffaf0" emissiveIntensity={0.3} roughness={0.4} />
+        </mesh>
+        <mesh position={[0, 8.0, 0.3]}>
+          <boxGeometry args={[2.8, 1.6, 0.12]} />
+          <meshStandardMaterial color={C.sevGreen} emissive={C.sevGreen} emissiveIntensity={0.35} />
+        </mesh>
         <Box args={[0.66, 1.12, 0.14]} position={[-0.5, 8.0, 0.36]} color={C.sevRed} />
         <Box args={[2.8, 0.22, 0.13]} position={[0, 7.05, 0.3]} color={C.sevOrange} />
-        <Box args={[2.8, 1.05, 0.12]} position={[0, 6.35, 0.3]} color={C.sevRed} />
+        <mesh position={[0, 6.35, 0.3]}>
+          <boxGeometry args={[2.8, 1.05, 0.12]} />
+          <meshStandardMaterial color={C.sevRed} emissive={C.sevRed} emissiveIntensity={0.3} />
+        </mesh>
         <Box args={[2.3, 0.62, 0.1]} position={[0, 6.35, 0.37]} color={C.sevWhite} />
       </group>
+
+      {/* feather flags */}
       {([[-13, 15], [-13.9, 15.7], [-12.1, 15.7]] as [number, number][]).map(([x, z], i) => (
         <group key={`flag${i}`}>
-          <Cyl args={[0.05, 0.05, 4.2]} position={[x, 2.1, z]} color="#dddddd" />
-          <Box args={[0.08, 2.5, 0.95]} position={[x, 3.2, z + 0.5]} rotation={[0, 0.1, 0]} color={[C.sevGreen, C.sevRed, C.sevOrange][i]} />
+          <Cyl args={[0.05, 0.05, 4.2, 12]} position={[x, 2.1, z]} color="#c9ccd1" />
+          <Box args={[0.08, 2.5, 0.95]} position={[x, 3.2, z + 0.5]} rotation={[0, 0.1, 0]} color={[C.sevGreen, C.sevRed, C.sevOrange][i]} roughness={0.75} />
         </group>
       ))}
+
+      {/* sidewalk A-frame */}
       <group position={[6.5, 0, 5.4]} rotation={[0, -0.35, 0]}>
         <group rotation={[-0.26, 0, 0]} position={[0, 0, 0.42]}>
-          <Box args={[1.3, 1.6, 0.06]} position={[0, 0.8, 0]} color={C.dkmetal} />
+          <Box args={[1.3, 1.6, 0.06]} position={[0, 0.8, 0]} color="#3c4046" metalness={0.6} roughness={0.35} />
           <Box args={[1.08, 1.42, 0.04]} position={[0, 0.8, 0.05]} color={C.sevOrange} po={6} />
           <Box args={[1.0, 0.28, 0.05]} position={[0, 1.3, 0.07]} color={C.sevWhite} po={8} />
           <Box args={[0.78, 0.5, 0.05]} position={[0, 0.672, 0.07]} color={C.sevRed} po={8} />
         </group>
         <group rotation={[0.26, 0, 0]} position={[0, 0, -0.42]}>
-          <Box args={[1.3, 1.6, 0.06]} position={[0, 0.8, 0]} color={C.dkmetal} />
+          <Box args={[1.3, 1.6, 0.06]} position={[0, 0.8, 0]} color="#3c4046" metalness={0.6} roughness={0.35} />
           <Box args={[1.08, 1.42, 0.04]} position={[0, 0.8, -0.05]} color={C.sevGreen} po={6} />
         </group>
-        <Box args={[1.34, 0.14, 0.5]} position={[0, 1.6 * Math.cos(0.26), 0]} color={C.dkmetal} />
+        <Box args={[1.34, 0.14, 0.5]} position={[0, 1.6 * Math.cos(0.26), 0]} color="#3c4046" metalness={0.6} roughness={0.35} />
       </group>
     </group>
   );
@@ -355,7 +551,7 @@ function Pins({ list, occludeRoot, foundSet, onPick }: {
           </mesh>
           <mesh name="ring">
             <ringGeometry args={[0.32, 0.44, 24]} />
-            <meshBasicMaterial color={C.sky} transparent opacity={0.7} side={THREE.DoubleSide} />
+            <meshBasicMaterial color="#ffffff" transparent opacity={0.7} side={THREE.DoubleSide} />
           </mesh>
         </group>
       ))}
@@ -374,17 +570,24 @@ function Scene({ mode, foundSet, onPick }: { mode: "exterior" | "interior"; foun
   const list = mode === "exterior" ? EXTERIOR_HOTSPOTS : INTERIOR_HOTSPOTS;
   return (
     <>
-      <color attach="background" args={["#0e1830"]} />
-      <fog attach="fog" args={["#0e1830", 42, 90]} />
-      <ambientLight intensity={0.52} color="#bfd0ff" />
-      <directionalLight position={[-14, 20, 12]} intensity={1.2} color="#fff0d8" castShadow
-        shadow-mapSize-width={2048} shadow-mapSize-height={2048}
-        shadow-camera-left={-28} shadow-camera-right={28} shadow-camera-top={28} shadow-camera-bottom={-28}
-        shadow-camera-near={1} shadow-camera-far={70} />
-      <directionalLight position={[16, 12, -10]} intensity={0.38} color="#6f8fff" />
-      <directionalLight position={[0, 8, -16]} intensity={0.28} color="#FBB034" />
-      <pointLight position={[0, 7, 0]} intensity={0.5} distance={40} />
-      <group ref={sceneRoot}>{mode === "exterior" ? <ExteriorScene /> : <InteriorScene />}</group>
+      {mode === "exterior" ? (
+        <Daylight />
+      ) : (
+        <>
+          <color attach="background" args={["#141c2c"]} />
+          <fog attach="fog" args={["#141c2c", 42, 90]} />
+          <ambientLight intensity={0.72} color="#f0ead9" />
+          <directionalLight position={[-14, 20, 12]} intensity={1.3} color="#fff0d8" castShadow
+            shadow-mapSize-width={2048} shadow-mapSize-height={2048}
+            shadow-camera-left={-28} shadow-camera-right={28} shadow-camera-top={28} shadow-camera-bottom={-28}
+            shadow-camera-near={1} shadow-camera-far={70} />
+          <directionalLight position={[16, 12, -10]} intensity={0.3} color="#cfdcff" />
+          <pointLight position={[0, 7, 0]} intensity={0.6} distance={40} color="#fff2d9" />
+        </>
+      )}
+      <Suspense fallback={null}>
+        <group ref={sceneRoot}>{mode === "exterior" ? <ExteriorScene /> : <InteriorScene />}</group>
+      </Suspense>
       <Pins list={list} occludeRoot={sceneRoot} foundSet={foundSet} onPick={onPick} />
       <OrbitControls
         makeDefault
@@ -408,17 +611,10 @@ function StaticScene() {
   });
   return (
     <>
-      <color attach="background" args={["#0e1830"]} />
-      <fog attach="fog" args={["#0e1830", 42, 90]} />
-      <ambientLight intensity={0.52} color="#bfd0ff" />
-      <directionalLight position={[-14, 20, 12]} intensity={1.2} color="#fff0d8" castShadow
-        shadow-mapSize-width={2048} shadow-mapSize-height={2048}
-        shadow-camera-left={-28} shadow-camera-right={28} shadow-camera-top={28} shadow-camera-bottom={-28}
-        shadow-camera-near={1} shadow-camera-far={70} />
-      <directionalLight position={[16, 12, -10]} intensity={0.38} color="#6f8fff" />
-      <directionalLight position={[0, 8, -16]} intensity={0.28} color="#FBB034" />
-      <pointLight position={[0, 7, 0]} intensity={0.5} distance={40} />
-      <group ref={sceneRoot}><ExteriorScene /></group>
+      <Daylight />
+      <Suspense fallback={null}>
+        <group ref={sceneRoot}><ExteriorScene /></group>
+      </Suspense>
     </>
   );
 }
@@ -434,7 +630,7 @@ function StaticPreview() {
         </Canvas>
         {/* non-interactive overlay; the whole tile is the link to /gallery */}
         <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "26px 28px", background: "linear-gradient(180deg, rgba(0,10,30,0.45) 0%, rgba(0,10,30,0) 30%, rgba(0,10,30,0) 60%, rgba(0,10,30,0.78) 100%)" }}>
-          <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: C.sky, fontWeight: 600 }}>Interactive 3D Showroom</div>
+          <div style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: C.marigold, fontWeight: 600 }}>Interactive 3D Showroom</div>
           <div style={{ fontSize: "clamp(20px,3vw,30px)", color: "#fff", fontWeight: 800, lineHeight: 1.1, marginTop: 4 }}>
             Step inside a live retail site.
           </div>
@@ -491,7 +687,7 @@ function InteractiveExplorer() {
 
       {/* top overlay */}
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, padding: isMobile ? "16px 16px" : "20px 24px", pointerEvents: "none", background: "linear-gradient(180deg, rgba(0,10,30,0.85) 0%, rgba(0,10,30,0) 100%)" }}>
-        <div style={{ fontSize: isMobile ? 10 : 12, letterSpacing: "0.18em", textTransform: "uppercase", color: C.sky, fontWeight: 600 }}>
+        <div style={{ fontSize: isMobile ? 10 : 12, letterSpacing: "0.18em", textTransform: "uppercase", color: C.marigold, fontWeight: 600 }}>
           Interactive Showroom · {mode === "exterior" ? "Exterior" : "Interior"}
         </div>
         <div style={{ fontSize: isMobile ? 20 : "clamp(22px,3vw,34px)", color: "#fff", fontWeight: 800, lineHeight: 1.05, marginTop: 4 }}>
