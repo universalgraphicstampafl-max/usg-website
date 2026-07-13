@@ -19,7 +19,7 @@ function Phrase({ text }: { text: string }) {
       <img
         src="/images/usg-logo-u.png"
         alt="U"
-        className="inline-block h-[1.05em] w-auto self-center translate-y-[0.08em] mx-[0.08em]"
+        className="inline-block h-[1.05em] w-auto self-center translate-y-[0.08em] ml-[0.32em] mr-[0.1em]"
       />
       {text.slice(idx + 1)}
     </span>
