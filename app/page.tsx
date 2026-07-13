@@ -44,7 +44,7 @@ const SERVICES = [
   {
     name: "Store Surveys",
     href: "/services/store-surveys",
-    image: "/images/easy/storefront-promo-window-cling4.webp",
+    image: "/images/easy/fountain-drink-station.webp",
     desc: "Precise store measurements and asset profiling for perfectly fitted signage.",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" /></svg>,
   },
