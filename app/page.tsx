@@ -67,7 +67,7 @@ const SERVICES = [
 const INDUSTRIES = [
   {
     name: "Convenience Stores + Retail",
-    image: "/images/easy/storefront-promo-window-cling4.webp",
+    image: "/images/easy/slurpee-machine-topper.webp",
     sub: "High-volume, high-speed, and zero margin for error — we get it. USG partners with convenience and retail brands to make signage the most organized, stress-free part of your marketing program.",
     stat: { value: "152K", label: "U.S. convenience stores", source: "NACS, 2025" },
   },
