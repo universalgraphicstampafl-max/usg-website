@@ -17,8 +17,6 @@ export default function SignageProgramsPage() {
         "Regulatory and brand compliance review",
         "Print production and quality control",
         "Kitting and fulfilment by store",
-        "Direct store delivery and installation coordination",
-        "Post-launch compliance auditing",
         "Ongoing program management and reporting",
       ]}
       benefits={[

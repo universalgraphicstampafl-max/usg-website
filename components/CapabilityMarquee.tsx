@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const TILES = [
-  { src: "/images/easy/hero-coca-cola-sunset-station2.webp", caption: "Storefront Signage" },
+  { src: "/images/easy/storefront-vinyl-lettering2.webp", caption: "Storefront Signage" },
   { src: "/images/easy/grab-go-fresh-eats-cooler2.webp",     caption: "Grab & Go Coolers" },
   { src: "/images/easy/cooler-doors-promotional-graphics2.webp", caption: "Cooler Door Graphics" },
   { src: "/images/easy/suspended-menu-board2.webp",          caption: "Suspended Menus" },

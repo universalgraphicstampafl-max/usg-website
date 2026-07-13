@@ -5,7 +5,6 @@ import "./globals.css";
 import Nav                  from "@/components/Nav";
 import Logo                 from "@/components/Logo";
 import ScrollProgress       from "@/components/ScrollProgress";
-import CursorGlow           from "@/components/CursorGlow";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 const instrumentSerif = Instrument_Serif({
@@ -40,7 +39,6 @@ export default function RootLayout({
       <body className={`${instrumentSerif.variable} antialiased min-h-screen flex flex-col`}>
         <SmoothScrollProvider>
         <ScrollProgress />
-        <CursorGlow />
         <Nav />
         <main className="flex-1 pt-[72px]">{children}</main>
         <footer className="bg-brand-navy-dark text-white py-16">

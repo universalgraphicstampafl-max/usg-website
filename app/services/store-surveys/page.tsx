@@ -13,13 +13,9 @@ export default function StoreSurveysPage() {
       description="Our team visits each location, documents every asset, and builds an accurate store profile in our proprietary software. The result is perfectly fitting signage, less waste, lower costs, and an ordering process so simple your team never has to worry about store details again. And because our experts see your stores firsthand, we can spot opportunities to improve your signage and grow your sales."
       features={[
         "Pre-program baseline surveys",
-        "Planogram compliance auditing",
         "Signage condition and placement reporting",
-        "Competitive share-of-shelf measurement",
         "Photo documentation by store and fixture",
-        "Reset opportunity identification",
-        "Branded reporting dashboards",
-        "Follow-up corrective action tracking",
+        "Equipment audit",
       ]}
       benefits={[
         {
@@ -28,7 +24,7 @@ export default function StoreSurveysPage() {
         },
         {
           heading: "Actionable Reports",
-          body: "Photo-backed reports organised by store, district, and issue type so your team can act fast.",
+          body: "Photo-backed survey results organised by store.",
         },
         {
           heading: "Close the Loop",

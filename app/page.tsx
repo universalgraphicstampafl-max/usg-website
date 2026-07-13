@@ -30,15 +30,15 @@ const SERVICES = [
   {
     name: "Graphic Design",
     href: "/services/graphic-design",
-    image: "/images/easy/brunch-a-frame-sandwich-board4.webp",
+    image: "/images/easy/karma-wellness-poster-frame.webp",
     desc: "In-house design team. No upcharges — ever. You pay for the finished product only.",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z" /><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /><path d="M2 2l7.586 7.586" /><circle cx="11" cy="11" r="2" /></svg>,
   },
   {
     name: "Custom Print Production",
     href: "/services/custom-print-production",
-    image: "/images/easy/coke-pepsi-shelf-talkers4.webp",
-    desc: "Digital and screen printing. Banners, cooler graphics, floor graphics, and more.",
+    image: "/images/easy/floor-graphics-aisle.webp",
+    desc: "Digital printing on over 100 print medias for indoor & outdoor application. Specializing in making your vision come to life.",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9" /><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2" /><rect x="6" y="14" width="12" height="8" /></svg>,
   },
   {
@@ -51,7 +51,7 @@ const SERVICES = [
   {
     name: "Fulfillment Services",
     href: "/services/direct-store-delivery",
-    image: "/images/easy/gas-pump-celsius-topper4.webp",
+    image: "/images/easy/snack-fresh-eat-well-cooler4.webp",
     desc: "Pick, pack, and ship to every location — 99.7% accuracy, reordering built in.",
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>,
   },
@@ -67,27 +67,27 @@ const SERVICES = [
 const INDUSTRIES = [
   {
     name: "Convenience Stores + Retail",
-    image: "/images/easy/hero-coca-cola-sunset-station4.webp",
+    image: "/images/easy/storefront-promo-window-cling4.webp",
     sub: "High-volume, high-speed, and zero margin for error — we get it. USG partners with convenience and retail brands to make signage the most organized, stress-free part of your marketing program.",
     stat: { value: "152K", label: "U.S. convenience stores", source: "NACS, 2025" },
   },
   {
     name: "Tobacco & Nicotine",
-    image: "/images/easy/marlboro-gas-pump-promo.webp",
+    image: "/images/easy/cig-changeable.webp",
     sub: "Tobacco and nicotine signage comes with its own set of rules — FDA compliance, shrinking display space, and vendor standards that change constantly. We know the category, we know the requirements, and we handle the details so your locations stay visible, compliant, and stress-free.",
     stat: { value: "~26%", label: "of c-store in-store sales", source: "NACS, 2024" },
   },
   {
     name: "QSR & Fast Casual",
-    image: "/images/easy/suspended-menu-board4.webp",
-    sub: "Monthly promotional cycles across hundreds of locations. USG handles design, production, and direct-to-location delivery for QSR chains of any size.",
-    stat: { value: "$254B", label: "U.S. QSR market", source: "Grand View, 2024" },
+    image: "/images/easy/qsr-soup-lto-poster.webp",
+    sub: "New value deals, LTOs, and menu refreshes roll out constantly \u2014 and every location needs to be ready on day one. USG handles design, production, and direct-to-location delivery so your signage keeps pace with your promotional calendar, not the other way around.",
+    stat: { value: "~2x", label: "LTO launches across major chains vs. the prior year", source: "Datassential, 2026" },
   },
   {
     name: "Grocery & Supermarkets",
-    image: "/images/easy/grab-go-fresh-eats-cooler4.webp",
-    sub: "Weekly and monthly promotional signage for grocery chains — designed, produced, and shipped direct to every store location.",
-    stat: { value: "$1T", label: "in U.S. supermarket sales", source: "FMI, 2024" },
+    image: "/images/easy/grocery-shelf-signage.webp",
+    sub: "With promotions that change weekly, time is of the essence. USG\u2019s quick turnaround and fast shipping help your campaign stay on track.",
+    stat: { value: "33K+", label: "items carried by the average U.S. supermarket", source: "FMI, 2025" },
   },
   {
     name: "Beverage",
@@ -140,24 +140,21 @@ export default function HomePage() {
                 from one location to one thousand.
               </p>
 
-              <p
-                className="text-base text-brand-navy/80 mb-6"
-                style={{ animation: "heroEnter 0.6s ease-out 0.65s both" }}
-              >
-                Serving{" "}
-                <span className="font-bold text-brand-navy number-glow">2,000+ locations</span>{" "}
-                across{" "}
-                <span className="font-bold text-brand-navy number-glow" style={{ animationDelay: "2s" }}>
-                  28 states
-                </span>
-              </p>
 
               <div
                 className="flex flex-col md:flex-row gap-4 items-start mt-2 flex-wrap"
                 style={{ animation: "heroEnter 0.6s ease-out 0.8s both" }}
               >
                 <Link
-                  href="/success-stories"
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-gold text-base !px-8 !py-4 w-full sm:w-auto max-w-md mx-auto sm:mx-0 text-center"
+                >
+                  Book a Discovery Call →
+                </Link>
+                <Link
+                  href="/gallery"
                   className="text-base font-semibold tracking-brand-wide text-brand-navy border-2 border-brand-navy/70 px-6 py-4 rounded w-full sm:w-auto max-w-md mx-auto sm:mx-0 whitespace-normal text-center hover:bg-brand-navy/10 transition-colors duration-200"
                 >
                   See our work
@@ -187,9 +184,6 @@ export default function HomePage() {
           </div>
           <div className="container mx-auto px-6 lg:px-12">
             <ClientUniverse />
-            <p className="text-sm text-brand-navy/60 mt-12 text-center">
-              2,000+ retail locations served across the US
-            </p>
           </div>
         </section>
       </SectionReveal>
@@ -203,7 +197,7 @@ export default function HomePage() {
             <RevealWrapper className="mb-10">
               <TypewriterLabel
                 text="Why USG"
-                className="text-xs tracking-widest font-semibold text-brand-sky uppercase"
+                className="text-xs tracking-widest font-semibold text-brand-gold uppercase"
               />
               <h2 className="text-4xl font-black text-white mt-2">
                 Why brands <span className="font-serif italic font-normal text-brand-gold">stick</span> with us.
@@ -225,7 +219,7 @@ export default function HomePage() {
                 {
                   delay: 0.1,
                   title: "A real team, assigned to you",
-                  body: "A dedicated account manager who knows your program, your locations, and your timelines.",
+                  body: "A dedicated account manager, and design team, who know your program, your locations, and your timelines.",
                   icon: (
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
                       <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" />
@@ -248,6 +242,11 @@ export default function HomePage() {
                 </TiltCard>
               ))}
             </div>
+            <div className="mt-12 text-center">
+              <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-gold inline-block">
+                Book a Discovery Call →
+              </Link>
+            </div>
           </div>
         </section>
       </SectionReveal>
@@ -264,7 +263,7 @@ export default function HomePage() {
                 className="text-xs tracking-widest font-semibold text-brand-sky uppercase"
               />
               <h2 className="text-4xl font-black text-brand-navy mt-2">
-                One partner. Every <span className="font-serif italic font-normal">signage</span> need.
+                One partner. Every <span className="font-serif italic font-normal">solution</span>.
               </h2>
             </RevealWrapper>
 
@@ -308,7 +307,7 @@ export default function HomePage() {
         <section className="bg-brand-navy py-20 lg:py-28 text-white overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
             <RevealWrapper className="text-center mb-12 lg:mb-16">
-              <p className="text-xs tracking-[0.2em] font-semibold text-brand-sky uppercase mb-4">
+              <p className="text-xs tracking-[0.2em] font-semibold text-brand-gold uppercase mb-4">
                 Success in numbers
               </p>
               <h2 className="text-4xl lg:text-6xl font-black text-white max-w-3xl mx-auto leading-[1.05]">
@@ -317,33 +316,26 @@ export default function HomePage() {
             </RevealWrapper>
 
             {/* Compact stat row — punchy numbers, tight spacing */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-6 lg:divide-x lg:divide-white/10">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-12 gap-x-6 lg:divide-x lg:divide-white/10">
               <RevealWrapper delay={0} className="text-center lg:px-6">
                 <span className="block font-serif font-normal text-brand-gold leading-none text-5xl lg:text-7xl">
                   <SlotCounter target={10} suffix="%" delay={0} />
                 </span>
-                <p className="text-xs lg:text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Average sales increase</p>
+                <p className="text-xs lg:text-sm tracking-wide text-brand-gold uppercase mt-4 font-semibold">Average sales increase</p>
                 <p className="text-sm text-white/60 mt-2 leading-snug">Lift in product sales after partnering with USG.</p>
               </RevealWrapper>
               <RevealWrapper delay={0.1} className="text-center lg:px-6">
                 <span className="block font-serif font-normal text-brand-gold leading-none text-5xl lg:text-7xl">
                   <SlotCounter target={30} suffix="+" delay={0.2} />
                 </span>
-                <p className="text-xs lg:text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Years in business</p>
+                <p className="text-xs lg:text-sm tracking-wide text-brand-gold uppercase mt-4 font-semibold">Years in business</p>
                 <p className="text-sm text-white/60 mt-2 leading-snug">Three decades of credible retail signage expertise.</p>
-              </RevealWrapper>
-              <RevealWrapper delay={0.2} className="text-center lg:px-6">
-                <span className="block font-serif font-normal text-brand-gold leading-none text-5xl lg:text-7xl">
-                  <SlotCounter target={2000} suffix="+" thousands delay={0.4} />
-                </span>
-                <p className="text-xs lg:text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Retail locations served</p>
-                <p className="text-sm text-white/60 mt-2 leading-snug">Shipped direct to store across 28 states.</p>
               </RevealWrapper>
               <RevealWrapper delay={0.3} className="text-center lg:px-6">
                 <span className="block font-serif font-normal text-brand-gold leading-none text-5xl lg:text-7xl">
                   <SlotCounter target={99.7} suffix="%" decimals={1} delay={0.6} />
                 </span>
-                <p className="text-xs lg:text-sm tracking-wide text-brand-sky uppercase mt-4 font-semibold">Packing accuracy</p>
+                <p className="text-xs lg:text-sm tracking-wide text-brand-gold uppercase mt-4 font-semibold">Packing accuracy</p>
                 <p className="text-sm text-white/60 mt-2 leading-snug">The right products, in the right box, every time.</p>
               </RevealWrapper>
             </div>
@@ -363,10 +355,15 @@ export default function HomePage() {
                 className="text-xs tracking-widest font-semibold text-brand-navy uppercase"
               />
               <h2 className="text-4xl font-black text-brand-navy mt-2">
-                From <span className="font-serif italic font-normal">brief</span> to every store — handled.
+                From <span className="font-serif italic font-normal">concept</span> to rollout. Handled.
               </h2>
             </RevealWrapper>
             <ProcessSteps />
+            <div className="mt-12 text-center">
+              <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-navy inline-block">
+                Book a Discovery Call →
+              </Link>
+            </div>
           </div>
         </section>
       </SectionReveal>
@@ -382,7 +379,7 @@ export default function HomePage() {
                 Built for the <span className="font-serif italic font-normal">industries</span> that move fast.
               </h2>
               <p className="text-brand-navy/80 text-lg mt-3 max-w-2xl mx-auto">
-                5 industries. 2,000+ locations. One partner that ships on time.
+                5 industries. One partner that ships on time.
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -430,7 +427,7 @@ export default function HomePage() {
           <ParticleBurst />
           <RevealWrapper className="relative max-w-6xl mx-auto">
             <p className="text-brand-gold text-sm font-semibold tracking-widest uppercase">
-              Ready to simplify your signage program?
+              Ready to optimize your signage program?
             </p>
             <h2 className="text-white text-5xl sm:text-6xl lg:text-8xl font-black mt-5 leading-[0.98] tracking-tight">
               Get your free signage system <span className="font-serif italic font-normal">audit</span>

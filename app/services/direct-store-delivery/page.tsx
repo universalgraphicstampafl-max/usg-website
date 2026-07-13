@@ -13,13 +13,11 @@ export default function DirectStoreDeliveryPage() {
       description="We pick, pack, and ship high-volume orders with custom items for every location — and we do it with a 99.7% accuracy rating. Fast, efficient, and built for the complexity of multi-location retail."
       features={[
         "Store-specific kitting and labelling",
-        "Scheduled delivery windows by store",
-        "In-store installation and merchandising",
-        "Old material removal and disposal",
-        "Delivery confirmation with photo proof",
+        "Delivery status by tracking number",
         "Exception reporting and re-delivery coordination",
-        "Temperature-controlled transport where required",
         "Nationwide coverage through managed carrier network",
+        "Vendor provided signage coordination",
+        "Custom box selection for shipping cost optimization",
       ]}
       benefits={[
         {
@@ -28,11 +26,11 @@ export default function DirectStoreDeliveryPage() {
         },
         {
           heading: "Minimal Store Disruption",
-          body: "Scheduled windows and trained install teams mean in and out fast, without disrupting store operations.",
+          body: "On-time delivery ensures your promotions start when they\u2019re supposed to.",
         },
         {
-          heading: "Full Visibility",
-          body: "Real-time delivery confirmation and photo documentation give you a complete record of every install.",
+          heading: "Packing Quality",
+          body: "Packed with care and precision to ensure your signage arrives intact and without damage.",
         },
       ]}
     />

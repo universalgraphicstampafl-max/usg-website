@@ -23,7 +23,7 @@ export default function ServicePage({
       {/* Hero */}
       <section className="bg-brand-navy text-white -mt-[72px] pt-[92px] pb-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="section-sub !text-brand-sky">{subtitle}</p>
+          <p className="section-sub !text-brand-gold">{subtitle}</p>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-brand-tight mb-6 !text-white">
             {title}
           </h1>
@@ -80,7 +80,7 @@ export default function ServicePage({
 
       {/* CTA band */}
       <section className="py-16 px-6 bg-brand-navy text-white text-center">
-        <p className="section-sub !text-brand-sky">Ready to get started?</p>
+        <p className="section-sub !text-brand-gold">Ready to get started?</p>
         <h2 className="text-3xl font-extrabold tracking-brand-tight mb-6 !text-white">
           Let&apos;s build your program
         </h2>

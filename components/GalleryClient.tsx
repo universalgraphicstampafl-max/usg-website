@@ -40,7 +40,6 @@ const FILTERS: ("All" | Category)[] = [
 ];
 
 const ITEMS: GalleryItem[] = [
-  { src: "/images/gallery/01-hero-storefront-coca-cola.webp", alt: "Coca-Cola storefront program", category: "Storefront" },
   { src: "/images/gallery/02-convenience-storefront.webp", alt: "Convenience store storefront signage", category: "Storefront" },
   { src: "/images/gallery/03-corona-beer-cave.webp", alt: "Corona beer cave cooler graphics", category: "Cooler Graphics" },
   { src: "/images/gallery/04-qsr-bbq-pylon.webp", alt: "QSR BBQ pylon sign", category: "Pylon" },

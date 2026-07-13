@@ -31,7 +31,7 @@ export default function ThankYouPage() {
           <Link href="/" className="btn-navy">
             Back to Home
           </Link>
-          <Link href="/success-stories" className="btn-outline">
+          <Link href="/gallery" className="btn-outline">
             See Our Work
           </Link>
         </div>

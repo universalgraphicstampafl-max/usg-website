@@ -9,7 +9,7 @@ const ITEMS = [
   { src: "/images/easy/marlboro-gas-pump-promo3.webp", caption: "Pylon Toppers" },
   { src: "/images/easy/feather-flag-circle-k-hot-food3.webp", caption: "Promotional Flags" },
   { src: "/images/easy/storefront-promo-window-cling3.webp", caption: "Window Clings" },
-  { src: "/images/easy/hero-coca-cola-sunset-station3.webp", caption: "Bollard Signs" },
+  { src: "/images/easy/hanks-bbq-pylon-sign3.webp", caption: "Pylon Signs" },
   { src: "/images/easy/grab-go-fresh-eats-cooler3.webp",     caption: "Cooler Branding" },
   { src: "/images/easy/cooler-doors-promotional-graphics3.webp", caption: "Cooler Doors" },
   { src: "/images/easy/corona-find-your-beach-beer-cave3.webp", caption: "Beer Caves" },

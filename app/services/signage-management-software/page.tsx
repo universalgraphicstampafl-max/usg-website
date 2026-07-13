@@ -16,7 +16,7 @@ export default function SignageManagementSoftwarePage() {
         "Accurate store profiles for every location",
         "Streamlined art proof and approval workflow",
         "Store-level and corporate ordering",
-        "One-click reordering of past programs",
+        "Efficient reordering of past programs",
         "Centralized signage and asset history",
         "Order status and delivery tracking",
       ]}

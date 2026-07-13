@@ -11,7 +11,6 @@ interface DropdownItem {
 }
 
 const services: DropdownItem[] = [
-  { label: "All Services", href: "/services" },
   { label: "Signage Programs", href: "/services/signage-programs" },
   { label: "Graphic Design", href: "/services/graphic-design" },
   { label: "Custom Print Production", href: "/services/custom-print-production" },
@@ -152,9 +151,6 @@ export default function Nav() {
               columns={2}
               onClose={() => {}}
             />
-            <Link href="/success-stories" className={linkClass}>
-              Success Stories
-            </Link>
             <Link href="/about" className={linkClass}>
               About
             </Link>
@@ -265,9 +261,6 @@ export default function Nav() {
                 </div>
               )}
 
-              <Link href="/success-stories" className="py-2 text-sm font-semibold text-brand-navy hover:text-brand-gold border-b border-gray-100" onClick={closeMobile}>
-                Success Stories
-              </Link>
               <Link href="/about" className="py-2 text-sm font-semibold text-brand-navy hover:text-brand-gold border-b border-gray-100" onClick={closeMobile}>
                 About
               </Link>

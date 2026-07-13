@@ -7,7 +7,7 @@ type Tile = { src: string; alt: string; height: number };
 type ImageMeta = { src: string; alt: string };
 
 const COLUMN_1: Tile[] = [
-  { src: "/images/easy/hero-coca-cola-sunset-station.webp", alt: "Coca-Cola bollard sign at gas station storefront",  height: 320 },
+  { src: "/images/easy/storefront-coffee-fresh-food-aframe.webp", alt: "Storefront coffee and fresh food A-frame signage",  height: 320 },
   { src: "/images/easy/grab-go-fresh-eats-cooler.webp",     alt: "Branded grab-and-go fresh food cooler",            height: 240 },
   { src: "/images/easy/storefront-vinyl-lettering.webp",    alt: "Storefront window vinyl lettering",                height: 380 },
   { src: "/images/easy/gas-pump-celsius-topper.webp",       alt: "Gas pump dispenser with beverage topper graphic",  height: 280 },
