@@ -382,11 +382,11 @@ export default function HomePage() {
                 5 industries. One partner that ships on time.
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="flex flex-wrap justify-center gap-6">
               {INDUSTRIES.map((ind) => (
                 <div
                   key={ind.name}
-                  className="flex flex-col bg-white rounded-2xl shadow-md ring-1 ring-brand-navy/5 overflow-hidden"
+                  className="flex flex-col bg-white rounded-2xl shadow-md ring-1 ring-brand-navy/5 overflow-hidden w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
                 >
                   <div className="relative aspect-[16/10]">
                     <Image
