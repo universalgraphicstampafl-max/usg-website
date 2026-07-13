@@ -9,13 +9,18 @@ const PHRASES = [
   "A Signage Partner For U.",
 ];
 
-/** Highlights the trailing "U" in each phrase, echoing the U in the USG logo mark. */
+/** Renders the trailing "U" in each phrase as the actual U from the USG logo mark. */
 function Phrase({ text }: { text: string }) {
   const idx = text.lastIndexOf("U");
   return (
-    <span className="flex-shrink-0 text-2xl md:text-4xl font-black text-white whitespace-nowrap">
+    <span className="flex-shrink-0 flex items-baseline text-2xl md:text-4xl font-black text-white whitespace-nowrap">
       {text.slice(0, idx)}
-      <span className="font-serif italic font-normal text-brand-gold">U</span>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/usg-logo-u.png"
+        alt="U"
+        className="inline-block h-[1.05em] w-auto self-center translate-y-[0.08em] mx-[0.08em]"
+      />
       {text.slice(idx + 1)}
     </span>
   );
