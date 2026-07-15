@@ -8,7 +8,7 @@
  * All hotspot photos are now in place (no remaining placeholders).
  */
 
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Sky, Environment, SoftShadows, useTexture } from "@react-three/drei";
 import { Suspense, useMemo, useRef, useState, useCallback, useEffect } from "react";
 import * as THREE from "three";
@@ -29,7 +29,7 @@ export type Hotspot = { id: string; cat: string; title: string; loc: string; pos
 
 /* ============================= hotspot data ============================= */
 const EXTERIOR_HOTSPOTS: Hotspot[] = [
-  { id: "pump", cat: "Gas Pump", title: "Pump Topper & Pump Topper Extender", loc: "Fuel island", pos: [-16.5, 3.6, 12.5], desc: "High-dwell-time advertising right at the pump \u2014 drivers stare at this for 3-5 minutes per fill.", usg: "USG uses pump toppers as a monthly kit item for new deals but keeps extenders for longer promotional windows to balance long term deals like loyalty with short term offers.", img: "/images/signtypes/pump-topper.webp" },
+  { id: "pump", cat: "Gas Pump", title: "Pump Topper & Pump Topper Extender", loc: "Fuel island", pos: [-12.3, 3.4, 12.5], desc: "High-dwell-time advertising right at the pump \u2014 drivers stare at this for 3-5 minutes per fill.", usg: "USG uses pump toppers as a monthly kit item for new deals but keeps extenders for longer promotional windows to balance long term deals like loyalty with short term offers.", img: "/images/signtypes/pump-topper.webp" },
   { id: "window", cat: "Storefront", title: "Window Signs", loc: "Storefront glass", pos: [-3.6, 2.7, 4.6], desc: "Promotional clings and price callouts on entrance doors and front glass \u2014 the last message before a customer walks in.", usg: "USG prints removable static and adhesive clings, die-cut to any shape, with easy seasonal swap-out.", img: `${IMG}/storefront-promo-window-cling.webp` },
   { id: "aframe", cat: "A-Frame", title: "Sidewalk A-Frame", loc: "Entrance walkway", pos: [3.2, 2.0, 5.8], desc: "Portable sidewalk boards that capture foot traffic with daily specials.", usg: "USG supplies durable A-frame hardware with printed, swappable insert panels.", img: `${IMG}/brunch-a-frame-sandwich-board.webp` },
   { id: "flag", cat: "Flag", title: "Feather Flags", loc: "Lot perimeter", pos: [14.5, 4.6, 14.5], desc: "Tall feather and blade flags that create motion and draw eyes from the road.", usg: "USG offers feather flags in multiple formats with poles, bases, and ground stakes.", img: `${IMG}/feather-flag-circle-k-hot-food2.webp` },
@@ -116,7 +116,7 @@ function Tree({ position, s = 1 }: { position: Vec3; s?: number }) {
   return (
     <group position={position}>
       <Cyl args={[0.13, 0.22, 2.4]} position={[0, 1.2, 0]} color="#5a4632" />
-      {[0, Math.PI / 2].map((r, i) => (
+      {[0, Math.PI / 3, (2 * Math.PI) / 3].map((r, i) => (
         <mesh key={i} position={[0, 3.1 * s, 0]} rotation={[0, r, 0]}>
           <planeGeometry args={[4.4 * s, 4.4 * s]} />
           <meshStandardMaterial map={foliage} transparent alphaTest={0.4} side={THREE.DoubleSide} roughness={0.95} />
@@ -145,7 +145,6 @@ function Daylight() {
         shadow-camera-near={1} shadow-camera-far={90} shadow-bias={-0.0004}
       />
       <directionalLight position={[20, 12, -14]} intensity={0.35} color="#dfeaff" />
-      <SoftShadows size={16} samples={10} focus={0.5} />
       <Suspense fallback={null}>
         <Environment preset="city" />
       </Suspense>
@@ -159,9 +158,10 @@ function ExteriorScene() {
   const concrete = useTiled("/textures/concrete.jpg", 7, 1.4);
   const stucco = useTiled("/textures/stucco.jpg", 4.5, 1.3);
   const stuccoSide = useTiled("/textures/stucco.jpg", 3, 1.3);
+  const brickTex = useTiled("/textures/brick.jpg", 9, 1);
   const roofTex = useTiled("/textures/roof.jpg", 4.5, 3);
   const poster = useSRGB("/images/easy/qsr-soup-lto-poster.webp");
-  const cigTex = useSRGB("/images/easy/cig-changeable.webp");
+  const cigTex = useSRGB("/images/signtypes/cig-window.webp");
   const BW = 17, BH = 4.6, BD = 11;
   const cols: [number, number][] = [[-6, -2.4], [6, -2.4], [-6, 2.4], [6, 2.4]];
   const pumps: [number, number][] = [[-4.2, 0], [0, 0], [4.2, 0]];
@@ -207,7 +207,10 @@ function ExteriorScene() {
       {/* ── BUILDING ─────────────────────────────────────────── */}
       <group position={[2, 0, -1.5]}>
         {/* brick base under glazing */}
-        <Box args={[BW, 1.2, 0.42]} position={[0, 0.6, BD / 2 - 0.02]} color={C.brick} roughness={0.9} />
+        <mesh position={[0, 0.6, BD / 2 - 0.02]} castShadow receiveShadow>
+          <boxGeometry args={[BW, 1.2, 0.42]} />
+          <meshStandardMaterial map={brickTex} color="#c9a18c" roughness={0.92} />
+        </mesh>
         {/* rear + side walls (stucco) */}
         <mesh position={[0, BH / 2, -BD / 2]} castShadow receiveShadow>
           <boxGeometry args={[BW, BH, 0.4]} />
@@ -285,8 +288,8 @@ function ExteriorScene() {
           </group>
         ))}
         {/* cigarette changeable display in the tinted window */}
-        <mesh position={[4.7, 2.1, BD / 2 + 0.19]}>
-          <planeGeometry args={[1.9, 1.2]} />
+        <mesh position={[4.65, 2.0, BD / 2 + 0.19]}>
+          <planeGeometry args={[1.2, 1.8]} />
           <meshStandardMaterial map={cigTex} roughness={0.55} />
         </mesh>
         {/* side service glazing */}
@@ -619,6 +622,21 @@ function Pins({ list, occludeRoot, foundSet, onPick }: {
   );
 }
 
+
+/* ============================= camera rig (no canvas remount) ============================= */
+function CameraRig({ mode }: { mode: "exterior" | "interior" }) {
+  const camera = useThree((st) => st.camera);
+  const controls = useThree((st) => st.controls) as { target: THREE.Vector3; update: () => void } | null;
+  useEffect(() => {
+    camera.position.set(...CAM[mode].pos);
+    if (controls) {
+      controls.target.set(...CAM[mode].target);
+      controls.update();
+    }
+  }, [mode, camera, controls]);
+  return null;
+}
+
 /* ============================= SCENE CONTROLLER ============================= */
 const CAM = {
   exterior: { pos: [20, 13, 26] as Vec3, target: [0, 2.5, 2] as Vec3, min: 12, max: 46, minP: 0.2, maxP: 1.45 },
@@ -630,6 +648,8 @@ function Scene({ mode, foundSet, onPick }: { mode: "exterior" | "interior"; foun
   const list = mode === "exterior" ? EXTERIOR_HOTSPOTS : INTERIOR_HOTSPOTS;
   return (
     <>
+      <CameraRig mode={mode} />
+      <SoftShadows size={16} samples={10} focus={0.5} />
       {mode === "exterior" ? (
         <Daylight />
       ) : (
@@ -672,6 +692,7 @@ function StaticScene() {
   return (
     <>
       <Daylight />
+      <SoftShadows size={16} samples={10} focus={0.5} />
       <Suspense fallback={null}>
         <group ref={sceneRoot}><ExteriorScene /></group>
       </Suspense>
@@ -741,7 +762,7 @@ function InteractiveExplorer() {
 
   return (
     <div style={{ position: "relative", width: "100%", height: "78vh", minHeight: 520, background: "#0e1830", borderRadius: 16, overflow: "hidden" }}>
-      <Canvas key={mode} shadows camera={{ position: CAM[mode].pos, fov: 42 }} gl={{ antialias: true }} dpr={[1, 2]}>
+      <Canvas shadows camera={{ position: CAM.exterior.pos, fov: 42 }} gl={{ antialias: true }} dpr={[1, 2]}>
         <Scene mode={mode} foundSet={foundSet} onPick={onPick} />
       </Canvas>
 
