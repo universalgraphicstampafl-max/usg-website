@@ -29,27 +29,27 @@ export type Hotspot = { id: string; cat: string; title: string; loc: string; pos
 
 /* ============================= hotspot data ============================= */
 const EXTERIOR_HOTSPOTS: Hotspot[] = [
-  { id: "pylon", cat: "Pylon", title: "Roadside Pylon Sign", loc: "Lot entrance", pos: [-20, 7.4, 18], desc: "The tall freestanding sign that pulls drivers off the road — fuel pricing, brand marks, and promotions visible from a distance.", usg: "USG fabricates and installs illuminated pylon faces and price-pole inserts, surveyed to your exact cabinet dimensions.", img: `${IMG}/marlboro-gas-pump-promo.webp` },
-  { id: "pump", cat: "Gas Pump", title: "Pump Topper Graphics", loc: "Fuel island", pos: [-1.8, 3.0, 8.5], desc: "High-dwell-time advertising right at the pump — drivers stare at this for 3-5 minutes per fill.", usg: "USG produces weatherproof pump-topper inserts and dispenser wraps that snap into standard frames.", img: `${IMG}/gas-pump-celsius-topper.webp` },
-  { id: "window", cat: "Storefront", title: "Window Clings", loc: "Storefront glass", pos: [-1.2, 2.6, 4.7], desc: "Promotional clings and price callouts on entrance doors and front glass — the last message before a customer walks in.", usg: "USG prints removable static and adhesive clings, die-cut to any shape, with easy seasonal swap-out.", img: `${IMG}/storefront-promo-window-cling.webp` },
-  { id: "aframe", cat: "A-Frame", title: "Sidewalk A-Frame", loc: "Entrance walkway", pos: [6.5, 2.0, 5.4], desc: "Portable sidewalk boards that capture foot traffic with daily specials.", usg: "USG supplies durable A-frame hardware with printed, swappable insert panels.", img: `${IMG}/brunch-a-frame-sandwich-board.webp` },
-  { id: "flag", cat: "Flag", title: "Feather Flags", loc: "Lot perimeter", pos: [-13, 3.8, 15.5], desc: "Tall feather and blade flags that create motion and draw eyes from the road.", usg: "USG prints feather flags in multiple formats with poles, bases, and ground stakes.", img: `${IMG}/feather-flag-circle-k-hot-food2.webp` },
+  { id: "pump", cat: "Gas Pump", title: "Pump Topper & Pump Topper Extender", loc: "Fuel island", pos: [-16.5, 3.6, 12.5], desc: "High-dwell-time advertising right at the pump \u2014 drivers stare at this for 3-5 minutes per fill.", usg: "USG uses pump toppers as a monthly kit item for new deals but keeps extenders for longer promotional windows to balance long term deals like loyalty with short term offers.", img: "/images/signtypes/pump-topper.webp" },
+  { id: "window", cat: "Storefront", title: "Window Signs", loc: "Storefront glass", pos: [-3.6, 2.7, 4.6], desc: "Promotional clings and price callouts on entrance doors and front glass \u2014 the last message before a customer walks in.", usg: "USG prints removable static and adhesive clings, die-cut to any shape, with easy seasonal swap-out.", img: `${IMG}/storefront-promo-window-cling.webp` },
+  { id: "aframe", cat: "A-Frame", title: "Sidewalk A-Frame", loc: "Entrance walkway", pos: [3.2, 2.0, 5.8], desc: "Portable sidewalk boards that capture foot traffic with daily specials.", usg: "USG supplies durable A-frame hardware with printed, swappable insert panels.", img: `${IMG}/brunch-a-frame-sandwich-board.webp` },
+  { id: "flag", cat: "Flag", title: "Feather Flags", loc: "Lot perimeter", pos: [14.5, 4.6, 14.5], desc: "Tall feather and blade flags that create motion and draw eyes from the road.", usg: "USG offers feather flags in multiple formats with poles, bases, and ground stakes.", img: `${IMG}/feather-flag-circle-k-hot-food2.webp` },
+  { id: "bollard", cat: "Bollard", title: "Triangle Bollard", loc: "Pump-to-door walkway", pos: [-7.5, 2.2, 7.5], desc: "3 sided advertising vehicle that captures the attention of drivers as they make their way from the pump into the store. Advertisements are visible from all directions.", usg: "USG offers easy install bollards that can be customized to any shape and size.", img: "/images/signtypes/triangle-bollard.webp" },
+  { id: "snaplock", cat: "Building", title: "Building Snaplock", loc: "Building exterior wall", pos: [11.0, 3.0, 2.2], desc: "The perfect alternative solution to window signage. Snaplocks sit safely in a frame that can be placed all around the building.", usg: "USG has the ability to provide both hardware and insert to maximize your location's advertising potential.", img: "/images/signtypes/building-snaplock.webp" },
+  { id: "cigch", cat: "Window Display", title: "Cigarette Changeable", loc: "Front window", pos: [6.9, 2.7, 4.4], desc: "These versatile window displays are the perfect way to ensure that your stores are able to easily keep up with the ever changing price points on your tobacco products.", usg: "USG offers semi permanent decal numbers that are quick to change out. As well as standard track and flip book options.", img: `${IMG}/cig-changeable.webp` },
+  { id: "icemerch", cat: "Ice Merchandiser", title: "Ice Merch Decals", loc: "Front of store", pos: [-8.5, 2.0, 3.4], desc: "All weather rated materials that showcase your brand, deals, or loyalty programs on your outdoor ice merchandisers.", usg: "With our custom store profiles we will always know exactly how many of each size decal your stores need.", img: "/images/signtypes/ice-merch.webp" },
 ];
 const INTERIOR_HOTSPOTS: Hotspot[] = [
-  { id: "beercave_h", cat: "Cooler Graphics", title: "Beer Cave Header", loc: "Walk-in cooler entrance", pos: [8.5, 4.0, -4.5], desc: "The lit header band above the walk-in beer cave — a category destination cue visible across the store.", usg: "USG builds illuminated beer-cave headers and entry surrounds, sized to the opening.", img: `${IMG}/corona-find-your-beach-beer-cave.webp` },
-  { id: "beercave_d", cat: "Cooler Graphics", title: "Beer Cave Door Decals", loc: "Walk-in cooler doors", pos: [8.3, 2.2, -3], desc: "Full-height decals on the glass cave doors that merchandise brands and promos.", usg: "USG produces door-sized cling and adhesive decals, planogram-accurate, easy to swap.", img: `${IMG}/cooler-doors-promotional-graphics.webp` },
-  { id: "reachin", cat: "Cooler Graphics", title: "Reach-In Cooler Doors", loc: "Beverage wall", pos: [8.3, 3.0, 3], desc: "The wall of reach-in glass doors — turned into branded merchandising with full-door graphics.", usg: "USG prints reach-in door wraps and handle-rail signage across the cooler run.", img: `${IMG}/cooler-doors-promotional-graphics2.webp` },
-  { id: "slurpee", cat: "Beverage", title: "Slurpee Machine Topper", loc: "Frozen drink station", pos: [-5, 3.4, -6.5], desc: "The iconic frozen-drink machine — topper graphics, flavor tags, and the Slurpee brand crown.", usg: "USG produces machine toppers, flavor-strip inserts, and surround graphics for frozen and dispensed drinks.", img: `${IMG}/slurpee-machine-topper.webp` },
-  { id: "fountain", cat: "Beverage", title: "Big Gulp Fountain", loc: "Fountain drink station", pos: [-1, 3.2, -6.5], desc: "The Big Gulp fountain wall — cup-size callouts, flavor branding, and overhead category signage.", usg: "USG prints fountain valance graphics, cup-size guides, and dispenser branding.", img: `${IMG}/fountain-drink-station.webp` },
-  { id: "coffee", cat: "Beverage", title: "Coffee Bar Signage", loc: "Hot beverage station", pos: [3.5, 3.2, -6.5], desc: "The self-serve coffee bar — overhead menu, flavor tags, and price callouts.", usg: "USG produces coffee-bar valances, menu panels, and condiment-station signage.", img: `${IMG}/coffee-bar-signage.webp` },
-  { id: "grill", cat: "Menu Board", title: "Roller Grill / Hot Food Menu", loc: "Foodservice counter", pos: [7, 3.8, -6.3], desc: "The hot-food program signage — roller grill menus, combo deals, and LTO callouts.", usg: "USG designs and prints hot-food menus and provides modular rail systems for fast updates.", img: `${IMG}/hot-dog-combo-menu-signs.webp` },
-  { id: "suspended", cat: "Menu Board", title: "Suspended Category Signage", loc: "Ceiling, center store", pos: [0, 4.6, -1], desc: "Ceiling-hung category and wayfinding signage that floats above the aisles.", usg: "USG fabricates suspended sign blades with hanging hardware rated for your ceiling type.", img: `${IMG}/suspended-menu-board.webp` },
-  { id: "shelf", cat: "Shelf Talker", title: "Gondola Shelf Talkers", loc: "Center aisles", pos: [0, 1.7, 3.6], desc: "Price and promo flags clipped to shelf edges — the workhorse of in-aisle merchandising.", usg: "USG prints shelf-edge talkers, wobblers, and channel strips in bulk with quick reorder.", img: `${IMG}/coke-pepsi-shelf-talkers.webp` },
-  { id: "endcap", cat: "Floor Display", title: "Endcap Floor Display", loc: "Aisle endcap", pos: [-3, 2.0, 4.4], desc: "Freestanding point-of-purchase displays that command floor space at endcaps.", usg: "USG produces corrugated and permanent floor displays, shipped flat or pre-assembled.", img: `${IMG}/vuex-pop-floor-display.webp` },
-  { id: "checkout", cat: "Counter", title: "Checkout & Impulse Signage", loc: "Front counter", pos: [-8.4, 2.2, 5], desc: "The counter zone — impulse racks, register toppers, and age-verification signage.", usg: "USG prints counter mats, register toppers, impulse-rack headers, and compliance signage.", img: `${IMG}/checkout-counter-signage.webp` },
-  { id: "backbar", cat: "Tobacco", title: "Tobacco Backbar", loc: "Behind front counter", pos: [-9.5, 3.6, 5], desc: "The regulated tobacco fixture behind the register — pricing, brand headers, and compliance.", usg: "USG produces backbar headers, price channels, and FDA-compliant tobacco signage.", img: `${IMG}/marlboro-gas-pump-promo.webp` },
-  { id: "lottery", cat: "Counter", title: "Lottery & ATM Signage", loc: "Front counter end", pos: [-7.5, 2.0, 6.5], desc: "Lottery dispensers, jackpot callouts, and ATM/financial-services signage at the counter.", usg: "USG prints lottery toppers, jackpot inserts, and ATM/service decals.", img: `${IMG}/marlboro-gas-pump-promo2.webp` },
-  { id: "floorgfx", cat: "Floor Display", title: "Floor Graphics", loc: "Main aisle", pos: [0, 0.4, 4.5], desc: "Walk-on floor decals for wayfinding, promotions, and brand moments underfoot.", usg: "USG prints anti-slip floor graphics rated for high-traffic retail environments.", img: `${IMG}/floor-graphics-aisle.webp` },
+  { id: "checkout", cat: "Counter", title: "Checkout & Impulse Signage", loc: "Front counter", pos: [-8.4, 2.4, 5], desc: "The counter zone \u2014 impulse racks, register toppers, and age-verification signage.", usg: "USG prints counter mats, register toppers, impulse-rack headers, and compliance signage.", img: `${IMG}/checkout-counter-signage.webp` },
+  { id: "backbar", cat: "Tobacco", title: "Backbar Signage", loc: "Behind front counter", pos: [-9.6, 4.0, 5], desc: "Fully customized kits that allow for instantly changeable pricers on your tobacco products.", usg: "Fully assembled and kitted at time of shipment makes installation a breeze.", img: "/images/signtypes/backbar-kit.webp" },
+  { id: "standee", cat: "Floor Display", title: "Standee", loc: "Store entrance", pos: [-5.5, 2.6, 6.2], desc: "Freestanding point-of-purchase displays that are customized to the need of the promotion. Placed in high traffic area to increase visibility.", usg: "USG produces corrugated and permanent floor displays, shipped flat or pre-assembled.", img: "/images/signtypes/standee.webp", placeholder: true },
+  { id: "floorgfx", cat: "Floor Display", title: "Floor Graphics", loc: "Main aisle", pos: [0, 0.6, 4.5], desc: "Walk-on floor decals for wayfinding, promotions, and brand moments underfoot.", usg: "USG prints anti-slip floor graphics rated for high-traffic retail environments.", img: `${IMG}/floor-graphics-aisle.webp` },
+  { id: "shelf", cat: "Shelf Tag", title: "Shelf Tags", loc: "Center aisles", pos: [-3, 1.9, 3.8], desc: "These popular and inexpensive pricing tags allow for barcode scanning through clear material while calling out the current deal.", usg: "Our material makes application or removal quick and easy, while being highly durable. So your promos last as long as you need them to.", img: "/images/signtypes/shelf-tag.webp" },
+  { id: "wobbler", cat: "Shelf Tag", title: "Wobblers", loc: "Center aisles", pos: [3, 2.2, 3.8], desc: "These eye catching center store signs dangle into the aisle enticing customers to purchase deal items.", usg: "USG offers custom shapes and sizes to fit all your placement needs.", img: `${IMG}/coke-pepsi-shelf-talkers.webp` },
+  { id: "coolerstatic", cat: "Cooler Graphics", title: "Cooler Door Statics", loc: "Beverage wall", pos: [8.3, 3.2, 3], desc: "Coming in all shapes and sizes these statics are an easily changeable option that catches the customers eye as soon as they walk up.", usg: "Offering static and adhesive options allows for monthly deals or more permanent signage such as \u201cWe ID\u201d decals.", img: `${IMG}/cooler-doors-promotional-graphics2.webp` },
+  { id: "coolerstrip", cat: "Cooler Graphics", title: "Cooler Strips", loc: "Cooler shelf channel", pos: [8.3, 1.6, -1], desc: "These moisture proof signs are an ideal option for displaying beverage call outs.", usg: "We offer clear and matte material with shapes that rise above the channel allowing the product to still be seen but the deal to stand out.", img: "/images/signtypes/cooler-strip.webp" },
+  { id: "translite", cat: "Beverage", title: "Dispense Beverage Translites", loc: "Frozen & hot beverage stations", pos: [-3, 3.6, -6.3], desc: "Whether it is frozen drinks, or cappuccino machines these signs are used to create brand loyalty and drive repeat purchases.", usg: "We specialize in creating branded zones for all of your dispense bev machines.", img: `${IMG}/slurpee-machine-topper.webp` },
+  { id: "napkin", cat: "Counter", title: "Napkin Inserts", loc: "Foodservice counter", pos: [2.5, 2.0, -5.4], desc: "Napkin dispenser inserts that turn an everyday touchpoint into promotional real estate.", usg: "We specialize in creating branded zones for all of your dispense bev machines.", img: "/images/signtypes/napkin-insert.webp" },
+  { id: "hotfood", cat: "Menu Board", title: "Hot Food Signage", loc: "Foodservice counter", pos: [7, 3.9, -6.1], desc: "From roller grill displays to temperature rated hot case decals, we offer a full line of hot food signage to create a cohesive branded environment for your customers.", usg: "We specialize in developing permanent branded signage that compliments monthly promotional sales items creating a brand that brings customers back time and time again.", img: `${IMG}/hot-dog-combo-menu-signs.webp` },
 ];
 
 /* ============================= geometry helpers ============================= */
@@ -161,6 +161,7 @@ function ExteriorScene() {
   const stuccoSide = useTiled("/textures/stucco.jpg", 3, 1.3);
   const roofTex = useTiled("/textures/roof.jpg", 4.5, 3);
   const poster = useSRGB("/images/easy/qsr-soup-lto-poster.webp");
+  const cigTex = useSRGB("/images/easy/cig-changeable.webp");
   const BW = 17, BH = 4.6, BD = 11;
   const cols: [number, number][] = [[-6, -2.4], [6, -2.4], [-6, 2.4], [6, 2.4]];
   const pumps: [number, number][] = [[-4.2, 0], [0, 0], [4.2, 0]];
@@ -276,6 +277,18 @@ function ExteriorScene() {
         {Array.from({ length: 3 }).map((_, i) => (
           <Box key={`hv${i}`} args={[1.5, 0.85, 1.5]} position={[-4.5 + i * 4.5, BH + 0.72, -2.5]} color="#9aa0a8" metalness={0.55} roughness={0.45} />
         ))}
+        {/* building snaplock frames on the right exterior wall */}
+        {[1.2, 2.6, 4.0].map((z, i) => (
+          <group key={`snap${i}`} position={[BW / 2 + 0.24, 2.6, z]}>
+            <Box args={[0.08, 1.35, 0.95]} color="#1c1f24" metalness={0.5} roughness={0.4} />
+            <Box args={[0.06, 1.15, 0.78]} position={[0.04, 0, 0]} color={[C.sevRed, "#1e4f8f", C.sevOrange][i]} roughness={0.55} po={8} />
+          </group>
+        ))}
+        {/* cigarette changeable display in the tinted window */}
+        <mesh position={[4.7, 2.1, BD / 2 + 0.19]}>
+          <planeGeometry args={[1.9, 1.2]} />
+          <meshStandardMaterial map={cigTex} roughness={0.55} />
+        </mesh>
         {/* side service glazing */}
         <Box args={[0.5, 3, 8]} position={[BW / 2 - 0.6, 1.6, -1]} color="#3c4046" metalness={0.6} roughness={0.35} />
         <mesh position={[BW / 2 - 0.85, 1.6, -1]}>
@@ -337,7 +350,7 @@ function ExteriorScene() {
       </group>
 
       {/* ── PYLON SIGN ───────────────────────────────────────── */}
-      <group position={[-20, 0, 18]} rotation={[0, 0.6, 0]}>
+      <group position={[-24, 0, 19]} rotation={[0, 0.6, 0]}>
         <Cyl args={[0.3, 0.3, 6.8, 20]} position={[0, 3.4, 0]} color="#4a4f57" />
         <mesh position={[0, 7.3, 0]} castShadow>
           <boxGeometry args={[3.2, 3.4, 0.55]} />
@@ -357,7 +370,7 @@ function ExteriorScene() {
       </group>
 
       {/* feather flags */}
-      {([[-13, 15], [-13.9, 15.7], [-12.1, 15.7]] as [number, number][]).map(([x, z], i) => (
+      {([[14.5, 14], [13.6, 14.7], [15.4, 14.7]] as [number, number][]).map(([x, z], i) => (
         <group key={`flag${i}`}>
           <Cyl args={[0.05, 0.05, 4.2, 12]} position={[x, 2.1, z]} color="#c9ccd1" />
           <Box args={[0.08, 2.5, 0.95]} position={[x, 3.2, z + 0.5]} rotation={[0, 0.1, 0]} color={[C.sevGreen, C.sevRed, C.sevOrange][i]} roughness={0.75} />
@@ -365,7 +378,7 @@ function ExteriorScene() {
       ))}
 
       {/* sidewalk A-frame */}
-      <group position={[6.5, 0, 5.4]} rotation={[0, -0.35, 0]}>
+      <group position={[3.2, 0, 5.8]} rotation={[0, -0.35, 0]}>
         <group rotation={[-0.26, 0, 0]} position={[0, 0, 0.42]}>
           <Box args={[1.3, 1.6, 0.06]} position={[0, 0.8, 0]} color="#3c4046" metalness={0.6} roughness={0.35} />
           <Box args={[1.08, 1.42, 0.04]} position={[0, 0.8, 0.05]} color={C.sevOrange} po={6} />
@@ -378,6 +391,29 @@ function ExteriorScene() {
         </group>
         <Box args={[1.34, 0.14, 0.5]} position={[0, 1.6 * Math.cos(0.26), 0]} color="#3c4046" metalness={0.6} roughness={0.35} />
       </group>
+
+      {/* ── TRIANGLE BOLLARD (pump-to-door walkway) ──────── */}
+      <group position={[-7.5, 0, 7.5]}>
+        <Cyl args={[0.16, 0.16, 0.5, 16]} position={[0, 0.25, 0]} color="#c22a1e" />
+        <mesh position={[0, 1.35, 0]} rotation={[0, Math.PI / 6, 0]} castShadow>
+          <cylinderGeometry args={[0.52, 0.52, 1.7, 3]} />
+          <meshStandardMaterial color="#4a9bd4" roughness={0.55} />
+        </mesh>
+        <mesh position={[0, 2.05, 0]} rotation={[0, Math.PI / 6, 0]}>
+          <cylinderGeometry args={[0.54, 0.54, 0.28, 3]} />
+          <meshStandardMaterial color="#0f2740" roughness={0.5} />
+        </mesh>
+      </group>
+
+      {/* ── ICE MERCHANDISER (front of store) ──────────── */}
+      <group position={[-8.5, 0, 3.4]}>
+        <Box args={[2.2, 1.7, 1.3]} position={[0, 0.85, 0]} color="#f4f3ef" roughness={0.5} />
+        <Box args={[2.2, 0.4, 0.06]} position={[0, 1.85, 0.63]} color="#e8e6e0" roughness={0.5} />
+        <Box args={[0.55, 0.7, 0.06]} position={[-0.7, 0.85, 0.66]} color="#c22a1e" roughness={0.6} />
+        <Box args={[0.55, 0.7, 0.06]} position={[0.05, 0.85, 0.66]} color="#c22a1e" roughness={0.6} />
+        <Box args={[0.55, 0.7, 0.06]} position={[0.8, 0.85, 0.66]} color="#1e4f8f" roughness={0.6} />
+        <Box args={[0.9, 0.55, 0.05]} position={[0.6, 1.45, 0.65]} color="#1e4f8f" roughness={0.6} />
+      </group>
     </group>
   );
 }
@@ -389,7 +425,6 @@ function InteriorScene() {
     <group>
       <mesh position={[0, 0, 0]} receiveShadow><boxGeometry args={[RW, 0.3, RD]} /><meshStandardMaterial color={C.floor} roughness={0.6} /></mesh>
       {Array.from({ length: 9 }).map((_, i) => (<Box key={`ft${i}`} args={[0.05, 0.31, RD]} position={[(i - 4) * 2.4, 0.01, 0]} color={C.floorDk} roughness={0.6} />))}
-      {Array.from({ length: 7 }).map((_, i) => (<Box key={`led${i}`} args={[0.5, 0.08, RD - 2]} position={[(i - 3) * 3, RH - 0.4, 0]} color="#ffffff" metalness={0} roughness={0.3} />))}
       {/* low cutaway walls + stripe caps */}
       <Box args={[RW, WALL, 0.3]} position={[0, WALL / 2, -RD / 2]} color={C.beige} />
       <Box args={[RW, 0.3, 0.34]} position={[0, WALL + 0.15, -RD / 2]} color={C.sevRed} />
@@ -446,13 +481,6 @@ function InteriorScene() {
         </group>);
       })}
       <Box args={[2.0, 1.5, 1.0]} position={[-3, 0.85, 4.4]} color={C.sevOrange} />
-      {/* suspended blades */}
-      {([[-5, -1], [0, -1], [5, -1], [-2.5, 3], [2.5, 3]] as [number, number][]).map(([x, z], i) => (
-        <group key={`sb${i}`}>
-          <Cyl args={[0.02, 0.02, 1]} position={[x, RH - 0.7, z]} color="#999999" />
-          <Box args={[2.0, 0.7, 0.1]} position={[x, RH - 1.25, z]} color={C.sevRed} />
-        </group>
-      ))}
       {/* FRONT-LEFT: counter + tobacco backbar + impulse */}
       <group position={[-RW / 2 + 2.6, 0, RD / 2 - 3]}>
         <Box args={[1.6, 1.1, 7]} position={[0, 0.7, 0]} color={C.wood} />
@@ -471,6 +499,38 @@ function InteriorScene() {
       {/* floor graphic */}
       <Box args={[2.6, 0.32, 2.6]} position={[0, 0.02, 4.5]} color={C.sevGreen} roughness={0.5} />
       <Box args={[2.0, 0.33, 2.0]} position={[0, 0.03, 4.5]} color={C.sevWhite} roughness={0.5} />
+
+      {/* standee at the entrance */}
+      <group position={[-5.5, 0, 6.2]} rotation={[0, 0.35, 0]}>
+        <Box args={[0.95, 1.7, 0.4]} position={[0, 0.85, 0]} color={C.sevOrange} roughness={0.6} />
+        <Box args={[0.8, 0.5, 0.42]} position={[0, 1.45, 0]} color={C.sevWhite} roughness={0.6} po={6} />
+        <Box args={[1.05, 0.28, 0.44]} position={[0, 1.85, 0]} color={C.sevGreen} roughness={0.6} />
+      </group>
+
+      {/* wobblers on the right gondola */}
+      {[1.0, 1.45, 1.9].map((y, i) => (
+        <group key={`wob${i}`} position={[3 + (i - 1) * 0.8, y, 3.66]}>
+          <Box args={[0.02, 0.02, 0.3]} position={[0, 0, 0.15]} color="#d5d5d5" />
+          <Box args={[0.32, 0.26, 0.02]} position={[0, -0.1, 0.32]} color={[C.sevRed, C.sevOrange, "#1e4f8f"][i]} roughness={0.5} />
+        </group>
+      ))}
+
+      {/* cooler strips on the reach-in shelf channels */}
+      {[0.9, 1.5, 2.1].map((y, i) => (
+        <Box key={`cs${i}`} args={[0.05, 0.14, 1.15]} position={[RW / 2 - 0.92, y, -1]} color={C.marigold} roughness={0.5} />
+      ))}
+
+      {/* dispense beverage translite (lit) between frozen + fountain stations */}
+      <mesh position={[-3, 3.5, -RD / 2 + 1.45]}>
+        <boxGeometry args={[2.4, 0.85, 0.12]} />
+        <meshStandardMaterial color="#eaf4ff" emissive="#bcd9ff" emissiveIntensity={0.9} roughness={0.3} />
+      </mesh>
+
+      {/* napkin dispenser with promo insert on the foodservice counter */}
+      <group position={[2.5, 1.35, -5.4]}>
+        <Box args={[0.32, 0.6, 0.28]} position={[0, 0.3, 0]} color="#141414" roughness={0.4} />
+        <Box args={[0.24, 0.42, 0.02]} position={[0, 0.32, 0.15]} color={C.sevRed} roughness={0.5} />
+      </group>
     </group>
   );
 }
@@ -533,7 +593,7 @@ function Pins({ list, occludeRoot, foundSet, onPick }: {
       {list.map((h, i) => (
         <group key={h.id} position={h.pos}>
           <mesh name="stem" position={[0, -0.3, 0]}>
-            <cylinderGeometry args={[0.04, 0.04, 0.6, 8]} />
+            <cylinderGeometry args={[0.05, 0.05, 0.8, 8]} />
             <meshBasicMaterial color={C.marigold} transparent />
           </mesh>
           <mesh
@@ -546,11 +606,11 @@ function Pins({ list, occludeRoot, foundSet, onPick }: {
             onPointerOver={() => (document.body.style.cursor = "pointer")}
             onPointerOut={() => (document.body.style.cursor = "auto")}
           >
-            <sphereGeometry args={[0.26, 20, 20]} />
+            <sphereGeometry args={[0.36, 24, 24]} />
             <meshBasicMaterial color={C.marigold} transparent />
           </mesh>
           <mesh name="ring">
-            <ringGeometry args={[0.32, 0.44, 24]} />
+            <ringGeometry args={[0.44, 0.6, 28]} />
             <meshBasicMaterial color="#ffffff" transparent opacity={0.7} side={THREE.DoubleSide} />
           </mesh>
         </group>
@@ -561,7 +621,7 @@ function Pins({ list, occludeRoot, foundSet, onPick }: {
 
 /* ============================= SCENE CONTROLLER ============================= */
 const CAM = {
-  exterior: { pos: [22, 14, 22] as Vec3, target: [-1, 3, 0] as Vec3, min: 12, max: 40, minP: 0.2, maxP: 1.45 },
+  exterior: { pos: [20, 13, 26] as Vec3, target: [0, 2.5, 2] as Vec3, min: 12, max: 46, minP: 0.2, maxP: 1.45 },
   interior: { pos: [0, 16, 18] as Vec3, target: [0, 1.2, -0.5] as Vec3, min: 8, max: 38, minP: 0.15, maxP: 1.2 },
 };
 
