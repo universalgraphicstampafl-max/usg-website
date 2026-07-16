@@ -452,7 +452,7 @@ function CameraRig({ mode }: { mode: "exterior" | "interior" }) {
 
 /* ============================= SCENE CONTROLLER ============================= */
 const CAM = {
-  exterior: { pos: [38, 17, 19] as Vec3, target: [-2, 2, -7] as Vec3, min: 10, max: 62, minP: 0.2, maxP: 1.45 },
+  exterior: { pos: [44, 19, 23] as Vec3, target: [-2, 2, -7] as Vec3, min: 10, max: 66, minP: 0.2, maxP: 1.45 },
   interior: { pos: [0, 16, 18] as Vec3, target: [0, 1.2, -0.5] as Vec3, min: 8, max: 38, minP: 0.15, maxP: 1.2 },
 };
 
