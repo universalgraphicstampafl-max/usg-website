@@ -99,7 +99,20 @@ Shop Shelves With Stock (11.7k/114), Market Shelf series (Milk/Cookies/Vegetable
 - 8ft x 3ft Blaze Wall Mounted Light Box Display (downloadable) — wall-mounted snaplock analog
 - Gas Station Signs pack (see §4)
 
-## 8. v3 integration plan (proposed)
+## 8. ✅ LICENSE VERIFICATION RESULTS (7/15/26)
+
+| Model | Author | License | Verdict |
+|---|---|---|---|
+| **Gas station** (47.3k views) — sketchfab.com/3d-models/gas-station-eeb913b90b4344ddbd7852f82a7ef160 | Elbolillo (@Elbolilloduro) | **CC-BY 4.0** | ✅ CLEARED — realistic style, full forecourt w/ canopy, pumps, store, pylon. **Anchor asset.** |
+| **gas pump** (7.8k) — sketchfab.com/3d-models/gas-pump-add0f902b9164718bd0540e88bf9927e | kunkun (@youoyouyou) | **CC-BY 4.0** | ✅ CLEARED — modern dispenser w/ topper zone |
+| **Supermarket Drinks Shelf Asset** (36k) — sketchfab.com/3d-models/supermarket-drinks-shelf-asset-4f22309bf38e4941a3ea2237ac886acb | Rendevr | **CC-BY 4.0** | ✅ CLEARED — realistic stocked cooler shelf w/ shelf tags |
+| **Supermarket Potato Chips Shelf Asset** (41.2k) — sketchfab.com/3d-models/supermarket-potato-chips-shelf-asset-4e4ccc3074f0474bbfa23611c46a4029 | Rendevr | **CC-BY 4.0** | ✅ CLEARED — realistic stocked gondola |
+| The Convenience Store (37.1k) — sketchfab.com/3d-models/the-convenience-store-d81380e64c2c4b85b4cf58910f649312 | Merow (@TehMerow) | CC-BY 4.0 | ⚠️ License OK but tags: stylized/flatshaded/cute/anime — **wrong aesthetic** for Preston's realism bar. Skip. |
+
+**Attribution requirement (CC-BY):** credit each used author with model name + link. Plan: small
+"3D assets" credit line in the gallery page footer or a credits note inside the showroom widget.
+
+## 9. v3 integration plan
 
 1. **Vet licenses** on shortlist: The Convenience Store, 7-11 convenience store, Gas station (47k),
    Gas station Props, gas pump (7.8k), Supermarket Drinks/Chips shelves, both Blaze light boxes.
