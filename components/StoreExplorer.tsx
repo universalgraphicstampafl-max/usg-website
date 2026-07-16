@@ -576,6 +576,11 @@ function InteractiveExplorer() {
         </div>
       )}
 
+      {/* CC-BY attribution (required by asset licenses) */}
+      <div style={{ position: "absolute", bottom: 8, left: 14, zIndex: 5, fontSize: 10, color: "rgba(255,255,255,0.45)", pointerEvents: "auto" }}>
+        3D assets: <a href="https://sketchfab.com/3d-models/gas-station-eeb913b90b4344ddbd7852f82a7ef160" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>&quot;Gas station&quot; by Elbolillo</a> · shelves by <a href="https://sketchfab.com/Rendevr" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>Rendevr</a> (CC-BY 4.0)
+      </div>
+
       {/* info panel */}
       <aside style={{
         position: "absolute", top: 0, right: 0, height: "100%", width: "min(400px,88%)", background: C.offwhite,
