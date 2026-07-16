@@ -1,0 +1,11 @@
+Model Information:
+* title:	gas pump
+* source:	https://sketchfab.com/3d-models/gas-pump-add0f902b9164718bd0540e88bf9927e
+* author:	打螺丝 (https://sketchfab.com/youoyouyou)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "gas pump" (https://sketchfab.com/3d-models/gas-pump-add0f902b9164718bd0540e88bf9927e) by 打螺丝 (https://sketchfab.com/youoyouyou) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
