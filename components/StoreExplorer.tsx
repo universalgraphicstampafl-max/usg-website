@@ -29,14 +29,14 @@ export type Hotspot = { id: string; cat: string; title: string; loc: string; pos
 
 /* ============================= hotspot data ============================= */
 const EXTERIOR_HOTSPOTS: Hotspot[] = [
-  { id: "pump", cat: "Gas Pump", title: "Pump Topper & Pump Topper Extender", loc: "Fuel island", pos: [-12.3, 3.4, 12.5], desc: "High-dwell-time advertising right at the pump \u2014 drivers stare at this for 3-5 minutes per fill.", usg: "USG uses pump toppers as a monthly kit item for new deals but keeps extenders for longer promotional windows to balance long term deals like loyalty with short term offers.", img: "/images/signtypes/pump-topper.webp" },
-  { id: "window", cat: "Storefront", title: "Window Signs", loc: "Storefront glass", pos: [-3.6, 2.7, 4.6], desc: "Promotional clings and price callouts on entrance doors and front glass \u2014 the last message before a customer walks in.", usg: "USG prints removable static and adhesive clings, die-cut to any shape, with easy seasonal swap-out.", img: `${IMG}/storefront-promo-window-cling.webp` },
-  { id: "aframe", cat: "A-Frame", title: "Sidewalk A-Frame", loc: "Entrance walkway", pos: [3.2, 2.0, 5.8], desc: "Portable sidewalk boards that capture foot traffic with daily specials.", usg: "USG supplies durable A-frame hardware with printed, swappable insert panels.", img: `${IMG}/brunch-a-frame-sandwich-board.webp` },
-  { id: "flag", cat: "Flag", title: "Feather Flags", loc: "Lot perimeter", pos: [14.5, 4.6, 14.5], desc: "Tall feather and blade flags that create motion and draw eyes from the road.", usg: "USG offers feather flags in multiple formats with poles, bases, and ground stakes.", img: `${IMG}/feather-flag-circle-k-hot-food2.webp` },
-  { id: "bollard", cat: "Bollard", title: "Triangle Bollard", loc: "Pump-to-door walkway", pos: [-7.5, 2.2, 7.5], desc: "3 sided advertising vehicle that captures the attention of drivers as they make their way from the pump into the store. Advertisements are visible from all directions.", usg: "USG offers easy install bollards that can be customized to any shape and size.", img: "/images/signtypes/triangle-bollard.webp" },
-  { id: "snaplock", cat: "Building", title: "Building Snaplock", loc: "Building exterior wall", pos: [11.0, 3.0, 2.2], desc: "The perfect alternative solution to window signage. Snaplocks sit safely in a frame that can be placed all around the building.", usg: "USG has the ability to provide both hardware and insert to maximize your location's advertising potential.", img: "/images/signtypes/building-snaplock.webp" },
-  { id: "cigch", cat: "Window Display", title: "Cigarette Changeable", loc: "Front window", pos: [6.9, 2.7, 4.4], desc: "These versatile window displays are the perfect way to ensure that your stores are able to easily keep up with the ever changing price points on your tobacco products.", usg: "USG offers semi permanent decal numbers that are quick to change out. As well as standard track and flip book options.", img: `${IMG}/cig-changeable.webp` },
-  { id: "icemerch", cat: "Ice Merchandiser", title: "Ice Merch Decals", loc: "Front of store", pos: [-8.5, 2.0, 3.4], desc: "All weather rated materials that showcase your brand, deals, or loyalty programs on your outdoor ice merchandisers.", usg: "With our custom store profiles we will always know exactly how many of each size decal your stores need.", img: "/images/signtypes/ice-merch.webp" },
+  { id: "pump", cat: "Gas Pump", title: "Pump Topper & Pump Topper Extender", loc: "Fuel island", pos: [9.8, 4.1, 11.5], desc: "High-dwell-time advertising right at the pump \u2014 drivers stare at this for 3-5 minutes per fill.", usg: "USG uses pump toppers as a monthly kit item for new deals but keeps extenders for longer promotional windows to balance long term deals like loyalty with short term offers.", img: "/images/signtypes/pump-topper.webp" },
+  { id: "window", cat: "Storefront", title: "Window Signs", loc: "Storefront glass", pos: [4.8, 3.0, -8.0], desc: "Promotional clings and price callouts on entrance doors and front glass \u2014 the last message before a customer walks in.", usg: "USG prints removable static and adhesive clings, die-cut to any shape, with easy seasonal swap-out.", img: `${IMG}/storefront-promo-window-cling.webp` },
+  { id: "aframe", cat: "A-Frame", title: "Sidewalk A-Frame", loc: "Entrance walkway", pos: [-3.75, 1.9, -6.2], desc: "Portable sidewalk boards that capture foot traffic with daily specials.", usg: "USG supplies durable A-frame hardware with printed, swappable insert panels.", img: `${IMG}/brunch-a-frame-sandwich-board.webp` },
+  { id: "flag", cat: "Flag", title: "Feather Flags", loc: "Lot perimeter", pos: [-14, 4.4, 26], desc: "Tall feather and blade flags that create motion and draw eyes from the road.", usg: "USG offers feather flags in multiple formats with poles, bases, and ground stakes.", img: `${IMG}/feather-flag-circle-k-hot-food2.webp` },
+  { id: "bollard", cat: "Bollard", title: "Triangle Bollard", loc: "Pump-to-door walkway", pos: [3.75, 2.3, 0], desc: "3 sided advertising vehicle that captures the attention of drivers as they make their way from the pump into the store. Advertisements are visible from all directions.", usg: "USG offers easy install bollards that can be customized to any shape and size.", img: "/images/signtypes/triangle-bollard.webp" },
+  { id: "snaplock", cat: "Building", title: "Building Snaplock", loc: "Building exterior wall", pos: [7.5, 2.9, -16.2], desc: "The perfect alternative solution to window signage. Snaplocks sit safely in a frame that can be placed all around the building.", usg: "USG has the ability to provide both hardware and insert to maximize your location's advertising potential.", img: "/images/signtypes/building-snaplock.webp" },
+  { id: "cigch", cat: "Window Display", title: "Cigarette Changeable", loc: "Front window", pos: [1.9, 2.9, -8.3], desc: "These versatile window displays are the perfect way to ensure that your stores are able to easily keep up with the ever changing price points on your tobacco products.", usg: "USG offers semi permanent decal numbers that are quick to change out. As well as standard track and flip book options.", img: `${IMG}/cig-changeable.webp` },
+  { id: "icemerch", cat: "Ice Merchandiser", title: "Ice Merch Decals", loc: "Front of store", pos: [-7.6, 2.1, -7.1], desc: "All weather rated materials that showcase your brand, deals, or loyalty programs on your outdoor ice merchandisers.", usg: "With our custom store profiles we will always know exactly how many of each size decal your stores need.", img: "/images/signtypes/ice-merch.webp" },
 ];
 const INTERIOR_HOTSPOTS: Hotspot[] = [
   { id: "checkout", cat: "Counter", title: "Checkout & Impulse Signage", loc: "Front counter", pos: [-8.4, 2.4, 5], desc: "The counter zone \u2014 impulse racks, register toppers, and age-verification signage.", usg: "USG prints counter mats, register toppers, impulse-rack headers, and compliance signage.", img: `${IMG}/checkout-counter-signage.webp` },
@@ -162,8 +162,8 @@ function StationModel() {
       if (m.isMesh) { m.castShadow = true; m.receiveShadow = true; }
     });
   }, [scene]);
-  // raw bounds: x -196..104, y -3.1..27, z -52..49 — scale + recenter to our stage
-  return <primitive object={scene} scale={0.2} position={[9.2, 0.63, 0.37]} />;
+  // native meters; recentered so the station core (store + canopy) sits at world origin
+  return <primitive object={scene} scale={1.25} position={[-6.25, 0, 10]} />;
 }
 useGLTF.preload("/models/gas-station.glb");
 
@@ -184,9 +184,59 @@ useGLTF.preload("/models/shelf-drinks.glb");
 
 /* ============================= EXTERIOR SCENE ============================= */
 function ExteriorScene() {
+  const cigTex = useSRGB("/images/signtypes/cig-window.webp");
   return (
     <group>
       <StationModel />
+
+      {/* ── USG signage props on the licensed site ─────────── */}
+      {/* sidewalk A-frame near the entrance */}
+      <group position={[-3.75, 0, -6.2]} rotation={[0, 0.4, 0]}>
+        <group rotation={[-0.26, 0, 0]} position={[0, 0, 0.42]}>
+          <Box args={[1.1, 1.4, 0.06]} position={[0, 0.7, 0]} color="#3c4046" metalness={0.6} roughness={0.35} />
+          <Box args={[0.92, 1.24, 0.04]} position={[0, 0.7, 0.05]} color={C.sevOrange} po={6} />
+          <Box args={[0.84, 0.26, 0.05]} position={[0, 1.12, 0.07]} color={C.sevWhite} po={8} />
+        </group>
+        <group rotation={[0.26, 0, 0]} position={[0, 0, -0.42]}>
+          <Box args={[1.1, 1.4, 0.06]} position={[0, 0.7, 0]} color="#3c4046" metalness={0.6} roughness={0.35} />
+          <Box args={[0.92, 1.24, 0.04]} position={[0, 0.7, -0.05]} color={C.sevGreen} po={6} />
+        </group>
+      </group>
+
+      {/* feather flags by the pylon */}
+      {([[-14, 26], [-14.9, 26.7], [-13.1, 26.7]] as [number, number][]).map(([x, z], i) => (
+        <group key={`flag${i}`}>
+          <Cyl args={[0.05, 0.05, 4.2, 12]} position={[x, 2.1, z]} color="#c9ccd1" />
+          <Box args={[0.08, 2.5, 0.95]} position={[x, 3.2, z + 0.5]} rotation={[0, 0.1, 0]} color={[C.sevGreen, C.sevRed, C.sevOrange][i]} roughness={0.75} />
+        </group>
+      ))}
+
+      {/* triangle bollard on the pump-to-door walkway */}
+      <group position={[3.75, 0, 0]}>
+        <Cyl args={[0.16, 0.16, 0.5, 16]} position={[0, 0.25, 0]} color="#c22a1e" />
+        <mesh position={[0, 1.35, 0]} rotation={[0, Math.PI / 6, 0]} castShadow>
+          <cylinderGeometry args={[0.52, 0.52, 1.7, 3]} />
+          <meshStandardMaterial color="#4a9bd4" roughness={0.55} />
+        </mesh>
+        <mesh position={[0, 2.05, 0]} rotation={[0, Math.PI / 6, 0]}>
+          <cylinderGeometry args={[0.54, 0.54, 0.28, 3]} />
+          <meshStandardMaterial color="#0f2740" roughness={0.5} />
+        </mesh>
+      </group>
+
+      {/* snaplock frames on the store's east wall */}
+      {[-14.2, -16.2, -18.2].map((z, i) => (
+        <group key={`snap${i}`} position={[7.15, 2.6, z]}>
+          <Box args={[0.08, 1.35, 0.95]} color="#1c1f24" metalness={0.5} roughness={0.4} />
+          <Box args={[0.06, 1.15, 0.78]} position={[0.04, 0, 0]} color={[C.sevRed, "#1e4f8f", C.sevOrange][i]} roughness={0.55} po={8} />
+        </group>
+      ))}
+
+      {/* cigarette changeable display on the storefront glass */}
+      <mesh position={[1.9, 2.6, -8.45]}>
+        <planeGeometry args={[1.1, 1.65]} />
+        <meshStandardMaterial map={cigTex} roughness={0.55} />
+      </mesh>
     </group>
   );
 }
@@ -402,7 +452,7 @@ function CameraRig({ mode }: { mode: "exterior" | "interior" }) {
 
 /* ============================= SCENE CONTROLLER ============================= */
 const CAM = {
-  exterior: { pos: [20, 13, 26] as Vec3, target: [0, 2.5, 2] as Vec3, min: 12, max: 46, minP: 0.2, maxP: 1.45 },
+  exterior: { pos: [28, 13, 30] as Vec3, target: [-1, 2.2, -3] as Vec3, min: 10, max: 58, minP: 0.2, maxP: 1.45 },
   interior: { pos: [0, 16, 18] as Vec3, target: [0, 1.2, -0.5] as Vec3, min: 8, max: 38, minP: 0.15, maxP: 1.2 },
 };
 
