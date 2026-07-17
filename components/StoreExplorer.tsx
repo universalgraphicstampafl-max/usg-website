@@ -773,6 +773,7 @@ function InteractiveExplorer() {
   const [foundInt] = useState(() => new Set<number>());
   const [, force] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [creditsOpen, setCreditsOpen] = useState(false);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 640);
@@ -850,9 +851,19 @@ function InteractiveExplorer() {
         </div>
       )}
 
-      {/* CC-BY attribution (required by asset licenses) */}
-      <div style={{ position: "absolute", bottom: 8, left: 14, zIndex: 5, fontSize: 10, color: "rgba(255,255,255,0.45)", pointerEvents: "auto" }}>
-        3D assets: <a href="https://sketchfab.com/3d-models/gas-station-eeb913b90b4344ddbd7852f82a7ef160" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>&quot;Gas station&quot; by Elbolillo</a> · shelves by <a href="https://sketchfab.com/Rendevr" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>Rendevr</a> · ice bin by <a href="https://sketchfab.com/ryanzr10" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>Ryan</a> (CC-BY 4.0)
+      {/* CC-BY attribution (required by asset licenses) — tucked behind an info toggle to keep the view clean */}
+      <div style={{ position: "absolute", bottom: 8, left: 14, zIndex: 5, display: "flex", alignItems: "center", gap: 8, pointerEvents: "auto" }}>
+        <button
+          onClick={() => setCreditsOpen((o) => !o)}
+          aria-label="3D asset credits"
+          title="3D asset credits"
+          style={{ width: 20, height: 20, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.25)", background: "rgba(0,10,30,0.55)", color: "rgba(255,255,255,0.5)", fontSize: 11, fontStyle: "italic", fontFamily: "Georgia, serif", cursor: "pointer", lineHeight: 1, padding: 0 }}
+        >i</button>
+        {creditsOpen && (
+          <span style={{ fontSize: 10, color: "rgba(255,255,255,0.45)", background: "rgba(0,10,30,0.7)", padding: "4px 10px", borderRadius: 6 }}>
+            3D assets: <a href="https://sketchfab.com/3d-models/gas-station-eeb913b90b4344ddbd7852f82a7ef160" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>&quot;Gas station&quot; by Elbolillo</a> · shelves by <a href="https://sketchfab.com/Rendevr" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>Rendevr</a> · ice bin by <a href="https://sketchfab.com/ryanzr10" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>Ryan</a> (CC-BY 4.0)
+          </span>
+        )}
       </div>
 
       {/* info panel */}
