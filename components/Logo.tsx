@@ -21,8 +21,8 @@ export default function Logo({ variant = "dark", showName = false, className = "
       <img
         src="/images/usg-logo-mark.svg"
         alt="Universal Signage & Graphics"
-        width={238}
-        height={181}
+        width={243}
+        height={153}
         className={`h-14 w-auto shrink-0 ${variant === "light" ? "drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]" : ""}`}
       />
       {showName && (

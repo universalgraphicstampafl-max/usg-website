@@ -16,9 +16,10 @@ type Category =
   | "Menu Board"
   | "A-Frame"
   | "Flag"
-  | "Pylon"
-  | "Shelf Talker"
-  | "Floor Display";
+  | "Shelf & Aisle"
+  | "Floor Display"
+  | "Counter"
+  | "Beverage";
 
 type GalleryItem = {
   src: string;
@@ -34,34 +35,43 @@ const FILTERS: ("All" | Category)[] = [
   "Menu Board",
   "A-Frame",
   "Flag",
-  "Pylon",
-  "Shelf Talker",
+  "Shelf & Aisle",
   "Floor Display",
+  "Counter",
+  "Beverage",
 ];
 
 const ITEMS: GalleryItem[] = [
-  { src: "/images/gallery/02-convenience-storefront.webp", alt: "Convenience store storefront signage", category: "Storefront" },
-  { src: "/images/gallery/03-corona-beer-cave.webp", alt: "Corona beer cave cooler graphics", category: "Cooler Graphics" },
-  { src: "/images/gallery/04-qsr-bbq-pylon.webp", alt: "QSR BBQ pylon sign", category: "Pylon" },
-  { src: "/images/gallery/05-grocery-fresh-eats.webp", alt: "Grocery fresh-eats cooler graphics", category: "Cooler Graphics" },
-  { src: "/images/gallery/06-tobacco-marlboro.webp", alt: "Tobacco Marlboro pylon", category: "Pylon" },
-  { src: "/images/gallery/07-storefront-window-cling.webp", alt: "Storefront window cling", category: "Storefront" },
-  { src: "/images/gallery/08-qsr-hangry-burger-menu.webp", alt: "QSR Hangry burger menu board", category: "Menu Board" },
-  { src: "/images/gallery/09-cooler-doors-graphics.webp", alt: "Cooler door graphics", category: "Cooler Graphics" },
-  { src: "/images/gallery/10-gas-pump-celsius-topper.webp", alt: "Celsius gas pump topper", category: "Gas Pump" },
-  { src: "/images/gallery/11-circle-k-hot-food-flag.webp", alt: "Circle K hot food flag", category: "Flag" },
-  { src: "/images/gallery/12-iced-coffee-dispenser.webp", alt: "Iced coffee dispenser graphics", category: "Cooler Graphics" },
-  { src: "/images/gallery/13-grab-go-cooler.webp", alt: "Grab-and-go cooler graphics", category: "Cooler Graphics" },
-  { src: "/images/gallery/14-hot-dog-combo-signs.webp", alt: "Hot dog combo menu signs", category: "Menu Board" },
-  { src: "/images/gallery/15-karma-poster-frame.webp", alt: "Karma poster frame pylon", category: "Pylon" },
-  { src: "/images/gallery/16-vuex-pop-floor-display.webp", alt: "Vuex POP floor display", category: "Floor Display" },
-  { src: "/images/gallery/17-fiji-pole-sign.webp", alt: "Fiji pole sign", category: "Pylon" },
-  { src: "/images/gallery/18-brunch-a-frame.webp", alt: "Brunch A-frame sandwich board", category: "A-Frame" },
-  { src: "/images/gallery/19-suspended-menu-board.webp", alt: "Suspended menu board", category: "Menu Board" },
-  { src: "/images/gallery/20-three-flag-formats.webp", alt: "Three flag formats", category: "Flag" },
-  { src: "/images/gallery/21-coke-pepsi-shelf-talkers.webp", alt: "Coke and Pepsi shelf talkers", category: "Shelf Talker" },
-  { src: "/images/gallery/22-newport-marlboro-pylons.webp", alt: "Newport and Marlboro pylons", category: "Pylon" },
-  { src: "/images/gallery/23-storefront-vinyl-lettering.webp", alt: "Storefront vinyl lettering", category: "Storefront" },
+  { src: "/images/gallery/02-convenience-storefront.webp", alt: "Pump Bollard Snap Lock", category: "Gas Pump" },
+  { src: "/images/gallery/03-corona-beer-cave.webp", alt: "Cooler Graphics", category: "Cooler Graphics" },
+  { src: "/images/gallery/05-grocery-fresh-eats.webp", alt: "Open Air Cooler Wraps", category: "Cooler Graphics" },
+  { src: "/images/gallery/06-tobacco-marlboro.webp", alt: "Cigarette Changeable", category: "Storefront" },
+  { src: "/images/gallery/07-storefront-window-cling.webp", alt: "Storefront Window Signage", category: "Storefront" },
+  { src: "/images/gallery/08-qsr-hangry-burger-menu.webp", alt: "Menu Board", category: "Menu Board" },
+  { src: "/images/signtypes/panels/coolerstatic-1.webp", alt: "Cooler Door Statics", category: "Cooler Graphics" },
+  { src: "/images/signtypes/panels/pump-1.webp", alt: "Pump Topper & Pump Topper Extender", category: "Gas Pump" },
+  { src: "/images/gallery/11-circle-k-hot-food-flag.webp", alt: "Feather Flag", category: "Flag" },
+  { src: "/images/gallery/12-iced-coffee-dispenser.webp", alt: "Dispensed Beverage Signage", category: "Beverage" },
+  { src: "/images/gallery/13-grab-go-cooler.webp", alt: "Grab and Go Cooler Signage", category: "Cooler Graphics" },
+  { src: "/images/gallery/14-hot-dog-combo-signs.webp", alt: "Bent Register Signage", category: "Counter" },
+  { src: "/images/gallery/15-karma-poster-frame.webp", alt: "Backlit Kiosk Sign", category: "Storefront" },
+  { src: "/images/signtypes/panels/standee-1.webp", alt: "Standee", category: "Floor Display" },
+  { src: "/images/gallery/17-fiji-pole-sign.webp", alt: "Snap Lock Insert", category: "Storefront" },
+  { src: "/images/gallery/18-brunch-a-frame.webp", alt: "A-Frame", category: "A-Frame" },
+  { src: "/images/gallery/19-suspended-menu-board.webp", alt: "Menu Board", category: "Menu Board" },
+  { src: "/images/gallery/20-three-flag-formats.webp", alt: "Interior Feather Flag", category: "Flag" },
+  { src: "/images/gallery/21-coke-pepsi-shelf-talkers.webp", alt: "Shelf Talker", category: "Shelf & Aisle" },
+  { src: "/images/gallery/22-newport-marlboro-pylons.webp", alt: "Perf Window Decals", category: "Storefront" },
+  { src: "/images/signtypes/panels/bollard-1.webp", alt: "Triangle Bollard", category: "Gas Pump" },
+  { src: "/images/signtypes/panels/icemerch-1.webp", alt: "Ice Merch Decals", category: "Storefront" },
+  { src: "/images/signtypes/panels/checkout-1.webp", alt: "Checkout & Impulse Signage", category: "Counter" },
+  { src: "/images/signtypes/panels/floorgfx-1.webp", alt: "Floor Graphics", category: "Floor Display" },
+  { src: "/images/signtypes/panels/shelf-1.webp", alt: "Shelf Tags", category: "Shelf & Aisle" },
+  { src: "/images/signtypes/panels/wobbler-1.webp", alt: "Wobblers", category: "Shelf & Aisle" },
+  { src: "/images/signtypes/panels/coolerstrip-1.webp", alt: "Cooler Strips", category: "Cooler Graphics" },
+  { src: "/images/signtypes/panels/napkin-1.webp", alt: "Napkin Inserts", category: "Counter" },
+  { src: "/images/signtypes/panels/backbar-1.webp", alt: "Backbar Signage", category: "Counter" },
+  { src: "/images/signtypes/panels/hotfood-1.webp", alt: "Hot Food Signage", category: "Menu Board" },
 ];
 
 export default function GalleryClient() {
