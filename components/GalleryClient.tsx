@@ -84,7 +84,7 @@ export default function GalleryClient() {
   );
 
   const slides = useMemo(
-    () => visible.map((it) => ({ src: it.src, alt: it.alt, description: it.category })),
+    () => visible.map((it) => ({ src: it.src, alt: it.alt })),
     [visible],
   );
 
@@ -160,9 +160,6 @@ export default function GalleryClient() {
                   />
                 </div>
                 <div className="px-4 py-3">
-                  <p className="text-xs text-brand-sky font-semibold tracking-brand-wide uppercase mb-1">
-                    {item.category}
-                  </p>
                   <h3 className="font-bold text-brand-navy text-sm tracking-brand-tight">
                     {item.alt}
                   </h3>
