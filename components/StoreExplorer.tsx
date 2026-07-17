@@ -30,12 +30,12 @@ export type Hotspot = { id: string; cat: string; title: string; loc: string; pos
 /* ============================= hotspot data ============================= */
 const EXTERIOR_HOTSPOTS: Hotspot[] = [
   { id: "pump", cat: "Gas Pump", title: "Pump Topper & Pump Topper Extender", loc: "Fuel island", pos: [9.8, 4.1, 11.5], desc: "High-dwell-time advertising right at the pump \u2014 drivers stare at this for 3-5 minutes per fill.", usg: "USG uses pump toppers as a monthly kit item for new deals but keeps extenders for longer promotional windows to balance long term deals like loyalty with short term offers.", img: "/images/signtypes/panels/pump-1.webp", imgs: ["/images/signtypes/panels/pump-1.webp", "/images/signtypes/panels/pump-2.webp", "/images/signtypes/panels/pump-3.webp"] },
-  { id: "window", cat: "Storefront", title: "Window Signs", loc: "Storefront glass", pos: [4.8, 3.0, -8.0], desc: "Promotional clings and price callouts on entrance doors and front glass \u2014 the last message before a customer walks in.", usg: "USG prints removable static and adhesive clings, die-cut to any shape, with easy seasonal swap-out.", img: `${IMG}/storefront-promo-window-cling.webp` },
+  { id: "window", cat: "Storefront", title: "Window Signs", loc: "Storefront glass", pos: [4.6, 3.55, -8.2], desc: "Promotional clings and price callouts on entrance doors and front glass \u2014 the last message before a customer walks in.", usg: "USG prints removable static and adhesive clings, die-cut to any shape, with easy seasonal swap-out.", img: `${IMG}/storefront-promo-window-cling.webp` },
   { id: "aframe", cat: "A-Frame", title: "Sidewalk A-Frame", loc: "Entrance walkway", pos: [-3.75, 1.9, -6.2], desc: "Portable sidewalk boards that capture foot traffic with daily specials.", usg: "USG supplies durable A-frame hardware with printed, swappable insert panels.", img: `${IMG}/brunch-a-frame-sandwich-board.webp` },
   { id: "flag", cat: "Flag", title: "Feather Flags", loc: "Lot perimeter", pos: [27, 4.4, 14.5], desc: "Tall feather and blade flags that create motion and draw eyes from the road.", usg: "USG offers feather flags in multiple formats with poles, bases, and ground stakes.", img: "/images/gallery/11-circle-k-hot-food-flag.webp" },
   { id: "bollard", cat: "Bollard", title: "Triangle Bollard", loc: "Fuel island, between the pumps", pos: [9.75, 2.45, 14.85], desc: "3 sided advertising vehicle that captures the attention of drivers as they make their way from the pump into the store. Advertisements are visible from all directions.", usg: "USG offers easy install bollards that can be customized to any shape and size.", img: "/images/signtypes/panels/bollard-1.webp", imgs: ["/images/signtypes/panels/bollard-1.webp", "/images/signtypes/panels/bollard-2.webp", "/images/signtypes/panels/bollard-3.webp"] },
   { id: "snaplock", cat: "Building", title: "Building Snaplock", loc: "Building exterior wall", pos: [7.5, 2.9, -16.2], desc: "The perfect alternative solution to window signage. Snaplocks sit safely in a frame that can be placed all around the building.", usg: "USG has the ability to provide both hardware and insert to maximize your location's advertising potential.", img: "/images/signtypes/building-snaplock.webp" },
-  { id: "cigch", cat: "Window Display", title: "Cigarette Changeable", loc: "Front window", pos: [1.9, 2.9, -8.3], desc: "These versatile window displays are the perfect way to ensure that your stores are able to easily keep up with the ever changing price points on your tobacco products.", usg: "USG offers semi permanent decal numbers that are quick to change out. As well as standard track and flip book options.", img: "/images/signtypes/panels/cigch-1.webp", imgs: ["/images/signtypes/panels/cigch-1.webp", "/images/signtypes/panels/cigch-2.webp", "/images/signtypes/panels/cigch-3.webp"] },
+  { id: "cigch", cat: "Window Display", title: "Cigarette Changeable", loc: "Front window", pos: [1.9, 2.5, -7.85], desc: "These versatile window displays are the perfect way to ensure that your stores are able to easily keep up with the ever changing price points on your tobacco products.", usg: "USG offers semi permanent decal numbers that are quick to change out. As well as standard track and flip book options.", img: "/images/signtypes/panels/cigch-1.webp", imgs: ["/images/signtypes/panels/cigch-1.webp", "/images/signtypes/panels/cigch-2.webp", "/images/signtypes/panels/cigch-3.webp"] },
   { id: "icemerch", cat: "Ice Merchandiser", title: "Ice Merch Decals", loc: "Right side of store", pos: [8.7, 2.7, -11.2], desc: "All weather rated materials that showcase your brand, deals, or loyalty programs on your outdoor ice merchandisers.", usg: "With our custom store profiles we will always know exactly how many of each size decal your stores need.", img: "/images/signtypes/panels/icemerch-1.webp", imgs: ["/images/signtypes/panels/icemerch-1.webp", "/images/signtypes/panels/icemerch-2.webp", "/images/signtypes/panels/icemerch-3.webp"] },
 ];
 const INTERIOR_HOTSPOTS: Hotspot[] = [
@@ -236,11 +236,23 @@ function ExteriorScene() {
       {/* packaged-ice merchandiser on the store's right side — "Ice Storage Bin" by Ryan (CC-BY) */}
       <ShelfModel url="/models/ice-bin.glb" position={[7.95, 1.8, -11.2]} rotationY={Math.PI} scale={0.36} />
 
-      {/* cigarette changeable display on the storefront glass */}
-      <mesh position={[1.9, 2.6, -8.45]}>
-        <planeGeometry args={[1.1, 1.65]} />
-        <meshStandardMaterial map={cigTex} roughness={0.55} />
-      </mesh>
+      {/* window promo sign on the storefront glass (client-marked spot) */}
+      <group position={[4.6, 2.75, -8.47]}>
+        <Box args={[1.55, 1.1, 0.05]} color={C.sevOrange} po={6} />
+        <LabelPanel text="HOT DEAL" bg={C.sevOrange} fg="#ffffff" size={[1.35, 0.34]} position={[0, 0.26, 0.04]} fs={96} texW={640} texH={160} />
+        <LabelPanel text="2 FOR $5" bg={C.sevWhite} fg={C.sevRed} size={[1.1, 0.42]} position={[0, -0.18, 0.04]} fs={96} texW={640} texH={224} />
+      </group>
+
+      {/* cigarette changeable — framed poster sign at the entrance window (per client reference photo) */}
+      <group position={[1.9, 0.16, -8.05]}>
+        <Box args={[1.3, 1.9, 0.09]} position={[0, 1.15, 0]} color="#1c1f24" metalness={0.5} roughness={0.4} />
+        <mesh position={[0, 1.15, 0.06]}>
+          <planeGeometry args={[1.12, 1.72]} />
+          <meshStandardMaterial map={cigTex} roughness={0.55} polygonOffset polygonOffsetFactor={-1} polygonOffsetUnits={-8} />
+        </mesh>
+        <Box args={[0.5, 0.2, 0.4]} position={[-0.35, 0.1, 0]} color="#2a2e34" />
+        <Box args={[0.5, 0.2, 0.4]} position={[0.35, 0.1, 0]} color="#2a2e34" />
+      </group>
     </group>
   );
 }
