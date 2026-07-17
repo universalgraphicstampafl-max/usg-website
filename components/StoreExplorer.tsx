@@ -36,20 +36,20 @@ const EXTERIOR_HOTSPOTS: Hotspot[] = [
   { id: "bollard", cat: "Bollard", title: "Triangle Bollard", loc: "Fuel island, between the pumps", pos: [9.75, 2.45, 14.85], desc: "3 sided advertising vehicle that captures the attention of drivers as they make their way from the pump into the store. Advertisements are visible from all directions.", usg: "USG offers easy install bollards that can be customized to any shape and size.", img: "/images/signtypes/panels/bollard-1.webp", imgs: ["/images/signtypes/panels/bollard-1.webp", "/images/signtypes/panels/bollard-2.webp", "/images/signtypes/panels/bollard-3.webp"] },
   { id: "snaplock", cat: "Building", title: "Building Snaplock", loc: "Building exterior wall", pos: [7.5, 2.9, -16.2], desc: "The perfect alternative solution to window signage. Snaplocks sit safely in a frame that can be placed all around the building.", usg: "USG has the ability to provide both hardware and insert to maximize your location's advertising potential.", img: "/images/signtypes/building-snaplock.webp" },
   { id: "cigch", cat: "Window Display", title: "Cigarette Changeable", loc: "Front window", pos: [1.9, 2.9, -8.3], desc: "These versatile window displays are the perfect way to ensure that your stores are able to easily keep up with the ever changing price points on your tobacco products.", usg: "USG offers semi permanent decal numbers that are quick to change out. As well as standard track and flip book options.", img: "/images/signtypes/panels/cigch-1.webp", imgs: ["/images/signtypes/panels/cigch-1.webp", "/images/signtypes/panels/cigch-2.webp", "/images/signtypes/panels/cigch-3.webp"] },
-  { id: "icemerch", cat: "Ice Merchandiser", title: "Ice Merch Decals", loc: "Front of store", pos: [-7.6, 2.1, -7.1], desc: "All weather rated materials that showcase your brand, deals, or loyalty programs on your outdoor ice merchandisers.", usg: "With our custom store profiles we will always know exactly how many of each size decal your stores need.", img: "/images/signtypes/panels/icemerch-1.webp", imgs: ["/images/signtypes/panels/icemerch-1.webp", "/images/signtypes/panels/icemerch-2.webp", "/images/signtypes/panels/icemerch-3.webp"] },
+  { id: "icemerch", cat: "Ice Merchandiser", title: "Ice Merch Decals", loc: "Right side of store", pos: [8.7, 2.7, -11.2], desc: "All weather rated materials that showcase your brand, deals, or loyalty programs on your outdoor ice merchandisers.", usg: "With our custom store profiles we will always know exactly how many of each size decal your stores need.", img: "/images/signtypes/panels/icemerch-1.webp", imgs: ["/images/signtypes/panels/icemerch-1.webp", "/images/signtypes/panels/icemerch-2.webp", "/images/signtypes/panels/icemerch-3.webp"] },
 ];
 const INTERIOR_HOTSPOTS: Hotspot[] = [
   { id: "checkout", cat: "Counter", title: "Checkout & Impulse Signage", loc: "Front counter", pos: [-8.4, 2.4, 5], desc: "The counter zone \u2014 impulse racks, register toppers, and age-verification signage.", usg: "USG prints counter mats, register toppers, impulse-rack headers, and compliance signage.", img: "/images/signtypes/panels/checkout-1.webp", imgs: ["/images/signtypes/panels/checkout-1.webp", "/images/signtypes/panels/checkout-2.webp", "/images/signtypes/panels/checkout-3.webp"] },
   { id: "backbar", cat: "Tobacco", title: "Backbar Signage", loc: "Behind front counter", pos: [-9.6, 4.3, 5], desc: "Fully customized kits that allow for instantly changeable pricers on your tobacco products.", usg: "Fully assembled and kitted at time of shipment makes installation a breeze.", img: "/images/signtypes/panels/backbar-1.webp", imgs: ["/images/signtypes/panels/backbar-1.webp", "/images/signtypes/panels/backbar-2.webp", "/images/signtypes/panels/backbar-3.webp"] },
   { id: "standee", cat: "Floor Display", title: "Standee", loc: "Store entrance", pos: [-5.5, 2.6, 6.2], desc: "Freestanding point-of-purchase displays that are customized to the need of the promotion. Placed in high traffic area to increase visibility.", usg: "USG produces corrugated and permanent floor displays, shipped flat or pre-assembled.", img: "/images/signtypes/panels/standee-1.webp", imgs: ["/images/signtypes/panels/standee-1.webp", "/images/signtypes/panels/standee-2.webp", "/images/signtypes/panels/standee-3.webp"] },
-  { id: "floorgfx", cat: "Floor Display", title: "Floor Graphics", loc: "Main aisle", pos: [0, 0.6, 4.5], desc: "Walk-on floor decals for wayfinding, promotions, and brand moments underfoot.", usg: "USG prints anti-slip floor graphics rated for high-traffic retail environments.", img: "/images/signtypes/panels/floorgfx-1.webp", imgs: ["/images/signtypes/panels/floorgfx-1.webp", "/images/signtypes/panels/floorgfx-2.webp", "/images/signtypes/panels/floorgfx-3.webp"] },
-  { id: "shelf", cat: "Shelf Tag", title: "Shelf Tags", loc: "Center aisles", pos: [-3, 1.9, 3.8], desc: "These popular and inexpensive pricing tags allow for barcode scanning through clear material while calling out the current deal.", usg: "Our material makes application or removal quick and easy, while being highly durable. So your promos last as long as you need them to.", img: "/images/signtypes/panels/shelf-1.webp", imgs: ["/images/signtypes/panels/shelf-1.webp", "/images/signtypes/panels/shelf-2.webp", "/images/signtypes/panels/shelf-3.webp"] },
-  { id: "wobbler", cat: "Shelf Tag", title: "Wobblers", loc: "Center aisles", pos: [3, 2.2, 3.8], desc: "These eye catching center store signs dangle into the aisle enticing customers to purchase deal items.", usg: "USG offers custom shapes and sizes to fit all your placement needs.", img: "/images/signtypes/panels/wobbler-1.webp", imgs: ["/images/signtypes/panels/wobbler-1.webp", "/images/signtypes/panels/wobbler-2.webp", "/images/signtypes/panels/wobbler-3.webp"] },
+  { id: "floorgfx", cat: "Floor Display", title: "Floor Graphics", loc: "Main aisle", pos: [0, 0.6, 5.9], desc: "Walk-on floor decals for wayfinding, promotions, and brand moments underfoot.", usg: "USG prints anti-slip floor graphics rated for high-traffic retail environments.", img: "/images/signtypes/panels/floorgfx-1.webp", imgs: ["/images/signtypes/panels/floorgfx-1.webp", "/images/signtypes/panels/floorgfx-2.webp", "/images/signtypes/panels/floorgfx-3.webp"] },
+  { id: "shelf", cat: "Shelf Tag", title: "Shelf Tags", loc: "Center aisles", pos: [-3, 1.9, 4.8], desc: "These popular and inexpensive pricing tags allow for barcode scanning through clear material while calling out the current deal.", usg: "Our material makes application or removal quick and easy, while being highly durable. So your promos last as long as you need them to.", img: "/images/signtypes/panels/shelf-1.webp", imgs: ["/images/signtypes/panels/shelf-1.webp", "/images/signtypes/panels/shelf-2.webp", "/images/signtypes/panels/shelf-3.webp"] },
+  { id: "wobbler", cat: "Shelf Tag", title: "Wobblers", loc: "Center aisles", pos: [3, 2.2, 4.8], desc: "These eye catching center store signs dangle into the aisle enticing customers to purchase deal items.", usg: "USG offers custom shapes and sizes to fit all your placement needs.", img: "/images/signtypes/panels/wobbler-1.webp", imgs: ["/images/signtypes/panels/wobbler-1.webp", "/images/signtypes/panels/wobbler-2.webp", "/images/signtypes/panels/wobbler-3.webp"] },
   { id: "coolerstatic", cat: "Cooler Graphics", title: "Cooler Door Statics", loc: "Beverage wall", pos: [9.2, 2.75, 3.8], desc: "Coming in all shapes and sizes these statics are an easily changeable option that catches the customers eye as soon as they walk up.", usg: "Offering static and adhesive options allows for monthly deals or more permanent signage such as \u201cWe ID\u201d decals.", img: "/images/signtypes/panels/coolerstatic-1.webp", imgs: ["/images/signtypes/panels/coolerstatic-1.webp", "/images/signtypes/panels/coolerstatic-2.webp", "/images/signtypes/panels/coolerstatic-3.webp"] },
   { id: "coolerstrip", cat: "Cooler Graphics", title: "Cooler Strips", loc: "Cooler shelf channel", pos: [9.2, 1.5, -3.8], desc: "These moisture proof signs are an ideal option for displaying beverage call outs.", usg: "We offer clear and matte material with shapes that rise above the channel allowing the product to still be seen but the deal to stand out.", img: "/images/signtypes/panels/coolerstrip-1.webp", imgs: ["/images/signtypes/panels/coolerstrip-1.webp", "/images/signtypes/panels/coolerstrip-2.webp", "/images/signtypes/panels/coolerstrip-3.webp"] },
-  { id: "translite", cat: "Beverage", title: "Dispense Beverage Translites", loc: "Frozen & hot beverage stations", pos: [-3, 3.6, -6.3], desc: "Whether it is frozen drinks, or cappuccino machines these signs are used to create brand loyalty and drive repeat purchases.", usg: "We specialize in creating branded zones for all of your dispense bev machines.", img: "/images/signtypes/panels/translite-1.webp", imgs: ["/images/signtypes/panels/translite-1.webp", "/images/signtypes/panels/translite-2.webp", "/images/signtypes/panels/translite-3.webp"] },
-  { id: "napkin", cat: "Counter", title: "Napkin Inserts", loc: "Foodservice counter", pos: [2.5, 2.0, -5.4], desc: "Napkin dispenser inserts that turn an everyday touchpoint into promotional real estate.", usg: "We specialize in creating branded zones for all of your dispense bev machines.", img: "/images/signtypes/panels/napkin-1.webp", imgs: ["/images/signtypes/panels/napkin-1.webp", "/images/signtypes/panels/napkin-2.webp", "/images/signtypes/panels/napkin-3.webp"] },
-  { id: "hotfood", cat: "Menu Board", title: "Hot Food Signage", loc: "Foodservice counter", pos: [7, 3.9, -6.1], desc: "From roller grill displays to temperature rated hot case decals, we offer a full line of hot food signage to create a cohesive branded environment for your customers.", usg: "We specialize in developing permanent branded signage that compliments monthly promotional sales items creating a brand that brings customers back time and time again.", img: "/images/signtypes/panels/hotfood-1.webp", imgs: ["/images/signtypes/panels/hotfood-1.webp", "/images/signtypes/panels/hotfood-2.webp", "/images/signtypes/panels/hotfood-3.webp"] },
+  { id: "translite", cat: "Beverage", title: "Dispense Beverage Translites", loc: "Frozen & hot beverage stations", pos: [-3, 4.3, -6.2], desc: "Whether it is frozen drinks, or cappuccino machines these signs are used to create brand loyalty and drive repeat purchases.", usg: "We specialize in creating branded zones for all of your dispense bev machines.", img: "/images/signtypes/panels/translite-1.webp", imgs: ["/images/signtypes/panels/translite-1.webp", "/images/signtypes/panels/translite-2.webp", "/images/signtypes/panels/translite-3.webp"] },
+  { id: "napkin", cat: "Counter", title: "Napkin Inserts", loc: "Foodservice counter", pos: [2.5, 2.1, -5.9], desc: "Napkin dispenser inserts that turn an everyday touchpoint into promotional real estate.", usg: "We specialize in creating branded zones for all of your dispense bev machines.", img: "/images/signtypes/panels/napkin-1.webp", imgs: ["/images/signtypes/panels/napkin-1.webp", "/images/signtypes/panels/napkin-2.webp", "/images/signtypes/panels/napkin-3.webp"] },
+  { id: "hotfood", cat: "Menu Board", title: "Hot Food Signage", loc: "Foodservice counter", pos: [7, 4.35, -5.9], desc: "From roller grill displays to temperature rated hot case decals, we offer a full line of hot food signage to create a cohesive branded environment for your customers.", usg: "We specialize in developing permanent branded signage that compliments monthly promotional sales items creating a brand that brings customers back time and time again.", img: "/images/signtypes/panels/hotfood-1.webp", imgs: ["/images/signtypes/panels/hotfood-1.webp", "/images/signtypes/panels/hotfood-2.webp", "/images/signtypes/panels/hotfood-3.webp"] },
 ];
 
 /* ============================= geometry helpers ============================= */
@@ -181,6 +181,8 @@ function ShelfModel({ url, position, rotationY = 0, scale = 2.2 }: { url: string
 }
 useGLTF.preload("/models/shelf-chips.glb");
 useGLTF.preload("/models/shelf-drinks.glb");
+useGLTF.preload("/models/gas-sign.glb");
+useGLTF.preload("/models/ice-bin.glb");
 
 /* ============================= EXTERIOR SCENE ============================= */
 function ExteriorScene() {
@@ -231,6 +233,12 @@ function ExteriorScene() {
           <Box args={[0.06, 1.15, 0.78]} position={[0.04, 0, 0]} color={[C.sevRed, "#1e4f8f", C.sevOrange][i]} roughness={0.55} po={8} />
         </group>
       ))}
+
+      {/* roadside price sign — "Gas Station Signs" by CommonSpence (CC-BY), USD board */}
+      <ShelfModel url="/models/gas-sign.glb" position={[19.5, 0.75, 23]} rotationY={-0.15} scale={1.2} />
+
+      {/* packaged-ice merchandiser on the store's right side — "Ice Storage Bin" by Ryan (CC-BY) */}
+      <ShelfModel url="/models/ice-bin.glb" position={[7.95, 1.8, -11.2]} rotationY={Math.PI} scale={0.36} />
 
       {/* cigarette changeable display on the storefront glass */}
       <mesh position={[1.9, 2.6, -8.45]}>
@@ -460,11 +468,11 @@ function InteriorScene() {
       {/* CENTER: real stocked gondolas (Rendevr, CC-BY) */}
       {[-3.2, 0.2, 3.6].map((gx, i) => (
         <group key={`g${i}`}>
-          <ShelfModel url="/models/shelf-chips.glb" position={[gx - 0.7, 0, -1.8]} rotationY={Math.PI / 2} />
-          <ShelfModel url="/models/shelf-drinks.glb" position={[gx + 0.7, 0, 1.5]} rotationY={-Math.PI / 2} />
+          <ShelfModel url="/models/shelf-chips.glb" position={[gx - 0.7, 0, -0.8]} rotationY={Math.PI / 2} />
+          <ShelfModel url="/models/shelf-drinks.glb" position={[gx + 0.7, 0, 2.5]} rotationY={-Math.PI / 2} />
         </group>
       ))}
-      <Box args={[2.0, 1.5, 1.0]} position={[-3, 0.85, 4.4]} color={C.sevOrange} />
+      <Box args={[2.0, 1.5, 1.0]} position={[-3, 0.85, 5.4]} color={C.sevOrange} />
 
       {/* FRONT-LEFT: checkout with POS + tobacco backbar */}
       <CheckoutZone />
@@ -475,8 +483,8 @@ function InteriorScene() {
         <Box args={[1, 1.7, 0.8]} position={[1.8, 0.85, 0]} color={C.dkmetal} />
       </group>
       {/* floor graphic */}
-      <Box args={[2.6, 0.32, 2.6]} position={[0, 0.02, 4.5]} color={C.sevGreen} roughness={0.5} />
-      <Box args={[2.0, 0.33, 2.0]} position={[0, 0.03, 4.5]} color={C.sevWhite} roughness={0.5} />
+      <Box args={[2.6, 0.32, 2.6]} position={[0, 0.02, 5.9]} color={C.sevGreen} roughness={0.5} />
+      <Box args={[2.0, 0.33, 2.0]} position={[0, 0.03, 5.9]} color={C.sevWhite} roughness={0.5} />
 
       {/* standee at the entrance */}
       <group position={[-5.5, 0, 6.2]} rotation={[0, 0.35, 0]}>
@@ -487,7 +495,7 @@ function InteriorScene() {
 
       {/* wobblers on the right gondola */}
       {[1.0, 1.45, 1.9].map((y, i) => (
-        <group key={`wob${i}`} position={[3 + (i - 1) * 0.8, y, 3.66]}>
+        <group key={`wob${i}`} position={[3 + (i - 1) * 0.8, y, 4.66]}>
           <Box args={[0.02, 0.02, 0.3]} position={[0, 0, 0.15]} color="#d5d5d5" />
           <Box args={[0.32, 0.26, 0.02]} position={[0, -0.1, 0.32]} color={[C.sevRed, C.sevOrange, "#1e4f8f"][i]} roughness={0.5} />
         </group>
@@ -501,7 +509,7 @@ function InteriorScene() {
       <LabelPanel text="ICE COLD DRINKS" bg="#eaf4ff" fg="#0d3b66" size={[2.25, 0.7]} position={[-3, 3.5, -RD / 2 + 1.52]} lit fs={80} texW={768} texH={224} />
 
       {/* napkin dispenser with promo insert on the foodservice counter */}
-      <group position={[2.5, 1.35, -5.4]}>
+      <group position={[2.5, 1.12, -6.0]}>
         <Box args={[0.32, 0.6, 0.28]} position={[0, 0.3, 0]} color="#141414" roughness={0.4} />
         <Box args={[0.24, 0.42, 0.02]} position={[0, 0.32, 0.15]} color={C.sevRed} roughness={0.5} />
       </group>
@@ -521,6 +529,8 @@ function Pins({ list, occludeRoot, foundSet, onPick }: {
   const dir = useMemo(() => new THREE.Vector3(), []);
   const pinPos = useMemo(() => new THREE.Vector3(), []);
   const opacities = useRef<number[]>(list.map(() => 1));
+  // the hotspot list changes length when switching exterior<->interior; resize or pins beyond the old length get NaN opacity
+  if (opacities.current.length !== list.length) opacities.current = list.map(() => 1);
 
   useFrame((state) => {
     const t = state.clock.elapsedTime;
@@ -788,7 +798,7 @@ function InteractiveExplorer() {
 
       {/* CC-BY attribution (required by asset licenses) */}
       <div style={{ position: "absolute", bottom: 8, left: 14, zIndex: 5, fontSize: 10, color: "rgba(255,255,255,0.45)", pointerEvents: "auto" }}>
-        3D assets: <a href="https://sketchfab.com/3d-models/gas-station-eeb913b90b4344ddbd7852f82a7ef160" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>&quot;Gas station&quot; by Elbolillo</a> · shelves by <a href="https://sketchfab.com/Rendevr" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>Rendevr</a> (CC-BY 4.0)
+        3D assets: <a href="https://sketchfab.com/3d-models/gas-station-eeb913b90b4344ddbd7852f82a7ef160" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>&quot;Gas station&quot; by Elbolillo</a> · shelves by <a href="https://sketchfab.com/Rendevr" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>Rendevr</a> · signs by <a href="https://sketchfab.com/commonspence" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>CommonSpence</a> · ice bin by <a href="https://sketchfab.com/ryanzr10" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>Ryan</a> (CC-BY 4.0)
       </div>
 
       {/* info panel */}
