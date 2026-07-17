@@ -504,6 +504,18 @@ function InteriorScene() {
       <group position={[7, 0, -RD / 2 + 1.4]}>
         <Box args={[2.4, 1.1, 1.4]} position={[0, 0.7, 0]} color={C.steel} />
         <Box args={[2.2, 0.45, 1.2]} position={[0, 1.45, 0]} color="#8a5a2a" />
+        {/* hot dog roller grill on the hot case */}
+        <Box args={[1.9, 0.08, 0.9]} position={[0, 1.72, 0]} color="#b9bfc6" metalness={0.6} roughness={0.3} />
+        <Box args={[0.06, 0.26, 0.9]} position={[-0.95, 1.85, 0]} color="#9aa0a8" metalness={0.6} roughness={0.35} />
+        <Box args={[0.06, 0.26, 0.9]} position={[0.95, 1.85, 0]} color="#9aa0a8" metalness={0.6} roughness={0.35} />
+        {[-0.32, -0.16, 0, 0.16, 0.32].map((z, i) => (
+          <Cyl key={`rl${i}`} args={[0.035, 0.035, 1.85, 10]} position={[0, 1.8, z]} rotation={[0, 0, Math.PI / 2]} color="#d6d9dd" />
+        ))}
+        {([[-0.45, -0.24], [0.3, -0.24], [-0.15, -0.08], [0.5, 0.08], [-0.55, 0.08], [0.1, 0.24]] as [number, number][]).map(([hx, hz], i) => (
+          <Cyl key={`hd${i}`} args={[0.055, 0.055, 0.52, 10]} position={[hx, 1.87, hz]} rotation={[0, 0, Math.PI / 2]} color={["#8f3a1e", "#a04524", "#93401f"][i % 3]} />
+        ))}
+        <Box args={[1.9, 0.55, 0.03]} position={[0, 2.05, -0.44]} color="#cfe4ee" transparent opacity={0.25} metalness={0.3} roughness={0.15} />
+        <Box args={[1.9, 0.03, 0.55]} position={[0, 2.32, -0.18]} rotation={[0.18, 0, 0]} color="#cfe4ee" transparent opacity={0.25} metalness={0.3} roughness={0.15} />
         <Box args={[2.6, 1.3, 0.16]} position={[0, 3.3, 0.5]} color={C.navyDark} />
         <LabelPanel text="HOT FOOD" bg="#ffffff" fg={C.sevRed} size={[2.3, 1.05]} position={[0, 3.3, 0.59]} fs={110} texW={768} texH={352} />
       </group>
