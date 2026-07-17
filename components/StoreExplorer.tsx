@@ -40,13 +40,13 @@ const EXTERIOR_HOTSPOTS: Hotspot[] = [
 ];
 const INTERIOR_HOTSPOTS: Hotspot[] = [
   { id: "checkout", cat: "Counter", title: "Checkout & Impulse Signage", loc: "Front counter", pos: [-8.4, 2.4, 5], desc: "The counter zone \u2014 impulse racks, register toppers, and age-verification signage.", usg: "USG prints counter mats, register toppers, impulse-rack headers, and compliance signage.", img: "/images/signtypes/panels/checkout-1.webp", imgs: ["/images/signtypes/panels/checkout-1.webp", "/images/signtypes/panels/checkout-2.webp", "/images/signtypes/panels/checkout-3.webp"] },
-  { id: "backbar", cat: "Tobacco", title: "Backbar Signage", loc: "Behind front counter", pos: [-9.6, 4.0, 5], desc: "Fully customized kits that allow for instantly changeable pricers on your tobacco products.", usg: "Fully assembled and kitted at time of shipment makes installation a breeze.", img: "/images/signtypes/panels/backbar-1.webp", imgs: ["/images/signtypes/panels/backbar-1.webp", "/images/signtypes/panels/backbar-2.webp", "/images/signtypes/panels/backbar-3.webp"] },
+  { id: "backbar", cat: "Tobacco", title: "Backbar Signage", loc: "Behind front counter", pos: [-9.6, 4.3, 5], desc: "Fully customized kits that allow for instantly changeable pricers on your tobacco products.", usg: "Fully assembled and kitted at time of shipment makes installation a breeze.", img: "/images/signtypes/panels/backbar-1.webp", imgs: ["/images/signtypes/panels/backbar-1.webp", "/images/signtypes/panels/backbar-2.webp", "/images/signtypes/panels/backbar-3.webp"] },
   { id: "standee", cat: "Floor Display", title: "Standee", loc: "Store entrance", pos: [-5.5, 2.6, 6.2], desc: "Freestanding point-of-purchase displays that are customized to the need of the promotion. Placed in high traffic area to increase visibility.", usg: "USG produces corrugated and permanent floor displays, shipped flat or pre-assembled.", img: "/images/signtypes/panels/standee-1.webp", imgs: ["/images/signtypes/panels/standee-1.webp", "/images/signtypes/panels/standee-2.webp", "/images/signtypes/panels/standee-3.webp"] },
   { id: "floorgfx", cat: "Floor Display", title: "Floor Graphics", loc: "Main aisle", pos: [0, 0.6, 4.5], desc: "Walk-on floor decals for wayfinding, promotions, and brand moments underfoot.", usg: "USG prints anti-slip floor graphics rated for high-traffic retail environments.", img: "/images/signtypes/panels/floorgfx-1.webp", imgs: ["/images/signtypes/panels/floorgfx-1.webp", "/images/signtypes/panels/floorgfx-2.webp", "/images/signtypes/panels/floorgfx-3.webp"] },
   { id: "shelf", cat: "Shelf Tag", title: "Shelf Tags", loc: "Center aisles", pos: [-3, 1.9, 3.8], desc: "These popular and inexpensive pricing tags allow for barcode scanning through clear material while calling out the current deal.", usg: "Our material makes application or removal quick and easy, while being highly durable. So your promos last as long as you need them to.", img: "/images/signtypes/panels/shelf-1.webp", imgs: ["/images/signtypes/panels/shelf-1.webp", "/images/signtypes/panels/shelf-2.webp", "/images/signtypes/panels/shelf-3.webp"] },
   { id: "wobbler", cat: "Shelf Tag", title: "Wobblers", loc: "Center aisles", pos: [3, 2.2, 3.8], desc: "These eye catching center store signs dangle into the aisle enticing customers to purchase deal items.", usg: "USG offers custom shapes and sizes to fit all your placement needs.", img: "/images/signtypes/panels/wobbler-1.webp", imgs: ["/images/signtypes/panels/wobbler-1.webp", "/images/signtypes/panels/wobbler-2.webp", "/images/signtypes/panels/wobbler-3.webp"] },
-  { id: "coolerstatic", cat: "Cooler Graphics", title: "Cooler Door Statics", loc: "Beverage wall", pos: [8.3, 3.2, 3], desc: "Coming in all shapes and sizes these statics are an easily changeable option that catches the customers eye as soon as they walk up.", usg: "Offering static and adhesive options allows for monthly deals or more permanent signage such as \u201cWe ID\u201d decals.", img: "/images/signtypes/panels/coolerstatic-1.webp", imgs: ["/images/signtypes/panels/coolerstatic-1.webp", "/images/signtypes/panels/coolerstatic-2.webp", "/images/signtypes/panels/coolerstatic-3.webp"] },
-  { id: "coolerstrip", cat: "Cooler Graphics", title: "Cooler Strips", loc: "Cooler shelf channel", pos: [8.3, 1.6, -1], desc: "These moisture proof signs are an ideal option for displaying beverage call outs.", usg: "We offer clear and matte material with shapes that rise above the channel allowing the product to still be seen but the deal to stand out.", img: "/images/signtypes/panels/coolerstrip-1.webp", imgs: ["/images/signtypes/panels/coolerstrip-1.webp", "/images/signtypes/panels/coolerstrip-2.webp", "/images/signtypes/panels/coolerstrip-3.webp"] },
+  { id: "coolerstatic", cat: "Cooler Graphics", title: "Cooler Door Statics", loc: "Beverage wall", pos: [9.2, 2.75, 3.8], desc: "Coming in all shapes and sizes these statics are an easily changeable option that catches the customers eye as soon as they walk up.", usg: "Offering static and adhesive options allows for monthly deals or more permanent signage such as \u201cWe ID\u201d decals.", img: "/images/signtypes/panels/coolerstatic-1.webp", imgs: ["/images/signtypes/panels/coolerstatic-1.webp", "/images/signtypes/panels/coolerstatic-2.webp", "/images/signtypes/panels/coolerstatic-3.webp"] },
+  { id: "coolerstrip", cat: "Cooler Graphics", title: "Cooler Strips", loc: "Cooler shelf channel", pos: [9.2, 1.5, -3.8], desc: "These moisture proof signs are an ideal option for displaying beverage call outs.", usg: "We offer clear and matte material with shapes that rise above the channel allowing the product to still be seen but the deal to stand out.", img: "/images/signtypes/panels/coolerstrip-1.webp", imgs: ["/images/signtypes/panels/coolerstrip-1.webp", "/images/signtypes/panels/coolerstrip-2.webp", "/images/signtypes/panels/coolerstrip-3.webp"] },
   { id: "translite", cat: "Beverage", title: "Dispense Beverage Translites", loc: "Frozen & hot beverage stations", pos: [-3, 3.6, -6.3], desc: "Whether it is frozen drinks, or cappuccino machines these signs are used to create brand loyalty and drive repeat purchases.", usg: "We specialize in creating branded zones for all of your dispense bev machines.", img: "/images/signtypes/panels/translite-1.webp", imgs: ["/images/signtypes/panels/translite-1.webp", "/images/signtypes/panels/translite-2.webp", "/images/signtypes/panels/translite-3.webp"] },
   { id: "napkin", cat: "Counter", title: "Napkin Inserts", loc: "Foodservice counter", pos: [2.5, 2.0, -5.4], desc: "Napkin dispenser inserts that turn an everyday touchpoint into promotional real estate.", usg: "We specialize in creating branded zones for all of your dispense bev machines.", img: "/images/signtypes/panels/napkin-1.webp", imgs: ["/images/signtypes/panels/napkin-1.webp", "/images/signtypes/panels/napkin-2.webp", "/images/signtypes/panels/napkin-3.webp"] },
   { id: "hotfood", cat: "Menu Board", title: "Hot Food Signage", loc: "Foodservice counter", pos: [7, 3.9, -6.1], desc: "From roller grill displays to temperature rated hot case decals, we offer a full line of hot food signage to create a cohesive branded environment for your customers.", usg: "We specialize in developing permanent branded signage that compliments monthly promotional sales items creating a brand that brings customers back time and time again.", img: "/images/signtypes/panels/hotfood-1.webp", imgs: ["/images/signtypes/panels/hotfood-1.webp", "/images/signtypes/panels/hotfood-2.webp", "/images/signtypes/panels/hotfood-3.webp"] },
@@ -241,9 +241,172 @@ function ExteriorScene() {
   );
 }
 
+/* ============================= canvas-label signage (no font deps — drawn at runtime) ============================= */
+function makeLabelTexture(text: string, bg: string, fg: string, w: number, h: number, fs: number) {
+  const c = document.createElement("canvas");
+  c.width = w; c.height = h;
+  const ctx = c.getContext("2d")!;
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, w, h);
+  ctx.fillStyle = fg;
+  ctx.font = `800 ${fs}px "Arial Narrow", "Helvetica Neue", Arial, sans-serif`;
+  ctx.textAlign = "center"; ctx.textBaseline = "middle";
+  ctx.fillText(text, w / 2, h / 2 + fs * 0.05);
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  t.anisotropy = 8;
+  return t;
+}
+function LabelPanel({ text, bg = "#0d3b66", fg = "#ffffff", size, position, rotation, lit = false, fs = 92, texW = 640, texH = 160 }: {
+  text: string; bg?: string; fg?: string; size: [number, number]; position: Vec3; rotation?: Vec3; lit?: boolean; fs?: number; texW?: number; texH?: number;
+}) {
+  const tex = useMemo(() => makeLabelTexture(text, bg, fg, texW, texH, fs), [text, bg, fg, texW, texH, fs]);
+  return (
+    <mesh position={position} rotation={rotation}>
+      <planeGeometry args={size} />
+      {lit
+        ? <meshStandardMaterial map={tex} emissiveMap={tex} emissive="#ffffff" emissiveIntensity={0.8} roughness={0.35} polygonOffset polygonOffsetFactor={-1} polygonOffsetUnits={-8} />
+        : <meshStandardMaterial map={tex} roughness={0.6} polygonOffset polygonOffsetFactor={-1} polygonOffsetUnits={-8} />}
+    </mesh>
+  );
+}
+
+/* ============================= cooler wall (Pasha-inspired, procedural) ============================= */
+const COOLER_CATS = [
+  { label: "COLD BEER", doors: 3, bg: "#0d3b66", drinks: ["#c8860a", "#8a5a2a", "#3a6b35", "#b03a2e", "#d4a017"], tall: true },
+  { label: "WINE", doors: 2, bg: "#5b1a2e", drinks: ["#4a1420", "#2e4a1f", "#7a1f1f", "#3b2314", "#6e1030"], tall: true },
+  { label: "ENERGY", doors: 2, bg: C.sevGreen, drinks: ["#2ecc40", "#0074d9", "#ff4136", "#ffdc00", "#b10dc9"], tall: false },
+];
+const COOLER_DW = 1.9;
+const COOLER_DECKS = [0.22, 0.78, 1.34, 1.9];
+function CoolerBank({ x }: { x: number }) {
+  const total = COOLER_CATS.reduce((n, c) => n + c.doors, 0);
+  const runL = total * COOLER_DW;
+  const doors: { z: number; cat: number }[] = [];
+  const headers: { z: number; w: number; cat: number }[] = [];
+  let zc = -runL / 2;
+  COOLER_CATS.forEach((cat, ci) => {
+    headers.push({ z: zc + (cat.doors * COOLER_DW) / 2, w: cat.doors * COOLER_DW - 0.24, cat: ci });
+    for (let d = 0; d < cat.doors; d++) { doors.push({ z: zc + COOLER_DW / 2, cat: ci }); zc += COOLER_DW; }
+  });
+  return (
+    <group>
+      {/* carcass, kick, lit cavity */}
+      <Box args={[1.35, 3.7, runL + 0.6]} position={[x - 0.62, 1.85, 0]} color="#20242b" roughness={0.6} />
+      <Box args={[1.5, 0.16, runL + 0.6]} position={[x - 0.65, 0.08, 0]} color="#101216" />
+      <mesh position={[x - 0.72, 1.42, 0]}>
+        <boxGeometry args={[1.0, 2.5, runL - 0.15]} />
+        <meshStandardMaterial color="#eef3f6" emissive="#dfe9f0" emissiveIntensity={0.38} roughness={0.4} />
+      </mesh>
+      {/* shelf decks */}
+      {COOLER_DECKS.map((y, i) => (
+        <Box key={`dk${i}`} args={[0.85, 0.05, runL - 0.2]} position={[x - 0.7, y, 0]} color="#c6ccd2" metalness={0.3} roughness={0.5} />
+      ))}
+      {/* stocked product rows */}
+      {doors.map((door, di) => {
+        const cat = COOLER_CATS[door.cat];
+        const r = cat.tall ? 0.075 : 0.09;
+        const h = cat.tall ? 0.42 : 0.3;
+        return COOLER_DECKS.map((deck, s) =>
+          Array.from({ length: 4 }).map((_, b) => (
+            <Cyl key={`p${di}-${s}-${b}`} args={[r, r, h, 10]}
+              position={[x - 0.95, deck + 0.045 + h / 2, door.z - COOLER_DW / 2 + 0.35 + b * ((COOLER_DW - 0.7) / 3)]}
+              color={cat.drinks[(di + s * 2 + b) % cat.drinks.length]} />
+          ))
+        );
+      })}
+      {/* glass doors */}
+      {doors.map((d, i) => (
+        <group key={`door${i}`} position={[x - 1.42, 0, d.z]}>
+          <Box args={[0.05, 2.6, 0.09]} position={[0, 1.45, -COOLER_DW / 2 + 0.045]} color="#14171c" metalness={0.4} roughness={0.4} />
+          <Box args={[0.05, 2.6, 0.09]} position={[0, 1.45, COOLER_DW / 2 - 0.045]} color="#14171c" metalness={0.4} roughness={0.4} />
+          <Box args={[0.05, 0.1, COOLER_DW]} position={[0, 2.7, 0]} color="#14171c" metalness={0.4} roughness={0.4} />
+          <Box args={[0.05, 0.12, COOLER_DW]} position={[0, 0.21, 0]} color="#14171c" metalness={0.4} roughness={0.4} />
+          <Box args={[0.03, 2.4, COOLER_DW - 0.2]} position={[0.02, 1.45, 0]} color="#cfe4ee" transparent opacity={0.16} metalness={0.35} roughness={0.12} po={4} />
+          <Box args={[0.06, 0.85, 0.07]} position={[-0.06, 1.45, COOLER_DW / 2 - 0.22]} color="#c9ccd1" metalness={0.6} roughness={0.3} />
+        </group>
+      ))}
+      {/* category lightbox header band */}
+      <Box args={[1.45, 0.95, runL + 0.6]} position={[x - 0.6, 3.22, 0]} color="#14171c" roughness={0.55} />
+      <Box args={[1.35, 0.1, runL + 0.6]} position={[x - 0.62, 3.72, 0]} color="#20242b" />
+      {headers.map((hd, i) => (
+        <LabelPanel key={`hdr${i}`} text={COOLER_CATS[hd.cat].label} bg={COOLER_CATS[hd.cat].bg} fg="#ffffff"
+          size={[hd.w, 0.72]} position={[x - 1.34, 3.22, hd.z]} rotation={[0, -Math.PI / 2, 0]} lit fs={96} texW={1024} texH={192} />
+      ))}
+    </group>
+  );
+}
+
+/* ============================= checkout + tobacco backbar (procedural) ============================= */
+function CheckoutZone() {
+  return (
+    <group position={[-8.4, 0, 5]}>
+      {/* counter body, top, customer-side promo panels, mat */}
+      <Box args={[1.5, 1.02, 6.0]} position={[0, 0.53, 0]} color="#2b3038" roughness={0.6} />
+      <Box args={[1.7, 0.09, 6.2]} position={[0, 1.08, 0]} color="#e8e4da" roughness={0.35} />
+      <Box args={[0.06, 0.8, 1.8]} position={[0.78, 0.55, -1.5]} color={C.sevGreen} po={6} />
+      <Box args={[0.06, 0.8, 1.8]} position={[0.78, 0.55, 0.5]} color={C.sevOrange} po={6} />
+      <Box args={[0.06, 0.8, 1.4]} position={[0.78, 0.55, 2.2]} color={C.sevRed} po={6} />
+      <Box args={[0.9, 0.02, 1.1]} position={[0.1, 1.13, 1.1]} color={C.navyDark} roughness={0.7} />
+      {/* POS terminal (cashier-facing screen) */}
+      <group position={[-0.3, 1.12, -0.5]}>
+        <Cyl args={[0.16, 0.2, 0.06, 12]} position={[0, 0.03, 0]} color="#33373d" />
+        <Cyl args={[0.04, 0.04, 0.42, 10]} position={[0, 0.24, 0]} color="#33373d" />
+        <group position={[0, 0.62, 0]} rotation={[0, 0.35, 0.06]}>
+          <Box args={[0.06, 0.52, 0.74]} color="#15181d" metalness={0.3} roughness={0.35} />
+          <mesh position={[-0.045, 0, 0]} rotation={[0, -Math.PI / 2, 0]}>
+            <planeGeometry args={[0.64, 0.42]} />
+            <meshStandardMaterial color="#0d2f52" emissive="#1c5da8" emissiveIntensity={0.7} roughness={0.3} />
+          </mesh>
+        </group>
+      </group>
+      {/* register drawer, barcode scanner, customer card reader */}
+      <Box args={[0.55, 0.14, 0.75]} position={[-0.32, 1.19, 0.35]} color="#22262c" metalness={0.3} roughness={0.45} />
+      <group position={[0.05, 1.12, -1.35]}>
+        <Box args={[0.18, 0.06, 0.18]} position={[0, 0.03, 0]} color="#111418" />
+        <Cyl args={[0.05, 0.07, 0.3, 10]} position={[0, 0.2, 0]} color="#111418" />
+        <Box args={[0.14, 0.1, 0.1]} position={[0, 0.38, 0]} color="#22262c" />
+      </group>
+      <group position={[0.62, 1.12, 1.9]}>
+        <Cyl args={[0.03, 0.03, 0.3, 8]} position={[0, 0.15, 0]} color="#33373d" />
+        <Box args={[0.07, 0.32, 0.2]} position={[0, 0.42, 0]} rotation={[0, 0, -0.35]} color="#15181d" metalness={0.3} roughness={0.4} />
+      </group>
+      {/* impulse rack at the queue end of the counter */}
+      <group position={[0, 0, -3.4]}>
+        <Box args={[1.3, 1.35, 0.7]} position={[0, 0.7, 0]} color="#2b3038" roughness={0.6} />
+        {[0.5, 0.82, 1.14].map((y, r) => (
+          <group key={`ir${r}`}>
+            <Box args={[0.06, 0.03, 0.66]} position={[0.66, y - 0.14, 0]} color="#9aa0a8" metalness={0.4} />
+            {[-0.2, 0, 0.2].map((z, k) => (
+              <Box key={k} args={[0.07, 0.24, 0.17]} position={[0.68, y, z]} color={[["#b03a2e", "#ffdc00", "#0074d9"], ["#2ecc40", "#7a1f1f", "#ff851b"], ["#f5e6c8", "#b10dc9", "#0d3b66"]][r][k]} roughness={0.6} />
+            ))}
+          </group>
+        ))}
+      </group>
+      {/* tobacco backbar with pricer channels, against the left wall */}
+      <group position={[-1.9, 0, 0]}>
+        <Box args={[0.75, 0.9, 6.2]} position={[0, 0.45, 0]} color="#2b3038" roughness={0.6} />
+        <Box args={[0.55, 3.0, 6.2]} position={[-0.08, 2.4, 0]} color="#3a3f47" roughness={0.6} />
+        {[1.35, 1.95, 2.55, 3.15].map((y, r) => (
+          <group key={`bb${r}`}>
+            {Array.from({ length: 8 }).map((_, k) => (
+              <Box key={k} args={[0.16, 0.34, 0.58]} position={[0.24, y + 0.24, -2.55 + k * 0.73]} color={["#7a1f1f", "#0d3b66", "#3a6b35", "#8a5a2a", "#5b1a2e", "#33502e", "#6e4a1f", "#123b5c"][(k + r) % 8]} roughness={0.6} />
+            ))}
+            <Box args={[0.05, 0.12, 5.9]} position={[0.3, y, 0]} color="#f2f2ee" po={6} />
+            {Array.from({ length: 8 }).map((_, k) => (
+              <Box key={`t${k}`} args={[0.06, 0.09, 0.28]} position={[0.31, y, -2.55 + k * 0.73]} color={C.sevRed} po={8} />
+            ))}
+          </group>
+        ))}
+        <Box args={[0.6, 0.8, 6.2]} position={[-0.05, 4.3, 0]} color="#14171c" roughness={0.55} />
+        <LabelPanel text="TOBACCO — MUST BE 21+" bg={C.navyDark} fg="#ffffff" size={[5.6, 0.56]} position={[0.26, 4.3, 0]} rotation={[0, Math.PI / 2, 0]} lit fs={64} texW={1024} texH={112} />
+      </group>
+    </group>
+  );
+}
+
 /* ============================= INTERIOR SCENE (open-air cutaway) ============================= */
 function InteriorScene() {
-  const RW = 22, RD = 16, RH = 5.8, WALL = 2.2;
+  const RW = 22, RD = 16, WALL = 2.2;
   return (
     <group>
       <mesh position={[0, 0, 0]} receiveShadow><boxGeometry args={[RW, 0.3, RD]} /><meshStandardMaterial color={C.floor} roughness={0.6} /></mesh>
@@ -257,38 +420,43 @@ function InteriorScene() {
       <Box args={[0.34, 0.3, RD]} position={[RW / 2, WALL + 0.15, 0]} color={C.sevRed} />
       <Box args={[RW, 0.5, 0.3]} position={[0, 0.25, RD / 2]} color={C.beige} />
       <Box args={[RW, 0.18, 0.34]} position={[0, 0.55, RD / 2]} color={C.sevOrange} />
-      {/* RIGHT WALL: stocked drink shelves (Rendevr, CC-BY) + beer cave */}
-      {[5, 1, -3].map((z, i) => (
-        <ShelfModel key={`dw${i}`} url="/models/shelf-drinks.glb" position={[RW / 2 - 1.1, 0, z]} rotationY={-Math.PI / 2} />
+
+      {/* RIGHT WALL: glass-door cooler bank with COLD BEER / WINE / ENERGY lightbox headers */}
+      <CoolerBank x={RW / 2} />
+      {/* cooler door static (promo decal on an ENERGY door) */}
+      <Box args={[0.03, 0.85, 1.15]} position={[9.56, 1.75, 3.8]} color={C.sevRed} po={8} />
+      <Box args={[0.03, 0.55, 0.85]} position={[9.55, 1.75, 3.8]} color={C.sevWhite} po={10} />
+      {/* cooler strips on the beer-door shelf channels */}
+      {[0.78, 1.34, 1.9].map((y, i) => (
+        <Box key={`cs${i}`} args={[0.04, 0.13, 1.55]} position={[9.87, y + 0.03, -3.8]} color={C.marigold} roughness={0.5} po={8} />
       ))}
-      <Box args={[0.5, 4.6, 5]} position={[RW / 2 - 0.6, 2.3, -4.5]} color={C.steel} />
-      <Box args={[0.16, 4, 4.6]} position={[RW / 2 - 0.9, 2.0, -4.5]} color={C.skyDark} transparent opacity={0.45} metalness={0.4} />
-      <Box args={[3.4, 1.0, 0.5]} position={[RW / 2 - 2, 4.7, -4.5]} color={C.sevGreen} />
-      <Box args={[3.0, 0.55, 0.52]} position={[RW / 2 - 2, 4.7, -4.5]} color={C.sevWhite} />
-      {/* BACK WALL: slurpee / fountain / coffee / grill */}
+
+      {/* BACK WALL: frozen / fountain / coffee / hot food, with lit menu headers */}
       <group position={[-5, 0, -RD / 2 + 1.4]}>
         <Box args={[2.6, 2.4, 1.5]} position={[0, 1.2, 0]} color={C.steel} />
         <Box args={[2.6, 1.0, 1.5]} position={[0, 2.9, 0]} color={C.sevRed} />
-        <Box args={[2.2, 0.6, 0.08]} position={[0, 2.9, 0.77]} color={C.sevWhite} />
+        <LabelPanel text="FROZEN DRINKS" bg="#ffffff" fg={C.sevRed} size={[2.2, 0.6]} position={[0, 2.9, 0.78]} fs={72} texW={768} texH={192} />
         {[-0.7, 0, 0.7].map((x, i) => (<Cyl key={i} args={[0.16, 0.16, 0.5]} position={[x, 1.7, 0.8]} color={C.dkmetal} />))}
       </group>
       <group position={[-1, 0, -RD / 2 + 1.4]}>
         <Box args={[3.2, 2.2, 1.4]} position={[0, 1.1, 0]} color={C.sevWhite} />
         <Box args={[3.2, 1.0, 1.4]} position={[0, 2.7, 0]} color={C.sevGreen} />
-        <Box args={[2.9, 0.55, 0.08]} position={[0, 2.7, 0.73]} color={C.sevWhite} />
+        <LabelPanel text="FOUNTAIN DRINKS" bg="#ffffff" fg={C.sevGreen} size={[2.9, 0.55]} position={[0, 2.7, 0.74]} fs={72} texW={1024} texH={192} />
         {Array.from({ length: 6 }).map((_, i) => (<Box key={i} args={[0.26, 0.5, 0.18]} position={[-1.1 + i * 0.44, 1.55, 0.74]} color={C.sevRed} />))}
       </group>
       <group position={[3.5, 0, -RD / 2 + 1.4]}>
         <Box args={[3, 1.1, 1.4]} position={[0, 0.55, 0]} color={C.wood} />
         {Array.from({ length: 4 }).map((_, i) => (<Cyl key={i} args={[0.22, 0.18, 0.65]} position={[-1 + i * 0.66, 1.45, 0]} color={C.coffee} />))}
         <Box args={[3, 0.95, 0.12]} position={[0, 2.7, 0.55]} color={C.coffee} />
+        <LabelPanel text="FRESH COFFEE" bg={C.coffee} fg="#f5e6c8" size={[2.7, 0.75]} position={[0, 2.7, 0.62]} fs={80} texW={896} texH={256} />
       </group>
       <group position={[7, 0, -RD / 2 + 1.4]}>
         <Box args={[2.4, 1.1, 1.4]} position={[0, 0.7, 0]} color={C.steel} />
         <Box args={[2.2, 0.45, 1.2]} position={[0, 1.45, 0]} color="#8a5a2a" />
         <Box args={[2.6, 1.3, 0.16]} position={[0, 3.3, 0.5]} color={C.navyDark} />
-        <Box args={[2.3, 1.05, 0.1]} position={[0, 3.3, 0.6]} color={C.sevWhite} />
+        <LabelPanel text="HOT FOOD" bg="#ffffff" fg={C.sevRed} size={[2.3, 1.05]} position={[0, 3.3, 0.59]} fs={110} texW={768} texH={352} />
       </group>
+
       {/* CENTER: real stocked gondolas (Rendevr, CC-BY) */}
       {[-3.2, 0.2, 3.6].map((gx, i) => (
         <group key={`g${i}`}>
@@ -297,17 +465,11 @@ function InteriorScene() {
         </group>
       ))}
       <Box args={[2.0, 1.5, 1.0]} position={[-3, 0.85, 4.4]} color={C.sevOrange} />
-      {/* FRONT-LEFT: counter + tobacco backbar + impulse */}
-      <group position={[-RW / 2 + 2.6, 0, RD / 2 - 3]}>
-        <Box args={[1.6, 1.1, 7]} position={[0, 0.7, 0]} color={C.wood} />
-        <Box args={[0.1, 1.1, 7]} position={[0.82, 0.7, 0]} color={C.sevWhite} />
-        <Box args={[0.5, 3.2, 7]} position={[-1.0, 2.6, 0]} color={C.beige} />
-        <Box args={[0.12, 2.6, 6.4]} position={[-0.7, 2.6, 0]} color={C.dkmetal} />
-        <Box args={[0.14, 0.45, 6.4]} position={[-0.65, 3.8, 0]} color={C.sevRed} />
-        <Box args={[1.4, 1.3, 1.0]} position={[0, 0.95, 3]} color={C.sevGreen} />
-      </group>
-      {/* lottery + ATM */}
-      <group position={[-RW / 2 + 3.5, 0, RD / 2 - 1.5]}>
+
+      {/* FRONT-LEFT: checkout with POS + tobacco backbar */}
+      <CheckoutZone />
+      {/* lottery + ATM by the front wall */}
+      <group position={[-6.8, 0, 7.3]}>
         <Box args={[1.4, 1.6, 0.8]} position={[0, 0.8, 0]} color={C.sevWhite} />
         <Box args={[1.2, 0.5, 0.12]} position={[0, 1.75, 0.42]} color={C.sevOrange} />
         <Box args={[1, 1.7, 0.8]} position={[1.8, 0.85, 0]} color={C.dkmetal} />
@@ -331,16 +493,12 @@ function InteriorScene() {
         </group>
       ))}
 
-      {/* cooler strips on the reach-in shelf channels */}
-      {[0.9, 1.5, 2.1].map((y, i) => (
-        <Box key={`cs${i}`} args={[0.05, 0.14, 1.15]} position={[RW / 2 - 0.92, y, -1]} color={C.marigold} roughness={0.5} />
-      ))}
-
       {/* dispense beverage translite (lit) between frozen + fountain stations */}
       <mesh position={[-3, 3.5, -RD / 2 + 1.45]}>
         <boxGeometry args={[2.4, 0.85, 0.12]} />
         <meshStandardMaterial color="#eaf4ff" emissive="#bcd9ff" emissiveIntensity={0.9} roughness={0.3} />
       </mesh>
+      <LabelPanel text="ICE COLD DRINKS" bg="#eaf4ff" fg="#0d3b66" size={[2.25, 0.7]} position={[-3, 3.5, -RD / 2 + 1.52]} lit fs={80} texW={768} texH={224} />
 
       {/* napkin dispenser with promo insert on the foodservice counter */}
       <group position={[2.5, 1.35, -5.4]}>
