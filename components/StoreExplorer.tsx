@@ -181,7 +181,6 @@ function ShelfModel({ url, position, rotationY = 0, scale = 2.2 }: { url: string
 }
 useGLTF.preload("/models/shelf-chips.glb");
 useGLTF.preload("/models/shelf-drinks.glb");
-useGLTF.preload("/models/gas-sign.glb");
 useGLTF.preload("/models/ice-bin.glb");
 
 /* ============================= EXTERIOR SCENE ============================= */
@@ -233,9 +232,6 @@ function ExteriorScene() {
           <Box args={[0.06, 1.15, 0.78]} position={[0.04, 0, 0]} color={[C.sevRed, "#1e4f8f", C.sevOrange][i]} roughness={0.55} po={8} />
         </group>
       ))}
-
-      {/* roadside price sign — "Gas Station Signs" by CommonSpence (CC-BY), USD board */}
-      <ShelfModel url="/models/gas-sign.glb" position={[19.5, 0.75, 23]} rotationY={-0.15} scale={1.2} />
 
       {/* packaged-ice merchandiser on the store's right side — "Ice Storage Bin" by Ryan (CC-BY) */}
       <ShelfModel url="/models/ice-bin.glb" position={[7.95, 1.8, -11.2]} rotationY={Math.PI} scale={0.36} />
@@ -798,7 +794,7 @@ function InteractiveExplorer() {
 
       {/* CC-BY attribution (required by asset licenses) */}
       <div style={{ position: "absolute", bottom: 8, left: 14, zIndex: 5, fontSize: 10, color: "rgba(255,255,255,0.45)", pointerEvents: "auto" }}>
-        3D assets: <a href="https://sketchfab.com/3d-models/gas-station-eeb913b90b4344ddbd7852f82a7ef160" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>&quot;Gas station&quot; by Elbolillo</a> · shelves by <a href="https://sketchfab.com/Rendevr" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>Rendevr</a> · signs by <a href="https://sketchfab.com/commonspence" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>CommonSpence</a> · ice bin by <a href="https://sketchfab.com/ryanzr10" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>Ryan</a> (CC-BY 4.0)
+        3D assets: <a href="https://sketchfab.com/3d-models/gas-station-eeb913b90b4344ddbd7852f82a7ef160" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>&quot;Gas station&quot; by Elbolillo</a> · shelves by <a href="https://sketchfab.com/Rendevr" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>Rendevr</a> · ice bin by <a href="https://sketchfab.com/ryanzr10" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.6)" }}>Ryan</a> (CC-BY 4.0)
       </div>
 
       {/* info panel */}
