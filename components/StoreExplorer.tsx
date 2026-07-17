@@ -805,14 +805,14 @@ function InteractiveExplorer() {
       </Canvas>
 
       {/* top overlay */}
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, padding: isMobile ? "16px 16px" : "20px 24px", pointerEvents: "none", background: "linear-gradient(180deg, rgba(0,10,30,0.85) 0%, rgba(0,10,30,0) 100%)" }}>
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, padding: isMobile ? "16px 16px" : "20px 24px", pointerEvents: "none", background: "linear-gradient(180deg, rgba(0,10,30,0.92) 0%, rgba(0,10,30,0.5) 62%, rgba(0,10,30,0) 100%)" }}>
         <div style={{ fontSize: isMobile ? 10 : 12, letterSpacing: "0.18em", textTransform: "uppercase", color: C.marigold, fontWeight: 600 }}>
           Interactive Showroom · {mode === "exterior" ? "Exterior" : "Interior"}
         </div>
         <div style={{ fontSize: isMobile ? 20 : "clamp(22px,3vw,34px)", color: "#fff", fontWeight: 800, lineHeight: 1.05, marginTop: 4 }}>
           Signage lives <em style={{ fontStyle: "italic", fontWeight: 400, color: C.marigold }}>everywhere.</em>
         </div>
-        <div style={{ marginTop: 8, fontSize: isMobile ? 11 : 13, color: "rgba(255,255,255,0.7)" }}>Drag to orbit · scroll to zoom · tap a glowing pin to explore</div>
+        <div style={{ marginTop: 8, fontSize: isMobile ? 11 : 13, color: "rgba(255,255,255,0.92)", textShadow: "0 1px 6px rgba(0,10,30,0.95), 0 0 2px rgba(0,10,30,0.9)" }}>Drag to orbit · scroll to zoom · tap a glowing pin to explore</div>
 
         {/* on mobile, toggle + counter live INSIDE the stacked header (no overlap) */}
         {isMobile && (
@@ -825,7 +825,7 @@ function InteractiveExplorer() {
                 }}>{m === "exterior" ? "Outside" : "Inside"}</button>
               ))}
             </div>
-            <div style={{ color: "rgba(255,255,255,0.55)", fontSize: 11, textAlign: "right" }}>
+            <div style={{ color: "rgba(255,255,255,0.9)", fontSize: 11, textAlign: "right", textShadow: "0 1px 6px rgba(0,10,30,0.95)" }}>
               <b style={{ color: C.marigold, fontSize: 18, fontWeight: 800 }}>{foundSet.size}</b>/{list.length} explored
             </div>
           </div>
@@ -846,8 +846,8 @@ function InteractiveExplorer() {
 
       {/* counter — desktop only; on mobile it's in the header above */}
       {!isMobile && (
-        <div style={{ position: "absolute", top: 72, right: 24, color: "rgba(255,255,255,0.55)", fontSize: 12, textAlign: "right", pointerEvents: "none" }}>
-          <b style={{ color: C.marigold, fontSize: 22, display: "block", fontWeight: 800 }}>{foundSet.size}</b>/{list.length} explored
+        <div style={{ position: "absolute", top: 72, right: 24, color: "rgba(255,255,255,0.9)", fontSize: 12, textAlign: "right", pointerEvents: "none", textShadow: "0 1px 6px rgba(0,10,30,0.95), 0 0 2px rgba(0,10,30,0.9)" }}>
+          <b style={{ color: C.marigold, fontSize: 22, display: "block", fontWeight: 800, textShadow: "0 1px 6px rgba(0,10,30,0.95)" }}>{foundSet.size}</b>/{list.length} explored
         </div>
       )}
 
