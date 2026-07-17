@@ -124,4 +124,23 @@ Shop Shelves With Stock (11.7k/114), Market Shelf series (Milk/Cookies/Vegetable
    ContactShadows, muted palette, shrub planters (tracked as v3 polish list).
 6. Bundle-size guard: keep total model payload < ~6–8 MB draco-compressed; lazy-load with Suspense.
 
-*Compiled 7/15/2026 — session: showroom-v2 branch.*
+## 10. Sign-type model hunt (Preston's full catalog — 7/16/26)
+
+Searched every sign type in the Sign Types doc for downloadable models. Reality: niche POS formats
+(pump toppers, shelf tags, wobblers, cooler strips, snaplocks, translites, cig changeables, floor
+graphics) have **no usable free 3D models** — those stay as our built props/planes, with Brey's
+Firefly art carrying the pin panels (3 variations each, now wired with a switcher).
+
+New cleared finds worth downloading:
+
+| Model | License | Use |
+|---|---|---|
+| **Diner Napkin Dispenser** — sketchfab.com/3d-models/diner-napkin-dispenser-1ecc2a062c8b47b791480efb697e4d12 (MickChambers) | **CC-BY 4.0** ✅ | Replace procedural napkin dispenser on foodservice counter |
+| **Gas Station Signs** pack — sketchfab.com/3d-models/gas-station-signs-16ad608560c6479f9602745e9ffb44ca (CommonSpence, 7.9k views/319 likes) | **CC-BY 4.0** ✅ | Pylon/roadside sign upgrades + pump-area signage |
+
+Weak/paid-only categories: A-frame (only trivial free models; ours is better), feather flags (all
+paid Store items; ours fine), standee (nothing usable free), cooler doors (station GLB has fridges),
+menu boards (nothing retail-grade free). From the aspangelidi collection, downloadable floor-display
+references remain: présentoir Chupa Chups, PAMPERS display, Display Craft (check licenses on download).
+
+*Compiled 7/15–16/2026 — session: showroom-v2 branch.*
