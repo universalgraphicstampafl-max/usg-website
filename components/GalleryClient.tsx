@@ -44,7 +44,7 @@ const FILTERS: ("All" | Category)[] = [
 const ITEMS: GalleryItem[] = [
   { src: "/images/gallery/02-convenience-storefront.webp", alt: "Pump Bollard Snap Lock", category: "Gas Pump" },
   { src: "/images/gallery/03-corona-beer-cave.webp", alt: "Cooler Graphics", category: "Cooler Graphics" },
-  { src: "/images/gallery/05-grocery-fresh-eats.webp", alt: "Open Air Cooler Wraps", category: "Cooler Graphics" },
+  { src: "/images/gallery/05-grocery-fresh-eats.webp", alt: "Open Air Cooler Signage", category: "Cooler Graphics" },
   { src: "/images/gallery/06-tobacco-marlboro.webp", alt: "Cigarette Changeable", category: "Storefront" },
   { src: "/images/gallery/07-storefront-window-cling.webp", alt: "Storefront Window Signage", category: "Storefront" },
   { src: "/images/gallery/08-qsr-hangry-burger-menu.webp", alt: "Menu Board", category: "Menu Board" },
