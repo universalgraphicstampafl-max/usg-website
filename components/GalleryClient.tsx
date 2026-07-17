@@ -62,6 +62,7 @@ const ITEMS: GalleryItem[] = [
   { src: "/images/gallery/20-three-flag-formats.webp", alt: "Interior Feather Flag", category: "Flag" },
   { src: "/images/gallery/21-coke-pepsi-shelf-talkers.webp", alt: "Shelf Talker", category: "Shelf & Aisle" },
   { src: "/images/gallery/22-newport-marlboro-pylons.webp", alt: "Perf Window Decals", category: "Storefront" },
+  { src: "/images/signtypes/building-snaplock.webp", alt: "Building Snaplock", category: "Storefront" },
   { src: "/images/signtypes/panels/bollard-1.webp", alt: "Triangle Bollard", category: "Gas Pump" },
   { src: "/images/signtypes/panels/icemerch-1.webp", alt: "Ice Merch Decals", category: "Storefront" },
   { src: "/images/signtypes/panels/checkout-1.webp", alt: "Checkout & Impulse Signage", category: "Counter" },
