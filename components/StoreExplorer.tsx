@@ -286,6 +286,41 @@ function LabelPanel({ text, bg = "#0d3b66", fg = "#ffffff", size, position, rota
   );
 }
 
+/* ============================= floor decal (canvas-drawn wayfinding graphic) ============================= */
+function FloorDecal({ position }: { position: Vec3 }) {
+  const tex = useMemo(() => {
+    const c = document.createElement("canvas");
+    c.width = c.height = 512;
+    const x = c.getContext("2d")!;
+    x.fillStyle = "#f5f4ef";
+    x.beginPath(); x.arc(256, 256, 252, 0, Math.PI * 2); x.fill();
+    x.strokeStyle = C.sevGreen; x.lineWidth = 30;
+    x.beginPath(); x.arc(256, 256, 230, 0, Math.PI * 2); x.stroke();
+    x.strokeStyle = C.sevRed; x.lineWidth = 6;
+    x.beginPath(); x.arc(256, 256, 206, 0, Math.PI * 2); x.stroke();
+    x.fillStyle = C.navy;
+    x.font = '800 62px "Arial Narrow", "Helvetica Neue", Arial, sans-serif';
+    x.textAlign = "center"; x.textBaseline = "middle";
+    x.fillText("HOT DEALS", 256, 140);
+    x.fillText("THIS WAY", 256, 374);
+    x.fillStyle = C.sevOrange;
+    x.beginPath();
+    x.moveTo(256, 186); x.lineTo(322, 262); x.lineTo(282, 262); x.lineTo(282, 332);
+    x.lineTo(230, 332); x.lineTo(230, 262); x.lineTo(190, 262);
+    x.closePath(); x.fill();
+    const t = new THREE.CanvasTexture(c);
+    t.colorSpace = THREE.SRGBColorSpace;
+    t.anisotropy = 8;
+    return t;
+  }, []);
+  return (
+    <mesh position={position} rotation={[-Math.PI / 2, 0, 0]}>
+      <circleGeometry args={[1.35, 48]} />
+      <meshStandardMaterial map={tex} roughness={0.45} polygonOffset polygonOffsetFactor={-1} polygonOffsetUnits={-10} />
+    </mesh>
+  );
+}
+
 /* ============================= cooler wall (Pasha-inspired, procedural) ============================= */
 const COOLER_CATS = [
   { label: "COLD BEER", doors: 3, bg: "#0d3b66", drinks: ["#c8860a", "#8a5a2a", "#3a6b35", "#b03a2e", "#d4a017"], tall: true },
@@ -490,9 +525,8 @@ function InteriorScene() {
         <Box args={[1.2, 0.5, 0.12]} position={[0, 1.75, 0.42]} color={C.sevOrange} />
         <Box args={[1, 1.7, 0.8]} position={[1.8, 0.85, 0]} color={C.dkmetal} />
       </group>
-      {/* floor graphic */}
-      <Box args={[2.6, 0.32, 2.6]} position={[0, 0.02, 5.9]} color={C.sevGreen} roughness={0.5} />
-      <Box args={[2.0, 0.33, 2.0]} position={[0, 0.03, 5.9]} color={C.sevWhite} roughness={0.5} />
+      {/* floor graphic — printed wayfinding decal */}
+      <FloorDecal position={[0, 0.17, 5.9]} />
 
       {/* standee in the open walkway between checkout and the beverage stations */}
       <group position={[-5.8, 0, -1.5]} rotation={[0, 0.35, 0]}>
