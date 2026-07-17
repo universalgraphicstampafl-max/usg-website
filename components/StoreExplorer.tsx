@@ -44,7 +44,7 @@ const INTERIOR_HOTSPOTS: Hotspot[] = [
   { id: "standee", cat: "Floor Display", title: "Standee", loc: "High-traffic walkway", pos: [-5.8, 2.6, -1.5], desc: "Freestanding point-of-purchase displays that are customized to the need of the promotion. Placed in high traffic area to increase visibility.", usg: "USG produces corrugated and permanent floor displays, shipped flat or pre-assembled.", img: "/images/signtypes/panels/standee-1.webp", imgs: ["/images/signtypes/panels/standee-1.webp", "/images/signtypes/panels/standee-2.webp", "/images/signtypes/panels/standee-3.webp"] },
   { id: "floorgfx", cat: "Floor Display", title: "Floor Graphics", loc: "Main aisle", pos: [0, 0.6, 5.9], desc: "Walk-on floor decals for wayfinding, promotions, and brand moments underfoot.", usg: "USG prints anti-slip floor graphics rated for high-traffic retail environments.", img: "/images/signtypes/panels/floorgfx-1.webp", imgs: ["/images/signtypes/panels/floorgfx-1.webp", "/images/signtypes/panels/floorgfx-2.webp", "/images/signtypes/panels/floorgfx-3.webp"] },
   { id: "shelf", cat: "Shelf Tag", title: "Shelf Tags", loc: "Center aisles", pos: [-1.5, 1.7, 2.2], desc: "These popular and inexpensive pricing tags allow for barcode scanning through clear material while calling out the current deal.", usg: "Our material makes application or removal quick and easy, while being highly durable. So your promos last as long as you need them to.", img: "/images/signtypes/panels/shelf-1.webp", imgs: ["/images/signtypes/panels/shelf-1.webp", "/images/signtypes/panels/shelf-2.webp", "/images/signtypes/panels/shelf-3.webp"] },
-  { id: "wobbler", cat: "Shelf Tag", title: "Wobblers", loc: "Center aisles", pos: [3, 2.2, 4.8], desc: "These eye catching center store signs dangle into the aisle enticing customers to purchase deal items.", usg: "USG offers custom shapes and sizes to fit all your placement needs.", img: "/images/signtypes/panels/wobbler-1.webp", imgs: ["/images/signtypes/panels/wobbler-1.webp", "/images/signtypes/panels/wobbler-2.webp", "/images/signtypes/panels/wobbler-3.webp"] },
+  { id: "wobbler", cat: "Shelf Tag", title: "Wobblers", loc: "Center aisles", pos: [4.3, 2.2, 4.6], desc: "These eye catching center store signs dangle into the aisle enticing customers to purchase deal items.", usg: "USG offers custom shapes and sizes to fit all your placement needs.", img: "/images/signtypes/panels/wobbler-1.webp", imgs: ["/images/signtypes/panels/wobbler-1.webp", "/images/signtypes/panels/wobbler-2.webp", "/images/signtypes/panels/wobbler-3.webp"] },
   { id: "coolerstatic", cat: "Cooler Graphics", title: "Cooler Door Statics", loc: "Beverage wall", pos: [9.2, 2.75, 3.8], desc: "Coming in all shapes and sizes these statics are an easily changeable option that catches the customers eye as soon as they walk up.", usg: "Offering static and adhesive options allows for monthly deals or more permanent signage such as \u201cWe ID\u201d decals.", img: "/images/signtypes/panels/coolerstatic-1.webp", imgs: ["/images/signtypes/panels/coolerstatic-1.webp", "/images/signtypes/panels/coolerstatic-2.webp", "/images/signtypes/panels/coolerstatic-3.webp"] },
   { id: "coolerstrip", cat: "Cooler Graphics", title: "Cooler Strips", loc: "Cooler shelf channel", pos: [9.2, 1.5, -3.8], desc: "These moisture proof signs are an ideal option for displaying beverage call outs.", usg: "We offer clear and matte material with shapes that rise above the channel allowing the product to still be seen but the deal to stand out.", img: "/images/signtypes/panels/coolerstrip-1.webp", imgs: ["/images/signtypes/panels/coolerstrip-1.webp", "/images/signtypes/panels/coolerstrip-2.webp", "/images/signtypes/panels/coolerstrip-3.webp"] },
   { id: "translite", cat: "Beverage", title: "Dispense Beverage Translites", loc: "Frozen & hot beverage stations", pos: [-3, 4.3, -6.2], desc: "Whether it is frozen drinks, or cappuccino machines these signs are used to create brand loyalty and drive repeat purchases.", usg: "We specialize in creating branded zones for all of your dispense bev machines.", img: "/images/signtypes/panels/translite-1.webp", imgs: ["/images/signtypes/panels/translite-1.webp", "/images/signtypes/panels/translite-2.webp", "/images/signtypes/panels/translite-3.webp"] },
@@ -534,13 +534,14 @@ function InteriorScene() {
         <Box args={[1.05, 0.28, 0.44]} position={[0, 1.85, 0]} color={C.sevGreen} roughness={0.6} />
       </group>
 
-      {/* wobblers on the right gondola */}
-      {[1.0, 1.45, 1.9].map((y, i) => (
-        <group key={`wob${i}`} position={[3 + (i - 1) * 0.8, y, 4.66]}>
-          <Box args={[0.02, 0.02, 0.3]} position={[0, 0, 0.15]} color="#d5d5d5" />
-          <Box args={[0.32, 0.26, 0.02]} position={[0, -0.1, 0.32]} color={[C.sevRed, C.sevOrange, "#1e4f8f"][i]} roughness={0.5} />
-        </group>
-      ))}
+      {/* wobbler clipped to the right gondola's shelf edge (neon green for visibility) */}
+      <group position={[4.3, 1.6, 4.35]}>
+        <Box args={[0.02, 0.02, 0.34]} position={[0, 0, 0.17]} color="#d5d5d5" />
+        <mesh position={[0, -0.12, 0.36]} rotation={[0.08, 0, 0]}>
+          <boxGeometry args={[0.34, 0.28, 0.02]} />
+          <meshStandardMaterial color="#39FF14" emissive="#39FF14" emissiveIntensity={0.35} roughness={0.4} />
+        </mesh>
+      </group>
 
       {/* dispense beverage translite (lit) between frozen + fountain stations */}
       <mesh position={[-3, 3.5, -RD / 2 + 1.45]}>
