@@ -205,7 +205,7 @@ function ExteriorScene() {
       </group>
 
       {/* feather flags on the east lot edge, against the bush line */}
-      {([[27, 14.5], [26.2, 15.4], [27.9, 15.6]] as [number, number][]).map(([x, z], i) => (
+      {([[27, 14.5], [28.2, 14.6], [27.9, 15.6]] as [number, number][]).map(([x, z], i) => (
         <group key={`flag${i}`}>
           <Cyl args={[0.05, 0.05, 4.2, 12]} position={[x, 2.1, z]} color="#c9ccd1" />
           <Box args={[0.08, 2.5, 0.95]} position={[x, 3.2, z + 0.5]} rotation={[0, 0.1, 0]} color={[C.sevGreen, C.sevRed, C.sevOrange][i]} roughness={0.75} />
