@@ -572,6 +572,8 @@ function InteriorScene() {
 }
 
 /* ============================= PINS (pulse + occlusion + click) ============================= */
+const PIN_UNFOUND = "#FF3131"; // neon red — not yet explored
+const PIN_FOUND = "#39FF14";   // neon green — explored
 function Pins({ list, occludeRoot, foundSet, onPick }: {
   list: Hotspot[];
   occludeRoot: React.MutableRefObject<THREE.Group | null>;
@@ -620,9 +622,13 @@ function Pins({ list, occludeRoot, foundSet, onPick }: {
       if (head) {
         const m = head.material as THREE.MeshBasicMaterial;
         m.opacity = o; m.transparent = true;
-        m.color.set(foundSet.has(i) ? C.sky : C.marigold);
+        m.color.set(foundSet.has(i) ? PIN_FOUND : PIN_UNFOUND);
       }
-      if (stem) { const m = stem.material as THREE.MeshBasicMaterial; m.opacity = o; m.transparent = true; }
+      if (stem) {
+        const m = stem.material as THREE.MeshBasicMaterial;
+        m.opacity = o; m.transparent = true;
+        m.color.set(foundSet.has(i) ? PIN_FOUND : PIN_UNFOUND);
+      }
     });
   });
 
@@ -632,7 +638,7 @@ function Pins({ list, occludeRoot, foundSet, onPick }: {
         <group key={h.id} position={h.pos}>
           <mesh name="stem" position={[0, -0.3, 0]}>
             <cylinderGeometry args={[0.05, 0.05, 0.8, 8]} />
-            <meshBasicMaterial color={C.marigold} transparent />
+            <meshBasicMaterial color={PIN_UNFOUND} transparent />
           </mesh>
           <mesh
             name="head"
@@ -645,7 +651,7 @@ function Pins({ list, occludeRoot, foundSet, onPick }: {
             onPointerOut={() => (document.body.style.cursor = "auto")}
           >
             <sphereGeometry args={[0.36, 24, 24]} />
-            <meshBasicMaterial color={C.marigold} transparent />
+            <meshBasicMaterial color={PIN_UNFOUND} transparent />
           </mesh>
           <mesh name="ring">
             <ringGeometry args={[0.44, 0.6, 28]} />
