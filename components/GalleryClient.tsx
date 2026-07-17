@@ -57,7 +57,7 @@ const ITEMS: GalleryItem[] = [
   { src: "/images/gallery/15-karma-poster-frame.webp", alt: "Backlit Kiosk Sign", category: "Storefront" },
   { src: "/images/signtypes/panels/standee-1.webp", alt: "Standee", category: "Floor Display" },
   { src: "/images/gallery/17-fiji-pole-sign.webp", alt: "Snap Lock Insert", category: "Storefront" },
-  { src: "/images/gallery/18-brunch-a-frame.webp", alt: "A-Frame", category: "A-Frame" },
+  { src: "/images/gallery/18-brunch-a-frame.webp", alt: "Sidewalk A-Frame", category: "A-Frame" },
   { src: "/images/gallery/19-suspended-menu-board.webp", alt: "Menu Board", category: "Menu Board" },
   { src: "/images/gallery/20-three-flag-formats.webp", alt: "Interior Feather Flag", category: "Flag" },
   { src: "/images/gallery/21-coke-pepsi-shelf-talkers.webp", alt: "Shelf Talker", category: "Shelf & Aisle" },
