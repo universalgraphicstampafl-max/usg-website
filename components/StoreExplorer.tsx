@@ -246,9 +246,9 @@ function ExteriorScene() {
         <meshStandardMaterial map={cigTex} roughness={0.55} polygonOffset polygonOffsetFactor={-1} polygonOffsetUnits={-8} />
       </mesh>
 
-      {/* Tom Thumb ice-merch decal on the left door of the ICE merchandiser (front face +z) */}
-      <mesh position={[-8.1, 1.55, -6.55]}>
-        <planeGeometry args={[0.9, 1.3]} />
+      {/* Tom Thumb ice-merch decal centered on the left door glass (door panel x[-8.59,-7.67] y[0.66,2.11]) */}
+      <mesh position={[-8.13, 1.39, -6.55]}>
+        <planeGeometry args={[0.84, 1.22]} />
         <meshStandardMaterial map={iceDecalTex} roughness={0.5} polygonOffset polygonOffsetFactor={-1} polygonOffsetUnits={-8} />
       </mesh>
     </group>
