@@ -14,7 +14,7 @@ export default function HeroHeadline() {
 
   return (
     <h1
-      className="text-5xl md:text-6xl font-extrabold tracking-brand-tight leading-tight mb-6 text-brand-navy"
+      className="text-[1.95rem] leading-[1.12] md:text-6xl md:leading-tight font-extrabold tracking-brand-tight mb-4 md:mb-6 text-brand-navy"
       style={{ perspective: "1000px" }}
     >
       {PHRASES.map((phrase, p) => {

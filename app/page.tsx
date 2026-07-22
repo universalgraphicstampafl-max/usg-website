@@ -118,12 +118,12 @@ export default function HomePage() {
         <HeroShapes />
         <HeroParticles />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-14 md:py-20">
-          <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[1fr_680px] lg:gap-12 lg:items-center">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 pt-14 pb-6 md:py-20">
+          <div className="flex flex-col gap-5 lg:grid lg:grid-cols-[1fr_680px] lg:gap-12 lg:items-center">
 
             <div className="hero-text-col relative">
               <p
-                className="section-sub mb-4 text-brand-navy"
+                className="section-sub mb-3 text-brand-navy"
                 style={{ animation: "heroEnter 0.6s ease-out 0.1s both" }}
               >
                 Retail Signage Specialists
@@ -132,7 +132,7 @@ export default function HomePage() {
               <HeroHeadline />
 
               <p
-                className="text-lg md:text-xl text-brand-navy/90 max-w-xl leading-relaxed mb-6"
+                className="text-base md:text-xl text-brand-navy/90 max-w-xl leading-relaxed mb-5 md:mb-6"
                 style={{ animation: "heroEnter 0.7s ease-out 0.5s both" }}
               >
                 USG partners with multi-location brands to make signage the easiest part of their
@@ -149,13 +149,13 @@ export default function HomePage() {
                   href={BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-gold text-base !px-8 !py-4 w-full sm:w-auto max-w-md mx-auto sm:mx-0 text-center"
+                  className="btn-gold text-base !px-8 !py-3 sm:!py-4 w-full sm:w-auto max-w-md mx-auto sm:mx-0 text-center"
                 >
                   Book a Discovery Call →
                 </Link>
                 <Link
                   href="/gallery"
-                  className="text-base font-semibold tracking-brand-wide text-brand-navy border-2 border-brand-navy/70 px-6 py-4 rounded w-full sm:w-auto max-w-md mx-auto sm:mx-0 whitespace-normal text-center hover:bg-brand-navy/10 transition-colors duration-200"
+                  className="text-base font-semibold tracking-brand-wide text-brand-navy border-2 border-brand-navy/70 px-6 py-3 sm:py-4 rounded w-full sm:w-auto max-w-md mx-auto sm:mx-0 whitespace-normal text-center hover:bg-brand-navy/10 transition-colors duration-200"
                 >
                   See our work
                 </Link>

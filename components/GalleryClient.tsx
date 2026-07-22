@@ -64,7 +64,7 @@ const ITEMS: GalleryItem[] = [
   { src: "/images/signtypes/panels/checkout-1.webp", alt: "Checkout & Impulse Signage", category: "Counter" },
   { src: "/images/signtypes/panels/floorgfx-1.webp", alt: "Floor Graphics", category: "Floor Display" },
   { src: "/images/signtypes/panels/shelf-provided.webp", alt: "Shelf Tags", category: "Shelf & Aisle" },
-  { src: "/images/signtypes/panels/wobbler-new.webp", alt: "Wobblers", category: "Shelf & Aisle" },
+  { src: "/images/signtypes/panels/wobbler-final.webp", alt: "Wobblers", category: "Shelf & Aisle" },
   { src: "/images/signtypes/panels/coolerstrip-1.webp", alt: "Cooler Strips", category: "Cooler Graphics" },
   { src: "/images/signtypes/panels/napkin-1.webp", alt: "Napkin Inserts", category: "Counter" },
   { src: "/images/signtypes/panels/backbar-1.webp", alt: "Backbar Signage", category: "Counter" },
