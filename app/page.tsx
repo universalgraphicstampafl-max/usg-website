@@ -118,7 +118,7 @@ export default function HomePage() {
         <HeroShapes />
         <HeroParticles />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-28 md:py-36">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-14 md:py-20">
           <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[1fr_680px] lg:gap-12 lg:items-center">
 
             <div className="hero-text-col relative">

@@ -27,9 +27,9 @@ export default function Logo({ variant = "dark", showName = false, className = "
       />
       {showName && (
         <span className={`flex flex-col leading-tight ${text}`}>
-          <span className="font-black uppercase tracking-wide text-base">Universal</span>
+          <span className="font-black uppercase tracking-wide text-base">Retail Signage</span>
           <span className="text-[0.6rem] font-semibold uppercase tracking-[0.2em] opacity-70">
-            Signage &amp; Graphics
+            Specialist
           </span>
         </span>
       )}

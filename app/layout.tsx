@@ -74,28 +74,6 @@ export default function RootLayout({
               </ul>
             </div>
 
-            {/* Col 3 — Industries */}
-            <div>
-              <p className="font-semibold text-sm tracking-widest uppercase text-white/40 mb-4">
-                Industries
-              </p>
-              <ul>
-                {[
-                  { label: "Convenience Retail",  href: "/#industries" },
-                  { label: "Tobacco & Nicotine",  href: "/#industries" },
-                  { label: "QSR",                 href: "/#industries" },
-                  { label: "Grocery",             href: "/#industries" },
-                  { label: "Beverage",            href: "/#industries" },
-                ].map((l) => (
-                  <li key={l.label}>
-                    <Link href={l.href} className="text-brand-gold hover:text-white text-sm leading-8 transition-colors">
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             {/* Col 4 — Contact */}
             <div>
               <p className="font-semibold text-sm tracking-widest uppercase text-white/40 mb-4">

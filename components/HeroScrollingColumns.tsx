@@ -9,30 +9,21 @@ type ImageMeta = { src: string; alt: string };
 const COLUMN_1: Tile[] = [
   { src: "/images/easy/storefront-coffee-fresh-food-aframe.webp", alt: "Storefront coffee and fresh food A-frame signage",  height: 320 },
   { src: "/images/easy/grab-go-fresh-eats-cooler.webp",     alt: "Branded grab-and-go fresh food cooler",            height: 240 },
-  { src: "/images/easy/storefront-vinyl-lettering.webp",    alt: "Storefront window vinyl lettering",                height: 380 },
-  { src: "/images/easy/gas-pump-celsius-topper.webp",       alt: "Gas pump dispenser with beverage topper graphic",  height: 280 },
   { src: "/images/easy/brunch-a-frame-sandwich-board.webp", alt: "A-frame sidewalk sandwich board sign",             height: 440 },
   { src: "/images/easy/iced-coffee-dispenser.webp",         alt: "Branded iced coffee dispenser graphics",           height: 260 },
-  { src: "/images/easy/fiji-stay-hydrated-pole-sign.webp",  alt: "Pole-mounted beverage promotional sign",           height: 360 },
   { src: "/images/easy/qsr-hangry-burger-menu-board.webp",  alt: "Quick-service restaurant menu board",              height: 300 },
 ];
 
 const COLUMN_2: Tile[] = [
-  { src: "/images/easy/corona-find-your-beach-beer-cave.webp",   alt: "Beer cave cooler header graphics",            height: 380 },
   { src: "/images/easy/cooler-doors-promotional-graphics.webp",  alt: "Cooler door promotional graphics run",        height: 280 },
-  { src: "/images/easy/suspended-menu-board.webp",               alt: "Suspended menu board signage",                height: 340 },
   { src: "/images/easy/hot-dog-combo-menu-signs.webp",           alt: "Hot food combo menu signage",                 height: 240 },
-  { src: "/images/easy/karma-wellness-poster-frame.webp",        alt: "Beverage poster frame display",               height: 420 },
   { src: "/images/easy/coke-pepsi-shelf-talkers.webp",           alt: "Shelf-edge price talker signage",             height: 300 },
-  { src: "/images/easy/vuex-pop-floor-display.webp",             alt: "Point-of-purchase floor display",             height: 360 },
   { src: "/images/easy/feather-flag-circle-k-hot-food.webp",     alt: "Feather flag promoting hot food",             height: 280 },
 ];
 
 const COLUMN_3: Tile[] = [
   { src: "/images/easy/storefront-promo-window-cling.webp",      alt: "Convenience store window cling promotions",   height: 280 },
   { src: "/images/easy/grab-go-fresh-eats-cooler2.webp",         alt: "Fresh food cooler branding, alternate view",  height: 360 },
-  { src: "/images/easy/corona-find-your-beach-beer-cave2.webp",  alt: "Beer cave headers, alternate view",           height: 240 },
-  { src: "/images/easy/storefront-vinyl-lettering2.webp",        alt: "Storefront vinyl lettering, alternate view",  height: 320 },
   { src: "/images/easy/cooler-doors-promotional-graphics2.webp", alt: "Cooler door graphics, alternate view",        height: 400 },
   { src: "/images/easy/qsr-hangry-burger-menu-board2.webp",      alt: "QSR menu board, alternate view",              height: 260 },
   { src: "/images/easy/iced-coffee-dispenser2.webp",             alt: "Iced coffee dispenser, alternate view",       height: 340 },
@@ -159,7 +150,7 @@ export default function HeroScrollingColumns() {
         <div
           className="relative ml-auto flex gap-4 max-w-[680px]"
           style={{
-            height: 700,
+            height: 560,
             maskImage:
               "linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%)",
             WebkitMaskImage:
