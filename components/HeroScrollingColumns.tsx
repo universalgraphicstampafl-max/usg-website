@@ -3,33 +3,33 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-type Tile = { src: string; alt: string; height: number };
-type ImageMeta = { src: string; alt: string };
+// ar = true aspect ratio (w/h) of the source file — tiles are sized to match so
+// every image renders fully, centered, with no cropping.
+type Tile = { src: string; alt: string; ar: number };
 
 const COLUMN_1: Tile[] = [
-  { src: "/images/easy/storefront-coffee-fresh-food-aframe.webp", alt: "Storefront coffee and fresh food A-frame signage",  height: 320 },
-  { src: "/images/easy/grab-go-fresh-eats-cooler.webp",     alt: "Branded grab-and-go fresh food cooler",            height: 240 },
-  { src: "/images/easy/brunch-a-frame-sandwich-board.webp", alt: "A-frame sidewalk sandwich board sign",             height: 440 },
-  { src: "/images/easy/iced-coffee-dispenser.webp",         alt: "Branded iced coffee dispenser graphics",           height: 260 },
-  { src: "/images/easy/qsr-hangry-burger-menu-board.webp",  alt: "Quick-service restaurant menu board",              height: 300 },
+  { src: "/images/easy/grab-go-fresh-eats-cooler.webp",     alt: "Branded grab-and-go fresh food cooler",            ar: 0.74 },
+  { src: "/images/easy/brunch-a-frame-sandwich-board.webp", alt: "A-frame sidewalk sandwich board sign",             ar: 0.72 },
+  { src: "/images/easy/iced-coffee-dispenser.webp",         alt: "Branded iced coffee dispenser graphics",           ar: 0.59 },
+  { src: "/images/easy/qsr-hangry-burger-menu-board.webp",  alt: "Quick-service restaurant menu board",              ar: 1.5 },
 ];
 
 const COLUMN_2: Tile[] = [
-  { src: "/images/easy/cooler-doors-promotional-graphics.webp",  alt: "Cooler door promotional graphics run",        height: 280 },
-  { src: "/images/easy/hot-dog-combo-menu-signs.webp",           alt: "Hot food combo menu signage",                 height: 240 },
-  { src: "/images/easy/coke-pepsi-shelf-talkers.webp",           alt: "Shelf-edge price talker signage",             height: 300 },
-  { src: "/images/easy/feather-flag-circle-k-hot-food.webp",     alt: "Feather flag promoting hot food",             height: 280 },
+  { src: "/images/easy/cooler-doors-promotional-graphics.webp",  alt: "Cooler door promotional graphics run",        ar: 1.25 },
+  { src: "/images/easy/hot-dog-combo-menu-signs.webp",           alt: "Hot food combo menu signage",                 ar: 1.0 },
+  { src: "/images/easy/coke-pepsi-shelf-talkers.webp",           alt: "Shelf-edge price talker signage",             ar: 1.5 },
+  { src: "/images/easy/feather-flag-circle-k-hot-food.webp",     alt: "Feather flag promoting hot food",             ar: 0.8 },
 ];
 
 const COLUMN_3: Tile[] = [
-  { src: "/images/easy/storefront-promo-window-cling.webp",      alt: "Convenience store window cling promotions",   height: 280 },
-  { src: "/images/easy/grab-go-fresh-eats-cooler2.webp",         alt: "Fresh food cooler branding, alternate view",  height: 360 },
-  { src: "/images/easy/cooler-doors-promotional-graphics2.webp", alt: "Cooler door graphics, alternate view",        height: 400 },
-  { src: "/images/easy/qsr-hangry-burger-menu-board2.webp",      alt: "QSR menu board, alternate view",              height: 260 },
-  { src: "/images/easy/iced-coffee-dispenser2.webp",             alt: "Iced coffee dispenser, alternate view",       height: 340 },
+  { src: "/images/easy/storefront-promo-window-cling.webp",      alt: "Convenience store window cling promotions",   ar: 1.25 },
+  { src: "/images/easy/grab-go-fresh-eats-cooler2.webp",         alt: "Fresh food cooler branding, alternate view",  ar: 0.74 },
+  { src: "/images/easy/cooler-doors-promotional-graphics2.webp", alt: "Cooler door graphics, alternate view",        ar: 1.25 },
+  { src: "/images/easy/qsr-hangry-burger-menu-board2.webp",      alt: "QSR menu board, alternate view",              ar: 1.5 },
+  { src: "/images/easy/iced-coffee-dispenser2.webp",             alt: "Iced coffee dispenser, alternate view",       ar: 0.59 },
 ];
 
-const allImages: ImageMeta[] = [...COLUMN_1, ...COLUMN_2, ...COLUMN_3].map(({ src, alt }) => ({ src, alt }));
+const allImages: Tile[] = [...COLUMN_1, ...COLUMN_2, ...COLUMN_3];
 
 const DURATION = 30;
 
@@ -58,7 +58,7 @@ function VerticalColumn({
           <div
             key={`${tile.src}-${i}`}
             className="relative w-full rounded-xl overflow-hidden shadow-2xl"
-            style={{ height: tile.height }}
+            style={{ height: Math.round((width - 16) / tile.ar) }}
           >
             <Image
               src={tile.src}
@@ -68,7 +68,7 @@ function VerticalColumn({
               quality={85}
               loading={(loadEager && i < tiles.length) || i === 0 ? "eager" : "lazy"}
               priority={(loadEager && i < 3) || i === 0}
-              className="object-cover"
+              className="object-cover object-center"
             />
           </div>
         ))}
@@ -80,12 +80,10 @@ function VerticalColumn({
 function HorizontalRow({
   images,
   direction,
-  width,
   height,
 }: {
-  images: ImageMeta[];
+  images: Tile[];
   direction: "left" | "right";
-  width: number;
   height: number;
 }) {
   const doubled = [...images, ...images];
@@ -110,16 +108,16 @@ function HorizontalRow({
           <div
             key={`${img.src}-${i}`}
             className="relative flex-shrink-0 rounded-xl overflow-hidden shadow-2xl"
-            style={{ width, height }}
+            style={{ width: Math.round(height * img.ar), height }}
           >
             <Image
               src={img.src}
               alt={img.alt}
               fill
-              sizes={`${width}px`}
+              sizes={`${Math.round(height * img.ar)}px`}
               quality={85}
               loading="lazy"
-              className="object-cover"
+              className="object-cover object-center"
             />
           </div>
         ))}
@@ -129,20 +127,20 @@ function HorizontalRow({
 }
 
 export default function HeroScrollingColumns() {
-  const row1 = allImages.slice(0, 12);
-  const row2 = allImages.slice(12);
+  const row1 = allImages.slice(0, 7);
+  const row2 = allImages.slice(7);
 
   return (
     <>
       {/* Mobile (<md): single horizontal row */}
       <div className="block md:hidden">
-        <HorizontalRow images={allImages} direction="left" width={220} height={160} />
+        <HorizontalRow images={allImages} direction="left" height={160} />
       </div>
 
       {/* Tablet (md to lg): 2 horizontal rows, opposite directions */}
       <div className="hidden md:flex md:flex-col md:gap-4 lg:hidden">
-        <HorizontalRow images={row1} direction="left"  width={280} height={200} />
-        <HorizontalRow images={row2} direction="right" width={280} height={200} />
+        <HorizontalRow images={row1} direction="left"  height={200} />
+        <HorizontalRow images={row2} direction="right" height={200} />
       </div>
 
       {/* Desktop wide (lg+): 3 vertical scrolling columns */}
