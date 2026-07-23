@@ -33,7 +33,7 @@ function UsgMark() {
         <p className="font-black text-brand-navy tracking-widest uppercase text-2xl lg:text-3xl">
           Retail Signage
         </p>
-        <p className="text-brand-navy/60 text-[0.6rem] tracking-wide uppercase mt-1.5">
+        <p className="text-brand-navy/60 text-xs lg:text-sm tracking-wide uppercase mt-1.5">
           Specialist
         </p>
       </div>
