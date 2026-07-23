@@ -878,10 +878,10 @@ function InteractiveExplorer() {
       }}>
         {active && (
           <>
-            <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", background: "#222", overflow: "hidden", flexShrink: 0 }}>
+            <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", background: "#ecebe6", overflow: "hidden", flexShrink: 0 }}>
               <button onClick={() => setActive(null)} style={{ position: "absolute", top: 12, right: 12, width: 34, height: 34, border: "none", borderRadius: "50%", background: "rgba(0,10,30,0.85)", color: "#fff", fontSize: 18, cursor: "pointer", zIndex: 2 }}>×</button>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={active.imgs ? active.imgs[imgIdx] : active.img} alt={active.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <img src={active.imgs ? active.imgs[imgIdx] : active.img} alt={active.title} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
               {active.imgs && active.imgs.length > 1 && (
                 <div style={{ position: "absolute", bottom: 10, right: 12, display: "flex", gap: 6, zIndex: 2 }}>
                   {active.imgs.map((_, i) => (

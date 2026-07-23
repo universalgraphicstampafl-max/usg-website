@@ -10,8 +10,8 @@ const STEPS = [
   { n: 2, name: "Design",       sub: "In-house team",                 x: 24.8, y: 33.3, above: true  },
   { n: 3, name: "Approval",     sub: "Portal proof review",           x: 41.6, y: 66.7, above: false },
   { n: 4, name: "Production",   sub: "Print + finishing",             x: 58.4, y: 33.3, above: true  },
-  { n: 5, name: "Ship",         sub: "Direct to every store or to your warehouse location",         x: 75.2, y: 66.7, above: false },
-  { n: 6, name: "Track",        sub: "Real-time visibility",          x: 92,   y: 33.3, above: true  },
+  { n: 5, name: "QC & Pack",    sub: "Each item is carefully checked for quality and accuracy before being packaged", x: 75.2, y: 66.7, above: false },
+  { n: 6, name: "Ship",         sub: "Direct to every store or your warehouse location", x: 92,   y: 33.3, above: true  },
 ];
 
 /* Smooth winding path through the six waypoints (viewBox 0 0 1000 360). */

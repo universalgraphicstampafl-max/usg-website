@@ -25,6 +25,7 @@ type GalleryItem = {
   src: string;
   alt: string;
   category: Category;
+  ar: number;
 };
 
 const FILTERS: ("All" | Category)[] = [
@@ -42,33 +43,33 @@ const FILTERS: ("All" | Category)[] = [
 ];
 
 const ITEMS: GalleryItem[] = [
-  { src: "/images/gallery/02-convenience-storefront.webp", alt: "Pump Bollard Snap Lock", category: "Gas Pump" },
-  { src: "/images/gallery/05-grocery-fresh-eats.webp", alt: "Open Air Cooler Signage", category: "Cooler Graphics" },
-  { src: "/images/gallery/06-tobacco-marlboro.webp", alt: "Triangle Bollard", category: "Storefront" },
-  { src: "/images/gallery/07-storefront-window-cling.webp", alt: "Storefront Window Signage", category: "Storefront" },
-  { src: "/images/gallery/08-qsr-hangry-burger-menu.webp", alt: "Menu Board", category: "Menu Board" },
-  { src: "/images/signtypes/panels/coolerstatic-1.webp", alt: "Cooler Door Statics", category: "Cooler Graphics" },
-  { src: "/images/signtypes/panels/pump-1.webp", alt: "Pump Topper & Pump Topper Extender", category: "Gas Pump" },
-  { src: "/images/gallery/11-circle-k-hot-food-flag.webp", alt: "Feather Flag", category: "Flag" },
-  { src: "/images/gallery/12-iced-coffee-dispenser.webp", alt: "Dispensed Beverage Signage", category: "Beverage" },
-  { src: "/images/gallery/13-grab-go-cooler.webp", alt: "Grab and Go Cooler Signage", category: "Cooler Graphics" },
-  { src: "/images/gallery/14-hot-dog-combo-signs.webp", alt: "Bent Register Signage", category: "Counter" },
-  { src: "/images/signtypes/panels/standee-1.webp", alt: "Standee", category: "Floor Display" },
-  { src: "/images/gallery/18-brunch-a-frame.webp", alt: "Sidewalk A-Frame", category: "A-Frame" },
-  { src: "/images/gallery/20-three-flag-formats.webp", alt: "Interior Feather Flag", category: "Flag" },
-  { src: "/images/gallery/21-coke-pepsi-shelf-talkers.webp", alt: "Shelf Talker", category: "Shelf & Aisle" },
-  { src: "/images/gallery/22-newport-marlboro-pylons.webp", alt: "Perf Window Decals", category: "Storefront" },
-  { src: "/images/signtypes/panels/cigch-2.webp", alt: "Building Snaplock", category: "Storefront" },
-  { src: "/images/signtypes/panels/bollard-1.webp", alt: "Triangle Bollard", category: "Gas Pump" },
-  { src: "/images/signtypes/panels/icemerch-1.webp", alt: "Ice Merch Decals", category: "Storefront" },
-  { src: "/images/signtypes/panels/checkout-1.webp", alt: "Checkout & Impulse Signage", category: "Counter" },
-  { src: "/images/signtypes/panels/floorgfx-1.webp", alt: "Floor Graphics", category: "Floor Display" },
-  { src: "/images/signtypes/panels/shelf-provided.webp", alt: "Shelf Tags", category: "Shelf & Aisle" },
-  { src: "/images/signtypes/panels/wobbler-final.webp", alt: "Wobblers", category: "Shelf & Aisle" },
-  { src: "/images/signtypes/panels/coolerstrip-1.webp", alt: "Cooler Strips", category: "Cooler Graphics" },
-  { src: "/images/signtypes/panels/napkin-1.webp", alt: "Napkin Inserts", category: "Counter" },
-  { src: "/images/signtypes/panels/backbar-1.webp", alt: "Backbar Signage", category: "Counter" },
-  { src: "/images/signtypes/panels/hotfood-1.webp", alt: "Hot Food Signage", category: "Menu Board" },
+  { src: "/images/gallery/02-convenience-storefront.webp", alt: "Pump Bollard Snap Lock", category: "Gas Pump", ar: 1.498 },
+  { src: "/images/gallery/05-grocery-fresh-eats.webp", alt: "Open Air Cooler Signage", category: "Cooler Graphics", ar: 1.25 },
+  { src: "/images/gallery/06-tobacco-marlboro.webp", alt: "Triangle Bollard", category: "Storefront", ar: 1.498 },
+  { src: "/images/gallery/07-storefront-window-cling.webp", alt: "Storefront Window Signage", category: "Storefront", ar: 1.256 },
+  { src: "/images/gallery/08-qsr-hangry-burger-menu.webp", alt: "Menu Board", category: "Menu Board", ar: 1.504 },
+  { src: "/images/signtypes/panels/coolerstatic-1.webp", alt: "Cooler Door Statics", category: "Cooler Graphics", ar: 1.491 },
+  { src: "/images/signtypes/panels/pump-1.webp", alt: "Pump Topper & Pump Topper Extender", category: "Gas Pump", ar: 0.79 },
+  { src: "/images/gallery/11-circle-k-hot-food-flag.webp", alt: "Feather Flag", category: "Flag", ar: 0.8 },
+  { src: "/images/gallery/12-iced-coffee-dispenser.webp", alt: "Dispensed Beverage Signage", category: "Beverage", ar: 0.588 },
+  { src: "/images/gallery/13-grab-go-cooler.webp", alt: "Grab and Go Cooler Signage", category: "Cooler Graphics", ar: 0.744 },
+  { src: "/images/gallery/14-hot-dog-combo-signs.webp", alt: "Bent Register Signage", category: "Counter", ar: 1.0 },
+  { src: "/images/signtypes/panels/standee-1.webp", alt: "Standee", category: "Floor Display", ar: 0.671 },
+  { src: "/images/gallery/18-brunch-a-frame.webp", alt: "Sidewalk A-Frame", category: "A-Frame", ar: 0.725 },
+  { src: "/images/gallery/20-three-flag-formats.webp", alt: "Interior Feather Flag", category: "Flag", ar: 0.686 },
+  { src: "/images/gallery/21-coke-pepsi-shelf-talkers.webp", alt: "Shelf Talker", category: "Shelf & Aisle", ar: 1.498 },
+  { src: "/images/gallery/22-newport-marlboro-pylons.webp", alt: "Perf Window Decals", category: "Storefront", ar: 1.498 },
+  { src: "/images/signtypes/panels/cigch-2.webp", alt: "Building Snaplock", category: "Storefront", ar: 1.618 },
+  { src: "/images/signtypes/panels/bollard-1.webp", alt: "Triangle Bollard", category: "Gas Pump", ar: 1.501 },
+  { src: "/images/signtypes/panels/icemerch-1.webp", alt: "Ice Merch Decals", category: "Storefront", ar: 1.501 },
+  { src: "/images/signtypes/panels/checkout-1.webp", alt: "Checkout & Impulse Signage", category: "Counter", ar: 1.501 },
+  { src: "/images/signtypes/panels/floorgfx-1.webp", alt: "Floor Graphics", category: "Floor Display", ar: 1.834 },
+  { src: "/images/signtypes/panels/shelf-2.webp", alt: "Shelf Tags", category: "Shelf & Aisle", ar: 1.501 },
+  { src: "/images/signtypes/panels/wobbler-final.webp", alt: "Wobblers", category: "Shelf & Aisle", ar: 1.339 },
+  { src: "/images/signtypes/panels/coolerstrip-1.webp", alt: "Cooler Strips", category: "Cooler Graphics", ar: 1.491 },
+  { src: "/images/signtypes/panels/napkin-1.webp", alt: "Napkin Inserts", category: "Counter", ar: 1.491 },
+  { src: "/images/signtypes/panels/backbar-1.webp", alt: "Backbar Signage", category: "Counter", ar: 1.491 },
+  { src: "/images/signtypes/panels/hotfood-1.webp", alt: "Hot Food Signage", category: "Menu Board", ar: 1.491 },
 ];
 
 export default function GalleryClient() {
@@ -145,15 +146,14 @@ export default function GalleryClient() {
                 data-category={item.category}
                 className="group mb-4 break-inside-avoid block w-full overflow-hidden rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow text-left"
               >
-                <div className="relative w-full overflow-hidden">
+                <div className="relative w-full overflow-hidden" style={{ aspectRatio: String(item.ar) }}>
                   <Image
                     src={item.src}
                     alt={item.alt}
-                    width={1200}
-                    height={900}
+                    fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     loading="lazy"
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                 </div>
                 <div className="px-4 py-3">
