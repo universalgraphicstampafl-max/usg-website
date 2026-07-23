@@ -31,10 +31,10 @@ function UsgMark() {
       </div>
       <div className="leading-none">
         <p className="font-black text-brand-navy tracking-widest uppercase text-2xl lg:text-3xl">
-          Universal
+          Retail Signage
         </p>
         <p className="text-brand-navy/60 text-[0.6rem] tracking-wide uppercase mt-1.5">
-          Signage &amp; Graphics
+          Specialist
         </p>
       </div>
     </div>
