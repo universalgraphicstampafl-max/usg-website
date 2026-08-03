@@ -110,6 +110,13 @@ Three accounts hold the website. All three transfer to USG-owned logins.
    USG's email is added as Administrator; Brey then steps down to invited member
    or leaves. (Sanity project ownership follows the admin role.)
 
+4. **Environment variables & secrets:** the Netlify site carries three environment
+   variables (Sanity project ID, dataset, and an API token). They transfer with the site
+   automatically, but the **Sanity API token must be rotated** — USG issues a fresh token
+   under its own Sanity account, updates it in Netlify, and revokes the old one.
+   Step-by-step in the Technical Runbook (docs/TECHNICAL-RUNBOOK.md), which is Elliot's
+   companion document with all commands, code snippets, and the transfer-day checklist.
+
 After transfer, USG owns 100% of the code, hosting, and content infrastructure.
 Brey retains no access except what you choose to grant for support.
 
