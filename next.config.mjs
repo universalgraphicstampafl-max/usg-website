@@ -8,6 +8,7 @@ const nextConfig = {
     return [
       { source: '/success-stories', destination: '/gallery', permanent: true },
       { source: '/services', destination: '/', permanent: true },
+      { source: '/client-login', destination: 'https://client.usgfla.com/PortalLogin.aspx', permanent: false },
     ];
   },
 };

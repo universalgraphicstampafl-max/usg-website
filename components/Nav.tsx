@@ -5,6 +5,8 @@ import { BOOKING_URL } from "@/lib/booking";
 import Link from "next/link";
 import Logo from "./Logo";
 
+const CLIENT_LOGIN_URL = "https://client.usgfla.com/PortalLogin.aspx";
+
 interface DropdownItem {
   label: string;
   href: string;
@@ -161,9 +163,9 @@ export default function Nav() {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-2">
-            <Link href="/client-login" className="btn-outline">
+            <a href={CLIENT_LOGIN_URL} className="btn-outline">
               Client Login
-            </Link>
+            </a>
             <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-gold !px-4 !py-1.5 text-sm">
               Book a Call
             </Link>
@@ -224,9 +226,9 @@ export default function Nav() {
               <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="btn-gold text-center mb-2" onClick={closeMobile}>
                 Book a Call
               </Link>
-              <Link href="/client-login" className="btn-outline text-center mb-4" onClick={closeMobile}>
+              <a href={CLIENT_LOGIN_URL} className="btn-outline text-center mb-4">
                 Client Login
-              </Link>
+              </a>
 
               {/* Services accordion */}
               <button
