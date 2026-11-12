@@ -9,6 +9,10 @@ const nextConfig = {
       { source: '/success-stories', destination: '/gallery', permanent: true },
       { source: '/services', destination: '/', permanent: true },
       { source: '/client-login', destination: 'https://client.usgfla.com/PortalLogin.aspx', permanent: false },
+      { source: '/Client-Resources/Client-Portal', destination: 'https://client.usgfla.com/PortalLogin.aspx', permanent: true },
+      { source: '/Client-Resources/Client-Portal/', destination: 'https://client.usgfla.com/PortalLogin.aspx', permanent: true },
+      { source: '/client-resources/client-portal', destination: 'https://client.usgfla.com/PortalLogin.aspx', permanent: true },
+      { source: '/client-resources/client-portal/', destination: 'https://client.usgfla.com/PortalLogin.aspx', permanent: true },
     ];
   },
 };

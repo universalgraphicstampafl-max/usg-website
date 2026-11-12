@@ -1,8 +1,0 @@
-<?xml version="1.0" standalone="yes"?>
-<DocumentElement>
-  <ErrorLog>
-    <Action>Create User</Action>
-    <Username>ecotto@gonzosystems.com</Username>
-    <Error>A user already exists for the user name specified.  Please register again using a different user name.</Error>
-  </ErrorLog>
-</DocumentElement>
