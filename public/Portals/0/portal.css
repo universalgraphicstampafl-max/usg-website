@@ -1,0 +1,7 @@
+.LiveForm.Porto{
+  border: 0 !important;
+}
+.testimonial.testimonial-with-quotes blockquote::after{
+  width: 5%
+}
+

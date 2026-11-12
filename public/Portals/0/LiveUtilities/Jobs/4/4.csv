@@ -1,0 +1,6 @@
+"Username","Firstname","Lastname","Email","DisplayName","SecurityRoles"
+"donotreply@usgfla.com","SuperUser","Account","donotreply@usgfla.com","USG Administrator","Administrators;1/1/0001;1/1/0001|Registered Users;1/1/0001;1/1/0001|Subscribers;1/1/0001;1/1/0001"
+"ecotto@gonzosystems.com","Elliot","Cotto","ecotto@gonzosystems.com","Elliot Cotto","Registered Users;1/1/0001;1/1/0001|Subscribers;1/1/0001;1/1/0001|Store Order: Full Access;1/1/0001;1/1/0001|Invoicing: Full Access;1/1/0001;1/1/0001|Approval System: Full Access;1/1/0001;1/1/0001|File Transfer: Full Access;1/1/0001;1/1/0001"
+"ecotto2417@gmail.com","Elliot","Cotto","ecotto2417@gmail.com","Elliot Cotto","Administrators;1/1/0001;1/1/0001|Registered Users;1/1/0001;1/1/0001|Subscribers;1/1/0001;1/1/0001"
+"usg_kim","Kim","Johnson","kimj@usgfla.com","Kim Johnson","Administrators;1/1/0001;1/1/0001|Registered Users;1/1/0001;1/1/0001|Subscribers;1/1/0001;1/1/0001"
+"usg_preston","Preston","Packrall","prestonp@usgfla.com","Preston Packrall","Administrators;1/1/0001;1/1/0001|Registered Users;1/1/0001;1/1/0001|Subscribers;1/1/0001;1/1/0001"
